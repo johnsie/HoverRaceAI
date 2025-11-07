@@ -341,7 +341,9 @@ BOOL MR_VideoBuffer::TryToSet256ColorMode()
 
       if( DD_CALL(mDirectDraw->SetCooperativeLevel( mWindow, DDSCL_EXCLUSIVE | DDSCL_FULLSCREEN| DDSCL_ALLOWMODEX |DDSCL_ALLOWREBOOT|DDSCL_NOWINDOWCHANGES )) == DD_OK )
       {
-         if( DD_CALL(mDirectDraw->SetDisplayMode( mSpecialModeXRes, mSpecialModeYRes, 8 )) == DD_OK )
+         // Try 32-bit first, then 16-bit for modern color support
+         if( DD_CALL(mDirectDraw->SetDisplayMode( mSpecialModeXRes, mSpecialModeYRes, 32 )) == DD_OK ||
+             DD_CALL(mDirectDraw->SetDisplayMode( mSpecialModeXRes, mSpecialModeYRes, 16 )) == DD_OK )
          {
             mSpecialWindowMode = TRUE;
 
@@ -842,8 +844,6 @@ BOOL MR_VideoBuffer::SetVideoMode( int pXRes, int pYRes )
    }
 
 
-  
-   // Retrieve the window size
    if( lReturnValue ) 
    {
       mXRes = pXRes;
@@ -857,10 +857,15 @@ BOOL MR_VideoBuffer::SetVideoMode( int pXRes, int pYRes )
    {
       // ASSERT( FALSE );
 
-      if( DD_CALL(mDirectDraw->SetDisplayMode( pXRes, pYRes, 8 )) != DD_OK )
+      // Try 32-bit color first, fall back to 16-bit if needed
+      if( DD_CALL(mDirectDraw->SetDisplayMode( pXRes, pYRes, 32 )) != DD_OK )
       {
-         lReturnValue = FALSE;
-         ASSERT( FALSE );
+         // Try 16-bit
+         if( DD_CALL(mDirectDraw->SetDisplayMode( pXRes, pYRes, 16 )) != DD_OK )
+         {
+            lReturnValue = FALSE;
+            ASSERT( FALSE );
+         }
       }
    }
 

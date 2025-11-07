@@ -27,6 +27,8 @@
 #include "io.h"
 #include "../MazeCompiler/TrackCommonStuff.h"
 #include "../Util/StrRes.h"
+#include <direct.h>
+#include <windows.h>
 
 
 class TrackEntry
@@ -38,8 +40,8 @@ public:
    int     mSortingIndex;   
 };
 
-#define TRACK_PATH1 "..\\Tracks\\"
-#define TRACK_PATH2 ".\\Tracks\\"
+#define TRACK_PATH1 ".\\tracks\\"
+#define TRACK_PATH2 "tracks\\"
 #define TRACK_EXT   ".trk"
 
 // Local functions
@@ -69,21 +71,59 @@ static BOOL        gAllowRegistred;
 MR_RecordFile* MR_TrackOpen( HWND pWindow, const char* pFileName, BOOL pAllowRegistred )
 {
    MR_RecordFile* lReturnValue = NULL;
+   FILE* logFile = fopen("Game2_TrackLoad.log", "a");
+   
+   fprintf(logFile, "\nMR_TrackOpen: Opening track '%s'\n", pFileName);
+   fflush(logFile);
 
    long lHandle;
    struct _finddata_t lFileInfo;
-   CString            lPath = TRACK_PATH1;
    
-   lHandle = _findfirst( lPath+pFileName + TRACK_EXT, &lFileInfo );
+   // Get the executable directory
+   char szPath[MAX_PATH];
+   GetModuleFileNameA(NULL, szPath, sizeof(szPath));
+   
+   // Remove the filename to get just the directory
+   char *pLastSlash = strrchr(szPath, '\\');
+   if (pLastSlash) {
+      *(pLastSlash + 1) = '\0';  // Include the backslash
+   }
+   
+   // Append "tracks\" to get the track directory
+   strcat_s(szPath, sizeof(szPath), "tracks\\");
+   CString lPath = szPath;
+   
+   fprintf(logFile, "  Searching in: %s\n", (const char*)lPath);
+   fflush(logFile);
+   
+   // Build the full path safely
+   CString searchPath = lPath + pFileName + TRACK_EXT;
+   fprintf(logFile, "  Full search path: %s\n", (const char*)searchPath);
+   fflush(logFile);
+   
+   lHandle = _findfirst( (const char*)searchPath, &lFileInfo );
 
    if( lHandle == -1 )
    {
+      fprintf(logFile, "  Track file not found in absolute path\n");
+      fflush(logFile);
+      // Try fallback to relative path
       lPath = TRACK_PATH2;
-      lHandle = _findfirst( lPath+pFileName + TRACK_EXT, &lFileInfo );
+      searchPath = lPath + pFileName + TRACK_EXT;
+      fprintf(logFile, "  Trying fallback path: %s\n", (const char*)searchPath);
+      fflush(logFile);
+      lHandle = _findfirst( (const char*)searchPath, &lFileInfo );
+   }
+   else
+   {
+      fprintf(logFile, "  Found in absolute path\n");
+      fflush(logFile);
    }
 
    if( lHandle == -1 )
    {
+       fprintf(logFile, "  ERROR: Track file not found in any path\n");
+       fflush(logFile);
        MessageBox( pWindow, MR_LoadString( IDS_TRK_NOTFOUND ), MR_LoadString( IDS_GAME_NAME ), MB_ICONERROR|MB_OK|MB_APPLMODAL );
    }
    else
@@ -91,9 +131,15 @@ MR_RecordFile* MR_TrackOpen( HWND pWindow, const char* pFileName, BOOL pAllowReg
       _findclose( lHandle );
 
       lReturnValue = new MR_RecordFile;
+      CString fullPath = lPath + pFileName + TRACK_EXT;
+      
+      fprintf(logFile, "  Opening file: %s\n", (const char*)fullPath);
+      fflush(logFile);
 
-      if( !lReturnValue->OpenForRead( lPath+pFileName+TRACK_EXT, TRUE ) )
+      if( !lReturnValue->OpenForRead( fullPath, TRUE ) )
       {
+         fprintf(logFile, "  ERROR: Failed to open record file\n");
+         fflush(logFile);
          delete lReturnValue;
          lReturnValue = NULL;
          MessageBox( pWindow, MR_LoadString( IDS_BAD_TRK_FORMAT ), MR_LoadString( IDS_GAME_NAME ), MB_ICONERROR|MB_OK|MB_APPLMODAL );
@@ -101,10 +147,14 @@ MR_RecordFile* MR_TrackOpen( HWND pWindow, const char* pFileName, BOOL pAllowReg
       }
       else
       {
+         fprintf(logFile, "  Successfully opened, reading entry\n");
+         fflush(logFile);
          TrackEntry lCurrentEntry;
 
          if( ReadTrackEntry( lReturnValue, &lCurrentEntry, pFileName ) )
          {
+            fprintf(logFile, "  Successfully read entry, checking permissions\n");
+            fflush(logFile);
             if( !pAllowRegistred && (lCurrentEntry.mRegistrationMode != MR_FREE_TRACK) )
             {
                delete lReturnValue;
@@ -122,6 +172,12 @@ MR_RecordFile* MR_TrackOpen( HWND pWindow, const char* pFileName, BOOL pAllowReg
          }
       }
 
+   }
+   
+   if(logFile) {
+      fprintf(logFile, "MR_TrackOpen returning: %p\n", lReturnValue);
+      fflush(logFile);
+      fclose(logFile);
    }
    return lReturnValue;
 
@@ -150,9 +206,17 @@ BOOL MR_SelectTrack( HWND pParentWindow, CString& pTrackFile, int& pNbLap, BOOL&
 
    if( DialogBox( GetModuleHandle(NULL),  MAKEINTRESOURCE( IDD_TRACK_SELECT ), pParentWindow, TrackSelectCallBack )==IDOK )
    {
+      // IMPORTANT: Copy the track data BEFORE calling CleanList()
+      // Otherwise pTrackFile will point to an empty string after CleanList()
       pTrackFile    = gsSortedTrackList[ gsSelectedEntry ]->mFileName;
       pNbLap        = gsNbLaps;
       pAllowWeapons = gsAllowWeapons;
+      
+      FILE* logFile = fopen("Game2_TrackLoad.log", "a");
+      fprintf(logFile, "MR_SelectTrack: Before CleanList, pTrackFile='%s'\n", (const char*)pTrackFile);
+      fflush(logFile);
+      fclose(logFile);
+      
       lReturnValue  = TRUE;
    }
    else
@@ -169,18 +233,28 @@ static BOOL CALLBACK TrackSelectCallBack( HWND pWindow, UINT  pMsgId, WPARAM  pW
 {
    BOOL lReturnValue = FALSE;
    int  lCounter;
+   FILE* logFile = fopen("Game2_TrackLoad.log", "a");
+   
+   fprintf(logFile, "\nTrackSelectCallBack: Message %u\n", pMsgId);
+   fflush(logFile);
 
    switch( pMsgId )
    {
       // Catch environment modification events
       case WM_INITDIALOG:
+         fprintf(logFile, "  WM_INITDIALOG: gsNbTrack=%d\n", gsNbTrack);
+         fflush(logFile);
+         
          // Init track file list
          for( lCounter = 0; lCounter < gsNbTrack; lCounter++ )
          {
+            fprintf(logFile, "    Adding track %d: %s\n", lCounter, (const char*)(gsSortedTrackList[ lCounter ]->mFileName));
+            fflush(logFile);
             SendDlgItemMessage( pWindow, IDC_LIST, LB_ADDSTRING, 0, (LPARAM)(const char*)(gsSortedTrackList[ lCounter ]->mFileName) );
          }
 
-         
+         fprintf(logFile, "  Setting lap count and weapons\n");
+         fflush(logFile);
          SetDlgItemInt( pWindow, IDC_NB_LAP, gsNbLaps, FALSE );  
          SendDlgItemMessage( pWindow, IDC_WEAPONS, BM_SETCHECK,BST_CHECKED, 0 );  
          SendDlgItemMessage( pWindow, IDC_NB_LAP_SPIN, UDM_SETRANGE, 0, MAKELONG(99, 1) );
@@ -189,9 +263,12 @@ static BOOL CALLBACK TrackSelectCallBack( HWND pWindow, UINT  pMsgId, WPARAM  pW
          {
             gsSelectedEntry = 0;            
             SendDlgItemMessage( pWindow, IDOK, WM_ENABLE, TRUE, 0 );
+            fprintf(logFile, "  Setting description for track %d\n", gsSelectedEntry);
+            fflush(logFile);
             SetDlgItemText( pWindow, IDC_DESCRIPTION, gsSortedTrackList[ gsSelectedEntry ]->mDescription );                        
             SendDlgItemMessage( pWindow, IDC_LIST, LB_SETCURSEL, 0, 0 );
-
+            fprintf(logFile, "  WM_INITDIALOG completed successfully\n");
+            fflush(logFile);
          }
          else
          {
@@ -234,21 +311,31 @@ static BOOL CALLBACK TrackSelectCallBack( HWND pWindow, UINT  pMsgId, WPARAM  pW
                break;
 
             case IDOK:
+               fprintf(logFile, "  IDOK clicked, gsSelectedEntry=%d\n", gsSelectedEntry);
+               fflush(logFile);
                if( gsSelectedEntry != -1 )
                {
                   gsNbLaps = GetDlgItemInt( pWindow, IDC_NB_LAP, NULL, FALSE );
                   gsAllowWeapons = (SendDlgItemMessage( pWindow, IDC_WEAPONS, BM_GETCHECK, 0, 0 ) == BST_CHECKED );
+                  fprintf(logFile, "  Selected: track index %d, laps=%d, weapons=%s\n", gsSelectedEntry, gsNbLaps, gsAllowWeapons ? "YES" : "NO");
+                  fflush(logFile);
 
                   if( !gAllowRegistred && (gsSortedTrackList[ gsSelectedEntry ]->mRegistrationMode != MR_FREE_TRACK) )
                   {
+                     fprintf(logFile, "  Track requires registration\n");
+                     fflush(logFile);
                      MessageBox( pWindow, MR_LoadString( IDS_SHOULD_REG ), MR_LoadString( IDS_GAME_NAME ), MB_ICONINFORMATION|MB_OK|MB_APPLMODAL );
                   }
                   else if( (gsNbLaps < 1)||(gsNbLaps >= 100 ) )
                   {
+                     fprintf(logFile, "  Invalid lap count\n");
+                     fflush(logFile);
                      MessageBox( pWindow, MR_LoadString( IDS_LAP_RANGE ), MR_LoadString( IDS_GAME_NAME ), MB_ICONINFORMATION|MB_OK|MB_APPLMODAL );
                   }
                   else
                   {
+                     fprintf(logFile, "  Dialog OK - ending dialog\n");
+                     fflush(logFile);
                      EndDialog( pWindow, IDOK );
                   }
                }
@@ -259,6 +346,10 @@ static BOOL CALLBACK TrackSelectCallBack( HWND pWindow, UINT  pMsgId, WPARAM  pW
    }
 
 
+   fprintf(logFile, "TrackSelectCallBack: Returning %d\n", lReturnValue);
+   fflush(logFile);
+   if( logFile ) fclose(logFile);
+   
    return lReturnValue;
 }
 
@@ -430,39 +521,71 @@ void ReadList()
 {
    long lHandle;
    struct _finddata_t lFileInfo;
-   CString            lPath = TRACK_PATH1;
+   FILE* logFile = fopen("Game2_TrackLoad.log", "w");
+   
+   // Get the executable directory
+   char szPath[MAX_PATH];
+   GetModuleFileNameA(NULL, szPath, sizeof(szPath));
+   
+   // Remove the filename to get just the directory
+   char *pLastSlash = strrchr(szPath, '\\');
+   if (pLastSlash) {
+      *(pLastSlash + 1) = '\0';  // Include the backslash
+   }
+   
+   // Append "tracks\" to get the track directory
+   strcat_s(szPath, sizeof(szPath), "tracks\\");
+   CString lPath = szPath;
    
    CleanList();
+
+   fprintf(logFile, "ReadList: Starting track search\n");
+   fprintf(logFile, "Executable path: %s\n", (const char*)lPath);
+   fflush(logFile);
 
    lHandle = _findfirst( lPath+"*" + TRACK_EXT, &lFileInfo );
 
    if( lHandle == -1 )
    {
-      lPath = TRACK_PATH2;
-      lHandle = _findfirst( lPath+"*" + TRACK_EXT, &lFileInfo );
+      fprintf(logFile, "No tracks found in primary path, search failed\n");
+      fflush(logFile);
    }
-
-   if( lHandle != -1 )
+   else
    {
+      fprintf(logFile, "Found tracks, reading entries\n");
+      fflush(logFile);
       do
       {
          gsTrackList[ gsNbTrack ].mFileName = CString(lFileInfo.name, strlen(lFileInfo.name)-strlen(TRACK_EXT) );
+         fprintf(logFile, "Track %d: %s\n", gsNbTrack, (const char*)gsTrackList[ gsNbTrack ].mFileName);
+         fflush(logFile);
 
          // Open the file and read aditionnal info
          MR_RecordFile lRecordFile;
+         CString fullPath = lPath+gsTrackList[ gsNbTrack ].mFileName+TRACK_EXT;
+         fprintf(logFile, "  Opening: %s\n", (const char*)fullPath);
+         fflush(logFile);
 
-         if( !lRecordFile.OpenForRead( lPath+gsTrackList[ gsNbTrack ].mFileName+TRACK_EXT ) )
+         if( !lRecordFile.OpenForRead( fullPath ) )
          {
+            fprintf(logFile, "  ERROR: Failed to open record file\n");
+            fflush(logFile);
             ASSERT( FALSE );
          }
          else
          {
+            fprintf(logFile, "  Successfully opened, reading entry\n");
+            fflush(logFile);
             if( ReadTrackEntry( &lRecordFile, &(gsTrackList[ gsNbTrack ]), NULL ) )
             {
+               fprintf(logFile, "  Successfully read entry\n");
+               fflush(logFile);
                gsNbTrack++;
             }
             else
             {
+               fprintf(logFile, "  ERROR: Failed to read track entry\n");
+               fflush(logFile);
                ASSERT( FALSE );
             }
          }
@@ -471,6 +594,10 @@ void ReadList()
 
       _findclose( lHandle );
    }
+   
+   fprintf(logFile, "ReadList: Completed, found %d tracks\n", gsNbTrack);
+   fflush(logFile);
+   if( logFile ) fclose(logFile);
 }
 
 void CleanList()

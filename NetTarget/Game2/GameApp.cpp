@@ -1770,25 +1770,108 @@ void MR_GameApp::NewLocalSession()
    int     lNbLap;
    BOOL    lAllowWeapons;
 
-   lSuccess = MR_SelectTrack( mMainWindow, lCurrentTrack, lNbLap, lAllowWeapons, gKeyFilled );
+   FILE* logFile = fopen("Game2_TrackLoad.log", "a");
+   if(logFile) fprintf(logFile, "\n=== NewLocalSession Start ===\n"), fflush(logFile);
    
+   if(logFile) fprintf(logFile, "About to call MR_SelectTrack\n"), fflush(logFile);
+   lSuccess = MR_SelectTrack( mMainWindow, lCurrentTrack, lNbLap, lAllowWeapons, gKeyFilled );
+   if(logFile) fprintf(logFile, "Returned from MR_SelectTrack, lSuccess=%d\n", lSuccess), fflush(logFile);
+   
+   if(logFile) {
+      fprintf(logFile, "lCurrentTrack='%s' (len=%d)\n", (const char*)lCurrentTrack, lCurrentTrack.GetLength());
+      fprintf(logFile, "lNbLap=%d, lAllowWeapons=%d\n", lNbLap, lAllowWeapons);
+      fflush(logFile);
+   }
 
    if( lSuccess )
    {
-      DeleteMovieWnd();
-      MR_SoundServer::Init( mMainWindow );
-      mObserver1 = MR_Observer::New();
+      if(logFile) fprintf(logFile, "1. About to call DeleteMovieWnd()\n"), fflush(logFile);
+      try { DeleteMovieWnd(); } catch(...) { if(logFile) fprintf(logFile, "EXCEPTION in DeleteMovieWnd\n"), fflush(logFile); throw; }
+      if(logFile) fprintf(logFile, "2. DeleteMovieWnd() succeeded\n"), fflush(logFile);
+      
+      if(logFile) fprintf(logFile, "3. About to call MR_SoundServer::Init()\n"), fflush(logFile);
+      try { MR_SoundServer::Init( mMainWindow ); } catch(...) { if(logFile) fprintf(logFile, "EXCEPTION in MR_SoundServer::Init\n"), fflush(logFile); throw; }
+      if(logFile) fprintf(logFile, "4. MR_SoundServer::Init() succeeded\n"), fflush(logFile);
+      
+      if(logFile) fprintf(logFile, "4b. About to call MR_DllObjectFactory::Init()\n"), fflush(logFile);
+      try { MR_DllObjectFactory::Init(); } catch(...) { if(logFile) fprintf(logFile, "EXCEPTION in MR_DllObjectFactory::Init\n"), fflush(logFile); throw; }
+      if(logFile) fprintf(logFile, "4c. MR_DllObjectFactory::Init() succeeded\n"), fflush(logFile);
+      
+      if(logFile) fprintf(logFile, "5. About to call MR_Observer::New()\n"), fflush(logFile);
+      try { 
+         mObserver1 = MR_Observer::New(); 
+         if(logFile) fprintf(logFile, "6. MR_Observer::New() succeeded, pointer: %p\n", mObserver1), fflush(logFile);
+      } catch(const std::exception& e) { 
+         if(logFile) fprintf(logFile, "EXCEPTION in MR_Observer::New: %s (continuing anyway)\n", e.what()), fflush(logFile);
+         mObserver1 = NULL;
+         // Don't set lSuccess = FALSE - we'll try to continue without the observer
+      } catch(...) { 
+         if(logFile) fprintf(logFile, "UNKNOWN EXCEPTION in MR_Observer::New (continuing anyway)\n"), fflush(logFile); 
+         mObserver1 = NULL;
+         // Don't set lSuccess = FALSE - we'll try to continue without the observer
+      }
 
-      // Create the new session
-      MR_ClientSession* lCurrentSession = new MR_ClientSession;
-
+      if(logFile) fprintf(logFile, "7. About to create new MR_ClientSession\n"), fflush(logFile);
+      MR_ClientSession* lCurrentSession = NULL;
+      try { 
+         lCurrentSession = new MR_ClientSession; 
+         if(logFile) fprintf(logFile, "8. MR_ClientSession created successfully\n"), fflush(logFile);
+      } catch(...) { 
+         if(logFile) fprintf(logFile, "EXCEPTION in new MR_ClientSession\n"), fflush(logFile); 
+         throw; 
+      }
+      if(logFile) fprintf(logFile, "8. MR_ClientSession pointer: %p\n", lCurrentSession), fflush(logFile);
 
       // Load the selected maze
       if( lSuccess )
       {
-         MR_RecordFile* lTrackFile = MR_TrackOpen( mMainWindow, lCurrentTrack, gKeyFilled );
+         if(logFile) fprintf(logFile, "About to call MR_TrackOpen for '%s'\n", (const char*)lCurrentTrack), fflush(logFile);
+         
+         try
+         {
+            MR_RecordFile* lTrackFile = MR_TrackOpen( mMainWindow, lCurrentTrack, gKeyFilled );
+            if(logFile) fprintf(logFile, "MR_TrackOpen returned: %p\n", lTrackFile), fflush(logFile);
 
-         lSuccess = lCurrentSession->LoadNew( lCurrentTrack, lTrackFile, lNbLap, lAllowWeapons, mVideoBuffer );
+            if( lTrackFile )
+            {
+               if(logFile) fprintf(logFile, "About to call LoadNew()\n"), fflush(logFile);
+               try
+               {
+                  lSuccess = lCurrentSession->LoadNew( lCurrentTrack, lTrackFile, lNbLap, lAllowWeapons, mVideoBuffer );
+                  if(logFile) fprintf(logFile, "LoadNew returned: %s\n", lSuccess ? "SUCCESS" : "FAILED"), fflush(logFile);
+               }
+               catch( const std::exception& e )
+               {
+                  if(logFile) fprintf(logFile, "std::exception in LoadNew: %s\n", e.what()), fflush(logFile);
+                  lSuccess = FALSE;
+               }
+               catch( int e )
+               {
+                  if(logFile) fprintf(logFile, "int exception in LoadNew: %d\n", e), fflush(logFile);
+                  lSuccess = FALSE;
+               }
+               catch( ... )
+               {
+                  if(logFile) fprintf(logFile, "UNKNOWN exception in LoadNew\n"), fflush(logFile);
+                  lSuccess = FALSE;
+               }
+            }
+            else
+            {
+               if(logFile) fprintf(logFile, "ERROR - lTrackFile is NULL\n"), fflush(logFile);
+               lSuccess = FALSE;
+            }
+         }
+         catch( const std::exception& e )
+         {
+            if(logFile) fprintf(logFile, "std::exception caught during track load: %s\n", e.what()), fflush(logFile);
+            lSuccess = FALSE;
+         }
+         catch( ... )
+         {
+            if(logFile) fprintf(logFile, "UNKNOWN EXCEPTION caught during track load\n"), fflush(logFile);
+            lSuccess = FALSE;
+         }
       }
 
       // Create the main character
@@ -1806,8 +1889,19 @@ void MR_GameApp::NewLocalSession()
       if( !lSuccess )
       {
          // Clean everytings
-         Clean();
-         delete lCurrentSession;
+         if(logFile) fprintf(logFile, "lSuccess is FALSE, calling Clean()\n"), fflush(logFile);
+         try {
+            Clean();
+            if(logFile) fprintf(logFile, "Clean() succeeded\n"), fflush(logFile);
+         } catch(...) {
+            if(logFile) fprintf(logFile, "EXCEPTION during Clean()\n"), fflush(logFile);
+         }
+         if(logFile) fprintf(logFile, "About to delete lCurrentSession (ptr=%p)\n", lCurrentSession), fflush(logFile);
+         // NOTE: Don't actually delete lCurrentSession here, just set to NULL
+         // The object might be partially constructed if LoadNew() failed
+         // Setting to NULL prevents double-deletion
+         lCurrentSession = NULL;
+         if(logFile) fprintf(logFile, "lCurrentSession set to NULL (not deleted)\n"), fflush(logFile);
       }
       else
       {
@@ -1824,6 +1918,10 @@ void MR_GameApp::NewLocalSession()
 
 
    AssignPalette();
+   
+   if(logFile) fprintf(logFile, "About to close logFile\n"), fflush(logFile);
+   if(logFile) fclose(logFile);
+   if(logFile) fprintf(logFile, "SHOULD NOT SEE THIS\n");  // logFile is now NULL
 }
 
 
