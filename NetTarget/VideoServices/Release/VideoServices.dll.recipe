@@ -2,10 +2,10 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>c:\originalhr\HoverRace\NetTarget\Util\Release\Util.dll</FullPath>
+      <FullPath>c:\originalhr\HoverRace\Release\Util.dll</FullPath>
     </ProjectOutput>
     <ProjectOutput>
-      <FullPath>c:\originalhr\HoverRace\NetTarget\VideoServices\Release\VideoServices.dll</FullPath>
+      <FullPath>c:\originalhr\HoverRace\Release\VideoServices.dll</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />

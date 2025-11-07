@@ -2,16 +2,16 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>c:\originalhr\HoverRace\NetTarget\Util\Release\Util.dll</FullPath>
+      <FullPath>c:\originalhr\HoverRace\Release\Util.dll</FullPath>
     </ProjectOutput>
     <ProjectOutput>
-      <FullPath>c:\originalhr\HoverRace\NetTarget\VideoServices\Release\VideoServices.dll</FullPath>
+      <FullPath>c:\originalhr\HoverRace\Release\VideoServices.dll</FullPath>
     </ProjectOutput>
     <ProjectOutput>
-      <FullPath>c:\originalhr\HoverRace\NetTarget\Model\Release\Model.dll</FullPath>
+      <FullPath>c:\originalhr\HoverRace\Release\Model.dll</FullPath>
     </ProjectOutput>
     <ProjectOutput>
-      <FullPath>c:\originalhr\HoverRace\NetTarget\ObjFacTools\Release\ObjFacTools.dll</FullPath>
+      <FullPath>c:\originalhr\HoverRace\Release\ObjFacTools.dll</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />

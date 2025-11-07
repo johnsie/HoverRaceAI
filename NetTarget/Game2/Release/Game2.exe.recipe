@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project>
+  <ProjectOutputs>
+    <ProjectOutput>
+      <FullPath>c:\originalhr\HoverRace\Release\Util.dll</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>c:\originalhr\HoverRace\Release\VideoServices.dll</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>c:\originalhr\HoverRace\Release\Model.dll</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>c:\originalhr\HoverRace\Release\ObjFacTools.dll</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>c:\originalhr\HoverRace\Release\ColorTools.dll</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>c:\originalhr\HoverRace\Release\MainCharacter.dll</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>c:\originalhr\HoverRace\NetTarget\Game2\Release\Game2.exe</FullPath>
+    </ProjectOutput>
+  </ProjectOutputs>
+  <ContentFiles />
+  <SatelliteDlls />
+  <NonRecipeFileRefs />
+</Project>
