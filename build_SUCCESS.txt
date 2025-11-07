@@ -1,0 +1,1062 @@
+MSBuild version 17.9.5+33de0b227 for .NET Framework
+Build started 07/11/2025 17:00:57.
+
+Project "C:\originalhr\HoverRace\NetTarget.sln" on node 1 (default targets).
+ValidateSolutionConfiguration:
+  Building solution configuration "Release|Default".
+Project "C:\originalhr\HoverRace\NetTarget.sln" (1) is building "C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj" (2) on node 1 (default targets).
+PrepareForBuild:
+  Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
+  Creating directory "C:\originalhr\HoverRace\Release\".
+InitializeBuildStatus:
+  Creating "Release\Util.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+  Touching "Release\Util.tlog\unsuccessfulbuild".
+ClCompile:
+  All outputs are up-to-date.
+Link:
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\bin\HostX86\x86\link.exe /ERRORREPORT:QUEUE /OUT:"C:\originalhr\HoverRace\Release\Util.dll" /NOLOGO /LIBPATH:"C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\lib\x86" /LIBPATH:"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\lib\x86" winmm.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /manifestinput:"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\Include\Manifest\dpiaware.manifest" /DEBUG:FULL /PDB:"C:\originalhr\HoverRace\Release\Util.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\originalhr\HoverRace\Release\Util.lib" /MACHINE:X86 /SAFESEH /DLL Release\DllObjectFactory.obj
+  Release\FuzzyLogic.obj
+  Release\Profiler.obj
+  Release\RecordFile.obj
+  Release\StdAfx.obj
+  Release\StrRes.obj
+  Release\WorldCoordinates.obj
+     Creating library C:\originalhr\HoverRace\Release\Util.lib and object C:\originalhr\HoverRace\Release\Util.exp
+  Util.vcxproj -> C:\originalhr\HoverRace\Release\Util.dll
+FinalizeBuildStatus:
+  Deleting file "Release\Util.tlog\unsuccessfulbuild".
+  Touching "Release\Util.tlog\Util.lastbuildstate".
+Done Building Project "C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj" (default targets).
+Project "C:\originalhr\HoverRace\NetTarget.sln" (1) is building "C:\originalhr\HoverRace\NetTarget\MazeCompiler\MazeCompiler.vcxproj.metaproj" (3) on node 1 (default targets).
+Project "C:\originalhr\HoverRace\NetTarget\MazeCompiler\MazeCompiler.vcxproj.metaproj" (3) is building "C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj.metaproj" (4) on node 1 (default targets).
+Project "C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj.metaproj" (4) is building "C:\originalhr\HoverRace\NetTarget\ColorTools\ColorTools.vcxproj" (5) on node 1 (default targets).
+PrepareForBuild:
+  Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
+InitializeBuildStatus:
+  Creating "Release\ColorTools.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+  Touching "Release\ColorTools.tlog\unsuccessfulbuild".
+ClCompile:
+  All outputs are up-to-date.
+Link:
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\bin\HostX86\x86\link.exe /ERRORREPORT:QUEUE /OUT:"C:\originalhr\HoverRace\Release\ColorTools.dll" /NOLOGO /LIBPATH:"C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\lib\x86" /LIBPATH:"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\lib\x86" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /manifestinput:"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\Include\Manifest\dpiaware.manifest" /DEBUG:FULL /PDB:"C:\originalhr\HoverRace\Release\ColorTools.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\originalhr\HoverRace\Release\ColorTools.lib" /MACHINE:X86 /SAFESEH /DLL Release\ColorTools.obj
+  Release\StdAfx.obj
+     Creating library C:\originalhr\HoverRace\Release\ColorTools.lib and object C:\originalhr\HoverRace\Release\ColorTools.exp
+  ColorTools.vcxproj -> C:\originalhr\HoverRace\Release\ColorTools.dll
+FinalizeBuildStatus:
+  Deleting file "Release\ColorTools.tlog\unsuccessfulbuild".
+  Touching "Release\ColorTools.tlog\ColorTools.lastbuildstate".
+Done Building Project "C:\originalhr\HoverRace\NetTarget\ColorTools\ColorTools.vcxproj" (default targets).
+Project "C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj.metaproj" (4) is building "C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj" (6) on node 1 (default targets).
+PrepareForBuild:
+  Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
+InitializeBuildStatus:
+  Touching "Release\VideoServices.tlog\unsuccessfulbuild".
+ClCompile:
+  All outputs are up-to-date.
+Link:
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\bin\HostX86\x86\link.exe /ERRORREPORT:QUEUE /OUT:"C:\originalhr\HoverRace\Release\VideoServices.dll" /NOLOGO /LIBPATH:c:\originalhr\HoverRace\Release /LIBPATH:"C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\lib\x86" /LIBPATH:"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\lib\x86" /LIBPATH:"%(AdditionalLibraryDirectories" Util.lib dsound.lib winmm.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /manifestinput:"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\Include\Manifest\dpiaware.manifest" /DEBUG:FULL /PDB:"C:\originalhr\HoverRace\Release\VideoServices.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\originalhr\HoverRace\Release\VideoServices.lib" /MACHINE:X86 /SAFESEH /DLL Release\2DViewPort.obj
+  Release\3DViewport.obj
+  Release\3DViewportRendering.obj
+  Release\Bitmap.obj
+  Release\ColorPalette.obj
+  Release\ColorTab.obj
+  Release\Patch.obj
+  Release\SoundServer.obj
+  Release\Sprite.obj
+  Release\StdAfx.obj
+  Release\VideoBuffer.obj
+  Release\VideoBuffer2DDraw.obj
+     Creating library C:\originalhr\HoverRace\Release\VideoServices.lib and object C:\originalhr\HoverRace\Release\VideoServices.exp
+VideoBuffer.obj : error LNK2019: unresolved external symbol _DirectDrawCreate@12 referenced in function "private: int __thiscall MR_VideoBuffer::InitDirectDraw(void)" (?InitDirectDraw@MR_VideoBuffer@@AAEHXZ) [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+C:\originalhr\HoverRace\Release\VideoServices.dll : fatal error LNK1120: 1 unresolved externals [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+Done Building Project "C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj" (default targets) -- FAILED.
+Done Building Project "C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj.metaproj" (default targets) -- FAILED.
+Done Building Project "C:\originalhr\HoverRace\NetTarget\MazeCompiler\MazeCompiler.vcxproj.metaproj" (default targets) -- FAILED.
+Project "C:\originalhr\HoverRace\NetTarget.sln" (1) is building "C:\originalhr\HoverRace\NetTarget\Model\Model.vcxproj.metaproj" (7) on node 1 (default targets).
+Project "C:\originalhr\HoverRace\NetTarget\Model\Model.vcxproj.metaproj" (7) is building "C:\originalhr\HoverRace\NetTarget\Model\Model.vcxproj" (8) on node 1 (default targets).
+PrepareForBuild:
+  Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
+InitializeBuildStatus:
+  Touching "Release\Model.tlog\unsuccessfulbuild".
+ClCompile:
+  All outputs are up-to-date.
+Link:
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\bin\HostX86\x86\link.exe /ERRORREPORT:QUEUE /OUT:"C:\originalhr\HoverRace\Release\Model.dll" /NOLOGO /LIBPATH:c:\originalhr\HoverRace\Release /LIBPATH:"C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\lib\x86" /LIBPATH:"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\lib\x86" /LIBPATH:"%(AdditionalLibraryDirectories" winmm.lib Util.lib VideoServices.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /manifestinput:"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\Include\Manifest\dpiaware.manifest" /DEBUG:FULL /PDB:"C:\originalhr\HoverRace\Release\Model.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\originalhr\HoverRace\Release\Model.lib" /MACHINE:X86 /SAFESEH /DLL Release\ConcreteShape.obj
+  Release\ContactEffect.obj
+  Release\FreeElementMovingHelper.obj
+  Release\GameSession.obj
+  Release\Level.obj
+  Release\MazeElement.obj
+  Release\PhysicalCollision.obj
+  Release\ShapeCollisions.obj
+  Release\Shapes.obj
+  Release\StdAfx.obj
+     Creating library C:\originalhr\HoverRace\Release\Model.lib and object C:\originalhr\HoverRace\Release\Model.exp
+  Model.vcxproj -> C:\originalhr\HoverRace\Release\Model.dll
+FinalizeBuildStatus:
+  Deleting file "Release\Model.tlog\unsuccessfulbuild".
+  Touching "Release\Model.tlog\Model.lastbuildstate".
+Done Building Project "C:\originalhr\HoverRace\NetTarget\Model\Model.vcxproj" (default targets).
+Done Building Project "C:\originalhr\HoverRace\NetTarget\Model\Model.vcxproj.metaproj" (default targets).
+Project "C:\originalhr\HoverRace\NetTarget.sln" (1) is building "C:\originalhr\HoverRace\NetTarget\GameServer\GameServer.vcxproj" (10) on node 1 (default targets).
+PrepareForBuild:
+  Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
+InitializeBuildStatus:
+  Creating "Release\GameServer.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+  Touching "Release\GameServer.tlog\unsuccessfulbuild".
+FinalizeBuildStatus:
+  Deleting file "Release\GameServer.tlog\unsuccessfulbuild".
+  Touching "Release\GameServer.tlog\GameServer.lastbuildstate".
+Done Building Project "C:\originalhr\HoverRace\NetTarget\GameServer\GameServer.vcxproj" (default targets).
+Project "C:\originalhr\HoverRace\NetTarget.sln" (1) is building "C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj.metaproj" (12) on node 1 (default targets).
+Project "C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj.metaproj" (12) is building "C:\originalhr\HoverRace\NetTarget\ObjFacTools\ObjFacTools.vcxproj.metaproj" (13) on node 1 (default targets).
+Project "C:\originalhr\HoverRace\NetTarget\ObjFacTools\ObjFacTools.vcxproj.metaproj" (13) is building "C:\originalhr\HoverRace\NetTarget\ObjFacTools\ObjFacTools.vcxproj" (14) on node 1 (default targets).
+PrepareForBuild:
+  Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
+InitializeBuildStatus:
+  Touching "Release\ObjFacTools.tlog\unsuccessfulbuild".
+ClCompile:
+  All outputs are up-to-date.
+Link:
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\bin\HostX86\x86\link.exe /ERRORREPORT:QUEUE /OUT:"C:\originalhr\HoverRace\Release\ObjFacTools.dll" /NOLOGO /LIBPATH:c:\originalhr\HoverRace\Release /LIBPATH:"C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\lib\x86" /LIBPATH:"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\lib\x86" /LIBPATH:"%(AdditionalLibraryDirectories" Model.lib VideoServices.lib Util.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /manifestinput:"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\Include\Manifest\dpiaware.manifest" /DEBUG:FULL /PDB:"C:\originalhr\HoverRace\Release\ObjFacTools.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\originalhr\HoverRace\Release\ObjFacTools.lib" /MACHINE:X86 /SAFESEH /DLL Release\BitmapSurface.obj
+  Release\FreeElementBase.obj
+  Release\FreeElementBaseRenderer.obj
+  Release\ObjectFactoryData.obj
+  Release\ResActor.obj
+  Release\ResBitmap.obj
+  Release\ResourceLib.obj
+  Release\ResSound.obj
+  Release\ResSprite.obj
+  Release\SpriteHandle.obj
+  Release\StdAfx.obj
+     Creating library C:\originalhr\HoverRace\Release\ObjFacTools.lib and object C:\originalhr\HoverRace\Release\ObjFacTools.exp
+  ObjFacTools.vcxproj -> C:\originalhr\HoverRace\Release\ObjFacTools.dll
+FinalizeBuildStatus:
+  Deleting file "Release\ObjFacTools.tlog\unsuccessfulbuild".
+  Touching "Release\ObjFacTools.tlog\ObjFacTools.lastbuildstate".
+Done Building Project "C:\originalhr\HoverRace\NetTarget\ObjFacTools\ObjFacTools.vcxproj" (default targets).
+Done Building Project "C:\originalhr\HoverRace\NetTarget\ObjFacTools\ObjFacTools.vcxproj.metaproj" (default targets).
+Project "C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj.metaproj" (12) is building "C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj" (15) on node 1 (default targets).
+PrepareForBuild:
+  Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
+  Creating directory "Release\Game2.tlog\".
+InitializeBuildStatus:
+  Creating "Release\Game2.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+  Touching "Release\Game2.tlog\unsuccessfulbuild".
+ClCompile:
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\bin\HostX86\x86\CL.exe /c /I"C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include" /I"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include" /I\gdk\sdk\inc /Zi /nologo /W4 /WX- /diagnostics:column /O2 /Oy- /D NDEBUG /D WIN32 /D _WINDOWS /D _MBNET_ /D _AFXDLL /D _MBCS /D _AFXDLL /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Release\\" /Fd"Release\vc143.pdb" /external:W4 /Gd /TP /analyze- /FC /errorReport:queue Banner.cpp ClientSession.cpp CommonDialog.cpp GameApp.cpp InternetRoom.cpp License.cpp main.cpp MatchReport.cpp NetInterface.cpp NetworkSession.cpp Observer.cpp Sponsor.cpp StdAfx.cpp TrackSelect.cpp
+  Banner.cpp
+  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(880,1): warning C4005: '_MSVC_STL_VERSION': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  (compiling source file 'Banner.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(156,1):
+  see previous definition of '_MSVC_STL_VERSION'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(881,1): warning C4005: '_MSVC_STL_UPDATE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  (compiling source file 'Banner.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(157,1):
+  see previous definition of '_MSVC_STL_UPDATE'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1000,1): warning C4005: '_DEPRECATE_TR1_NAMESPACE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  (compiling source file 'Banner.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(247,1):
+  see previous definition of '_DEPRECATE_TR1_NAMESPACE'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1014,1): warning C4005: '_MISMATCHED_ALLOCATOR_MESSAGE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  (compiling source file 'Banner.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(303,1):
+  see previous definition of '_MISMATCHED_ALLOCATOR_MESSAGE'
+  
+C:\originalhr\HoverRace\NetTarget\Game2\Banner.cpp(273,66): warning C4100: 'pStreamLen': unreferenced formal parameter [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\Banner.cpp(273,50): warning C4100: 'pGifStream': unreferenced formal parameter [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\Banner.cpp(314,4): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\Banner.cpp(316,18): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\Banner.cpp(371,7): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\Banner.cpp(374,21): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\Banner.cpp(382,13): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  ClientSession.cpp
+  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(880,1): warning C4005: '_MSVC_STL_VERSION': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  (compiling source file 'ClientSession.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(156,1):
+  see previous definition of '_MSVC_STL_VERSION'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(881,1): warning C4005: '_MSVC_STL_UPDATE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  (compiling source file 'ClientSession.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(157,1):
+  see previous definition of '_MSVC_STL_UPDATE'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1000,1): warning C4005: '_DEPRECATE_TR1_NAMESPACE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  (compiling source file 'ClientSession.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(247,1):
+  see previous definition of '_DEPRECATE_TR1_NAMESPACE'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1014,1): warning C4005: '_MISMATCHED_ALLOCATOR_MESSAGE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  (compiling source file 'ClientSession.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(303,1):
+  see previous definition of '_MISMATCHED_ALLOCATOR_MESSAGE'
+  
+C:\originalhr\HoverRace\NetTarget\Game2\ClientSession.cpp(51,37): warning C4100: 'pSpeedFactor': unreferenced formal parameter [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\ClientSession.cpp(268,130): warning C4100: 'pNbHitHimself': unreferenced formal parameter [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\ClientSession.cpp(268,112): warning C4100: 'pNbHitOther': unreferenced formal parameter [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\ClientSession.cpp(268,95): warning C4100: 'pConnected': unreferenced formal parameter [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\ClientSession.cpp(268,84): warning C4100: 'pId': unreferenced formal parameter [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\ClientSession.cpp(268,42): warning C4100: 'pPosition': unreferenced formal parameter [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\ClientSession.cpp(389,10): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  CommonDialog.cpp
+  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(880,1): warning C4005: '_MSVC_STL_VERSION': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  (compiling source file 'CommonDialog.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(156,1):
+  see previous definition of '_MSVC_STL_VERSION'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(881,1): warning C4005: '_MSVC_STL_UPDATE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  (compiling source file 'CommonDialog.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(157,1):
+  see previous definition of '_MSVC_STL_UPDATE'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1000,1): warning C4005: '_DEPRECATE_TR1_NAMESPACE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  (compiling source file 'CommonDialog.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(247,1):
+  see previous definition of '_DEPRECATE_TR1_NAMESPACE'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1014,1): warning C4005: '_MISMATCHED_ALLOCATOR_MESSAGE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  (compiling source file 'CommonDialog.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(303,1):
+  see previous definition of '_MISMATCHED_ALLOCATOR_MESSAGE'
+  
+  GameApp.cpp
+  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(880,1): warning C4005: '_MSVC_STL_VERSION': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  (compiling source file 'GameApp.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(156,1):
+  see previous definition of '_MSVC_STL_VERSION'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(881,1): warning C4005: '_MSVC_STL_UPDATE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  (compiling source file 'GameApp.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(157,1):
+  see previous definition of '_MSVC_STL_UPDATE'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1000,1): warning C4005: '_DEPRECATE_TR1_NAMESPACE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  (compiling source file 'GameApp.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(247,1):
+  see previous definition of '_DEPRECATE_TR1_NAMESPACE'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1014,1): warning C4005: '_MISMATCHED_ALLOCATOR_MESSAGE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  (compiling source file 'GameApp.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(303,1):
+  see previous definition of '_MISMATCHED_ALLOCATOR_MESSAGE'
+  
+C:\originalhr\HoverRace\NetTarget\Game2\Security.h(62,45): warning C4244: '+=': conversion from 'int' to 'unsigned short', possible loss of data [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  (compiling source file 'GameApp.cpp')
+  
+C:\originalhr\HoverRace\NetTarget\Game2\Security.h(63,45): warning C4244: '+=': conversion from 'int' to 'unsigned short', possible loss of data [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  (compiling source file 'GameApp.cpp')
+  
+C:\originalhr\HoverRace\NetTarget\Game2\Security.h(64,45): warning C4244: '+=': conversion from 'int' to 'unsigned short', possible loss of data [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  (compiling source file 'GameApp.cpp')
+  
+C:\originalhr\HoverRace\NetTarget\Game2\Security.h(65,40): warning C4244: '+=': conversion from 'int' to 'unsigned short', possible loss of data [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  (compiling source file 'GameApp.cpp')
+  
+C:\originalhr\HoverRace\NetTarget\Game2\Security.h(179,11): warning C4244: 'return': conversion from 'unsigned short' to 'unsigned char', possible loss of data [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  (compiling source file 'GameApp.cpp')
+  
+C:\originalhr\HoverRace\NetTarget\Game2\Security.h(192,11): warning C4244: 'return': conversion from 'unsigned short' to 'unsigned char', possible loss of data [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  (compiling source file 'GameApp.cpp')
+  
+C:\originalhr\HoverRace\NetTarget\Game2\Security.h(204,18): warning C4244: 'initializing': conversion from 'int' to 'char', possible loss of data [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  (compiling source file 'GameApp.cpp')
+  
+C:\originalhr\HoverRace\NetTarget\Game2\GameApp.cpp(713,28): warning C4244: '=': conversion from 'int' to 'MR_UInt8', possible loss of data [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\GameApp.cpp(714,28): warning C4244: '=': conversion from 'int' to 'MR_UInt8', possible loss of data [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\GameApp.cpp(715,28): warning C4244: '=': conversion from 'int' to 'MR_UInt8', possible loss of data [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\GameApp.cpp(716,28): warning C4244: '=': conversion from 'int' to 'MR_UInt8', possible loss of data [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\GameApp.cpp(717,28): warning C4244: '=': conversion from 'int' to 'MR_UInt8', possible loss of data [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\GameApp.cpp(718,28): warning C4244: '=': conversion from 'int' to 'MR_UInt8', possible loss of data [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\GameApp.cpp(719,28): warning C4244: '=': conversion from 'int' to 'MR_UInt8', possible loss of data [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\GameApp.cpp(721,28): warning C4244: '=': conversion from 'int' to 'MR_UInt8', possible loss of data [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\GameApp.cpp(722,28): warning C4244: '=': conversion from 'int' to 'MR_UInt8', possible loss of data [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\GameApp.cpp(723,28): warning C4244: '=': conversion from 'int' to 'MR_UInt8', possible loss of data [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\GameApp.cpp(724,28): warning C4244: '=': conversion from 'int' to 'MR_UInt8', possible loss of data [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\GameApp.cpp(725,28): warning C4244: '=': conversion from 'int' to 'MR_UInt8', possible loss of data [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\GameApp.cpp(726,28): warning C4244: '=': conversion from 'int' to 'MR_UInt8', possible loss of data [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\GameApp.cpp(727,28): warning C4244: '=': conversion from 'int' to 'MR_UInt8', possible loss of data [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\GameApp.cpp(1391,40): warning C4244: 'argument': conversion from 'int' to 'MR_UInt8', possible loss of data [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\GameApp.cpp(2706,91): warning C4100: 'pWParam': unreferenced formal parameter [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\GameApp.cpp(2804,82): warning C4100: 'pWParam': unreferenced formal parameter [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\GameApp.cpp(2899,99): warning C4100: 'pLParam': unreferenced formal parameter [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\GameApp.cpp(2899,51): warning C4100: 'pWindow': unreferenced formal parameter [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\GameApp.cpp(2932,97): warning C4100: 'pLParam': unreferenced formal parameter [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\GameApp.cpp(2932,80): warning C4100: 'pWParam': unreferenced formal parameter [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\GameApp.cpp(2932,64): warning C4100: 'pMsgId': unreferenced formal parameter [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\GameApp.cpp(2932,49): warning C4100: 'pWindow': unreferenced formal parameter [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\GameApp.cpp(2950,111): warning C4100: 'pLParam': unreferenced formal parameter [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\GameApp.cpp(2988,94): warning C4100: 'pLParam': unreferenced formal parameter [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\GameApp.cpp(3218,24): warning C4996: 'localtime': This function or variable may be unsafe. Consider using localtime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\GameApp.cpp(3118,95): warning C4100: 'pLParam': unreferenced formal parameter [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\GameApp.cpp(3252,91): warning C4100: 'pLParam': unreferenced formal parameter [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\GameApp.cpp(3395,97): warning C4100: 'pLParam': unreferenced formal parameter [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\GameApp.cpp(3619,98): warning C4100: 'pLParam': unreferenced formal parameter [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\GameApp.cpp(3779,104): warning C4100: 'pLParam': unreferenced formal parameter [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\GameApp.cpp(3923,30): warning C4244: '=': conversion from 'int' to 'WORD', possible loss of data [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  InternetRoom.cpp
+  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(880,1): warning C4005: '_MSVC_STL_VERSION': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  (compiling source file 'InternetRoom.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(156,1):
+  see previous definition of '_MSVC_STL_VERSION'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(881,1): warning C4005: '_MSVC_STL_UPDATE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  (compiling source file 'InternetRoom.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(157,1):
+  see previous definition of '_MSVC_STL_UPDATE'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1000,1): warning C4005: '_DEPRECATE_TR1_NAMESPACE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  (compiling source file 'InternetRoom.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(247,1):
+  see previous definition of '_DEPRECATE_TR1_NAMESPACE'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1014,1): warning C4005: '_MISMATCHED_ALLOCATOR_MESSAGE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  (compiling source file 'InternetRoom.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(303,1):
+  see previous definition of '_MISMATCHED_ALLOCATOR_MESSAGE'
+  
+C:\originalhr\HoverRace\NetTarget\Game2\InternetRoom.cpp(207,10): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\InternetRoom.cpp(220,10): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\InternetRoom.cpp(245,7): warning C4996: 'WSAAsyncSelect': Use WSAEventSelect() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\InternetRoom.cpp(417,10): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\InternetRoom.cpp(424,14): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\InternetRoom.cpp(444,22): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\InternetRoom.cpp(465,14): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\InternetRoom.cpp(502,26): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\InternetRoom.cpp(628,10): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\InternetRoom.cpp(701,10): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\InternetRoom.cpp(1103,10): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\InternetRoom.cpp(1352,106): warning C4100: 'pLParam': unreferenced formal parameter [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\InternetRoom.cpp(1414,104): warning C4100: 'pLParam': unreferenced formal parameter [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\InternetRoom.cpp(1604,26): warning C4389: '!=': signed/unsigned mismatch [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\InternetRoom.cpp(1878,19): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\InternetRoom.cpp(2155,44): warning C4996: 'WSAAsyncGetHostByName': Use GetAddrInfoExW() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\InternetRoom.cpp(2186,22): warning C4996: 'WSACancelAsyncRequest': Define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\InternetRoom.cpp(2245,16): warning C4996: 'WSACancelAsyncRequest': Define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\InternetRoom.cpp(2293,19): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\InternetRoom.cpp(2299,32): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\InternetRoom.cpp(2323,32): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\InternetRoom.cpp(2399,32): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\InternetRoom.cpp(2287,28): warning C4101: 'lURLLadderReport': unreferenced local variable [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\InternetRoom.cpp(2290,28): warning C4101: 'lNibble2': unreferenced local variable [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  License.cpp
+  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(880,1): warning C4005: '_MSVC_STL_VERSION': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  (compiling source file 'License.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(156,1):
+  see previous definition of '_MSVC_STL_VERSION'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(881,1): warning C4005: '_MSVC_STL_UPDATE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  (compiling source file 'License.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(157,1):
+  see previous definition of '_MSVC_STL_UPDATE'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1000,1): warning C4005: '_DEPRECATE_TR1_NAMESPACE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  (compiling source file 'License.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(247,1):
+  see previous definition of '_DEPRECATE_TR1_NAMESPACE'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1014,1): warning C4005: '_MISMATCHED_ALLOCATOR_MESSAGE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  (compiling source file 'License.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(303,1):
+  see previous definition of '_MISMATCHED_ALLOCATOR_MESSAGE'
+  
+  main.cpp
+  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(880,1): warning C4005: '_MSVC_STL_VERSION': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  (compiling source file 'main.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(156,1):
+  see previous definition of '_MSVC_STL_VERSION'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(881,1): warning C4005: '_MSVC_STL_UPDATE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  (compiling source file 'main.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(157,1):
+  see previous definition of '_MSVC_STL_UPDATE'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1000,1): warning C4005: '_DEPRECATE_TR1_NAMESPACE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  (compiling source file 'main.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(247,1):
+  see previous definition of '_DEPRECATE_TR1_NAMESPACE'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1014,1): warning C4005: '_MISMATCHED_ALLOCATOR_MESSAGE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  (compiling source file 'main.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(303,1):
+  see previous definition of '_MISMATCHED_ALLOCATOR_MESSAGE'
+  
+C:\originalhr\HoverRace\NetTarget\Game2\main.cpp(29,90): warning C4100: 'pCmdShow': unreferenced formal parameter [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  MatchReport.cpp
+  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(880,1): warning C4005: '_MSVC_STL_VERSION': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  (compiling source file 'MatchReport.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(156,1):
+  see previous definition of '_MSVC_STL_VERSION'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(881,1): warning C4005: '_MSVC_STL_UPDATE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  (compiling source file 'MatchReport.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(157,1):
+  see previous definition of '_MSVC_STL_UPDATE'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1000,1): warning C4005: '_DEPRECATE_TR1_NAMESPACE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  (compiling source file 'MatchReport.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(247,1):
+  see previous definition of '_DEPRECATE_TR1_NAMESPACE'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1014,1): warning C4005: '_MISMATCHED_ALLOCATOR_MESSAGE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  (compiling source file 'MatchReport.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(303,1):
+  see previous definition of '_MISMATCHED_ALLOCATOR_MESSAGE'
+  
+C:\originalhr\HoverRace\NetTarget\Game2\MatchReport.cpp(253,7): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\MatchReport.cpp(270,7): warning C4996: 'WSAAsyncSelect': Use WSAEventSelect() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\MatchReport.cpp(369,10): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\MatchReport.cpp(371,7): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\MatchReport.cpp(388,7): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\MatchReport.cpp(389,7): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\MatchReport.cpp(390,7): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\MatchReport.cpp(391,7): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\MatchReport.cpp(403,13): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\MatchReport.cpp(405,10): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\MatchReport.cpp(406,10): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\MatchReport.cpp(407,10): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\MatchReport.cpp(415,4): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\MatchReport.cpp(476,19): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\MatchReport.cpp(470,13): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\MatchReport.cpp(479,19): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\MatchReport.cpp(484,16): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\MatchReport.cpp(494,16): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\MatchReport.cpp(500,16): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\MatchReport.cpp(506,16): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\MatchReport.cpp(591,38): warning C4456: declaration of 'lResult' hides previous local declaration [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\MatchReport.cpp(557,26):
+  see declaration of 'lResult'
+  
+C:\originalhr\HoverRace\NetTarget\Game2\MatchReport.cpp(516,104): warning C4100: 'pLParam': unreferenced formal parameter [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\MatchReport.cpp(642,104): warning C4100: 'pLParam': unreferenced formal parameter [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\MatchReport.cpp(715,13): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\MatchReport.cpp(770,92): warning C4100: 'pLParam': unreferenced formal parameter [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\MatchReport.cpp(828,16): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  NetInterface.cpp
+  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(880,1): warning C4005: '_MSVC_STL_VERSION': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  (compiling source file 'NetInterface.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(156,1):
+  see previous definition of '_MSVC_STL_VERSION'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(881,1): warning C4005: '_MSVC_STL_UPDATE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  (compiling source file 'NetInterface.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(157,1):
+  see previous definition of '_MSVC_STL_UPDATE'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1000,1): warning C4005: '_DEPRECATE_TR1_NAMESPACE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  (compiling source file 'NetInterface.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(247,1):
+  see previous definition of '_DEPRECATE_TR1_NAMESPACE'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1014,1): warning C4005: '_MISMATCHED_ALLOCATOR_MESSAGE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  (compiling source file 'NetInterface.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(303,1):
+  see previous definition of '_MISMATCHED_ALLOCATOR_MESSAGE'
+  
+C:\originalhr\HoverRace\NetTarget\Game2\NetInterface.cpp(411,41): warning C4244: 'argument': conversion from 'int' to 'u_short', possible loss of data [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\NetInterface.cpp(642,66): warning C4244: 'argument': conversion from 'int' to 'u_short', possible loss of data [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\NetInterface.cpp(586,109): warning C4100: 'pLParam': unreferenced formal parameter [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\NetInterface.cpp(661,109): warning C4100: 'pLParam': unreferenced formal parameter [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\NetInterface.cpp(752,63): warning C4244: 'argument': conversion from 'int' to 'u_short', possible loss of data [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\NetInterface.cpp(754,16): warning C4996: 'WSAAsyncSelect': Use WSAEventSelect() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\NetInterface.cpp(789,16): warning C4996: 'WSAAsyncSelect': Use WSAEventSelect() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\NetInterface.cpp(835,19): warning C4996: 'WSAAsyncSelect': Use WSAEventSelect() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\NetInterface.cpp(846,22): warning C4996: 'WSAAsyncSelect': Use WSAEventSelect() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\NetInterface.cpp(979,78): warning C4244: '=': conversion from 'int' to 'MR_UInt8', possible loss of data [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\NetInterface.cpp(1043,53): warning C4244: '=': conversion from 'int' to 'MR_UInt8', possible loss of data [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\NetInterface.cpp(1196,78): warning C4244: '=': conversion from 'int' to 'MR_UInt8', possible loss of data [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\NetInterface.cpp(1273,87): warning C4244: '=': conversion from 'int' to 'MR_UInt8', possible loss of data [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\NetInterface.cpp(1362,52): warning C4244: '=': conversion from 'int' to 'USHORT', possible loss of data [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\NetInterface.cpp(1518,78): warning C4244: '=': conversion from 'int' to 'MR_UInt8', possible loss of data [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\NetInterface.cpp(966,13): warning C4996: 'WSAAsyncSelect': Use WSAEventSelect() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\NetInterface.cpp(973,16): warning C4996: 'WSAAsyncSelect': Use WSAEventSelect() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\NetInterface.cpp(974,16): warning C4996: 'WSAAsyncSelect': Use WSAEventSelect() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\NetInterface.cpp(1055,28): warning C4996: 'WSAAsyncSelect': Use WSAEventSelect() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\NetInterface.cpp(1056,28): warning C4996: 'WSAAsyncSelect': Use WSAEventSelect() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\NetInterface.cpp(1059,22): warning C4996: 'WSAAsyncSelect': Use WSAEventSelect() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\NetInterface.cpp(1117,19): warning C4996: 'WSAAsyncSelect': Use WSAEventSelect() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\NetInterface.cpp(1118,19): warning C4996: 'WSAAsyncSelect': Use WSAEventSelect() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\NetInterface.cpp(1180,13): warning C4996: 'WSAAsyncSelect': Use WSAEventSelect() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\NetInterface.cpp(1181,13): warning C4996: 'WSAAsyncSelect': Use WSAEventSelect() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\NetInterface.cpp(1364,28): warning C4996: 'WSAAsyncSelect': Use WSAEventSelect() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\NetInterface.cpp(1365,28): warning C4996: 'WSAAsyncSelect': Use WSAEventSelect() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\NetInterface.cpp(1429,28): warning C4996: '_itoa': This function or variable may be unsafe. Consider using _itoa_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\NetInterface.cpp(1445,25): warning C4996: '_itoa': This function or variable may be unsafe. Consider using _itoa_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\NetInterface.cpp(1479,28): warning C4996: 'WSAAsyncSelect': Use WSAEventSelect() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\NetInterface.cpp(1480,28): warning C4996: 'WSAAsyncSelect': Use WSAEventSelect() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\NetInterface.cpp(1484,22): warning C4996: 'WSAAsyncSelect': Use WSAEventSelect() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\NetInterface.cpp(1500,13): warning C4996: 'WSAAsyncSelect': Use WSAEventSelect() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\NetInterface.cpp(1501,13): warning C4996: 'WSAAsyncSelect': Use WSAEventSelect() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\NetInterface.cpp(1615,30): warning C4244: '=': conversion from 'unsigned int' to 'USHORT', possible loss of data [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\NetInterface.cpp(1744,88): warning C4389: '==': signed/unsigned mismatch [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\NetInterface.cpp(1977,15): warning C4996: 'gethostbyname': Use getaddrinfo() or GetAddrInfoW() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\NetInterface.cpp(1986,10): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\NetInterface.cpp(2016,19): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\NetInterface.cpp(2036,79): warning C4100: 'lParam': unreferenced formal parameter [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  NetworkSession.cpp
+  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(880,1): warning C4005: '_MSVC_STL_VERSION': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  (compiling source file 'NetworkSession.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(156,1):
+  see previous definition of '_MSVC_STL_VERSION'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(881,1): warning C4005: '_MSVC_STL_UPDATE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  (compiling source file 'NetworkSession.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(157,1):
+  see previous definition of '_MSVC_STL_UPDATE'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1000,1): warning C4005: '_DEPRECATE_TR1_NAMESPACE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  (compiling source file 'NetworkSession.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(247,1):
+  see previous definition of '_DEPRECATE_TR1_NAMESPACE'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1014,1): warning C4005: '_MISMATCHED_ALLOCATOR_MESSAGE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  (compiling source file 'NetworkSession.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(303,1):
+  see previous definition of '_MISMATCHED_ALLOCATOR_MESSAGE'
+  
+C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(771,55): warning C4244: '=': conversion from 'int' to 'MR_UInt8', possible loss of data [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(774,39): warning C4244: '=': conversion from 'int' to 'MR_Int16', possible loss of data [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(775,39): warning C4244: '=': conversion from 'int' to 'MR_Int16', possible loss of data [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(798,55): warning C4244: '=': conversion from 'int' to 'MR_UInt8', possible loss of data [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(801,39): warning C4244: '=': conversion from 'int' to 'MR_Int16', possible loss of data [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(841,9): error C2065: 'lCounter': undeclared identifier [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(841,23): error C2065: 'lCounter': undeclared identifier [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(841,67): error C2065: 'lCounter': undeclared identifier [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(843,27): error C2065: 'lCounter': undeclared identifier [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(845,37): error C2065: 'lCounter': undeclared identifier [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(847,37): error C2065: 'lCounter': undeclared identifier [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(851,41): error C2065: 'lCounter': undeclared identifier [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(858,9): error C2065: 'lCounter': undeclared identifier [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(858,23): error C2065: 'lCounter': undeclared identifier [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(858,67): error C2065: 'lCounter': undeclared identifier [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(860,27): error C2065: 'lCounter': undeclared identifier [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(862,37): error C2065: 'lCounter': undeclared identifier [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(864,37): error C2065: 'lCounter': undeclared identifier [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(868,41): error C2065: 'lCounter': undeclared identifier [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(874,9): error C2065: 'lCounter': undeclared identifier [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(874,23): error C2065: 'lCounter': undeclared identifier [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(874,67): error C2065: 'lCounter': undeclared identifier [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(876,27): error C2065: 'lCounter': undeclared identifier [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(878,37): error C2065: 'lCounter': undeclared identifier [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(880,37): error C2065: 'lCounter': undeclared identifier [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(884,41): error C2065: 'lCounter': undeclared identifier [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(896,55): warning C4244: '=': conversion from 'int' to 'MR_UInt8', possible loss of data [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(897,39): warning C4244: '=': conversion from 'int' to 'MR_Int8', possible loss of data [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(898,39): warning C4244: '=': conversion from 'int' to 'MR_Int16', possible loss of data [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(938,9): error C2065: 'lCounter': undeclared identifier [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(938,23): error C2065: 'lCounter': undeclared identifier [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(938,67): error C2065: 'lCounter': undeclared identifier [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(940,27): error C2065: 'lCounter': undeclared identifier [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(942,37): error C2065: 'lCounter': undeclared identifier [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(944,37): error C2065: 'lCounter': undeclared identifier [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(948,41): error C2065: 'lCounter': undeclared identifier [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(955,9): error C2065: 'lCounter': undeclared identifier [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(955,23): error C2065: 'lCounter': undeclared identifier [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(955,67): error C2065: 'lCounter': undeclared identifier [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(957,27): error C2065: 'lCounter': undeclared identifier [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(959,37): error C2065: 'lCounter': undeclared identifier [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(961,37): error C2065: 'lCounter': undeclared identifier [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(965,41): error C2065: 'lCounter': undeclared identifier [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(971,9): error C2065: 'lCounter': undeclared identifier [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(971,23): error C2065: 'lCounter': undeclared identifier [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(971,67): error C2065: 'lCounter': undeclared identifier [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(973,27): error C2065: 'lCounter': undeclared identifier [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(975,37): error C2065: 'lCounter': undeclared identifier [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(977,37): error C2065: 'lCounter': undeclared identifier [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(981,41): error C2065: 'lCounter': undeclared identifier [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(1022,45): warning C4244: '=': conversion from 'const int' to 'MR_UInt8', possible loss of data [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(1194,29): warning C4244: '=': conversion from 'int' to 'MR_Int8', possible loss of data [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(1208,37): warning C4267: '=': conversion from 'size_t' to 'MR_UInt8', possible loss of data [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(1451,4): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  Observer.cpp
+  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(880,1): warning C4005: '_MSVC_STL_VERSION': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  (compiling source file 'Observer.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(156,1):
+  see previous definition of '_MSVC_STL_VERSION'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(881,1): warning C4005: '_MSVC_STL_UPDATE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  (compiling source file 'Observer.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(157,1):
+  see previous definition of '_MSVC_STL_UPDATE'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1000,1): warning C4005: '_DEPRECATE_TR1_NAMESPACE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  (compiling source file 'Observer.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(247,1):
+  see previous definition of '_DEPRECATE_TR1_NAMESPACE'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1014,1): warning C4005: '_MISMATCHED_ALLOCATOR_MESSAGE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  (compiling source file 'Observer.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(303,1):
+  see previous definition of '_MISMATCHED_ALLOCATOR_MESSAGE'
+  
+C:\originalhr\HoverRace\NetTarget\Game2\Observer.cpp(286,7): warning C5205: delete of an abstract class 'MR_PolygonShape' that has a non-virtual destructor results in undefined behavior [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Model\Shapes.h(120,21):
+  see declaration of 'MR_PolygonShape'
+  
+C:\originalhr\HoverRace\NetTarget\Game2\Observer.cpp(428,4): warning C5205: delete of an abstract class 'MR_PolygonShape' that has a non-virtual destructor results in undefined behavior [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Model\Shapes.h(120,21):
+  see declaration of 'MR_PolygonShape'
+  
+C:\originalhr\HoverRace\NetTarget\Game2\Observer.cpp(601,25): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\Observer.cpp(602,25): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\Observer.cpp(604,25): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\Observer.cpp(679,16): warning C4456: declaration of 'lCounter' hides previous local declaration [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\Observer.cpp(507,15):
+  see declaration of 'lCounter'
+  
+C:\originalhr\HoverRace\NetTarget\Game2\Observer.cpp(712,11): warning C4456: declaration of 'lXMargin' hides previous local declaration [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\Observer.cpp(598,8):
+  see declaration of 'lXMargin'
+  
+C:\originalhr\HoverRace\NetTarget\Game2\Observer.cpp(713,11): warning C4456: declaration of 'lYMargin' hides previous local declaration [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\Observer.cpp(599,8):
+  see declaration of 'lYMargin'
+  
+C:\originalhr\HoverRace\NetTarget\Game2\Observer.cpp(800,19): warning C4456: declaration of 'lCounter' hides previous local declaration [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\Observer.cpp(507,15):
+  see declaration of 'lCounter'
+  
+C:\originalhr\HoverRace\NetTarget\Game2\Observer.cpp(826,16): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\Observer.cpp(839,16): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\Observer.cpp(851,16): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\Observer.cpp(865,16): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\Observer.cpp(899,10): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\Observer.cpp(909,13): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\Observer.cpp(913,13): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\Observer.cpp(915,10): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\Observer.cpp(922,10): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\Observer.cpp(933,10): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\Observer.cpp(934,10): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\Observer.cpp(945,10): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\Observer.cpp(946,10): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\Observer.cpp(1032,4): warning C5205: delete of an abstract class 'MR_PolygonShape' that has a non-virtual destructor results in undefined behavior [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Model\Shapes.h(120,21):
+  see declaration of 'MR_PolygonShape'
+  
+C:\originalhr\HoverRace\NetTarget\Game2\Observer.cpp(1075,4): warning C5205: delete of an abstract class 'MR_PolygonShape' that has a non-virtual destructor results in undefined behavior [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Model\Shapes.h(120,21):
+  see declaration of 'MR_PolygonShape'
+  
+C:\originalhr\HoverRace\NetTarget\Game2\Observer.cpp(1136,4): warning C5205: delete of an abstract class 'MR_PolygonShape' that has a non-virtual destructor results in undefined behavior [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Model\Shapes.h(120,21):
+  see declaration of 'MR_PolygonShape'
+  
+C:\originalhr\HoverRace\NetTarget\Game2\Observer.cpp(1263,24): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  Sponsor.cpp
+  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(880,1): warning C4005: '_MSVC_STL_VERSION': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  (compiling source file 'Sponsor.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(156,1):
+  see previous definition of '_MSVC_STL_VERSION'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(881,1): warning C4005: '_MSVC_STL_UPDATE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  (compiling source file 'Sponsor.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(157,1):
+  see previous definition of '_MSVC_STL_UPDATE'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1000,1): warning C4005: '_DEPRECATE_TR1_NAMESPACE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  (compiling source file 'Sponsor.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(247,1):
+  see previous definition of '_DEPRECATE_TR1_NAMESPACE'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1014,1): warning C4005: '_MISMATCHED_ALLOCATOR_MESSAGE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  (compiling source file 'Sponsor.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(303,1):
+  see previous definition of '_MISMATCHED_ALLOCATOR_MESSAGE'
+  
+C:\originalhr\HoverRace\NetTarget\Game2\Sponsor.cpp(37,18): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\Sponsor.cpp(96,77): warning C4100: 'pLParam': unreferenced formal parameter [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  StdAfx.cpp
+  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(880,1): warning C4005: '_MSVC_STL_VERSION': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  (compiling source file 'StdAfx.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(156,1):
+  see previous definition of '_MSVC_STL_VERSION'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(881,1): warning C4005: '_MSVC_STL_UPDATE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  (compiling source file 'StdAfx.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(157,1):
+  see previous definition of '_MSVC_STL_UPDATE'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1000,1): warning C4005: '_DEPRECATE_TR1_NAMESPACE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  (compiling source file 'StdAfx.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(247,1):
+  see previous definition of '_DEPRECATE_TR1_NAMESPACE'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1014,1): warning C4005: '_MISMATCHED_ALLOCATOR_MESSAGE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  (compiling source file 'StdAfx.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(303,1):
+  see previous definition of '_MISMATCHED_ALLOCATOR_MESSAGE'
+  
+  TrackSelect.cpp
+  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(880,1): warning C4005: '_MSVC_STL_VERSION': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  (compiling source file 'TrackSelect.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(156,1):
+  see previous definition of '_MSVC_STL_VERSION'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(881,1): warning C4005: '_MSVC_STL_UPDATE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  (compiling source file 'TrackSelect.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(157,1):
+  see previous definition of '_MSVC_STL_UPDATE'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1000,1): warning C4005: '_DEPRECATE_TR1_NAMESPACE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  (compiling source file 'TrackSelect.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(247,1):
+  see previous definition of '_DEPRECATE_TR1_NAMESPACE'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1014,1): warning C4005: '_MISMATCHED_ALLOCATOR_MESSAGE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  (compiling source file 'TrackSelect.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(303,1):
+  see previous definition of '_MISMATCHED_ALLOCATOR_MESSAGE'
+  
+C:\originalhr\HoverRace\NetTarget\Game2\TrackSelect.cpp(202,67): warning C4245: 'argument': conversion from 'int' to 'WPARAM', signed/unsigned mismatch [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\TrackSelect.cpp(168,96): warning C4100: 'pLParam': unreferenced formal parameter [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Game2\TrackSelect.cpp(353,19): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  Generating Code...
+C:\originalhr\HoverRace\NetTarget\Game2\GameApp.cpp(3876,1): warning C4706: assignment within conditional expression [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+Done Building Project "C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj" (default targets) -- FAILED.
+Done Building Project "C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj.metaproj" (default targets) -- FAILED.
+Project "C:\originalhr\HoverRace\NetTarget.sln" (1) is building "C:\originalhr\HoverRace\NetTarget\PaletteCreator\PaletteCreator.vcxproj.metaproj" (16) on node 1 (default targets).
+Project "C:\originalhr\HoverRace\NetTarget\PaletteCreator\PaletteCreator.vcxproj.metaproj" (16) is building "C:\originalhr\HoverRace\NetTarget\PaletteCreator\PaletteCreator.vcxproj" (17) on node 1 (default targets).
+PrepareForBuild:
+  Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
+InitializeBuildStatus:
+  Touching "Release\PaletteCreator.tlog\unsuccessfulbuild".
+ClCompile:
+  All outputs are up-to-date.
+Link:
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\bin\HostX86\x86\link.exe /ERRORREPORT:QUEUE /OUT:"C:\originalhr\HoverRace\Release\PaletteCreator.exe" /NOLOGO /LIBPATH:c:\originalhr\HoverRace\Release /LIBPATH:"C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\lib\x86" /LIBPATH:"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\lib\x86" /LIBPATH:"%(AdditionalLibraryDirectories" ColorTools.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /manifestinput:"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\Include\Manifest\dpiaware.manifest" /DEBUG:FULL /PDB:"C:\originalhr\HoverRace\Release\PaletteCreator.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\originalhr\HoverRace\Release\PaletteCreator.lib" /MACHINE:X86 /SAFESEH Release\PaletteCreator.obj
+  PaletteCreator.vcxproj -> C:\originalhr\HoverRace\Release\PaletteCreator.exe
+FinalizeBuildStatus:
+  Deleting file "Release\PaletteCreator.tlog\unsuccessfulbuild".
+  Touching "Release\PaletteCreator.tlog\PaletteCreator.lastbuildstate".
+Done Building Project "C:\originalhr\HoverRace\NetTarget\PaletteCreator\PaletteCreator.vcxproj" (default targets).
+Done Building Project "C:\originalhr\HoverRace\NetTarget\PaletteCreator\PaletteCreator.vcxproj.metaproj" (default targets).
+Done Building Project "C:\originalhr\HoverRace\NetTarget.sln" (default targets) -- FAILED.
+
+Build FAILED.
+
+"C:\originalhr\HoverRace\NetTarget.sln" (default target) (1) ->
+"C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj.metaproj" (default target) (12) ->
+"C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj" (default target) (15) ->
+(ClCompile target) -> 
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(880,1): warning C4005: '_MSVC_STL_VERSION': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(881,1): warning C4005: '_MSVC_STL_UPDATE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1000,1): warning C4005: '_DEPRECATE_TR1_NAMESPACE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1014,1): warning C4005: '_MISMATCHED_ALLOCATOR_MESSAGE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\Banner.cpp(273,66): warning C4100: 'pStreamLen': unreferenced formal parameter [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\Banner.cpp(273,50): warning C4100: 'pGifStream': unreferenced formal parameter [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\Banner.cpp(314,4): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\Banner.cpp(316,18): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\Banner.cpp(371,7): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\Banner.cpp(374,21): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\Banner.cpp(382,13): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(880,1): warning C4005: '_MSVC_STL_VERSION': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(881,1): warning C4005: '_MSVC_STL_UPDATE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1000,1): warning C4005: '_DEPRECATE_TR1_NAMESPACE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1014,1): warning C4005: '_MISMATCHED_ALLOCATOR_MESSAGE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\ClientSession.cpp(51,37): warning C4100: 'pSpeedFactor': unreferenced formal parameter [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\ClientSession.cpp(268,130): warning C4100: 'pNbHitHimself': unreferenced formal parameter [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\ClientSession.cpp(268,112): warning C4100: 'pNbHitOther': unreferenced formal parameter [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\ClientSession.cpp(268,95): warning C4100: 'pConnected': unreferenced formal parameter [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\ClientSession.cpp(268,84): warning C4100: 'pId': unreferenced formal parameter [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\ClientSession.cpp(268,42): warning C4100: 'pPosition': unreferenced formal parameter [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\ClientSession.cpp(389,10): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(880,1): warning C4005: '_MSVC_STL_VERSION': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(881,1): warning C4005: '_MSVC_STL_UPDATE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1000,1): warning C4005: '_DEPRECATE_TR1_NAMESPACE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1014,1): warning C4005: '_MISMATCHED_ALLOCATOR_MESSAGE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(880,1): warning C4005: '_MSVC_STL_VERSION': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(881,1): warning C4005: '_MSVC_STL_UPDATE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1000,1): warning C4005: '_DEPRECATE_TR1_NAMESPACE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1014,1): warning C4005: '_MISMATCHED_ALLOCATOR_MESSAGE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\Security.h(62,45): warning C4244: '+=': conversion from 'int' to 'unsigned short', possible loss of data [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\Security.h(63,45): warning C4244: '+=': conversion from 'int' to 'unsigned short', possible loss of data [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\Security.h(64,45): warning C4244: '+=': conversion from 'int' to 'unsigned short', possible loss of data [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\Security.h(65,40): warning C4244: '+=': conversion from 'int' to 'unsigned short', possible loss of data [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\Security.h(179,11): warning C4244: 'return': conversion from 'unsigned short' to 'unsigned char', possible loss of data [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\Security.h(192,11): warning C4244: 'return': conversion from 'unsigned short' to 'unsigned char', possible loss of data [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\Security.h(204,18): warning C4244: 'initializing': conversion from 'int' to 'char', possible loss of data [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\GameApp.cpp(713,28): warning C4244: '=': conversion from 'int' to 'MR_UInt8', possible loss of data [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\GameApp.cpp(714,28): warning C4244: '=': conversion from 'int' to 'MR_UInt8', possible loss of data [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\GameApp.cpp(715,28): warning C4244: '=': conversion from 'int' to 'MR_UInt8', possible loss of data [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\GameApp.cpp(716,28): warning C4244: '=': conversion from 'int' to 'MR_UInt8', possible loss of data [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\GameApp.cpp(717,28): warning C4244: '=': conversion from 'int' to 'MR_UInt8', possible loss of data [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\GameApp.cpp(718,28): warning C4244: '=': conversion from 'int' to 'MR_UInt8', possible loss of data [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\GameApp.cpp(719,28): warning C4244: '=': conversion from 'int' to 'MR_UInt8', possible loss of data [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\GameApp.cpp(721,28): warning C4244: '=': conversion from 'int' to 'MR_UInt8', possible loss of data [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\GameApp.cpp(722,28): warning C4244: '=': conversion from 'int' to 'MR_UInt8', possible loss of data [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\GameApp.cpp(723,28): warning C4244: '=': conversion from 'int' to 'MR_UInt8', possible loss of data [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\GameApp.cpp(724,28): warning C4244: '=': conversion from 'int' to 'MR_UInt8', possible loss of data [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\GameApp.cpp(725,28): warning C4244: '=': conversion from 'int' to 'MR_UInt8', possible loss of data [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\GameApp.cpp(726,28): warning C4244: '=': conversion from 'int' to 'MR_UInt8', possible loss of data [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\GameApp.cpp(727,28): warning C4244: '=': conversion from 'int' to 'MR_UInt8', possible loss of data [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\GameApp.cpp(1391,40): warning C4244: 'argument': conversion from 'int' to 'MR_UInt8', possible loss of data [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\GameApp.cpp(2706,91): warning C4100: 'pWParam': unreferenced formal parameter [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\GameApp.cpp(2804,82): warning C4100: 'pWParam': unreferenced formal parameter [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\GameApp.cpp(2899,99): warning C4100: 'pLParam': unreferenced formal parameter [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\GameApp.cpp(2899,51): warning C4100: 'pWindow': unreferenced formal parameter [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\GameApp.cpp(2932,97): warning C4100: 'pLParam': unreferenced formal parameter [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\GameApp.cpp(2932,80): warning C4100: 'pWParam': unreferenced formal parameter [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\GameApp.cpp(2932,64): warning C4100: 'pMsgId': unreferenced formal parameter [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\GameApp.cpp(2932,49): warning C4100: 'pWindow': unreferenced formal parameter [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\GameApp.cpp(2950,111): warning C4100: 'pLParam': unreferenced formal parameter [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\GameApp.cpp(2988,94): warning C4100: 'pLParam': unreferenced formal parameter [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\GameApp.cpp(3218,24): warning C4996: 'localtime': This function or variable may be unsafe. Consider using localtime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\GameApp.cpp(3118,95): warning C4100: 'pLParam': unreferenced formal parameter [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\GameApp.cpp(3252,91): warning C4100: 'pLParam': unreferenced formal parameter [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\GameApp.cpp(3395,97): warning C4100: 'pLParam': unreferenced formal parameter [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\GameApp.cpp(3619,98): warning C4100: 'pLParam': unreferenced formal parameter [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\GameApp.cpp(3779,104): warning C4100: 'pLParam': unreferenced formal parameter [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\GameApp.cpp(3923,30): warning C4244: '=': conversion from 'int' to 'WORD', possible loss of data [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(880,1): warning C4005: '_MSVC_STL_VERSION': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(881,1): warning C4005: '_MSVC_STL_UPDATE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1000,1): warning C4005: '_DEPRECATE_TR1_NAMESPACE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1014,1): warning C4005: '_MISMATCHED_ALLOCATOR_MESSAGE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\InternetRoom.cpp(207,10): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\InternetRoom.cpp(220,10): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\InternetRoom.cpp(245,7): warning C4996: 'WSAAsyncSelect': Use WSAEventSelect() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\InternetRoom.cpp(417,10): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\InternetRoom.cpp(424,14): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\InternetRoom.cpp(444,22): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\InternetRoom.cpp(465,14): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\InternetRoom.cpp(502,26): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\InternetRoom.cpp(628,10): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\InternetRoom.cpp(701,10): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\InternetRoom.cpp(1103,10): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\InternetRoom.cpp(1352,106): warning C4100: 'pLParam': unreferenced formal parameter [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\InternetRoom.cpp(1414,104): warning C4100: 'pLParam': unreferenced formal parameter [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\InternetRoom.cpp(1604,26): warning C4389: '!=': signed/unsigned mismatch [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\InternetRoom.cpp(1878,19): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\InternetRoom.cpp(2155,44): warning C4996: 'WSAAsyncGetHostByName': Use GetAddrInfoExW() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\InternetRoom.cpp(2186,22): warning C4996: 'WSACancelAsyncRequest': Define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\InternetRoom.cpp(2245,16): warning C4996: 'WSACancelAsyncRequest': Define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\InternetRoom.cpp(2293,19): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\InternetRoom.cpp(2299,32): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\InternetRoom.cpp(2323,32): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\InternetRoom.cpp(2399,32): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\InternetRoom.cpp(2287,28): warning C4101: 'lURLLadderReport': unreferenced local variable [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\InternetRoom.cpp(2290,28): warning C4101: 'lNibble2': unreferenced local variable [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(880,1): warning C4005: '_MSVC_STL_VERSION': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(881,1): warning C4005: '_MSVC_STL_UPDATE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1000,1): warning C4005: '_DEPRECATE_TR1_NAMESPACE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1014,1): warning C4005: '_MISMATCHED_ALLOCATOR_MESSAGE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(880,1): warning C4005: '_MSVC_STL_VERSION': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(881,1): warning C4005: '_MSVC_STL_UPDATE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1000,1): warning C4005: '_DEPRECATE_TR1_NAMESPACE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1014,1): warning C4005: '_MISMATCHED_ALLOCATOR_MESSAGE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\main.cpp(29,90): warning C4100: 'pCmdShow': unreferenced formal parameter [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(880,1): warning C4005: '_MSVC_STL_VERSION': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(881,1): warning C4005: '_MSVC_STL_UPDATE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1000,1): warning C4005: '_DEPRECATE_TR1_NAMESPACE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1014,1): warning C4005: '_MISMATCHED_ALLOCATOR_MESSAGE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\MatchReport.cpp(253,7): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\MatchReport.cpp(270,7): warning C4996: 'WSAAsyncSelect': Use WSAEventSelect() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\MatchReport.cpp(369,10): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\MatchReport.cpp(371,7): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\MatchReport.cpp(388,7): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\MatchReport.cpp(389,7): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\MatchReport.cpp(390,7): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\MatchReport.cpp(391,7): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\MatchReport.cpp(403,13): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\MatchReport.cpp(405,10): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\MatchReport.cpp(406,10): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\MatchReport.cpp(407,10): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\MatchReport.cpp(415,4): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\MatchReport.cpp(476,19): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\MatchReport.cpp(470,13): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\MatchReport.cpp(479,19): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\MatchReport.cpp(484,16): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\MatchReport.cpp(494,16): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\MatchReport.cpp(500,16): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\MatchReport.cpp(506,16): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\MatchReport.cpp(591,38): warning C4456: declaration of 'lResult' hides previous local declaration [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\MatchReport.cpp(516,104): warning C4100: 'pLParam': unreferenced formal parameter [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\MatchReport.cpp(642,104): warning C4100: 'pLParam': unreferenced formal parameter [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\MatchReport.cpp(715,13): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\MatchReport.cpp(770,92): warning C4100: 'pLParam': unreferenced formal parameter [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\MatchReport.cpp(828,16): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(880,1): warning C4005: '_MSVC_STL_VERSION': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(881,1): warning C4005: '_MSVC_STL_UPDATE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1000,1): warning C4005: '_DEPRECATE_TR1_NAMESPACE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1014,1): warning C4005: '_MISMATCHED_ALLOCATOR_MESSAGE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\NetInterface.cpp(411,41): warning C4244: 'argument': conversion from 'int' to 'u_short', possible loss of data [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\NetInterface.cpp(642,66): warning C4244: 'argument': conversion from 'int' to 'u_short', possible loss of data [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\NetInterface.cpp(586,109): warning C4100: 'pLParam': unreferenced formal parameter [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\NetInterface.cpp(661,109): warning C4100: 'pLParam': unreferenced formal parameter [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\NetInterface.cpp(752,63): warning C4244: 'argument': conversion from 'int' to 'u_short', possible loss of data [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\NetInterface.cpp(754,16): warning C4996: 'WSAAsyncSelect': Use WSAEventSelect() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\NetInterface.cpp(789,16): warning C4996: 'WSAAsyncSelect': Use WSAEventSelect() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\NetInterface.cpp(835,19): warning C4996: 'WSAAsyncSelect': Use WSAEventSelect() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\NetInterface.cpp(846,22): warning C4996: 'WSAAsyncSelect': Use WSAEventSelect() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\NetInterface.cpp(979,78): warning C4244: '=': conversion from 'int' to 'MR_UInt8', possible loss of data [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\NetInterface.cpp(1043,53): warning C4244: '=': conversion from 'int' to 'MR_UInt8', possible loss of data [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\NetInterface.cpp(1196,78): warning C4244: '=': conversion from 'int' to 'MR_UInt8', possible loss of data [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\NetInterface.cpp(1273,87): warning C4244: '=': conversion from 'int' to 'MR_UInt8', possible loss of data [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\NetInterface.cpp(1362,52): warning C4244: '=': conversion from 'int' to 'USHORT', possible loss of data [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\NetInterface.cpp(1518,78): warning C4244: '=': conversion from 'int' to 'MR_UInt8', possible loss of data [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\NetInterface.cpp(966,13): warning C4996: 'WSAAsyncSelect': Use WSAEventSelect() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\NetInterface.cpp(973,16): warning C4996: 'WSAAsyncSelect': Use WSAEventSelect() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\NetInterface.cpp(974,16): warning C4996: 'WSAAsyncSelect': Use WSAEventSelect() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\NetInterface.cpp(1055,28): warning C4996: 'WSAAsyncSelect': Use WSAEventSelect() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\NetInterface.cpp(1056,28): warning C4996: 'WSAAsyncSelect': Use WSAEventSelect() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\NetInterface.cpp(1059,22): warning C4996: 'WSAAsyncSelect': Use WSAEventSelect() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\NetInterface.cpp(1117,19): warning C4996: 'WSAAsyncSelect': Use WSAEventSelect() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\NetInterface.cpp(1118,19): warning C4996: 'WSAAsyncSelect': Use WSAEventSelect() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\NetInterface.cpp(1180,13): warning C4996: 'WSAAsyncSelect': Use WSAEventSelect() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\NetInterface.cpp(1181,13): warning C4996: 'WSAAsyncSelect': Use WSAEventSelect() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\NetInterface.cpp(1364,28): warning C4996: 'WSAAsyncSelect': Use WSAEventSelect() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\NetInterface.cpp(1365,28): warning C4996: 'WSAAsyncSelect': Use WSAEventSelect() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\NetInterface.cpp(1429,28): warning C4996: '_itoa': This function or variable may be unsafe. Consider using _itoa_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\NetInterface.cpp(1445,25): warning C4996: '_itoa': This function or variable may be unsafe. Consider using _itoa_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\NetInterface.cpp(1479,28): warning C4996: 'WSAAsyncSelect': Use WSAEventSelect() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\NetInterface.cpp(1480,28): warning C4996: 'WSAAsyncSelect': Use WSAEventSelect() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\NetInterface.cpp(1484,22): warning C4996: 'WSAAsyncSelect': Use WSAEventSelect() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\NetInterface.cpp(1500,13): warning C4996: 'WSAAsyncSelect': Use WSAEventSelect() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\NetInterface.cpp(1501,13): warning C4996: 'WSAAsyncSelect': Use WSAEventSelect() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\NetInterface.cpp(1615,30): warning C4244: '=': conversion from 'unsigned int' to 'USHORT', possible loss of data [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\NetInterface.cpp(1744,88): warning C4389: '==': signed/unsigned mismatch [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\NetInterface.cpp(1977,15): warning C4996: 'gethostbyname': Use getaddrinfo() or GetAddrInfoW() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\NetInterface.cpp(1986,10): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\NetInterface.cpp(2016,19): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\NetInterface.cpp(2036,79): warning C4100: 'lParam': unreferenced formal parameter [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(880,1): warning C4005: '_MSVC_STL_VERSION': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(881,1): warning C4005: '_MSVC_STL_UPDATE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1000,1): warning C4005: '_DEPRECATE_TR1_NAMESPACE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1014,1): warning C4005: '_MISMATCHED_ALLOCATOR_MESSAGE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(771,55): warning C4244: '=': conversion from 'int' to 'MR_UInt8', possible loss of data [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(774,39): warning C4244: '=': conversion from 'int' to 'MR_Int16', possible loss of data [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(775,39): warning C4244: '=': conversion from 'int' to 'MR_Int16', possible loss of data [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(798,55): warning C4244: '=': conversion from 'int' to 'MR_UInt8', possible loss of data [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(801,39): warning C4244: '=': conversion from 'int' to 'MR_Int16', possible loss of data [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(896,55): warning C4244: '=': conversion from 'int' to 'MR_UInt8', possible loss of data [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(897,39): warning C4244: '=': conversion from 'int' to 'MR_Int8', possible loss of data [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(898,39): warning C4244: '=': conversion from 'int' to 'MR_Int16', possible loss of data [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(1022,45): warning C4244: '=': conversion from 'const int' to 'MR_UInt8', possible loss of data [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(1194,29): warning C4244: '=': conversion from 'int' to 'MR_Int8', possible loss of data [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(1208,37): warning C4267: '=': conversion from 'size_t' to 'MR_UInt8', possible loss of data [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(1451,4): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(880,1): warning C4005: '_MSVC_STL_VERSION': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(881,1): warning C4005: '_MSVC_STL_UPDATE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1000,1): warning C4005: '_DEPRECATE_TR1_NAMESPACE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1014,1): warning C4005: '_MISMATCHED_ALLOCATOR_MESSAGE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\Observer.cpp(286,7): warning C5205: delete of an abstract class 'MR_PolygonShape' that has a non-virtual destructor results in undefined behavior [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\Observer.cpp(428,4): warning C5205: delete of an abstract class 'MR_PolygonShape' that has a non-virtual destructor results in undefined behavior [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\Observer.cpp(601,25): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\Observer.cpp(602,25): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\Observer.cpp(604,25): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\Observer.cpp(679,16): warning C4456: declaration of 'lCounter' hides previous local declaration [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\Observer.cpp(712,11): warning C4456: declaration of 'lXMargin' hides previous local declaration [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\Observer.cpp(713,11): warning C4456: declaration of 'lYMargin' hides previous local declaration [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\Observer.cpp(800,19): warning C4456: declaration of 'lCounter' hides previous local declaration [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\Observer.cpp(826,16): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\Observer.cpp(839,16): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\Observer.cpp(851,16): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\Observer.cpp(865,16): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\Observer.cpp(899,10): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\Observer.cpp(909,13): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\Observer.cpp(913,13): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\Observer.cpp(915,10): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\Observer.cpp(922,10): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\Observer.cpp(933,10): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\Observer.cpp(934,10): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\Observer.cpp(945,10): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\Observer.cpp(946,10): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\Observer.cpp(1032,4): warning C5205: delete of an abstract class 'MR_PolygonShape' that has a non-virtual destructor results in undefined behavior [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\Observer.cpp(1075,4): warning C5205: delete of an abstract class 'MR_PolygonShape' that has a non-virtual destructor results in undefined behavior [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\Observer.cpp(1136,4): warning C5205: delete of an abstract class 'MR_PolygonShape' that has a non-virtual destructor results in undefined behavior [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\Observer.cpp(1263,24): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(880,1): warning C4005: '_MSVC_STL_VERSION': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(881,1): warning C4005: '_MSVC_STL_UPDATE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1000,1): warning C4005: '_DEPRECATE_TR1_NAMESPACE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1014,1): warning C4005: '_MISMATCHED_ALLOCATOR_MESSAGE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\Sponsor.cpp(37,18): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\Sponsor.cpp(96,77): warning C4100: 'pLParam': unreferenced formal parameter [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(880,1): warning C4005: '_MSVC_STL_VERSION': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(881,1): warning C4005: '_MSVC_STL_UPDATE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1000,1): warning C4005: '_DEPRECATE_TR1_NAMESPACE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1014,1): warning C4005: '_MISMATCHED_ALLOCATOR_MESSAGE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(880,1): warning C4005: '_MSVC_STL_VERSION': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(881,1): warning C4005: '_MSVC_STL_UPDATE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1000,1): warning C4005: '_DEPRECATE_TR1_NAMESPACE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1014,1): warning C4005: '_MISMATCHED_ALLOCATOR_MESSAGE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\TrackSelect.cpp(202,67): warning C4245: 'argument': conversion from 'int' to 'WPARAM', signed/unsigned mismatch [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\TrackSelect.cpp(168,96): warning C4100: 'pLParam': unreferenced formal parameter [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\TrackSelect.cpp(353,19): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\GameApp.cpp(3876,1): warning C4706: assignment within conditional expression [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+
+
+"C:\originalhr\HoverRace\NetTarget.sln" (default target) (1) ->
+"C:\originalhr\HoverRace\NetTarget\MazeCompiler\MazeCompiler.vcxproj.metaproj" (default target) (3) ->
+"C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj.metaproj" (default target) (4) ->
+"C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj" (default target) (6) ->
+(Link target) -> 
+  VideoBuffer.obj : error LNK2019: unresolved external symbol _DirectDrawCreate@12 referenced in function "private: int __thiscall MR_VideoBuffer::InitDirectDraw(void)" (?InitDirectDraw@MR_VideoBuffer@@AAEHXZ) [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  C:\originalhr\HoverRace\Release\VideoServices.dll : fatal error LNK1120: 1 unresolved externals [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+
+
+"C:\originalhr\HoverRace\NetTarget.sln" (default target) (1) ->
+"C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj.metaproj" (default target) (12) ->
+"C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj" (default target) (15) ->
+(ClCompile target) -> 
+  C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(841,9): error C2065: 'lCounter': undeclared identifier [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(841,23): error C2065: 'lCounter': undeclared identifier [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(841,67): error C2065: 'lCounter': undeclared identifier [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(843,27): error C2065: 'lCounter': undeclared identifier [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(845,37): error C2065: 'lCounter': undeclared identifier [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(847,37): error C2065: 'lCounter': undeclared identifier [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(851,41): error C2065: 'lCounter': undeclared identifier [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(858,9): error C2065: 'lCounter': undeclared identifier [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(858,23): error C2065: 'lCounter': undeclared identifier [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(858,67): error C2065: 'lCounter': undeclared identifier [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(860,27): error C2065: 'lCounter': undeclared identifier [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(862,37): error C2065: 'lCounter': undeclared identifier [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(864,37): error C2065: 'lCounter': undeclared identifier [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(868,41): error C2065: 'lCounter': undeclared identifier [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(874,9): error C2065: 'lCounter': undeclared identifier [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(874,23): error C2065: 'lCounter': undeclared identifier [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(874,67): error C2065: 'lCounter': undeclared identifier [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(876,27): error C2065: 'lCounter': undeclared identifier [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(878,37): error C2065: 'lCounter': undeclared identifier [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(880,37): error C2065: 'lCounter': undeclared identifier [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(884,41): error C2065: 'lCounter': undeclared identifier [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(938,9): error C2065: 'lCounter': undeclared identifier [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(938,23): error C2065: 'lCounter': undeclared identifier [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(938,67): error C2065: 'lCounter': undeclared identifier [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(940,27): error C2065: 'lCounter': undeclared identifier [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(942,37): error C2065: 'lCounter': undeclared identifier [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(944,37): error C2065: 'lCounter': undeclared identifier [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(948,41): error C2065: 'lCounter': undeclared identifier [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(955,9): error C2065: 'lCounter': undeclared identifier [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(955,23): error C2065: 'lCounter': undeclared identifier [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(955,67): error C2065: 'lCounter': undeclared identifier [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(957,27): error C2065: 'lCounter': undeclared identifier [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(959,37): error C2065: 'lCounter': undeclared identifier [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(961,37): error C2065: 'lCounter': undeclared identifier [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(965,41): error C2065: 'lCounter': undeclared identifier [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(971,9): error C2065: 'lCounter': undeclared identifier [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(971,23): error C2065: 'lCounter': undeclared identifier [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(971,67): error C2065: 'lCounter': undeclared identifier [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(973,27): error C2065: 'lCounter': undeclared identifier [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(975,37): error C2065: 'lCounter': undeclared identifier [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(977,37): error C2065: 'lCounter': undeclared identifier [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Game2\NetworkSession.cpp(981,41): error C2065: 'lCounter': undeclared identifier [C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj]
+
+    244 Warning(s)
+    44 Error(s)
+
+Time Elapsed 00:00:15.94

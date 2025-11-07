@@ -1,0 +1,156 @@
+MSBuild version 17.9.5+33de0b227 for .NET Framework
+Build started 07/11/2025 17:08:54.
+
+Project "C:\originalhr\HoverRace\NetTarget.sln" on node 1 (default targets).
+ValidateSolutionConfiguration:
+  Building solution configuration "Release|Default".
+Project "C:\originalhr\HoverRace\NetTarget.sln" (1) is building "C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj" (2) on node 1 (default targets).
+PrepareForBuild:
+  Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
+InitializeBuildStatus:
+  Creating "Release\Util.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+  Touching "Release\Util.tlog\unsuccessfulbuild".
+ClCompile:
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\bin\HostX86\x86\CL.exe /c /I"C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include" /I"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include" /I\gdk\sdk\inc /Zi /nologo /W4 /WX- /diagnostics:column /O2 /Oy- /D WIN32 /D NDEBUG /D _WINDOWS /D MR_UTIL /D _AFXDLL /D _WINDLL /D _MBCS /D _AFXDLL /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Release\\" /Fd"Release\vc143.pdb" /external:W4 /Gd /TP /analyze- /FC /errorReport:queue RecordFile.cpp
+  RecordFile.cpp
+  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(880,1): warning C4005: '_MSVC_STL_VERSION': macro redefinition [C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj]
+  (compiling source file 'RecordFile.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(156,1):
+  see previous definition of '_MSVC_STL_VERSION'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(881,1): warning C4005: '_MSVC_STL_UPDATE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj]
+  (compiling source file 'RecordFile.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(157,1):
+  see previous definition of '_MSVC_STL_UPDATE'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1000,1): warning C4005: '_DEPRECATE_TR1_NAMESPACE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj]
+  (compiling source file 'RecordFile.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(247,1):
+  see previous definition of '_DEPRECATE_TR1_NAMESPACE'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1014,1): warning C4005: '_MISMATCHED_ALLOCATOR_MESSAGE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj]
+  (compiling source file 'RecordFile.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(303,1):
+  see previous definition of '_MISMATCHED_ALLOCATOR_MESSAGE'
+  
+C:\originalhr\HoverRace\NetTarget\Util\RecordFile.cpp(261,66): warning C4244: '=': conversion from 'ULONGLONG' to 'DWORD', possible loss of data [C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Util\RecordFile.cpp(432,50): warning C4244: 'return': conversion from 'ULONGLONG' to 'LONG', possible loss of data [C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Util\RecordFile.cpp(478,32): warning C4244: '=': conversion from 'ULONGLONG' to 'UINT', possible loss of data [C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Util\RecordFile.cpp(539,18): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj]
+Link:
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\bin\HostX86\x86\link.exe /ERRORREPORT:QUEUE /OUT:"C:\originalhr\HoverRace\Release\Util.dll" /NOLOGO /LIBPATH:"C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\lib\x86" /LIBPATH:"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\lib\x86" winmm.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /manifestinput:"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\Include\Manifest\dpiaware.manifest" /DEBUG:FULL /PDB:"C:\originalhr\HoverRace\Release\Util.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\originalhr\HoverRace\Release\Util.lib" /MACHINE:X86 /SAFESEH /DLL Release\DllObjectFactory.obj
+  Release\FuzzyLogic.obj
+  Release\Profiler.obj
+  Release\RecordFile.obj
+  Release\StdAfx.obj
+  Release\StrRes.obj
+  Release\WorldCoordinates.obj
+  Util.vcxproj -> C:\originalhr\HoverRace\Release\Util.dll
+FinalizeBuildStatus:
+  Deleting file "Release\Util.tlog\unsuccessfulbuild".
+  Touching "Release\Util.tlog\Util.lastbuildstate".
+Done Building Project "C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj" (default targets).
+Project "C:\originalhr\HoverRace\NetTarget.sln" (1) is building "C:\originalhr\HoverRace\NetTarget\MazeCompiler\MazeCompiler.vcxproj.metaproj" (3) on node 1 (default targets).
+Project "C:\originalhr\HoverRace\NetTarget\MazeCompiler\MazeCompiler.vcxproj.metaproj" (3) is building "C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj.metaproj" (4) on node 1 (default targets).
+Project "C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj.metaproj" (4) is building "C:\originalhr\HoverRace\NetTarget\ColorTools\ColorTools.vcxproj" (5) on node 1 (default targets).
+PrepareForBuild:
+  Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
+InitializeBuildStatus:
+  Creating "Release\ColorTools.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+  Touching "Release\ColorTools.tlog\unsuccessfulbuild".
+ClCompile:
+  All outputs are up-to-date.
+Link:
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\bin\HostX86\x86\link.exe /ERRORREPORT:QUEUE /OUT:"C:\originalhr\HoverRace\Release\ColorTools.dll" /NOLOGO /LIBPATH:"C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\lib\x86" /LIBPATH:"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\lib\x86" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /manifestinput:"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\Include\Manifest\dpiaware.manifest" /DEBUG:FULL /PDB:"C:\originalhr\HoverRace\Release\ColorTools.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\originalhr\HoverRace\Release\ColorTools.lib" /MACHINE:X86 /SAFESEH /DLL Release\ColorTools.obj
+  Release\StdAfx.obj
+  C:\originalhr\HoverRace\Release\Util.lib
+     Creating library C:\originalhr\HoverRace\Release\ColorTools.lib and object C:\originalhr\HoverRace\Release\ColorTools.exp
+  ColorTools.vcxproj -> C:\originalhr\HoverRace\Release\ColorTools.dll
+FinalizeBuildStatus:
+  Deleting file "Release\ColorTools.tlog\unsuccessfulbuild".
+  Touching "Release\ColorTools.tlog\ColorTools.lastbuildstate".
+Done Building Project "C:\originalhr\HoverRace\NetTarget\ColorTools\ColorTools.vcxproj" (default targets).
+Project "C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj.metaproj" (4) is building "C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj" (6) on node 1 (default targets).
+PrepareForBuild:
+  Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
+InitializeBuildStatus:
+  Touching "Release\VideoServices.tlog\unsuccessfulbuild".
+ClCompile:
+  All outputs are up-to-date.
+Link:
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\bin\HostX86\x86\link.exe /ERRORREPORT:QUEUE /OUT:"C:\originalhr\HoverRace\Release\VideoServices.dll" /NOLOGO /LIBPATH:c:\originalhr\HoverRace\Release /LIBPATH:"C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\lib\x86" /LIBPATH:"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\lib\x86" /LIBPATH:"%(AdditionalLibraryDirectories" Util.lib dsound.lib winmm.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /manifestinput:"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\Include\Manifest\dpiaware.manifest" /DEBUG:FULL /PDB:"C:\originalhr\HoverRace\Release\VideoServices.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\originalhr\HoverRace\Release\VideoServices.lib" /MACHINE:X86 /SAFESEH /DLL Release\2DViewPort.obj
+  Release\3DViewport.obj
+  Release\3DViewportRendering.obj
+  Release\Bitmap.obj
+  Release\ColorPalette.obj
+  Release\ColorTab.obj
+  Release\Patch.obj
+  Release\SoundServer.obj
+  Release\Sprite.obj
+  Release\StdAfx.obj
+  Release\VideoBuffer.obj
+  Release\VideoBuffer2DDraw.obj
+  C:\originalhr\HoverRace\Release\Util.lib
+     Creating library C:\originalhr\HoverRace\Release\VideoServices.lib and object C:\originalhr\HoverRace\Release\VideoServices.exp
+VideoBuffer.obj : error LNK2019: unresolved external symbol _DirectDrawCreate@12 referenced in function "private: int __thiscall MR_VideoBuffer::InitDirectDraw(void)" (?InitDirectDraw@MR_VideoBuffer@@AAEHXZ) [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+C:\originalhr\HoverRace\Release\VideoServices.dll : fatal error LNK1120: 1 unresolved externals [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+Done Building Project "C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj" (default targets) -- FAILED.
+Done Building Project "C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj.metaproj" (default targets) -- FAILED.
+Done Building Project "C:\originalhr\HoverRace\NetTarget\MazeCompiler\MazeCompiler.vcxproj.metaproj" (default targets) -- FAILED.
+Project "C:\originalhr\HoverRace\NetTarget.sln" (1) is building "C:\originalhr\HoverRace\NetTarget\GameServer\GameServer.vcxproj" (10) on node 1 (default targets).
+PrepareForBuild:
+  Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
+InitializeBuildStatus:
+  Creating "Release\GameServer.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+  Touching "Release\GameServer.tlog\unsuccessfulbuild".
+FinalizeBuildStatus:
+  Deleting file "Release\GameServer.tlog\unsuccessfulbuild".
+  Touching "Release\GameServer.tlog\GameServer.lastbuildstate".
+Done Building Project "C:\originalhr\HoverRace\NetTarget\GameServer\GameServer.vcxproj" (default targets).
+Project "C:\originalhr\HoverRace\NetTarget.sln" (1) is building "C:\originalhr\HoverRace\NetTarget\PaletteCreator\PaletteCreator.vcxproj.metaproj" (15) on node 1 (default targets).
+Project "C:\originalhr\HoverRace\NetTarget\PaletteCreator\PaletteCreator.vcxproj.metaproj" (15) is building "C:\originalhr\HoverRace\NetTarget\PaletteCreator\PaletteCreator.vcxproj" (16) on node 1 (default targets).
+PrepareForBuild:
+  Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
+InitializeBuildStatus:
+  Creating "Release\PaletteCreator.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+  Touching "Release\PaletteCreator.tlog\unsuccessfulbuild".
+ClCompile:
+  All outputs are up-to-date.
+Link:
+  All outputs are up-to-date.
+  PaletteCreator.vcxproj -> C:\originalhr\HoverRace\Release\PaletteCreator.exe
+FinalizeBuildStatus:
+  Deleting file "Release\PaletteCreator.tlog\unsuccessfulbuild".
+  Touching "Release\PaletteCreator.tlog\PaletteCreator.lastbuildstate".
+Done Building Project "C:\originalhr\HoverRace\NetTarget\PaletteCreator\PaletteCreator.vcxproj" (default targets).
+Done Building Project "C:\originalhr\HoverRace\NetTarget\PaletteCreator\PaletteCreator.vcxproj.metaproj" (default targets).
+Done Building Project "C:\originalhr\HoverRace\NetTarget.sln" (default targets) -- FAILED.
+
+Build FAILED.
+
+"C:\originalhr\HoverRace\NetTarget.sln" (default target) (1) ->
+"C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj" (default target) (2) ->
+(ClCompile target) -> 
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(880,1): warning C4005: '_MSVC_STL_VERSION': macro redefinition [C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(881,1): warning C4005: '_MSVC_STL_UPDATE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1000,1): warning C4005: '_DEPRECATE_TR1_NAMESPACE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1014,1): warning C4005: '_MISMATCHED_ALLOCATOR_MESSAGE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Util\RecordFile.cpp(261,66): warning C4244: '=': conversion from 'ULONGLONG' to 'DWORD', possible loss of data [C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Util\RecordFile.cpp(432,50): warning C4244: 'return': conversion from 'ULONGLONG' to 'LONG', possible loss of data [C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Util\RecordFile.cpp(478,32): warning C4244: '=': conversion from 'ULONGLONG' to 'UINT', possible loss of data [C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Util\RecordFile.cpp(539,18): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj]
+
+
+"C:\originalhr\HoverRace\NetTarget.sln" (default target) (1) ->
+"C:\originalhr\HoverRace\NetTarget\MazeCompiler\MazeCompiler.vcxproj.metaproj" (default target) (3) ->
+"C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj.metaproj" (default target) (4) ->
+"C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj" (default target) (6) ->
+(Link target) -> 
+  VideoBuffer.obj : error LNK2019: unresolved external symbol _DirectDrawCreate@12 referenced in function "private: int __thiscall MR_VideoBuffer::InitDirectDraw(void)" (?InitDirectDraw@MR_VideoBuffer@@AAEHXZ) [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  C:\originalhr\HoverRace\Release\VideoServices.dll : fatal error LNK1120: 1 unresolved externals [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+
+    8 Warning(s)
+    2 Error(s)
+
+Time Elapsed 00:00:02.56

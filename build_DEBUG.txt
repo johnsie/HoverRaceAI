@@ -1,0 +1,804 @@
+MSBuild version 17.9.5+33de0b227 for .NET Framework
+Build started 07/11/2025 17:07:03.
+
+Project "C:\originalhr\HoverRace\NetTarget.sln" on node 1 (default targets).
+ValidateSolutionConfiguration:
+  Building solution configuration "Debug|Default".
+Project "C:\originalhr\HoverRace\NetTarget.sln" (1) is building "C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj" (2) on node 1 (default targets).
+PrepareForBuild:
+  Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
+  Creating directory "C:\originalhr\HoverRace\Debug\".
+InitializeBuildStatus:
+  Touching "Debug\Util.tlog\unsuccessfulbuild".
+ClCompile:
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\bin\HostX86\x86\CL.exe /c /I"C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include" /I"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include" /I\gdk\sdk\inc /Zi /nologo /W4 /WX- /diagnostics:column /O2 /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D MR_UTIL /D _AFXDLL /D _WINDLL /D _MBCS /D _AFXDLL /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc143.pdb" /external:W4 /Gd /TP /analyze- /FC /errorReport:queue DllObjectFactory.cpp FuzzyLogic.cpp Profiler.cpp RecordFile.cpp StdAfx.cpp StrRes.cpp WorldCoordinates.cpp
+  DllObjectFactory.cpp
+  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(880,1): warning C4005: '_MSVC_STL_VERSION': macro redefinition [C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj]
+  (compiling source file 'DllObjectFactory.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(156,1):
+  see previous definition of '_MSVC_STL_VERSION'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(881,1): warning C4005: '_MSVC_STL_UPDATE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj]
+  (compiling source file 'DllObjectFactory.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(157,1):
+  see previous definition of '_MSVC_STL_UPDATE'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1000,1): warning C4005: '_DEPRECATE_TR1_NAMESPACE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj]
+  (compiling source file 'DllObjectFactory.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(247,1):
+  see previous definition of '_DEPRECATE_TR1_NAMESPACE'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1014,1): warning C4005: '_MISMATCHED_ALLOCATOR_MESSAGE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj]
+  (compiling source file 'DllObjectFactory.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(303,1):
+  see previous definition of '_MISMATCHED_ALLOCATOR_MESSAGE'
+  
+C:\originalhr\HoverRace\NetTarget\Util\DllObjectFactory.cpp(156,46): warning C4390: ';': empty controlled statement found; is this the intent? [C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Util\DllObjectFactory.cpp(171,43): warning C4390: ';': empty controlled statement found; is this the intent? [C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Util\DllObjectFactory.cpp(185,48): warning C4390: ';': empty controlled statement found; is this the intent? [C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Util\DllObjectFactory.cpp(372,4): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj]
+  FuzzyLogic.cpp
+  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(880,1): warning C4005: '_MSVC_STL_VERSION': macro redefinition [C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj]
+  (compiling source file 'FuzzyLogic.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(156,1):
+  see previous definition of '_MSVC_STL_VERSION'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(881,1): warning C4005: '_MSVC_STL_UPDATE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj]
+  (compiling source file 'FuzzyLogic.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(157,1):
+  see previous definition of '_MSVC_STL_UPDATE'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1000,1): warning C4005: '_DEPRECATE_TR1_NAMESPACE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj]
+  (compiling source file 'FuzzyLogic.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(247,1):
+  see previous definition of '_DEPRECATE_TR1_NAMESPACE'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1014,1): warning C4005: '_MISMATCHED_ALLOCATOR_MESSAGE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj]
+  (compiling source file 'FuzzyLogic.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(303,1):
+  see previous definition of '_MISMATCHED_ALLOCATOR_MESSAGE'
+  
+  Profiler.cpp
+  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(880,1): warning C4005: '_MSVC_STL_VERSION': macro redefinition [C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj]
+  (compiling source file 'Profiler.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(156,1):
+  see previous definition of '_MSVC_STL_VERSION'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(881,1): warning C4005: '_MSVC_STL_UPDATE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj]
+  (compiling source file 'Profiler.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(157,1):
+  see previous definition of '_MSVC_STL_UPDATE'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1000,1): warning C4005: '_DEPRECATE_TR1_NAMESPACE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj]
+  (compiling source file 'Profiler.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(247,1):
+  see previous definition of '_DEPRECATE_TR1_NAMESPACE'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1014,1): warning C4005: '_MISMATCHED_ALLOCATOR_MESSAGE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj]
+  (compiling source file 'Profiler.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(303,1):
+  see previous definition of '_MISMATCHED_ALLOCATOR_MESSAGE'
+  
+C:\originalhr\HoverRace\NetTarget\Util\Profiler.cpp(171,18): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj]
+  RecordFile.cpp
+  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(880,1): warning C4005: '_MSVC_STL_VERSION': macro redefinition [C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj]
+  (compiling source file 'RecordFile.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(156,1):
+  see previous definition of '_MSVC_STL_VERSION'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(881,1): warning C4005: '_MSVC_STL_UPDATE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj]
+  (compiling source file 'RecordFile.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(157,1):
+  see previous definition of '_MSVC_STL_UPDATE'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1000,1): warning C4005: '_DEPRECATE_TR1_NAMESPACE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj]
+  (compiling source file 'RecordFile.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(247,1):
+  see previous definition of '_DEPRECATE_TR1_NAMESPACE'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1014,1): warning C4005: '_MISMATCHED_ALLOCATOR_MESSAGE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj]
+  (compiling source file 'RecordFile.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(303,1):
+  see previous definition of '_MISMATCHED_ALLOCATOR_MESSAGE'
+  
+C:\originalhr\HoverRace\NetTarget\Util\RecordFile.cpp(261,66): warning C4244: '=': conversion from 'ULONGLONG' to 'DWORD', possible loss of data [C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Util\RecordFile.cpp(432,50): warning C4244: 'return': conversion from 'ULONGLONG' to 'LONG', possible loss of data [C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Util\RecordFile.cpp(478,32): warning C4244: '=': conversion from 'ULONGLONG' to 'UINT', possible loss of data [C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Util\RecordFile.cpp(539,18): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj]
+C:\originalhr\HoverRace\NetTarget\Util\RecordFile.cpp(577,22): error C3867: 'CFile::AssertValid': non-standard syntax; use '&' to create a pointer to member [C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj]
+  StdAfx.cpp
+  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(880,1): warning C4005: '_MSVC_STL_VERSION': macro redefinition [C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj]
+  (compiling source file 'StdAfx.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(156,1):
+  see previous definition of '_MSVC_STL_VERSION'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(881,1): warning C4005: '_MSVC_STL_UPDATE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj]
+  (compiling source file 'StdAfx.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(157,1):
+  see previous definition of '_MSVC_STL_UPDATE'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1000,1): warning C4005: '_DEPRECATE_TR1_NAMESPACE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj]
+  (compiling source file 'StdAfx.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(247,1):
+  see previous definition of '_DEPRECATE_TR1_NAMESPACE'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1014,1): warning C4005: '_MISMATCHED_ALLOCATOR_MESSAGE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj]
+  (compiling source file 'StdAfx.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(303,1):
+  see previous definition of '_MISMATCHED_ALLOCATOR_MESSAGE'
+  
+  StrRes.cpp
+  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(880,1): warning C4005: '_MSVC_STL_VERSION': macro redefinition [C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj]
+  (compiling source file 'StrRes.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(156,1):
+  see previous definition of '_MSVC_STL_VERSION'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(881,1): warning C4005: '_MSVC_STL_UPDATE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj]
+  (compiling source file 'StrRes.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(157,1):
+  see previous definition of '_MSVC_STL_UPDATE'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1000,1): warning C4005: '_DEPRECATE_TR1_NAMESPACE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj]
+  (compiling source file 'StrRes.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(247,1):
+  see previous definition of '_DEPRECATE_TR1_NAMESPACE'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1014,1): warning C4005: '_MISMATCHED_ALLOCATOR_MESSAGE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj]
+  (compiling source file 'StrRes.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(303,1):
+  see previous definition of '_MISMATCHED_ALLOCATOR_MESSAGE'
+  
+  WorldCoordinates.cpp
+  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(880,1): warning C4005: '_MSVC_STL_VERSION': macro redefinition [C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj]
+  (compiling source file 'WorldCoordinates.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(156,1):
+  see previous definition of '_MSVC_STL_VERSION'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(881,1): warning C4005: '_MSVC_STL_UPDATE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj]
+  (compiling source file 'WorldCoordinates.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(157,1):
+  see previous definition of '_MSVC_STL_UPDATE'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1000,1): warning C4005: '_DEPRECATE_TR1_NAMESPACE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj]
+  (compiling source file 'WorldCoordinates.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(247,1):
+  see previous definition of '_DEPRECATE_TR1_NAMESPACE'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1014,1): warning C4005: '_MISMATCHED_ALLOCATOR_MESSAGE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj]
+  (compiling source file 'WorldCoordinates.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(303,1):
+  see previous definition of '_MISMATCHED_ALLOCATOR_MESSAGE'
+  
+  Generating Code...
+Done Building Project "C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj" (default targets) -- FAILED.
+Project "C:\originalhr\HoverRace\NetTarget.sln" (1) is building "C:\originalhr\HoverRace\NetTarget\MazeCompiler\MazeCompiler.vcxproj.metaproj" (3) on node 1 (default targets).
+Project "C:\originalhr\HoverRace\NetTarget\MazeCompiler\MazeCompiler.vcxproj.metaproj" (3) is building "C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj.metaproj" (4) on node 1 (default targets).
+Project "C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj.metaproj" (4) is building "C:\originalhr\HoverRace\NetTarget\ColorTools\ColorTools.vcxproj" (5) on node 1 (default targets).
+PrepareForBuild:
+  Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
+InitializeBuildStatus:
+  Touching "Debug\ColorTools.tlog\unsuccessfulbuild".
+ClCompile:
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\bin\HostX86\x86\CL.exe /c /I"C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include" /I"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include" /Zi /nologo /W4 /WX- /diagnostics:column /O2 /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D MR_COLOR_TOOLS /D _AFXDLL /D _WINDLL /D _MBCS /D _AFXDLL /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc143.pdb" /external:W4 /Gd /TP /analyze- /FC /errorReport:queue ColorTools.cpp StdAfx.cpp
+  ColorTools.cpp
+  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(880,1): warning C4005: '_MSVC_STL_VERSION': macro redefinition [C:\originalhr\HoverRace\NetTarget\ColorTools\ColorTools.vcxproj]
+  (compiling source file 'ColorTools.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(156,1):
+  see previous definition of '_MSVC_STL_VERSION'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(881,1): warning C4005: '_MSVC_STL_UPDATE': macro redefinition [C:\originalhr\HoverRace\NetTarget\ColorTools\ColorTools.vcxproj]
+  (compiling source file 'ColorTools.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(157,1):
+  see previous definition of '_MSVC_STL_UPDATE'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1000,1): warning C4005: '_DEPRECATE_TR1_NAMESPACE': macro redefinition [C:\originalhr\HoverRace\NetTarget\ColorTools\ColorTools.vcxproj]
+  (compiling source file 'ColorTools.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(247,1):
+  see previous definition of '_DEPRECATE_TR1_NAMESPACE'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1014,1): warning C4005: '_MISMATCHED_ALLOCATOR_MESSAGE': macro redefinition [C:\originalhr\HoverRace\NetTarget\ColorTools\ColorTools.vcxproj]
+  (compiling source file 'ColorTools.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(303,1):
+  see previous definition of '_MISMATCHED_ALLOCATOR_MESSAGE'
+  
+  StdAfx.cpp
+  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(880,1): warning C4005: '_MSVC_STL_VERSION': macro redefinition [C:\originalhr\HoverRace\NetTarget\ColorTools\ColorTools.vcxproj]
+  (compiling source file 'StdAfx.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(156,1):
+  see previous definition of '_MSVC_STL_VERSION'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(881,1): warning C4005: '_MSVC_STL_UPDATE': macro redefinition [C:\originalhr\HoverRace\NetTarget\ColorTools\ColorTools.vcxproj]
+  (compiling source file 'StdAfx.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(157,1):
+  see previous definition of '_MSVC_STL_UPDATE'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1000,1): warning C4005: '_DEPRECATE_TR1_NAMESPACE': macro redefinition [C:\originalhr\HoverRace\NetTarget\ColorTools\ColorTools.vcxproj]
+  (compiling source file 'StdAfx.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(247,1):
+  see previous definition of '_DEPRECATE_TR1_NAMESPACE'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1014,1): warning C4005: '_MISMATCHED_ALLOCATOR_MESSAGE': macro redefinition [C:\originalhr\HoverRace\NetTarget\ColorTools\ColorTools.vcxproj]
+  (compiling source file 'StdAfx.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(303,1):
+  see previous definition of '_MISMATCHED_ALLOCATOR_MESSAGE'
+  
+  Generating Code...
+Link:
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\bin\HostX86\x86\link.exe /ERRORREPORT:QUEUE /OUT:"C:\originalhr\HoverRace\Debug\ColorTools.dll" /NOLOGO /LIBPATH:"C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\lib\x86" /LIBPATH:"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\lib\x86" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /manifestinput:"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\Include\Manifest\dpiaware.manifest" /DEBUG:FULL /PDB:"C:\originalhr\HoverRace\Debug\ColorTools.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\originalhr\HoverRace\Debug\ColorTools.lib" /MACHINE:X86 /SAFESEH /DLL Debug\ColorTools.obj
+  Debug\StdAfx.obj
+     Creating library C:\originalhr\HoverRace\Debug\ColorTools.lib and object C:\originalhr\HoverRace\Debug\ColorTools.exp
+LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library [C:\originalhr\HoverRace\NetTarget\ColorTools\ColorTools.vcxproj]
+  ColorTools.vcxproj -> C:\originalhr\HoverRace\Debug\ColorTools.dll
+FinalizeBuildStatus:
+  Deleting file "Debug\ColorTools.tlog\unsuccessfulbuild".
+  Touching "Debug\ColorTools.tlog\ColorTools.lastbuildstate".
+Done Building Project "C:\originalhr\HoverRace\NetTarget\ColorTools\ColorTools.vcxproj" (default targets).
+Project "C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj.metaproj" (4) is building "C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj" (6) on node 1 (default targets).
+PrepareForBuild:
+  Creating directory "Debug\".
+  Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
+  Creating directory "Debug\VideoServices.tlog\".
+InitializeBuildStatus:
+  Creating "Debug\VideoServices.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+  Touching "Debug\VideoServices.tlog\unsuccessfulbuild".
+ClCompile:
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\bin\HostX86\x86\CL.exe /c /I"C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include" /I"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include" /I\gdk\sdk\inc /Zi /nologo /W4 /WX- /diagnostics:column /O2 /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D MR_VIDEO_SERVICES /D _AFXDLL /D _WINDLL /D _MBCS /D _AFXDLL /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc143.pdb" /external:W4 /Gd /TP /analyze- /FC /errorReport:queue 2DViewPort.cpp 3DViewport.cpp 3DViewportRendering.cpp Bitmap.cpp ColorPalette.cpp ColorTab.cpp Patch.cpp SoundServer.cpp Sprite.cpp StdAfx.cpp VideoBuffer.cpp VideoBuffer2DDraw.cpp
+  2DViewPort.cpp
+  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(880,1): warning C4005: '_MSVC_STL_VERSION': macro redefinition [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  (compiling source file '2DViewPort.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(156,1):
+  see previous definition of '_MSVC_STL_VERSION'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(881,1): warning C4005: '_MSVC_STL_UPDATE': macro redefinition [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  (compiling source file '2DViewPort.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(157,1):
+  see previous definition of '_MSVC_STL_UPDATE'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1000,1): warning C4005: '_DEPRECATE_TR1_NAMESPACE': macro redefinition [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  (compiling source file '2DViewPort.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(247,1):
+  see previous definition of '_DEPRECATE_TR1_NAMESPACE'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1014,1): warning C4005: '_MISMATCHED_ALLOCATOR_MESSAGE': macro redefinition [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  (compiling source file '2DViewPort.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(303,1):
+  see previous definition of '_MISMATCHED_ALLOCATOR_MESSAGE'
+  
+  3DViewport.cpp
+  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(880,1): warning C4005: '_MSVC_STL_VERSION': macro redefinition [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  (compiling source file '3DViewport.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(156,1):
+  see previous definition of '_MSVC_STL_VERSION'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(881,1): warning C4005: '_MSVC_STL_UPDATE': macro redefinition [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  (compiling source file '3DViewport.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(157,1):
+  see previous definition of '_MSVC_STL_UPDATE'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1000,1): warning C4005: '_DEPRECATE_TR1_NAMESPACE': macro redefinition [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  (compiling source file '3DViewport.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(247,1):
+  see previous definition of '_DEPRECATE_TR1_NAMESPACE'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1014,1): warning C4005: '_MISMATCHED_ALLOCATOR_MESSAGE': macro redefinition [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  (compiling source file '3DViewport.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(303,1):
+  see previous definition of '_MISMATCHED_ALLOCATOR_MESSAGE'
+  
+C:\originalhr\HoverRace\NetTarget\VideoServices\3DViewport.cpp(143,156): warning C4244: '=': conversion from 'double' to 'MR_Int32', possible loss of data [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+C:\originalhr\HoverRace\NetTarget\VideoServices\3DViewport.cpp(144,84): warning C4244: '=': conversion from 'double' to 'MR_Int32', possible loss of data [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  3DViewportRendering.cpp
+  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(880,1): warning C4005: '_MSVC_STL_VERSION': macro redefinition [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  (compiling source file '3DViewportRendering.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(156,1):
+  see previous definition of '_MSVC_STL_VERSION'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(881,1): warning C4005: '_MSVC_STL_UPDATE': macro redefinition [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  (compiling source file '3DViewportRendering.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(157,1):
+  see previous definition of '_MSVC_STL_UPDATE'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1000,1): warning C4005: '_DEPRECATE_TR1_NAMESPACE': macro redefinition [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  (compiling source file '3DViewportRendering.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(247,1):
+  see previous definition of '_DEPRECATE_TR1_NAMESPACE'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1014,1): warning C4005: '_MISMATCHED_ALLOCATOR_MESSAGE': macro redefinition [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  (compiling source file '3DViewportRendering.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(303,1):
+  see previous definition of '_MISMATCHED_ALLOCATOR_MESSAGE'
+  
+C:\originalhr\HoverRace\NetTarget\VideoServices\3DViewportRendering.cpp(415,21): warning C4244: 'initializing': conversion from 'LONGLONG' to 'int', possible loss of data [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+C:\originalhr\HoverRace\NetTarget\VideoServices\3DViewportRendering.cpp(1214,56): warning C4244: '=': conversion from 'int' to 'MR_UInt16', possible loss of data [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+C:\originalhr\HoverRace\NetTarget\VideoServices\3DViewportRendering.cpp(1081,24): warning C4189: 'lBitmapW_XRes_PlanDist_2PlanHW_1024': local variable is initialized but not referenced [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+C:\originalhr\HoverRace\NetTarget\VideoServices\3DViewportRendering.cpp(1937,61): warning C4244: '=': conversion from 'int' to 'MR_UInt16', possible loss of data [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+C:\originalhr\HoverRace\NetTarget\VideoServices\3DViewportRendering.cpp(2132,55): warning C4244: '=': conversion from 'int' to 'MR_UInt16', possible loss of data [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  Bitmap.cpp
+  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(880,1): warning C4005: '_MSVC_STL_VERSION': macro redefinition [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  (compiling source file 'Bitmap.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(156,1):
+  see previous definition of '_MSVC_STL_VERSION'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(881,1): warning C4005: '_MSVC_STL_UPDATE': macro redefinition [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  (compiling source file 'Bitmap.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(157,1):
+  see previous definition of '_MSVC_STL_UPDATE'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1000,1): warning C4005: '_DEPRECATE_TR1_NAMESPACE': macro redefinition [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  (compiling source file 'Bitmap.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(247,1):
+  see previous definition of '_DEPRECATE_TR1_NAMESPACE'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1014,1): warning C4005: '_MISMATCHED_ALLOCATOR_MESSAGE': macro redefinition [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  (compiling source file 'Bitmap.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(303,1):
+  see previous definition of '_MISMATCHED_ALLOCATOR_MESSAGE'
+  
+  ColorPalette.cpp
+  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(880,1): warning C4005: '_MSVC_STL_VERSION': macro redefinition [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  (compiling source file 'ColorPalette.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(156,1):
+  see previous definition of '_MSVC_STL_VERSION'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(881,1): warning C4005: '_MSVC_STL_UPDATE': macro redefinition [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  (compiling source file 'ColorPalette.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(157,1):
+  see previous definition of '_MSVC_STL_UPDATE'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1000,1): warning C4005: '_DEPRECATE_TR1_NAMESPACE': macro redefinition [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  (compiling source file 'ColorPalette.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(247,1):
+  see previous definition of '_DEPRECATE_TR1_NAMESPACE'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1014,1): warning C4005: '_MISMATCHED_ALLOCATOR_MESSAGE': macro redefinition [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  (compiling source file 'ColorPalette.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(303,1):
+  see previous definition of '_MISMATCHED_ALLOCATOR_MESSAGE'
+  
+C:\originalhr\HoverRace\NetTarget\VideoServices\ColorPalette.cpp(83,56): warning C4244: '=': conversion from 'int' to 'BYTE', possible loss of data [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  ColorTab.cpp
+  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(880,1): warning C4005: '_MSVC_STL_VERSION': macro redefinition [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  (compiling source file 'ColorTab.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(156,1):
+  see previous definition of '_MSVC_STL_VERSION'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(881,1): warning C4005: '_MSVC_STL_UPDATE': macro redefinition [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  (compiling source file 'ColorTab.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(157,1):
+  see previous definition of '_MSVC_STL_UPDATE'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1000,1): warning C4005: '_DEPRECATE_TR1_NAMESPACE': macro redefinition [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  (compiling source file 'ColorTab.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(247,1):
+  see previous definition of '_DEPRECATE_TR1_NAMESPACE'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1014,1): warning C4005: '_MISMATCHED_ALLOCATOR_MESSAGE': macro redefinition [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  (compiling source file 'ColorTab.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(303,1):
+  see previous definition of '_MISMATCHED_ALLOCATOR_MESSAGE'
+  
+  Patch.cpp
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(880,1): warning C4005: '_MSVC_STL_VERSION': macro redefinition [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  (compiling source file 'Patch.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(156,1):
+  see previous definition of '_MSVC_STL_VERSION'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(881,1): warning C4005: '_MSVC_STL_UPDATE': macro redefinition [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  (compiling source file 'Patch.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(157,1):
+  see previous definition of '_MSVC_STL_UPDATE'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1000,1): warning C4005: '_DEPRECATE_TR1_NAMESPACE': macro redefinition [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  (compiling source file 'Patch.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(247,1):
+  see previous definition of '_DEPRECATE_TR1_NAMESPACE'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1014,1): warning C4005: '_MISMATCHED_ALLOCATOR_MESSAGE': macro redefinition [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  (compiling source file 'Patch.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(303,1):
+  see previous definition of '_MISMATCHED_ALLOCATOR_MESSAGE'
+  
+  SoundServer.cpp
+  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(880,1): warning C4005: '_MSVC_STL_VERSION': macro redefinition [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  (compiling source file 'SoundServer.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(156,1):
+  see previous definition of '_MSVC_STL_VERSION'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(881,1): warning C4005: '_MSVC_STL_UPDATE': macro redefinition [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  (compiling source file 'SoundServer.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(157,1):
+  see previous definition of '_MSVC_STL_UPDATE'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1000,1): warning C4005: '_DEPRECATE_TR1_NAMESPACE': macro redefinition [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  (compiling source file 'SoundServer.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(247,1):
+  see previous definition of '_DEPRECATE_TR1_NAMESPACE'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1014,1): warning C4005: '_MISMATCHED_ALLOCATOR_MESSAGE': macro redefinition [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  (compiling source file 'SoundServer.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(303,1):
+  see previous definition of '_MISMATCHED_ALLOCATOR_MESSAGE'
+  
+C:\originalhr\HoverRace\NetTarget\VideoServices\SoundServer.cpp(270,27): warning C4244: 'initializing': conversion from 'double' to 'unsigned long', possible loss of data [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  Sprite.cpp
+  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(880,1): warning C4005: '_MSVC_STL_VERSION': macro redefinition [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  (compiling source file 'Sprite.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(156,1):
+  see previous definition of '_MSVC_STL_VERSION'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(881,1): warning C4005: '_MSVC_STL_UPDATE': macro redefinition [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  (compiling source file 'Sprite.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(157,1):
+  see previous definition of '_MSVC_STL_UPDATE'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1000,1): warning C4005: '_DEPRECATE_TR1_NAMESPACE': macro redefinition [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  (compiling source file 'Sprite.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(247,1):
+  see previous definition of '_DEPRECATE_TR1_NAMESPACE'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1014,1): warning C4005: '_MISMATCHED_ALLOCATOR_MESSAGE': macro redefinition [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  (compiling source file 'Sprite.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(303,1):
+  see previous definition of '_MISMATCHED_ALLOCATOR_MESSAGE'
+  
+  StdAfx.cpp
+  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(880,1): warning C4005: '_MSVC_STL_VERSION': macro redefinition [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  (compiling source file 'StdAfx.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(156,1):
+  see previous definition of '_MSVC_STL_VERSION'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(881,1): warning C4005: '_MSVC_STL_UPDATE': macro redefinition [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  (compiling source file 'StdAfx.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(157,1):
+  see previous definition of '_MSVC_STL_UPDATE'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1000,1): warning C4005: '_DEPRECATE_TR1_NAMESPACE': macro redefinition [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  (compiling source file 'StdAfx.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(247,1):
+  see previous definition of '_DEPRECATE_TR1_NAMESPACE'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1014,1): warning C4005: '_MISMATCHED_ALLOCATOR_MESSAGE': macro redefinition [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  (compiling source file 'StdAfx.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(303,1):
+  see previous definition of '_MISMATCHED_ALLOCATOR_MESSAGE'
+  
+  VideoBuffer.cpp
+  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(880,1): warning C4005: '_MSVC_STL_VERSION': macro redefinition [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  (compiling source file 'VideoBuffer.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(156,1):
+  see previous definition of '_MSVC_STL_VERSION'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(881,1): warning C4005: '_MSVC_STL_UPDATE': macro redefinition [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  (compiling source file 'VideoBuffer.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(157,1):
+  see previous definition of '_MSVC_STL_UPDATE'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1000,1): warning C4005: '_DEPRECATE_TR1_NAMESPACE': macro redefinition [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  (compiling source file 'VideoBuffer.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(247,1):
+  see previous definition of '_DEPRECATE_TR1_NAMESPACE'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1014,1): warning C4005: '_MISMATCHED_ALLOCATOR_MESSAGE': macro redefinition [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  (compiling source file 'VideoBuffer.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(303,1):
+  see previous definition of '_MISMATCHED_ALLOCATOR_MESSAGE'
+  
+C:\originalhr\HoverRace\NetTarget\VideoServices\VideoBuffer.cpp(1034,12): warning C4101: 'lErrorCode': unreferenced local variable [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  VideoBuffer2DDraw.cpp
+  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(880,1): warning C4005: '_MSVC_STL_VERSION': macro redefinition [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  (compiling source file 'VideoBuffer2DDraw.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(156,1):
+  see previous definition of '_MSVC_STL_VERSION'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(881,1): warning C4005: '_MSVC_STL_UPDATE': macro redefinition [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  (compiling source file 'VideoBuffer2DDraw.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(157,1):
+  see previous definition of '_MSVC_STL_UPDATE'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1000,1): warning C4005: '_DEPRECATE_TR1_NAMESPACE': macro redefinition [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  (compiling source file 'VideoBuffer2DDraw.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(247,1):
+  see previous definition of '_DEPRECATE_TR1_NAMESPACE'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1014,1): warning C4005: '_MISMATCHED_ALLOCATOR_MESSAGE': macro redefinition [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  (compiling source file 'VideoBuffer2DDraw.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(303,1):
+  see previous definition of '_MISMATCHED_ALLOCATOR_MESSAGE'
+  
+  Generating Code...
+C:\originalhr\HoverRace\NetTarget\VideoServices\3DViewportRendering.cpp(1897,1): warning C4701: potentially uninitialized local variable 'lDU_PerLine_4096' used [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+C:\originalhr\HoverRace\NetTarget\VideoServices\3DViewportRendering.cpp(1898,1): warning C4701: potentially uninitialized local variable 'lDV_PerLine_4096' used [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+C:\originalhr\HoverRace\NetTarget\VideoServices\3DViewportRendering.cpp(1899,1): warning C4701: potentially uninitialized local variable 'lDZ_PerLine_4096' used [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+C:\originalhr\HoverRace\NetTarget\VideoServices\3DViewportRendering.cpp(2106,1): warning C4701: potentially uninitialized local variable 'lXLeft_4096' used [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+C:\originalhr\HoverRace\NetTarget\VideoServices\3DViewportRendering.cpp(2107,1): warning C4701: potentially uninitialized local variable 'lXRight_4096' used [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+C:\originalhr\HoverRace\NetTarget\VideoServices\3DViewportRendering.cpp(2111,1): warning C4701: potentially uninitialized local variable 'lU_4096' used [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+C:\originalhr\HoverRace\NetTarget\VideoServices\3DViewportRendering.cpp(2112,1): warning C4701: potentially uninitialized local variable 'lV_4096' used [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+C:\originalhr\HoverRace\NetTarget\VideoServices\3DViewportRendering.cpp(2113,1): warning C4701: potentially uninitialized local variable 'lZ_4096' used [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+Link:
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\bin\HostX86\x86\link.exe /ERRORREPORT:QUEUE /OUT:"C:\originalhr\HoverRace\Debug\VideoServices.dll" /NOLOGO /LIBPATH:c:\originalhr\HoverRace\Release /LIBPATH:"C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\lib\x86" /LIBPATH:"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\lib\x86" /LIBPATH:"%(AdditionalLibraryDirectories" Util.lib dsound.lib winmm.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /manifestinput:"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\Include\Manifest\dpiaware.manifest" /DEBUG:FULL /PDB:"C:\originalhr\HoverRace\Debug\VideoServices.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\originalhr\HoverRace\Debug\VideoServices.lib" /MACHINE:X86 /SAFESEH /DLL Debug\2DViewPort.obj
+  Debug\3DViewport.obj
+  Debug\3DViewportRendering.obj
+  Debug\Bitmap.obj
+  Debug\ColorPalette.obj
+  Debug\ColorTab.obj
+  Debug\Patch.obj
+  Debug\SoundServer.obj
+  Debug\Sprite.obj
+  Debug\StdAfx.obj
+  Debug\VideoBuffer.obj
+  Debug\VideoBuffer2DDraw.obj
+     Creating library C:\originalhr\HoverRace\Debug\VideoServices.lib and object C:\originalhr\HoverRace\Debug\VideoServices.exp
+LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+VideoBuffer.obj : error LNK2019: unresolved external symbol _DirectDrawCreate@12 referenced in function "private: int __thiscall MR_VideoBuffer::InitDirectDraw(void)" (?InitDirectDraw@MR_VideoBuffer@@AAEHXZ) [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+VideoBuffer.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: __thiscall MR_ProfilerSampler::MR_ProfilerSampler(char const *)" (__imp_??0MR_ProfilerSampler@@QAE@PBD@Z) referenced in function "public: int __thiscall MR_VideoBuffer::Lock(void)" (?Lock@MR_VideoBuffer@@QAEHXZ) [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+VideoBuffer.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: void __thiscall MR_ProfilerSampler::StartSample(void)" (__imp_?StartSample@MR_ProfilerSampler@@QAEXXZ) referenced in function "public: int __thiscall MR_VideoBuffer::Lock(void)" (?Lock@MR_VideoBuffer@@QAEHXZ) [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+VideoBuffer.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: void __thiscall MR_ProfilerSampler::EndSample(void)" (__imp_?EndSample@MR_ProfilerSampler@@QAEXXZ) referenced in function "public: __thiscall MR_ContextSampler::~MR_ContextSampler(void)" (??1MR_ContextSampler@@QAE@XZ) [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+C:\originalhr\HoverRace\Debug\VideoServices.dll : fatal error LNK1120: 4 unresolved externals [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+Done Building Project "C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj" (default targets) -- FAILED.
+Done Building Project "C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj.metaproj" (default targets) -- FAILED.
+Done Building Project "C:\originalhr\HoverRace\NetTarget\MazeCompiler\MazeCompiler.vcxproj.metaproj" (default targets) -- FAILED.
+Project "C:\originalhr\HoverRace\NetTarget.sln" (1) is building "C:\originalhr\HoverRace\NetTarget\GameServer\GameServer.vcxproj" (9) on node 1 (default targets).
+PrepareForBuild:
+  Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
+InitializeBuildStatus:
+  Creating "Debug\GameServer.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+  Touching "Debug\GameServer.tlog\unsuccessfulbuild".
+FinalizeBuildStatus:
+  Deleting file "Debug\GameServer.tlog\unsuccessfulbuild".
+  Touching "Debug\GameServer.tlog\GameServer.lastbuildstate".
+Done Building Project "C:\originalhr\HoverRace\NetTarget\GameServer\GameServer.vcxproj" (default targets).
+Project "C:\originalhr\HoverRace\NetTarget.sln" (1) is building "C:\originalhr\HoverRace\NetTarget\PaletteCreator\PaletteCreator.vcxproj.metaproj" (13) on node 1 (default targets).
+Project "C:\originalhr\HoverRace\NetTarget\PaletteCreator\PaletteCreator.vcxproj.metaproj" (13) is building "C:\originalhr\HoverRace\NetTarget\PaletteCreator\PaletteCreator.vcxproj" (14) on node 1 (default targets).
+PrepareForBuild:
+  Creating directory "Debug\".
+  Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
+  Creating directory "Debug\PaletteCreator.tlog\".
+InitializeBuildStatus:
+  Creating "Debug\PaletteCreator.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+  Touching "Debug\PaletteCreator.tlog\unsuccessfulbuild".
+ClCompile:
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\bin\HostX86\x86\CL.exe /c /I"C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include" /I"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include" /Zi /nologo /W4 /WX- /diagnostics:column /O2 /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _AFXDLL /D _MBCS /D _AFXDLL /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc143.pdb" /external:W4 /Gd /TP /analyze- /FC /errorReport:queue PaletteCreator.cpp
+  PaletteCreator.cpp
+  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(880,1): warning C4005: '_MSVC_STL_VERSION': macro redefinition [C:\originalhr\HoverRace\NetTarget\PaletteCreator\PaletteCreator.vcxproj]
+  (compiling source file 'PaletteCreator.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(156,1):
+  see previous definition of '_MSVC_STL_VERSION'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(881,1): warning C4005: '_MSVC_STL_UPDATE': macro redefinition [C:\originalhr\HoverRace\NetTarget\PaletteCreator\PaletteCreator.vcxproj]
+  (compiling source file 'PaletteCreator.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(157,1):
+  see previous definition of '_MSVC_STL_UPDATE'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1000,1): warning C4005: '_DEPRECATE_TR1_NAMESPACE': macro redefinition [C:\originalhr\HoverRace\NetTarget\PaletteCreator\PaletteCreator.vcxproj]
+  (compiling source file 'PaletteCreator.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(247,1):
+  see previous definition of '_DEPRECATE_TR1_NAMESPACE'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1014,1): warning C4005: '_MISMATCHED_ALLOCATOR_MESSAGE': macro redefinition [C:\originalhr\HoverRace\NetTarget\PaletteCreator\PaletteCreator.vcxproj]
+  (compiling source file 'PaletteCreator.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(303,1):
+  see previous definition of '_MISMATCHED_ALLOCATOR_MESSAGE'
+  
+C:\originalhr\HoverRace\NetTarget\PaletteCreator\PaletteCreator.cpp(80,20): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\PaletteCreator\PaletteCreator.vcxproj]
+C:\originalhr\HoverRace\NetTarget\PaletteCreator\PaletteCreator.cpp(135,20): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\PaletteCreator\PaletteCreator.vcxproj]
+C:\originalhr\HoverRace\NetTarget\PaletteCreator\PaletteCreator.cpp(321,37): warning C4244: 'argument': conversion from 'int' to 'MR_UInt8', possible loss of data [C:\originalhr\HoverRace\NetTarget\PaletteCreator\PaletteCreator.vcxproj]
+Link:
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\bin\HostX86\x86\link.exe /ERRORREPORT:QUEUE /OUT:"C:\originalhr\HoverRace\Debug\PaletteCreator.exe" /NOLOGO /LIBPATH:c:\originalhr\HoverRace\Release /LIBPATH:"C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\lib\x86" /LIBPATH:"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\lib\x86" /LIBPATH:"%(AdditionalLibraryDirectories" ColorTools.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /manifestinput:"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\Include\Manifest\dpiaware.manifest" /DEBUG:FULL /PDB:"C:\originalhr\HoverRace\Debug\PaletteCreator.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\originalhr\HoverRace\Debug\PaletteCreator.lib" /MACHINE:X86 /SAFESEH Debug\PaletteCreator.obj
+LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library [C:\originalhr\HoverRace\NetTarget\PaletteCreator\PaletteCreator.vcxproj]
+  PaletteCreator.vcxproj -> C:\originalhr\HoverRace\Debug\PaletteCreator.exe
+FinalizeBuildStatus:
+  Deleting file "Debug\PaletteCreator.tlog\unsuccessfulbuild".
+  Touching "Debug\PaletteCreator.tlog\PaletteCreator.lastbuildstate".
+Done Building Project "C:\originalhr\HoverRace\NetTarget\PaletteCreator\PaletteCreator.vcxproj" (default targets).
+Done Building Project "C:\originalhr\HoverRace\NetTarget\PaletteCreator\PaletteCreator.vcxproj.metaproj" (default targets).
+Done Building Project "C:\originalhr\HoverRace\NetTarget.sln" (default targets) -- FAILED.
+
+Build FAILED.
+
+"C:\originalhr\HoverRace\NetTarget.sln" (default target) (1) ->
+"C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj" (default target) (2) ->
+(ClCompile target) -> 
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(880,1): warning C4005: '_MSVC_STL_VERSION': macro redefinition [C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(881,1): warning C4005: '_MSVC_STL_UPDATE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1000,1): warning C4005: '_DEPRECATE_TR1_NAMESPACE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1014,1): warning C4005: '_MISMATCHED_ALLOCATOR_MESSAGE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Util\DllObjectFactory.cpp(156,46): warning C4390: ';': empty controlled statement found; is this the intent? [C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Util\DllObjectFactory.cpp(171,43): warning C4390: ';': empty controlled statement found; is this the intent? [C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Util\DllObjectFactory.cpp(185,48): warning C4390: ';': empty controlled statement found; is this the intent? [C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Util\DllObjectFactory.cpp(372,4): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(880,1): warning C4005: '_MSVC_STL_VERSION': macro redefinition [C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(881,1): warning C4005: '_MSVC_STL_UPDATE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1000,1): warning C4005: '_DEPRECATE_TR1_NAMESPACE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1014,1): warning C4005: '_MISMATCHED_ALLOCATOR_MESSAGE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(880,1): warning C4005: '_MSVC_STL_VERSION': macro redefinition [C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(881,1): warning C4005: '_MSVC_STL_UPDATE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1000,1): warning C4005: '_DEPRECATE_TR1_NAMESPACE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1014,1): warning C4005: '_MISMATCHED_ALLOCATOR_MESSAGE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Util\Profiler.cpp(171,18): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(880,1): warning C4005: '_MSVC_STL_VERSION': macro redefinition [C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(881,1): warning C4005: '_MSVC_STL_UPDATE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1000,1): warning C4005: '_DEPRECATE_TR1_NAMESPACE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1014,1): warning C4005: '_MISMATCHED_ALLOCATOR_MESSAGE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Util\RecordFile.cpp(261,66): warning C4244: '=': conversion from 'ULONGLONG' to 'DWORD', possible loss of data [C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Util\RecordFile.cpp(432,50): warning C4244: 'return': conversion from 'ULONGLONG' to 'LONG', possible loss of data [C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Util\RecordFile.cpp(478,32): warning C4244: '=': conversion from 'ULONGLONG' to 'UINT', possible loss of data [C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\Util\RecordFile.cpp(539,18): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(880,1): warning C4005: '_MSVC_STL_VERSION': macro redefinition [C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(881,1): warning C4005: '_MSVC_STL_UPDATE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1000,1): warning C4005: '_DEPRECATE_TR1_NAMESPACE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1014,1): warning C4005: '_MISMATCHED_ALLOCATOR_MESSAGE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(880,1): warning C4005: '_MSVC_STL_VERSION': macro redefinition [C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(881,1): warning C4005: '_MSVC_STL_UPDATE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1000,1): warning C4005: '_DEPRECATE_TR1_NAMESPACE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1014,1): warning C4005: '_MISMATCHED_ALLOCATOR_MESSAGE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(880,1): warning C4005: '_MSVC_STL_VERSION': macro redefinition [C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(881,1): warning C4005: '_MSVC_STL_UPDATE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1000,1): warning C4005: '_DEPRECATE_TR1_NAMESPACE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1014,1): warning C4005: '_MISMATCHED_ALLOCATOR_MESSAGE': macro redefinition [C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj]
+
+
+"C:\originalhr\HoverRace\NetTarget.sln" (default target) (1) ->
+"C:\originalhr\HoverRace\NetTarget\MazeCompiler\MazeCompiler.vcxproj.metaproj" (default target) (3) ->
+"C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj.metaproj" (default target) (4) ->
+"C:\originalhr\HoverRace\NetTarget\ColorTools\ColorTools.vcxproj" (default target) (5) ->
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(880,1): warning C4005: '_MSVC_STL_VERSION': macro redefinition [C:\originalhr\HoverRace\NetTarget\ColorTools\ColorTools.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(881,1): warning C4005: '_MSVC_STL_UPDATE': macro redefinition [C:\originalhr\HoverRace\NetTarget\ColorTools\ColorTools.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1000,1): warning C4005: '_DEPRECATE_TR1_NAMESPACE': macro redefinition [C:\originalhr\HoverRace\NetTarget\ColorTools\ColorTools.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1014,1): warning C4005: '_MISMATCHED_ALLOCATOR_MESSAGE': macro redefinition [C:\originalhr\HoverRace\NetTarget\ColorTools\ColorTools.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(880,1): warning C4005: '_MSVC_STL_VERSION': macro redefinition [C:\originalhr\HoverRace\NetTarget\ColorTools\ColorTools.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(881,1): warning C4005: '_MSVC_STL_UPDATE': macro redefinition [C:\originalhr\HoverRace\NetTarget\ColorTools\ColorTools.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1000,1): warning C4005: '_DEPRECATE_TR1_NAMESPACE': macro redefinition [C:\originalhr\HoverRace\NetTarget\ColorTools\ColorTools.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1014,1): warning C4005: '_MISMATCHED_ALLOCATOR_MESSAGE': macro redefinition [C:\originalhr\HoverRace\NetTarget\ColorTools\ColorTools.vcxproj]
+
+
+"C:\originalhr\HoverRace\NetTarget.sln" (default target) (1) ->
+"C:\originalhr\HoverRace\NetTarget\MazeCompiler\MazeCompiler.vcxproj.metaproj" (default target) (3) ->
+"C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj.metaproj" (default target) (4) ->
+"C:\originalhr\HoverRace\NetTarget\ColorTools\ColorTools.vcxproj" (default target) (5) ->
+(Link target) -> 
+  LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library [C:\originalhr\HoverRace\NetTarget\ColorTools\ColorTools.vcxproj]
+
+
+"C:\originalhr\HoverRace\NetTarget.sln" (default target) (1) ->
+"C:\originalhr\HoverRace\NetTarget\MazeCompiler\MazeCompiler.vcxproj.metaproj" (default target) (3) ->
+"C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj.metaproj" (default target) (4) ->
+"C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj" (default target) (6) ->
+(ClCompile target) -> 
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(880,1): warning C4005: '_MSVC_STL_VERSION': macro redefinition [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(881,1): warning C4005: '_MSVC_STL_UPDATE': macro redefinition [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1000,1): warning C4005: '_DEPRECATE_TR1_NAMESPACE': macro redefinition [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1014,1): warning C4005: '_MISMATCHED_ALLOCATOR_MESSAGE': macro redefinition [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(880,1): warning C4005: '_MSVC_STL_VERSION': macro redefinition [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(881,1): warning C4005: '_MSVC_STL_UPDATE': macro redefinition [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1000,1): warning C4005: '_DEPRECATE_TR1_NAMESPACE': macro redefinition [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1014,1): warning C4005: '_MISMATCHED_ALLOCATOR_MESSAGE': macro redefinition [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\VideoServices\3DViewport.cpp(143,156): warning C4244: '=': conversion from 'double' to 'MR_Int32', possible loss of data [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\VideoServices\3DViewport.cpp(144,84): warning C4244: '=': conversion from 'double' to 'MR_Int32', possible loss of data [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(880,1): warning C4005: '_MSVC_STL_VERSION': macro redefinition [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(881,1): warning C4005: '_MSVC_STL_UPDATE': macro redefinition [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1000,1): warning C4005: '_DEPRECATE_TR1_NAMESPACE': macro redefinition [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1014,1): warning C4005: '_MISMATCHED_ALLOCATOR_MESSAGE': macro redefinition [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\VideoServices\3DViewportRendering.cpp(415,21): warning C4244: 'initializing': conversion from 'LONGLONG' to 'int', possible loss of data [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\VideoServices\3DViewportRendering.cpp(1214,56): warning C4244: '=': conversion from 'int' to 'MR_UInt16', possible loss of data [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\VideoServices\3DViewportRendering.cpp(1081,24): warning C4189: 'lBitmapW_XRes_PlanDist_2PlanHW_1024': local variable is initialized but not referenced [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\VideoServices\3DViewportRendering.cpp(1937,61): warning C4244: '=': conversion from 'int' to 'MR_UInt16', possible loss of data [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\VideoServices\3DViewportRendering.cpp(2132,55): warning C4244: '=': conversion from 'int' to 'MR_UInt16', possible loss of data [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(880,1): warning C4005: '_MSVC_STL_VERSION': macro redefinition [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(881,1): warning C4005: '_MSVC_STL_UPDATE': macro redefinition [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1000,1): warning C4005: '_DEPRECATE_TR1_NAMESPACE': macro redefinition [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1014,1): warning C4005: '_MISMATCHED_ALLOCATOR_MESSAGE': macro redefinition [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(880,1): warning C4005: '_MSVC_STL_VERSION': macro redefinition [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(881,1): warning C4005: '_MSVC_STL_UPDATE': macro redefinition [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1000,1): warning C4005: '_DEPRECATE_TR1_NAMESPACE': macro redefinition [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1014,1): warning C4005: '_MISMATCHED_ALLOCATOR_MESSAGE': macro redefinition [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\VideoServices\ColorPalette.cpp(83,56): warning C4244: '=': conversion from 'int' to 'BYTE', possible loss of data [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(880,1): warning C4005: '_MSVC_STL_VERSION': macro redefinition [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(881,1): warning C4005: '_MSVC_STL_UPDATE': macro redefinition [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1000,1): warning C4005: '_DEPRECATE_TR1_NAMESPACE': macro redefinition [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1014,1): warning C4005: '_MISMATCHED_ALLOCATOR_MESSAGE': macro redefinition [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(880,1): warning C4005: '_MSVC_STL_VERSION': macro redefinition [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(881,1): warning C4005: '_MSVC_STL_UPDATE': macro redefinition [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1000,1): warning C4005: '_DEPRECATE_TR1_NAMESPACE': macro redefinition [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1014,1): warning C4005: '_MISMATCHED_ALLOCATOR_MESSAGE': macro redefinition [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(880,1): warning C4005: '_MSVC_STL_VERSION': macro redefinition [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(881,1): warning C4005: '_MSVC_STL_UPDATE': macro redefinition [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1000,1): warning C4005: '_DEPRECATE_TR1_NAMESPACE': macro redefinition [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1014,1): warning C4005: '_MISMATCHED_ALLOCATOR_MESSAGE': macro redefinition [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\VideoServices\SoundServer.cpp(270,27): warning C4244: 'initializing': conversion from 'double' to 'unsigned long', possible loss of data [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(880,1): warning C4005: '_MSVC_STL_VERSION': macro redefinition [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(881,1): warning C4005: '_MSVC_STL_UPDATE': macro redefinition [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1000,1): warning C4005: '_DEPRECATE_TR1_NAMESPACE': macro redefinition [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1014,1): warning C4005: '_MISMATCHED_ALLOCATOR_MESSAGE': macro redefinition [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(880,1): warning C4005: '_MSVC_STL_VERSION': macro redefinition [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(881,1): warning C4005: '_MSVC_STL_UPDATE': macro redefinition [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1000,1): warning C4005: '_DEPRECATE_TR1_NAMESPACE': macro redefinition [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1014,1): warning C4005: '_MISMATCHED_ALLOCATOR_MESSAGE': macro redefinition [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(880,1): warning C4005: '_MSVC_STL_VERSION': macro redefinition [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(881,1): warning C4005: '_MSVC_STL_UPDATE': macro redefinition [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1000,1): warning C4005: '_DEPRECATE_TR1_NAMESPACE': macro redefinition [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1014,1): warning C4005: '_MISMATCHED_ALLOCATOR_MESSAGE': macro redefinition [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\VideoServices\VideoBuffer.cpp(1034,12): warning C4101: 'lErrorCode': unreferenced local variable [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(880,1): warning C4005: '_MSVC_STL_VERSION': macro redefinition [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(881,1): warning C4005: '_MSVC_STL_UPDATE': macro redefinition [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1000,1): warning C4005: '_DEPRECATE_TR1_NAMESPACE': macro redefinition [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1014,1): warning C4005: '_MISMATCHED_ALLOCATOR_MESSAGE': macro redefinition [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\VideoServices\3DViewportRendering.cpp(1897,1): warning C4701: potentially uninitialized local variable 'lDU_PerLine_4096' used [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\VideoServices\3DViewportRendering.cpp(1898,1): warning C4701: potentially uninitialized local variable 'lDV_PerLine_4096' used [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\VideoServices\3DViewportRendering.cpp(1899,1): warning C4701: potentially uninitialized local variable 'lDZ_PerLine_4096' used [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\VideoServices\3DViewportRendering.cpp(2106,1): warning C4701: potentially uninitialized local variable 'lXLeft_4096' used [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\VideoServices\3DViewportRendering.cpp(2107,1): warning C4701: potentially uninitialized local variable 'lXRight_4096' used [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\VideoServices\3DViewportRendering.cpp(2111,1): warning C4701: potentially uninitialized local variable 'lU_4096' used [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\VideoServices\3DViewportRendering.cpp(2112,1): warning C4701: potentially uninitialized local variable 'lV_4096' used [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\VideoServices\3DViewportRendering.cpp(2113,1): warning C4701: potentially uninitialized local variable 'lZ_4096' used [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+
+
+"C:\originalhr\HoverRace\NetTarget.sln" (default target) (1) ->
+"C:\originalhr\HoverRace\NetTarget\MazeCompiler\MazeCompiler.vcxproj.metaproj" (default target) (3) ->
+"C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj.metaproj" (default target) (4) ->
+"C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj" (default target) (6) ->
+(Link target) -> 
+  LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+
+
+"C:\originalhr\HoverRace\NetTarget.sln" (default target) (1) ->
+"C:\originalhr\HoverRace\NetTarget\PaletteCreator\PaletteCreator.vcxproj.metaproj" (default target) (13) ->
+"C:\originalhr\HoverRace\NetTarget\PaletteCreator\PaletteCreator.vcxproj" (default target) (14) ->
+(ClCompile target) -> 
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(880,1): warning C4005: '_MSVC_STL_VERSION': macro redefinition [C:\originalhr\HoverRace\NetTarget\PaletteCreator\PaletteCreator.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(881,1): warning C4005: '_MSVC_STL_UPDATE': macro redefinition [C:\originalhr\HoverRace\NetTarget\PaletteCreator\PaletteCreator.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1000,1): warning C4005: '_DEPRECATE_TR1_NAMESPACE': macro redefinition [C:\originalhr\HoverRace\NetTarget\PaletteCreator\PaletteCreator.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1014,1): warning C4005: '_MISMATCHED_ALLOCATOR_MESSAGE': macro redefinition [C:\originalhr\HoverRace\NetTarget\PaletteCreator\PaletteCreator.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\PaletteCreator\PaletteCreator.cpp(80,20): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\PaletteCreator\PaletteCreator.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\PaletteCreator\PaletteCreator.cpp(135,20): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr\HoverRace\NetTarget\PaletteCreator\PaletteCreator.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\PaletteCreator\PaletteCreator.cpp(321,37): warning C4244: 'argument': conversion from 'int' to 'MR_UInt8', possible loss of data [C:\originalhr\HoverRace\NetTarget\PaletteCreator\PaletteCreator.vcxproj]
+
+
+"C:\originalhr\HoverRace\NetTarget.sln" (default target) (1) ->
+"C:\originalhr\HoverRace\NetTarget\PaletteCreator\PaletteCreator.vcxproj.metaproj" (default target) (13) ->
+"C:\originalhr\HoverRace\NetTarget\PaletteCreator\PaletteCreator.vcxproj" (default target) (14) ->
+(Link target) -> 
+  LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library [C:\originalhr\HoverRace\NetTarget\PaletteCreator\PaletteCreator.vcxproj]
+
+
+"C:\originalhr\HoverRace\NetTarget.sln" (default target) (1) ->
+"C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj" (default target) (2) ->
+(ClCompile target) -> 
+  C:\originalhr\HoverRace\NetTarget\Util\RecordFile.cpp(577,22): error C3867: 'CFile::AssertValid': non-standard syntax; use '&' to create a pointer to member [C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj]
+
+
+"C:\originalhr\HoverRace\NetTarget.sln" (default target) (1) ->
+"C:\originalhr\HoverRace\NetTarget\MazeCompiler\MazeCompiler.vcxproj.metaproj" (default target) (3) ->
+"C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj.metaproj" (default target) (4) ->
+"C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj" (default target) (6) ->
+(Link target) -> 
+  VideoBuffer.obj : error LNK2019: unresolved external symbol _DirectDrawCreate@12 referenced in function "private: int __thiscall MR_VideoBuffer::InitDirectDraw(void)" (?InitDirectDraw@MR_VideoBuffer@@AAEHXZ) [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  VideoBuffer.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: __thiscall MR_ProfilerSampler::MR_ProfilerSampler(char const *)" (__imp_??0MR_ProfilerSampler@@QAE@PBD@Z) referenced in function "public: int __thiscall MR_VideoBuffer::Lock(void)" (?Lock@MR_VideoBuffer@@QAEHXZ) [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  VideoBuffer.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: void __thiscall MR_ProfilerSampler::StartSample(void)" (__imp_?StartSample@MR_ProfilerSampler@@QAEXXZ) referenced in function "public: int __thiscall MR_VideoBuffer::Lock(void)" (?Lock@MR_VideoBuffer@@QAEHXZ) [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  VideoBuffer.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: void __thiscall MR_ProfilerSampler::EndSample(void)" (__imp_?EndSample@MR_ProfilerSampler@@QAEXXZ) referenced in function "public: __thiscall MR_ContextSampler::~MR_ContextSampler(void)" (??1MR_ContextSampler@@QAE@XZ) [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+  C:\originalhr\HoverRace\Debug\VideoServices.dll : fatal error LNK1120: 4 unresolved externals [C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj]
+
+    121 Warning(s)
+    6 Error(s)
+
+Time Elapsed 00:00:21.44

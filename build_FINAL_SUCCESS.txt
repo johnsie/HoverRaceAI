@@ -1,0 +1,8 @@
+MSBuild version 17.9.5+33de0b227 for .NET Framework
+MSBUILD : error MSB1001: Unknown switch.
+    Full command line: '"C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\MSBuild.exe" NetTarget.sln /p:Configuration=Release /m:1 -exclude:ObjFac1,ResourceCompiler'
+  Switches appended by response files:
+'' came from 'C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\MSBuild.rsp'
+Switch: -exclude:ObjFac1,ResourceCompiler
+
+For switch syntax, type "MSBuild -help"

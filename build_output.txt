@@ -1,0 +1,81 @@
+MSBuild version 17.9.5+33de0b227 for .NET Framework
+Build started 07/11/2025 17:47:30.
+
+Project "C:\originalhr\HoverRace\NetTarget.sln" on node 1 (default targets).
+ValidateSolutionConfiguration:
+  Building solution configuration "Release|Default".
+Project "C:\originalhr\HoverRace\NetTarget.sln" (1) is building "C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj" (2) on node 1 (default targets).
+C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj(6,32): error MSB4025: The project file could not be loaded. The 'ItemDefinitionGroup' start tag on line 2 position 1904 does not match the end tag of 'PreprocessorDefinitions'. Line 6, position 32.
+Done Building Project "C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj" (default targets) -- FAILED.
+Project "C:\originalhr\HoverRace\NetTarget.sln" (1) is building "C:\originalhr\HoverRace\NetTarget\MazeCompiler\MazeCompiler.vcxproj.metaproj" (3) on node 1 (default targets).
+Project "C:\originalhr\HoverRace\NetTarget\MazeCompiler\MazeCompiler.vcxproj.metaproj" (3) is building "C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj.metaproj" (4) on node 1 (default targets).
+Project "C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj.metaproj" (4) is building "C:\originalhr\HoverRace\NetTarget\ColorTools\ColorTools.vcxproj" (5) on node 1 (default targets).
+C:\originalhr\HoverRace\NetTarget\ColorTools\ColorTools.vcxproj(6,32): error MSB4025: The project file could not be loaded. The 'ItemDefinitionGroup' start tag on line 2 position 1910 does not match the end tag of 'PreprocessorDefinitions'. Line 6, position 32.
+Done Building Project "C:\originalhr\HoverRace\NetTarget\ColorTools\ColorTools.vcxproj" (default targets) -- FAILED.
+Done Building Project "C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj.metaproj" (default targets) -- FAILED.
+Done Building Project "C:\originalhr\HoverRace\NetTarget\MazeCompiler\MazeCompiler.vcxproj.metaproj" (default targets) -- FAILED.
+Project "C:\originalhr\HoverRace\NetTarget.sln" (1) is building "C:\originalhr\HoverRace\NetTarget\Model\Model.vcxproj.metaproj" (6) on node 1 (default targets).
+Project "C:\originalhr\HoverRace\NetTarget\Model\Model.vcxproj.metaproj" (6) is building "C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj" (2:2) on node 1 (default targets).
+C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj(6,32): error MSB4025: The project file could not be loaded. The 'ItemDefinitionGroup' start tag on line 2 position 1904 does not match the end tag of 'PreprocessorDefinitions'. Line 6, position 32.
+Done Building Project "C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj" (default targets) -- FAILED.
+Done Building Project "C:\originalhr\HoverRace\NetTarget\Model\Model.vcxproj.metaproj" (default targets) -- FAILED.
+Project "C:\originalhr\HoverRace\NetTarget.sln" (1) is building "C:\originalhr\HoverRace\NetTarget\GameServer\GameServer.vcxproj" (8) on node 1 (default targets).
+PrepareForBuild:
+  Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
+InitializeBuildStatus:
+  Creating "Release\GameServer.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+  Touching "Release\GameServer.tlog\unsuccessfulbuild".
+FinalizeBuildStatus:
+  Deleting file "Release\GameServer.tlog\unsuccessfulbuild".
+  Touching "Release\GameServer.tlog\GameServer.lastbuildstate".
+Done Building Project "C:\originalhr\HoverRace\NetTarget\GameServer\GameServer.vcxproj" (default targets).
+Project "C:\originalhr\HoverRace\NetTarget.sln" (1) is building "C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj.metaproj" (10) on node 1 (default targets).
+Project "C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj.metaproj" (10) is building "C:\originalhr\HoverRace\NetTarget\ObjFacTools\ObjFacTools.vcxproj.metaproj" (11) on node 1 (default targets).
+Project "C:\originalhr\HoverRace\NetTarget\ObjFacTools\ObjFacTools.vcxproj.metaproj" (11) is building "C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj" (2:3) on node 1 (default targets).
+C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj(6,32): error MSB4025: The project file could not be loaded. The 'ItemDefinitionGroup' start tag on line 2 position 1904 does not match the end tag of 'PreprocessorDefinitions'. Line 6, position 32.
+Done Building Project "C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj" (default targets) -- FAILED.
+Done Building Project "C:\originalhr\HoverRace\NetTarget\ObjFacTools\ObjFacTools.vcxproj.metaproj" (default targets) -- FAILED.
+Done Building Project "C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj.metaproj" (default targets) -- FAILED.
+Project "C:\originalhr\HoverRace\NetTarget.sln" (1) is building "C:\originalhr\HoverRace\NetTarget\PaletteCreator\PaletteCreator.vcxproj.metaproj" (12) on node 1 (default targets).
+Project "C:\originalhr\HoverRace\NetTarget\PaletteCreator\PaletteCreator.vcxproj.metaproj" (12) is building "C:\originalhr\HoverRace\NetTarget\ColorTools\ColorTools.vcxproj" (5:2) on node 1 (default targets).
+C:\originalhr\HoverRace\NetTarget\ColorTools\ColorTools.vcxproj(6,32): error MSB4025: The project file could not be loaded. The 'ItemDefinitionGroup' start tag on line 2 position 1910 does not match the end tag of 'PreprocessorDefinitions'. Line 6, position 32.
+Done Building Project "C:\originalhr\HoverRace\NetTarget\ColorTools\ColorTools.vcxproj" (default targets) -- FAILED.
+Done Building Project "C:\originalhr\HoverRace\NetTarget\PaletteCreator\PaletteCreator.vcxproj.metaproj" (default targets) -- FAILED.
+Done Building Project "C:\originalhr\HoverRace\NetTarget.sln" (default targets) -- FAILED.
+
+Build FAILED.
+
+"C:\originalhr\HoverRace\NetTarget.sln" (default target) (1) ->
+"C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj" (default target) (2) ->
+  C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj(6,32): error MSB4025: The project file could not be loaded. The 'ItemDefinitionGroup' start tag on line 2 position 1904 does not match the end tag of 'PreprocessorDefinitions'. Line 6, position 32.
+
+
+"C:\originalhr\HoverRace\NetTarget.sln" (default target) (1) ->
+"C:\originalhr\HoverRace\NetTarget\MazeCompiler\MazeCompiler.vcxproj.metaproj" (default target) (3) ->
+"C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj.metaproj" (default target) (4) ->
+"C:\originalhr\HoverRace\NetTarget\ColorTools\ColorTools.vcxproj" (default target) (5) ->
+  C:\originalhr\HoverRace\NetTarget\ColorTools\ColorTools.vcxproj(6,32): error MSB4025: The project file could not be loaded. The 'ItemDefinitionGroup' start tag on line 2 position 1910 does not match the end tag of 'PreprocessorDefinitions'. Line 6, position 32.
+
+
+"C:\originalhr\HoverRace\NetTarget.sln" (default target) (1) ->
+"C:\originalhr\HoverRace\NetTarget\Model\Model.vcxproj.metaproj" (default target) (6) ->
+"C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj" (default target) (2:2) ->
+  C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj(6,32): error MSB4025: The project file could not be loaded. The 'ItemDefinitionGroup' start tag on line 2 position 1904 does not match the end tag of 'PreprocessorDefinitions'. Line 6, position 32.
+
+
+"C:\originalhr\HoverRace\NetTarget.sln" (default target) (1) ->
+"C:\originalhr\HoverRace\NetTarget\Game2\Game2.vcxproj.metaproj" (default target) (10) ->
+"C:\originalhr\HoverRace\NetTarget\ObjFacTools\ObjFacTools.vcxproj.metaproj" (default target) (11) ->
+"C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj" (default target) (2:3) ->
+  C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj(6,32): error MSB4025: The project file could not be loaded. The 'ItemDefinitionGroup' start tag on line 2 position 1904 does not match the end tag of 'PreprocessorDefinitions'. Line 6, position 32.
+
+
+"C:\originalhr\HoverRace\NetTarget.sln" (default target) (1) ->
+"C:\originalhr\HoverRace\NetTarget\PaletteCreator\PaletteCreator.vcxproj.metaproj" (default target) (12) ->
+"C:\originalhr\HoverRace\NetTarget\ColorTools\ColorTools.vcxproj" (default target) (5:2) ->
+  C:\originalhr\HoverRace\NetTarget\ColorTools\ColorTools.vcxproj(6,32): error MSB4025: The project file could not be loaded. The 'ItemDefinitionGroup' start tag on line 2 position 1910 does not match the end tag of 'PreprocessorDefinitions'. Line 6, position 32.
+
+    0 Warning(s)
+    5 Error(s)
+
+Time Elapsed 00:00:00.26
