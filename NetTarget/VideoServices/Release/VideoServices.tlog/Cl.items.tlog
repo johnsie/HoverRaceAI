@@ -1,0 +1,12 @@
+c:\originalhr\HoverRace\NetTarget\VideoServices\2DViewPort.cpp;c:\originalhr\HoverRace\NetTarget\VideoServices\Release\2DViewPort.obj
+c:\originalhr\HoverRace\NetTarget\VideoServices\3DViewport.cpp;c:\originalhr\HoverRace\NetTarget\VideoServices\Release\3DViewport.obj
+c:\originalhr\HoverRace\NetTarget\VideoServices\3DViewportRendering.cpp;c:\originalhr\HoverRace\NetTarget\VideoServices\Release\3DViewportRendering.obj
+c:\originalhr\HoverRace\NetTarget\VideoServices\Bitmap.cpp;c:\originalhr\HoverRace\NetTarget\VideoServices\Release\Bitmap.obj
+c:\originalhr\HoverRace\NetTarget\VideoServices\ColorPalette.cpp;c:\originalhr\HoverRace\NetTarget\VideoServices\Release\ColorPalette.obj
+c:\originalhr\HoverRace\NetTarget\VideoServices\ColorTab.cpp;c:\originalhr\HoverRace\NetTarget\VideoServices\Release\ColorTab.obj
+c:\originalhr\HoverRace\NetTarget\VideoServices\Patch.cpp;c:\originalhr\HoverRace\NetTarget\VideoServices\Release\Patch.obj
+c:\originalhr\HoverRace\NetTarget\VideoServices\SoundServer.cpp;c:\originalhr\HoverRace\NetTarget\VideoServices\Release\SoundServer.obj
+c:\originalhr\HoverRace\NetTarget\VideoServices\Sprite.cpp;c:\originalhr\HoverRace\NetTarget\VideoServices\Release\Sprite.obj
+c:\originalhr\HoverRace\NetTarget\VideoServices\StdAfx.cpp;c:\originalhr\HoverRace\NetTarget\VideoServices\Release\StdAfx.obj
+c:\originalhr\HoverRace\NetTarget\VideoServices\VideoBuffer.cpp;c:\originalhr\HoverRace\NetTarget\VideoServices\Release\VideoBuffer.obj
+c:\originalhr\HoverRace\NetTarget\VideoServices\VideoBuffer2DDraw.cpp;c:\originalhr\HoverRace\NetTarget\VideoServices\Release\VideoBuffer2DDraw.obj

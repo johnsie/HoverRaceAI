@@ -147,7 +147,7 @@ BEGIN
             VALUE "FileDescription", "Racing game"
             VALUE "FileVersion", "1, 0, 0, 1"
             VALUE "InternalName", "HoverRace"
-            VALUE "LegalCopyright", "Copyright © 1996"
+            VALUE "LegalCopyright", "Copyright ï¿½ 1996"
             VALUE "OriginalFilename", "HRace.exe"
             VALUE "ProductName", "HoverRace"
             VALUE "ProductVersion", "1, 0, 0, 1"
@@ -659,7 +659,6 @@ BEGIN
     LTEXT           "Match Result:",IDC_STATIC,7,28,46,8
     EDITTEXT        IDC_RESULT,7,37,144,47,ES_MULTILINE | ES_READONLY | 
                     WS_VSCROLL | NOT WS_TABSTOP
-                    IDC_STATIC,157,66,52,57
     ICON            IDI_WARNING2,IDC_STATIC,173,45,18,20
 END
 
