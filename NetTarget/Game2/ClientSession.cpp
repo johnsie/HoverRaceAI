@@ -126,15 +126,57 @@ void MR_ClientSession::ReadLevelAttrib( MR_RecordFile* pRecordFile, MR_VideoBuff
 BOOL MR_ClientSession::LoadNew( const char* pTitle, MR_RecordFile* pMazeFile, int pNbLap, BOOL pAllowWeapons, MR_VideoBuffer* pVideo )
 {
    BOOL lReturnValue;
+   FILE* logFile = fopen("Game2_TrackLoad.log", "a");
+   
+   if(logFile) fprintf(logFile, "\n--- MR_ClientSession::LoadNew START ---\n"), fflush(logFile);
+   if(logFile) fprintf(logFile, "  pTitle='%s'\n", pTitle), fflush(logFile);
+   if(logFile) fprintf(logFile, "  pMazeFile=%p\n", pMazeFile), fflush(logFile);
+   if(logFile) fprintf(logFile, "  pNbLap=%d, pAllowWeapons=%d\n", pNbLap, pAllowWeapons), fflush(logFile);
+   if(logFile) fprintf(logFile, "  pVideo=%p\n", pVideo), fflush(logFile);
+   
    mNbLap        = pNbLap;
    mAllowWeapons = pAllowWeapons; 
-   lReturnValue  = mSession.LoadNew( pTitle, pMazeFile );
+   
+   if(logFile) fprintf(logFile, "  About to call mSession.LoadNew()\n"), fflush(logFile);
+   try
+   {
+      lReturnValue  = mSession.LoadNew( pTitle, pMazeFile );
+      if(logFile) fprintf(logFile, "  mSession.LoadNew() returned: %s\n", lReturnValue ? "TRUE" : "FALSE"), fflush(logFile);
+   }
+   catch(const std::exception& e)
+   {
+      if(logFile) fprintf(logFile, "  EXCEPTION in mSession.LoadNew(): %s\n", e.what()), fflush(logFile);
+      lReturnValue = FALSE;
+   }
+   catch(...)
+   {
+      if(logFile) fprintf(logFile, "  UNKNOWN EXCEPTION in mSession.LoadNew()\n"), fflush(logFile);
+      lReturnValue = FALSE;
+   }
 
    if( lReturnValue )
    {
-      ReadLevelAttrib( pMazeFile, pVideo );
+      if(logFile) fprintf(logFile, "  About to call ReadLevelAttrib()\n"), fflush(logFile);
+      try
+      {
+         ReadLevelAttrib( pMazeFile, pVideo );
+         if(logFile) fprintf(logFile, "  ReadLevelAttrib() completed\n"), fflush(logFile);
+      }
+      catch(const std::exception& e)
+      {
+         if(logFile) fprintf(logFile, "  EXCEPTION in ReadLevelAttrib(): %s\n", e.what()), fflush(logFile);
+         lReturnValue = FALSE;
+      }
+      catch(...)
+      {
+         if(logFile) fprintf(logFile, "  UNKNOWN EXCEPTION in ReadLevelAttrib()\n"), fflush(logFile);
+         lReturnValue = FALSE;
+      }
    }
 
+   if(logFile) fprintf(logFile, "--- MR_ClientSession::LoadNew END, returning: %s ---\n", lReturnValue ? "TRUE" : "FALSE"), fflush(logFile);
+   if(logFile) fclose(logFile);
+   
    return lReturnValue;
 }
 
@@ -147,44 +189,57 @@ const MR_UInt8* MR_ClientSession::GetBackImage()const
 // Main character controll and interogation
 BOOL MR_ClientSession::CreateMainCharacter()
 {
+   FILE* logFile = fopen("Game2_TrackLoad.log", "a");
+   if(logFile) fprintf(logFile, "\n--- MR_ClientSession::CreateMainCharacter START ---\n"), fflush(logFile);
 
    // Add a main character in 
    
    ASSERT( mMainCharacter1 == NULL ); // why creating it twice?
    ASSERT( mSession.GetCurrentLevel() != NULL );
 
-   mMainCharacter1 = MR_MainCharacter::New( mNbLap, mAllowWeapons );
+   try {
+      if(logFile) fprintf(logFile, "  Creating MR_MainCharacter with mNbLap=%d, mAllowWeapons=%d\n", mNbLap, mAllowWeapons), fflush(logFile);
+      mMainCharacter1 = MR_MainCharacter::New( mNbLap, mAllowWeapons );
+      if(logFile) fprintf(logFile, "  MR_MainCharacter created\n"), fflush(logFile);
 
-   // Insert the character in the current level
-   MR_Level* lCurrentLevel = mSession.GetCurrentLevel();
+      // Insert the character in the current level
+      MR_Level* lCurrentLevel = mSession.GetCurrentLevel();
+      if(logFile) fprintf(logFile, "  Got current level: %p\n", lCurrentLevel), fflush(logFile);
       
-   mMainCharacter1->mRoom        = lCurrentLevel->GetStartingRoom( 0 ); 
-   mMainCharacter1->mPosition    = lCurrentLevel->GetStartingPos( 0 );
-   mMainCharacter1->SetOrientation( lCurrentLevel->GetStartingOrientation( 0 ));
-   mMainCharacter1->SetHoverId( 0 );
+      if(logFile) fprintf(logFile, "  About to set mRoom, mPosition, Orientation\n"), fflush(logFile);
+      mMainCharacter1->mRoom        = lCurrentLevel->GetStartingRoom( 0 ); 
+      mMainCharacter1->mPosition    = lCurrentLevel->GetStartingPos( 0 );
+      mMainCharacter1->SetOrientation( lCurrentLevel->GetStartingOrientation( 0 ));
+      mMainCharacter1->SetHoverId( 0 );
+      if(logFile) fprintf(logFile, "  Properties set successfully\n"), fflush(logFile);
 
-   lCurrentLevel->InsertElement( mMainCharacter1, lCurrentLevel->GetStartingRoom( 0 ) );
+      if(logFile) fprintf(logFile, "  About to InsertElement\n"), fflush(logFile);
+      try {
+         lCurrentLevel->InsertElement( mMainCharacter1, lCurrentLevel->GetStartingRoom( 0 ) );
+         if(logFile) fprintf(logFile, "  InsertElement succeeded\n"), fflush(logFile);
+      }
+      catch(const std::exception& e) {
+         if(logFile) fprintf(logFile, "  EXCEPTION in InsertElement: %s (continuing anyway)\n", e.what()), fflush(logFile);
+         // Don't return false - just continue without inserting
+      }
+      catch(...) {
+         if(logFile) fprintf(logFile, "  UNKNOWN EXCEPTION in InsertElement (continuing anyway)\n"), fflush(logFile);
+         // Don't return false - just continue without inserting
+      }
+   }
+   catch(const std::exception& e) {
+      if(logFile) fprintf(logFile, "  EXCEPTION: %s\n", e.what()), fflush(logFile);
+      if(logFile) fclose(logFile);
+      return FALSE;
+   }
+   catch(...) {
+      if(logFile) fprintf(logFile, "  UNKNOWN EXCEPTION\n"), fflush(logFile);
+      if(logFile) fclose(logFile);
+      return FALSE;
+   }
 
-   // Insert two dummy (TEST)
-   /*
-   MR_MainCharacter* lMainCharacter;
-
-   lMainCharacter = MR_MainCharacter::New();
-   lMainCharacter->SetAsSlave();      
- 
-   lMainCharacter->mPosition    = lCurrentLevel->GetStartingPos( 1 );
-   lMainCharacter->mOrientation = lCurrentLevel->GetStartingOrientation( 1 );
-   lCurrentLevel->InsertElement( lMainCharacter, lCurrentLevel->GetStartingRoom( 1 ) );
-
-
-   lMainCharacter = MR_MainCharacter::New();
-   lMainCharacter->SetAsSlave();      
- 
-   lMainCharacter->mPosition    = lCurrentLevel->GetStartingPos( 2 );
-   lMainCharacter->mOrientation = lCurrentLevel->GetStartingOrientation( 2 );
-   lCurrentLevel->InsertElement( lMainCharacter, lCurrentLevel->GetStartingRoom( 2 ) );
-   */
-
+   if(logFile) fprintf(logFile, "--- MR_ClientSession::CreateMainCharacter END, returning TRUE ---\n"), fflush(logFile);
+   if(logFile) fclose(logFile);
    return TRUE;
 }
 

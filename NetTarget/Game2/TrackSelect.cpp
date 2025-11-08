@@ -189,6 +189,9 @@ BOOL MR_SelectTrack( HWND pParentWindow, CString& pTrackFile, int& pNbLap, BOOL&
    BOOL lReturnValue = TRUE;
    gsSelectedEntry = -1;
 
+   FILE* logFile = fopen("Game2_TrackLoad.log", "a");
+   fprintf(logFile, "\n--- MR_SelectTrack START ---\n");
+   fflush(logFile);
 
    // Load the entry list
    {
@@ -204,26 +207,30 @@ BOOL MR_SelectTrack( HWND pParentWindow, CString& pTrackFile, int& pNbLap, BOOL&
    
    gAllowRegistred = pAllowRegistred;
 
-   if( DialogBox( GetModuleHandle(NULL),  MAKEINTRESOURCE( IDD_TRACK_SELECT ), pParentWindow, TrackSelectCallBack )==IDOK )
+   // Show the track selection dialog
+   if( DialogBox( GetModuleHandle(NULL), MAKEINTRESOURCE( IDD_TRACK_SELECT ), pParentWindow, TrackSelectCallBack )==IDOK )
    {
       // IMPORTANT: Copy the track data BEFORE calling CleanList()
       // Otherwise pTrackFile will point to an empty string after CleanList()
       pTrackFile    = gsSortedTrackList[ gsSelectedEntry ]->mFileName;
       pNbLap        = gsNbLaps;
       pAllowWeapons = gsAllowWeapons;
-      
-      FILE* logFile = fopen("Game2_TrackLoad.log", "a");
-      fprintf(logFile, "MR_SelectTrack: Before CleanList, pTrackFile='%s'\n", (const char*)pTrackFile);
-      fflush(logFile);
-      fclose(logFile);
-      
       lReturnValue  = TRUE;
+      fprintf(logFile, "MR_SelectTrack: User selected track='%s', laps=%d, weapons=%d\n", (const char*)pTrackFile, pNbLap, pAllowWeapons);
+      fflush(logFile);
    }
    else
    {
+      fprintf(logFile, "MR_SelectTrack: User cancelled track selection\n");
+      fflush(logFile);
       lReturnValue = FALSE;
    }
+   
    CleanList();
+
+   fprintf(logFile, "--- MR_SelectTrack END, returning %d ---\n", lReturnValue);
+   fflush(logFile);
+   fclose(logFile);
 
    return lReturnValue;
 }

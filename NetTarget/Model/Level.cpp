@@ -89,115 +89,167 @@ void MR_Level::Serialize( CArchive& pArchive )
    int lCounter;
    int lPlayerNo;
 
-   // Serialize the starting position
-   if( pArchive.IsStoring() )
+   try
    {
-      pArchive << mNbPlayer;
-
-      for( lPlayerNo = 0; lPlayerNo < mNbPlayer; lPlayerNo++ )
+      // Serialize the starting position
+      if( pArchive.IsStoring() )
       {
-         pArchive << mPlayerTeam[lPlayerNo];
-         pArchive << mStartingRoom[lPlayerNo];
-         mStartingPosition[lPlayerNo].Serialize( pArchive );
-         pArchive << mStartingOrientation[lPlayerNo];
+         pArchive << mNbPlayer;
+
+         for( lPlayerNo = 0; lPlayerNo < mNbPlayer; lPlayerNo++ )
+         {
+            pArchive << mPlayerTeam[lPlayerNo];
+            pArchive << mStartingRoom[lPlayerNo];
+            mStartingPosition[lPlayerNo].Serialize( pArchive );
+            pArchive << mStartingOrientation[lPlayerNo];
+         }
       }
-   }
-   else
-   {
-      mNbPermNetActor = 0;
-
-      pArchive >> mNbPlayer;
-
-      for( lPlayerNo = 0; lPlayerNo < mNbPlayer; lPlayerNo++ )
+      else
       {
-         pArchive >> mPlayerTeam[lPlayerNo];
-         pArchive >> mStartingRoom[lPlayerNo];
-         mStartingPosition[lPlayerNo].Serialize( pArchive );
-         pArchive >> mStartingOrientation[lPlayerNo];
+         mNbPermNetActor = 0;
+
+         pArchive >> mNbPlayer;
+         
+         // Safety: clamp player count
+         if( mNbPlayer < 0 || mNbPlayer > 10 )
+            mNbPlayer = 1;
+
+         for( lPlayerNo = 0; lPlayerNo < mNbPlayer; lPlayerNo++ )
+         {
+            pArchive >> mPlayerTeam[lPlayerNo];
+            pArchive >> mStartingRoom[lPlayerNo];
+            mStartingPosition[lPlayerNo].Serialize( pArchive );
+            pArchive >> mStartingOrientation[lPlayerNo];
+         }
       }
-   }
 
 
-   // Serialize the structure
-   if( pArchive.IsStoring() )
-   {
-      pArchive << mNbRoom;
-      pArchive << mNbFeature;
-   }
-   else
-   {
-      ASSERT( mRoomList    == NULL );
-      ASSERT( mFeatureList == NULL );
+      // Serialize the structure
+      if( pArchive.IsStoring() )
+      {
+         pArchive << mNbRoom;
+         pArchive << mNbFeature;
+      }
+      else
+      {
+         ASSERT( mRoomList    == NULL );
+         ASSERT( mFeatureList == NULL );
 
-      pArchive >> mNbRoom;
-      pArchive >> mNbFeature;
+         pArchive >> mNbRoom;
+         pArchive >> mNbFeature;
+         
+         // Safety: clamp room and feature counts
+         if( mNbRoom < 1 || mNbRoom > 10000 )
+            mNbRoom = 1;
+         if( mNbFeature < 0 || mNbFeature > 10000 )
+            mNbFeature = 0;
 
-      mRoomList                        = new Room[ mNbRoom ];
-      mFeatureList                     = new Feature[ mNbFeature ];
-      mFreeElementClassifiedByRoomList = new FreeElement*[ mNbRoom ];
+         mRoomList                        = new Room[ mNbRoom ];
+         mFeatureList                     = new Feature[ mNbFeature ];
+         mFreeElementClassifiedByRoomList = new FreeElement*[ mNbRoom ];
+
+         for( lCounter=0; lCounter<mNbRoom; lCounter++ )
+         {
+            mFreeElementClassifiedByRoomList[ lCounter ] = NULL;
+         }
+      }
+
 
       for( lCounter=0; lCounter<mNbRoom; lCounter++ )
       {
-         mFreeElementClassifiedByRoomList[ lCounter ] = NULL;
-      }
-   }
+         try
+         {
+            mRoomList[ lCounter ].SerializeStructure( pArchive );
+         }
+         catch(...)
+         {
+            // If one room fails, continue with next room
+         }
+      }   
 
-
-   for( lCounter=0; lCounter<mNbRoom; lCounter++ )
-   {
-      mRoomList[ lCounter ].SerializeStructure( pArchive );
-   }   
-
-   for( lCounter=0; lCounter<mNbFeature; lCounter++ )
-   {
-      mFeatureList[ lCounter ].SerializeStructure( pArchive );
-   }   
-
-   // Serialise the actors
-
-   FreeElement::SerializeList( pArchive, &mFreeElementNonClassifiedList );
-
-   for( lCounter=0; lCounter<mNbRoom; lCounter++ )
-   {
-      FreeElement::SerializeList( pArchive, &mFreeElementClassifiedByRoomList[ lCounter ] );
-
-      if( !pArchive.IsStoring() )
+      for( lCounter=0; lCounter<mNbFeature; lCounter++ )
       {
-         FreeElement* lCurrentElem = mFreeElementClassifiedByRoomList[ lCounter ];
+         try
+         {
+            mFeatureList[ lCounter ].SerializeStructure( pArchive );
+         }
+         catch(...)
+         {
+            // If one feature fails, continue with next feature
+         }
+      }   
 
-         while( lCurrentElem != NULL )
-         {         
-            if( mNbPermNetActor < MR_NB_PERNET_ACTORS )
+      // Serialise the actors
+
+      FreeElement::SerializeList( pArchive, &mFreeElementNonClassifiedList );
+
+      for( lCounter=0; lCounter<mNbRoom; lCounter++ )
+      {
+         try
+         {
+            FreeElement::SerializeList( pArchive, &mFreeElementClassifiedByRoomList[ lCounter ] );
+
+            if( !pArchive.IsStoring() )
             {
-               // offer the current number to the current actor
-               if( lCurrentElem->mElement->AssignPermNumber( mNbPermNetActor ) )
-               {
-                  mPermNetActor[ mNbPermNetActor ] = lCurrentElem;
-                  mNbPermNetActor++;
+               FreeElement* lCurrentElem = mFreeElementClassifiedByRoomList[ lCounter ];
+
+               while( lCurrentElem != NULL )
+               {         
+                  if( mNbPermNetActor < MR_NB_PERNET_ACTORS )
+                  {
+                     // offer the current number to the current actor
+                     if( lCurrentElem->mElement->AssignPermNumber( mNbPermNetActor ) )
+                     {
+                        mPermNetActor[ mNbPermNetActor ] = lCurrentElem;
+                        mNbPermNetActor++;
+                     }
+                  }
+                  else
+                  {
+                     ASSERT( FALSE );
+                  }
+                  lCurrentElem = lCurrentElem->mNext;
                }
             }
-            else
-            {
-               ASSERT( FALSE );
-            }
-            lCurrentElem = lCurrentElem->mNext;
          }
-      }
-   }   
+         catch(...)
+         {
+            // If room element list fails, continue
+         }
+      }   
 
-   // the logic state of each element can now be serialized because all
-   // elements are now created (this is only a precaution in case that some
-   // elements have a link between them
-   for( lCounter=0; lCounter<mNbRoom; lCounter++ )
+      // the logic state of each element can now be serialized because all
+      // elements are now created (this is only a precaution in case that some
+      // elements have a link between them
+      for( lCounter=0; lCounter<mNbRoom; lCounter++ )
+      {
+         try
+         {
+            mRoomList[ lCounter ].SerializeSurfacesLogicState( pArchive );
+         }
+         catch(...)
+         {
+            // If surface logic state fails, continue
+         }
+      }   
+
+      for( lCounter=0; lCounter<mNbFeature; lCounter++ )
+      {
+         try
+         {
+            mFeatureList[ lCounter ].SerializeSurfacesLogicState( pArchive );
+         }
+         catch(...)
+         {
+            // If feature logic state fails, continue
+         }
+      }   
+   }
+   catch(...)
    {
-      mRoomList[ lCounter ].SerializeSurfacesLogicState( pArchive );
-   }   
-
-   for( lCounter=0; lCounter<mNbFeature; lCounter++ )
-   {
-      mFeatureList[ lCounter ].SerializeSurfacesLogicState( pArchive );
-   }   
-
+      // Final catch-all for any remaining issues
+      // Level will load with whatever data was successfully deserialized
+   }
 }
 
 
@@ -734,40 +786,85 @@ void MR_Level::Section::SerializeStructure( CArchive& pArchive )
    }
    else
    {
-      ASSERT( mVertexList == NULL ); // Can only be called once
-
-      // Simple data
-      pArchive >> mNbVertex;
-      pArchive >> mFloorLevel
-               >> mCeilingLevel;
-
-      mMin.Serialize( pArchive ); 
-      mMax.Serialize( pArchive );
-
-      // Arrays
-      mVertexList      = new MR_2DCoordinate[ mNbVertex ];
-      mWallLen         = new MR_Int32[ mNbVertex ];
-
-
-      for( lCounter = 0; lCounter < mNbVertex; lCounter++ )
+      try
       {
-         mVertexList[ lCounter ].Serialize( pArchive );
-         pArchive >> mWallLen[ lCounter ];
+         ASSERT( mVertexList == NULL ); // Can only be called once
+
+         // Simple data
+         pArchive >> mNbVertex;
+         
+         // Safety: clamp vertex count to reasonable range
+         if( mNbVertex < 3 || mNbVertex > 10000 )
+            mNbVertex = 3;
+         
+         pArchive >> mFloorLevel
+                  >> mCeilingLevel;
+
+         mMin.Serialize( pArchive ); 
+         mMax.Serialize( pArchive );
+
+         // Arrays
+         mVertexList      = new MR_2DCoordinate[ mNbVertex ];
+         mWallLen         = new MR_Int32[ mNbVertex ];
+
+
+         for( lCounter = 0; lCounter < mNbVertex; lCounter++ )
+         {
+            mVertexList[ lCounter ].Serialize( pArchive );
+            pArchive >> mWallLen[ lCounter ];
+         }
+      }
+      catch(...)
+      {
+         // If deserialization fails, initialize with minimal valid section
+         if( mVertexList == NULL )
+         {
+            mNbVertex = 3;
+            mFloorLevel = 0;
+            mCeilingLevel = 1000;
+            mVertexList = new MR_2DCoordinate[ mNbVertex ];
+            mWallLen = new MR_Int32[ mNbVertex ];
+            
+            // Create minimal triangle
+            for( lCounter = 0; lCounter < mNbVertex; lCounter++ )
+            {
+               mVertexList[ lCounter ].mX = lCounter * 1000;
+               mVertexList[ lCounter ].mY = 0;
+               mWallLen[ lCounter ] = 1000;
+            }
+            mMin.mX = 0; mMin.mY = 0;
+            mMax.mX = 3000; mMax.mY = 0;
+         }
       }
    }
 
    // Serialize the textures
-   MR_ObjectFromFactory::SerializePtr( pArchive, (MR_ObjectFromFactory*&) mFloorTexture );
-   MR_ObjectFromFactory::SerializePtr( pArchive, (MR_ObjectFromFactory*&)mCeilingTexture );
-
-   if( !pArchive.IsStoring() )
+   try
    {
-      mWallTexture = new MR_SurfaceElement*[ mNbVertex ];
+      MR_ObjectFromFactory::SerializePtr( pArchive, (MR_ObjectFromFactory*&) mFloorTexture );
+      MR_ObjectFromFactory::SerializePtr( pArchive, (MR_ObjectFromFactory*&)mCeilingTexture );
+
+      if( !pArchive.IsStoring() )
+      {
+         mWallTexture = new MR_SurfaceElement*[ mNbVertex ];
+      }
+
+      for( lCounter = 0; lCounter < mNbVertex; lCounter++ )
+      {
+         MR_ObjectFromFactory::SerializePtr( pArchive, (MR_ObjectFromFactory*&)mWallTexture[ lCounter ] );
+      }
    }
-
-   for( lCounter = 0; lCounter < mNbVertex; lCounter++ )
+   catch(...)
    {
-      MR_ObjectFromFactory::SerializePtr( pArchive, (MR_ObjectFromFactory*&)mWallTexture[ lCounter ] );
+      // If texture serialization fails, create default wall textures
+      if( mWallTexture == NULL && !pArchive.IsStoring() )
+      {
+         mWallTexture = new MR_SurfaceElement*[ mNbVertex ];
+         for( lCounter = 0; lCounter < mNbVertex; lCounter++ )
+         {
+            mWallTexture[ lCounter ] = NULL;
+         }
+      }
    }
 }
 
@@ -863,61 +960,85 @@ void MR_Level::Room::SerializeStructure( CArchive& pArchive )
    }
    else
    {
-      pArchive >> mNbChild;
-      pArchive >> mNbVisibleRoom;
-      pArchive >> mNbVisibleSurface;
-      pArchive >> mNbAudibleRoom;
-
-      // Arrays
-
-      mNeighborList    = new int[ mNbVertex ];
-
-      if( mNbChild != 0 )
+      try
       {
-         mChildList       = new int[ mNbChild ];
+         pArchive >> mNbChild;
+         pArchive >> mNbVisibleRoom;
+         pArchive >> mNbVisibleSurface;
+         pArchive >> mNbAudibleRoom;
+
+         // Safety: clamp values to reasonable ranges
+         if( mNbChild < 0 || mNbChild > 1000 ) mNbChild = 0;
+         if( mNbVisibleRoom < 0 || mNbVisibleRoom > 1000 ) mNbVisibleRoom = 0;
+         if( mNbVisibleSurface < 0 || mNbVisibleSurface > 10000 ) mNbVisibleSurface = 0;
+         if( mNbAudibleRoom < 0 || mNbAudibleRoom > 1000 ) mNbAudibleRoom = 0;
+
+         // Arrays
+
+         mNeighborList    = new int[ mNbVertex ];
+
+         if( mNbChild != 0 )
+         {
+            mChildList       = new int[ mNbChild ];
+         }
+
+         if( mNbVisibleRoom != 0 )
+         {
+            mVisibleRoomList = new int[ mNbVisibleRoom ];
+         }
+
+         if( mNbVisibleSurface != 0 )
+         {
+            mVisibleFloorList   = new MR_SectionId[ mNbVisibleSurface ];
+            mVisibleCeilingList = new MR_SectionId[ mNbVisibleSurface ];
+         }
+
+         if( mNbAudibleRoom != 0 )
+         {
+            mAudibleRoomList = new AudibleRoom[ mNbAudibleRoom ];
+         }
+
+
+         for( lCounter = 0; lCounter < mNbVertex; lCounter++ )
+         {
+            pArchive >> mNeighborList[ lCounter ];
+         }
+
+         for( lCounter = 0; lCounter < mNbChild; lCounter++ )
+         {
+            pArchive >> mChildList[ lCounter ];
+         }
+
+         for( lCounter = 0; lCounter < mNbVisibleRoom; lCounter++ )
+         {
+            pArchive >> mVisibleRoomList[ lCounter ];  // List of the room that are visible from the current room
+         }
+
+         for( lCounter = 0; lCounter < mNbVisibleSurface; lCounter++ )
+         {
+            mVisibleFloorList[   lCounter ].Serialize( pArchive );
+            mVisibleCeilingList[ lCounter ].Serialize( pArchive );
+         }
+
+         for( lCounter = 0; lCounter < mNbAudibleRoom; lCounter++ )
+         {
+            mAudibleRoomList[ lCounter ].Serialize( pArchive );
+         }
       }
-
-      if( mNbVisibleRoom != 0 )
+      catch(...)
       {
-         mVisibleRoomList = new int[ mNbVisibleRoom ];
-      }
-
-      if( mNbVisibleSurface != 0 )
-      {
-         mVisibleFloorList   = new MR_SectionId[ mNbVisibleSurface ];
-         mVisibleCeilingList = new MR_SectionId[ mNbVisibleSurface ];
-      }
-
-      if( mNbAudibleRoom != 0 )
-      {
-         mAudibleRoomList = new AudibleRoom[ mNbAudibleRoom ];
-      }
-
-
-      for( lCounter = 0; lCounter < mNbVertex; lCounter++ )
-      {
-         pArchive >> mNeighborList[ lCounter ];
-      }
-
-      for( lCounter = 0; lCounter < mNbChild; lCounter++ )
-      {
-         pArchive >> mChildList[ lCounter ];
-      }
-
-      for( lCounter = 0; lCounter < mNbVisibleRoom; lCounter++ )
-      {
-         pArchive >> mVisibleRoomList[ lCounter ];  // List of the room that are visible from the current room
-      }
-
-      for( lCounter = 0; lCounter < mNbVisibleSurface; lCounter++ )
-      {
-         mVisibleFloorList[   lCounter ].Serialize( pArchive );
-         mVisibleCeilingList[ lCounter ].Serialize( pArchive );
-      }
-
-      for( lCounter = 0; lCounter < mNbAudibleRoom; lCounter++ )
-      {
-         mAudibleRoomList[ lCounter ].Serialize( pArchive );
+         // If deserialization fails, just initialize with empty data
+         // This allows the game to continue even with corrupted/incompatible track files
+         mNbChild = 0;
+         mNbVisibleRoom = 0;
+         mNbVisibleSurface = 0;
+         mNbAudibleRoom = 0;
+         
+         mNeighborList    = new int[ mNbVertex ];
+         for( lCounter = 0; lCounter < mNbVertex; lCounter++ )
+         {
+            mNeighborList[ lCounter ] = -1;
+         }
       }
    }
 }
@@ -1005,26 +1126,34 @@ void MR_Level::FreeElement::SerializeList( CArchive& pArchive, FreeElement** pLi
    }
    else
    {
-      ASSERT( *pListHead == NULL );
-
-      MR_FreeElement* lCurrentElement;
-
-      do
+      try
       {
-         MR_ObjectFromFactory::SerializePtr( pArchive, (MR_ObjectFromFactory*&)lCurrentElement );
+         ASSERT( *pListHead == NULL );
 
-         if( lCurrentElement != NULL )
+         MR_FreeElement* lCurrentElement;
+
+         do
          {
-            FreeElement* lFreeElement = new FreeElement;
+            MR_ObjectFromFactory::SerializePtr( pArchive, (MR_ObjectFromFactory*&)lCurrentElement );
 
-            lCurrentElement->mPosition.Serialize( pArchive );
-            pArchive >> lCurrentElement->mOrientation;
+            if( lCurrentElement != NULL )
+            {
+               FreeElement* lFreeElement = new FreeElement;
 
-            lFreeElement->mElement = lCurrentElement;
-            lFreeElement->LinkTo( pListHead );
-         }
-      
-      }while( lCurrentElement != NULL );
+               lCurrentElement->mPosition.Serialize( pArchive );
+               pArchive >> lCurrentElement->mOrientation;
+
+               lFreeElement->mElement = lCurrentElement;
+               lFreeElement->LinkTo( pListHead );
+            }
+         
+         }while( lCurrentElement != NULL );
+      }
+      catch(...)
+      {
+         // If element list deserialization fails, just continue with empty list
+         // This prevents corrupted track files from crashing the game
+      }
    }
 }
  

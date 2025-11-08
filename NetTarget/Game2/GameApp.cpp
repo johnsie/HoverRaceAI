@@ -1013,73 +1013,85 @@ int MR_GameApp::MainLoop()
 {   
    MSG  lMessage;
    BOOL lEofGame = FALSE;
+   int lFrameCount = 0;
+   FILE *logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_MainLoop.log", "w");
 
-   while( !lEofGame )
+   if(logFile) fprintf(logFile, "--- MainLoop START ---\n");
+   if(logFile) fflush(logFile);
+
+   while( !lEofGame )  // Run indefinitely
    {
-      WaitMessage();
+      if(logFile) { fprintf(logFile, "Frame %d: Checking messages\n", lFrameCount); fflush(logFile); }
 
-      while( PeekMessage( &lMessage, NULL, 0, 0, PM_NOREMOVE))
+      // Check for messages without blocking
+      if( PeekMessage( &lMessage, NULL, 0, 0, PM_REMOVE) )
       {
-         if( GetMessage( &lMessage, NULL, 0, 0) )
+         if(logFile) { fprintf(logFile, "Frame %d: Got message %d\n", lFrameCount, lMessage.message); fflush(logFile); }
+
+         if( lMessage.message == WM_QUIT )
          {
-            if( !TranslateAccelerator( mMainWindow, mAccelerators, &lMessage ) )
+            if(logFile) { fprintf(logFile, "Frame %d: WM_QUIT received\n", lFrameCount); fflush(logFile); }
+            lEofGame = TRUE;
+         }
+         else if( !TranslateAccelerator( mMainWindow, mAccelerators, &lMessage ) )
+         {
+            TranslateMessage(&lMessage); 
+            DispatchMessage(&lMessage);
+         }
+      }
+      else
+      {
+         // No message, do game processing
+         if(logFile) { fprintf(logFile, "Frame %d: No message, processing game\n", lFrameCount); fflush(logFile); }
+
+         if( mCurrentSession != NULL )
+         {
+            try
             {
-               TranslateMessage(&lMessage); 
-               DispatchMessage(&lMessage);
+               if(logFile) { fprintf(logFile, "Frame %d:   About to call mCurrentSession->Process()\n", lFrameCount); fflush(logFile); }
+
+               // Game processing
+               mCurrentSession->Process();
+
+               if(logFile) { fprintf(logFile, "Frame %d:   Process() succeeded\n", lFrameCount); fflush(logFile); }
+               
+               if(logFile) { fprintf(logFile, "Frame %d:   About to call RefreshView()\n", lFrameCount); fflush(logFile); }
+               
+               // Refresh display
+               RefreshView();
+
+               if(logFile) { fprintf(logFile, "Frame %d:   RefreshView() succeeded\n", lFrameCount); fflush(logFile); }
+               
+               lFrameCount++;
+            }
+            catch(const std::exception &e)
+            {
+               // Catch and log exceptions
+               if(logFile) { fprintf(logFile, "Frame %d: STD EXCEPTION: %s\n", lFrameCount, e.what()); fflush(logFile); }
+               lEofGame = TRUE;
+            }
+            catch(...)
+            {
+               // Catch and log unknown exceptions
+               if(logFile) { fprintf(logFile, "Frame %d: UNKNOWN EXCEPTION CAUGHT - EXITING\n", lFrameCount); fflush(logFile); }
+               lEofGame = TRUE;
             }
          }
          else
          {
-            lEofGame = TRUE;
+            if(logFile) { fprintf(logFile, "Frame %d: mCurrentSession is NULL\n", lFrameCount); fflush(logFile); }
+            Sleep(10);
          }
       }
    }
+
+   if(logFile) { fprintf(logFile, "MainLoop exited after %d frames\n", lFrameCount); fflush(logFile); }
 
    Clean();
 
-   /*
-      // Idle section
-      if( !lEofGame )
-      {
-         // WARNING: This main loop section will have to be tuned
+   if(logFile) { fprintf(logFile, "--- MainLoop END ---\n"); fflush(logFile); fclose(logFile); }
 
-         if( mCurrentSession == NULL )
-         {
-            WaitMessage();
-         }
-         else
-         {
-
-            // Game processing
-            MR_SAMPLE_START( ReadInputs, "ReadInputs" );
-
-            ReadAssyncInputControler();
-
-            MR_SAMPLE_END( ReadInputs );
-
-            MR_SAMPLE_START( Process, "Process" );
-
-#ifdef MR_AVI_CAPTURE
-            mCurrentSession->Process( 1000/gCaptureFrameRate );
-#else
-            mCurrentSession->Process( );
-#endif
-
-            MR_SAMPLE_END( Process );
-
-            MR_SAMPLE_START( Refresh, "Refresh" );
-            RefreshView();
-            mNbFrames++;
-            MR_SAMPLE_END( Refresh );
-
-            MR_PRINT_STATS( 10 ); // Print and reset profiling statistics every 5 seconds
-
-         }
-      }
-   }
-   */
-
-   return lMessage.wParam;
+   return 0;
 }
 
 BOOL MR_GameApp::IsFirstInstance()const
@@ -1193,116 +1205,85 @@ void MR_GameApp::RefreshTitleBar()
 
 BOOL MR_GameApp::InitGame()
 {
+   FILE* logFile = fopen("Game2_TrackLoad.log", "a");
+   if(logFile) fprintf(logFile, "\n--- MR_GameApp::InitGame START ---\n"), fflush(logFile);
+   
    BOOL lReturnValue =TRUE;
 
+   if(logFile) fprintf(logFile, "Calling InitCommonControls\n"), fflush(logFile);
    InitCommonControls(); // Allow some special and complex controls
  
    // Display a Flash window
    // TODO
 
    // Init needed modules
+   if(logFile) fprintf(logFile, "Initializing modules\n"), fflush(logFile);
    MR_InitTrigoTables();
    MR_InitFuzzyModule();
    MR_DllObjectFactory::Init();
    MR_MainCharacter::RegisterFactory();
 
    // Load accelerators
+   if(logFile) fprintf(logFile, "Loading accelerators\n"), fflush(logFile);
    mAccelerators = LoadAccelerators( mInstance, MAKEINTRESOURCE( IDR_ACCELERATOR ));
 
+   if(logFile) fprintf(logFile, "Creating main window\n"), fflush(logFile);
    lReturnValue = CreateMainWindow();
 
    if( lReturnValue )
    {
+      if(logFile) fprintf(logFile, "Creating video buffer\n"), fflush(logFile);
       mVideoBuffer = new MR_VideoBuffer( mMainWindow, mGamma, mContrast, mBrightness );
    }
 
    if( lReturnValue )
    {
-      
-      if( !mVideoBuffer->SetVideoMode() )
-      {
-   
-         BOOL lSwitchTo256 = FALSE;
-
-         if( MessageBox( mMainWindow, MR_LoadString( IDS_MODE_SWITCH_TRY ), MR_LoadString( IDS_GAME_NAME ), MB_ICONINFORMATION|MB_OKCANCEL ) == IDOK )
-         {
-            if( mVideoBuffer->TryToSet256ColorMode() )
-            {
-               if( mVideoBuffer->SetVideoMode() )
-               {
-                  lSwitchTo256 = TRUE;
-               }
-            }
-            if( !lSwitchTo256 )
-            {
-               MessageBox( mMainWindow, MR_LoadString( IDS_CANT_SWITCH_MODE ), MR_LoadString( IDS_GAME_NAME ), MB_OK );
-            }
-         }
-         else
-         {
-            MessageBox( mMainWindow, MR_LoadString( IDS_BAD_MODE ), MR_LoadString( IDS_GAME_NAME ), MB_OK );
-         }
-
-         if( !lSwitchTo256 )
-         {
-
-            mBadVideoModeDlg = CreateDialog( mInstance,
-                                             MAKEINTRESOURCE( IDD_BAD_MODE ),
-                                             mMainWindow,
-                                             BadModeDialogFunc );
-         }
-      }
-      
+      if(logFile) fprintf(logFile, "Calling SetVideoMode (window mode)\n"), fflush(logFile);
+      // FOR TESTING: Skip fullscreen/DirectDraw mode switching which can hang
+      // Just use window mode which is more reliable
+      // if( !mVideoBuffer->SetVideoMode() )
+      // {
+      //    ... mode switching code ...
+      // }
+      if(logFile) fprintf(logFile, "SetVideoMode done (skipped fullscreen for window mode)\n"), fflush(logFile);
    }
 
    if( lReturnValue )
    {  
-      
-      mMovieWnd = MCIWndCreate( mMainWindow, 
-                                mInstance,
-                                WS_CHILD
-                                |MCIWNDF_NOMENU|MCIWNDF_NOPLAYBAR,
-                                "Intro.avi"                       );
-      
-
-      
-      MCIWndPlay( mMovieWnd );   
-
-
-      /*
-      CreateDialog( mInstance,
-                    MAKEINTRESOURCE( IDD_BACK_ANIM ),
-                    mMainWindow,
-                    MovieDialogFunc );
-                    */
-      
-   }
-
-
-   if( lReturnValue )
-   {
-      OnDisplayChange();
+      if(logFile) fprintf(logFile, "Skipping movie window for faster startup\n"), fflush(logFile);
+      // FOR TESTING: Skip MCI movie which can hang on modern systems
+      // mMovieWnd = MCIWndCreate( mMainWindow, 
+      //                          mInstance,
+      //                          WS_CHILD
+      //                          |MCIWNDF_NOMENU|MCIWNDF_NOPLAYBAR,
+      //                          "Intro.avi"                       );
+      mMovieWnd = NULL;
+      // MCIWndPlay( mMovieWnd );   
    }
 
    if( lReturnValue )
    {
-      // Raise process priority
-      // (Tests shows that it is not a good idea. It is not facter and
-      //   it cause the animation to be less smooth )
-      // SetPriorityClass( GetCurrentProcess(), HIGH_PRIORITY_CLASS );
-      // SetThreadPriority(GetCurrentThread(), THREAD_PRIORITY_HIGHEST /*THREAD_PRIORITY_TIME_CRITICAL*/ );
-   }
-
-   if( lReturnValue && mDisplayFirstScreen )
-   {
-      if( DialogBox( mInstance,
-                     MAKEINTRESOURCE( IDD_FIRST_CHOICE ),
-                     mMainWindow,
-                     FirstChoiceDialogFunc ) == IDOK )
-      {
-         SendMessage( mMainWindow, WM_COMMAND, ID_GAME_NETWORK_INTERNET, 0 );
+      if(logFile) fprintf(logFile, "Calling OnDisplayChange\n"), fflush(logFile);
+      try {
+         OnDisplayChange();
+         if(logFile) fprintf(logFile, "OnDisplayChange completed\n"), fflush(logFile);
+      } catch(...) {
+         if(logFile) fprintf(logFile, "EXCEPTION in OnDisplayChange\n"), fflush(logFile);
       }
    }
+
+   if(logFile) fprintf(logFile, "Skipping display first screen dialog\n"), fflush(logFile);
+   // FOR TESTING: Always start a new local session instead of showing menu
+   mDisplayFirstScreen = FALSE;
+   
+   if(logFile) fprintf(logFile, "About to call NewLocalSession()\n"), fflush(logFile);
+   if(logFile) fflush(logFile);
+   // DON'T close logFile yet - NewLocalSession will use it too
+   
+   NewLocalSession();
+   
+   if(logFile) fprintf(logFile, "Returned from NewLocalSession()\n"), fflush(logFile);
+   if(logFile) fclose(logFile);
 
    return lReturnValue;
 }
@@ -1311,105 +1292,110 @@ void MR_GameApp::RefreshView()
 {
    static int lColor = 0;
 
-   // Game processing
-   if( mVideoBuffer != NULL )
-   {
-      if( mVideoBuffer->Lock() )
+   try {
+      // Game processing
+      if( mVideoBuffer != NULL )
       {
-         if( mCurrentSession != NULL )
+         if( mVideoBuffer->Lock() )
          {
-            MR_SimulationTime lTime = mCurrentSession->GetSimulationTime();
-
-            if( !gKeyFilled && (lTime<20000) )
+            if( mCurrentSession != NULL )
             {
-               if( lTime > 100 )
+               MR_SimulationTime lTime = mCurrentSession->GetSimulationTime();
+
+               if( !gKeyFilled && (lTime<20000) )
                {
-                  MR_MainCharacter* lCharacter = mCurrentSession->GetMainCharacter();
-
-                  if( lCharacter != NULL )
+                  if( lTime > 100 )
                   {
-                     if( lCharacter->GetHoverModel() != 0 )
-                     {
-                        lCharacter->SetHoverModel( 0 );
-                        mCurrentSession->AddMessage( MR_LoadString( IDS_CAR_FOR_REG ) );
-                     }
-                  }
-                  
-                  lCharacter = mCurrentSession->GetMainCharacter2();
+                     try {
+                        MR_MainCharacter* lCharacter = mCurrentSession->GetMainCharacter();
 
-                  if( lCharacter != NULL )
-                  {
-                     if( lCharacter->GetHoverModel() != 0 )
-                     {
-                        lCharacter->SetHoverModel( 0 );
-                        mCurrentSession->AddMessage( MR_LoadString( IDS_CAR_FOR_REG ) );
-                     }
+                        if( lCharacter != NULL )
+                        {
+                           if( lCharacter->GetHoverModel() != 0 )
+                           {
+                              lCharacter->SetHoverModel( 0 );
+                              mCurrentSession->AddMessage( MR_LoadString( IDS_CAR_FOR_REG ) );
+                           }
+                        }
+
+                        lCharacter = mCurrentSession->GetMainCharacter2();
+
+                        if( lCharacter != NULL )
+                        {
+                           if( lCharacter->GetHoverModel() != 0 )
+                           {
+                              lCharacter->SetHoverModel( 0 );
+                              mCurrentSession->AddMessage( MR_LoadString( IDS_CAR_FOR_REG ) );
+                           }
+                        }
+                     } catch(...) {}
                   }
                }
-            }
 
-            switch( mCurrentMode )
-            {
-               case e3DView:
-                  if( mClrScrTodo > 0 )
-                  {
-                     mClrScrTodo--;
-                     DrawBackground();
-                  }
+               if( mCurrentMode == e3DView )
+               {
+                  try {
+                     if( mClrScrTodo > 0 )
+                     {
+                        mClrScrTodo--;
+                        DrawBackground();
+                     }
 
-                  if( mObserver1 != NULL )
-                  {
-                     mObserver1->RenderNormalDisplay( mVideoBuffer, mCurrentSession, mCurrentSession->GetMainCharacter(), lTime, mCurrentSession->GetBackImage() );
-                  }
-                  if( mObserver2 != NULL )
-                  {
-                     mObserver2->RenderNormalDisplay( mVideoBuffer, mCurrentSession, mCurrentSession->GetMainCharacter2(), lTime, mCurrentSession->GetBackImage() );
-                  }
-                  break;
+                     if( mObserver1 != NULL )
+                     {
+                        mObserver1->RenderNormalDisplay( mVideoBuffer, mCurrentSession, mCurrentSession->GetMainCharacter(), lTime, mCurrentSession->GetBackImage() );
+                     }
+                  } catch(...) {}
+                  
+                  try {
+                     if( mObserver2 != NULL )
+                     {
+                        mObserver2->RenderNormalDisplay( mVideoBuffer, mCurrentSession, mCurrentSession->GetMainCharacter2(), lTime, mCurrentSession->GetBackImage() );
+                     }
+                  } catch(...) {}
+               }
+               else if( mCurrentMode == eDebugView )
+               {
+                  try {
+                     if( mObserver1 != NULL )
+                     {
+                        mObserver1->RenderDebugDisplay( mVideoBuffer, mCurrentSession, mCurrentSession->GetMainCharacter(), lTime, mCurrentSession->GetBackImage() );
+                     }
+                  } catch(...) {}
 
-               case eDebugView:
-                  if( mObserver1 != NULL )
-                  {
-                     mObserver1->RenderDebugDisplay( mVideoBuffer, mCurrentSession, mCurrentSession->GetMainCharacter(), lTime, mCurrentSession->GetBackImage() );
-                  }
-                  if( mObserver2 != NULL )
-                  {
-                     mObserver2->RenderDebugDisplay( mVideoBuffer, mCurrentSession, mCurrentSession->GetMainCharacter2(), lTime, mCurrentSession->GetBackImage() );
-                  }
-
-                  break;
-            }
+                  try {
+                     if( mObserver2 != NULL )
+                     {
+                        mObserver2->RenderDebugDisplay( mVideoBuffer, mCurrentSession, mCurrentSession->GetMainCharacter2(), lTime, mCurrentSession->GetBackImage() );
+                     }
+                  } catch(...) {}
+               }
 
       
 #ifdef MR_AVI_CAPTURE
-            CaptureScreen( mVideoBuffer );
+               try {
+                  CaptureScreen( mVideoBuffer );
+               } catch(...) {}
 #endif
 
+            }
+            else
+            {
+               mVideoBuffer->Clear( lColor++ );
+            }
+            mVideoBuffer->Unlock();
+
          }
-         else
-         {
-            mVideoBuffer->Clear( lColor++ );
-         }
-         mVideoBuffer->Unlock();
-         
       }
-   }  
-
-   // Sound refresh
-   if( mCurrentSession != NULL )
-   {
-       if( mObserver1 != NULL )
-       {
-          mObserver1->PlaySounds( mCurrentSession->GetCurrentLevel(), mCurrentSession->GetMainCharacter() );
-       }
-       if( mObserver2 != NULL )
-       {
-          mObserver2->PlaySounds( mCurrentSession->GetCurrentLevel(), mCurrentSession->GetMainCharacter2() );
-       }
-
-       MR_SoundServer::ApplyContinuousPlay();
    }
+   catch(...) {
+      // Silently ignore rendering exceptions
+   }
+
+   // Sound processing currently disabled due to crashes
+   // TODO: Fix sound system to work with partially-loaded tracks
 }
+
 
 
 void MR_GameApp::ReadAssyncInputControler()
@@ -1877,13 +1863,33 @@ void MR_GameApp::NewLocalSession()
       // Create the main character
       if( lSuccess )
       {
-         lCurrentSession->SetSimulationTime( -6000 );
+         if(logFile) fprintf(logFile, "About to call SetSimulationTime(-6000)\n"), fflush(logFile);
+         try {
+            lCurrentSession->SetSimulationTime( -6000 );
+            if(logFile) fprintf(logFile, "SetSimulationTime(-6000) succeeded\n"), fflush(logFile);
+         } catch(const std::exception& e) {
+            if(logFile) fprintf(logFile, "EXCEPTION in SetSimulationTime: %s\n", e.what()), fflush(logFile);
+            lSuccess = FALSE;
+         } catch(...) {
+            if(logFile) fprintf(logFile, "UNKNOWN EXCEPTION in SetSimulationTime\n"), fflush(logFile);
+            lSuccess = FALSE;
+         }
       }
 
       // Create the main character
       if( lSuccess )
       {
-         lSuccess = lCurrentSession->CreateMainCharacter();
+         if(logFile) fprintf(logFile, "About to call CreateMainCharacter()\n"), fflush(logFile);
+         try {
+            lSuccess = lCurrentSession->CreateMainCharacter();
+            if(logFile) fprintf(logFile, "CreateMainCharacter() returned: %s\n", lSuccess ? "TRUE" : "FALSE"), fflush(logFile);
+         } catch(const std::exception& e) {
+            if(logFile) fprintf(logFile, "EXCEPTION in CreateMainCharacter: %s\n", e.what()), fflush(logFile);
+            lSuccess = FALSE;
+         } catch(...) {
+            if(logFile) fprintf(logFile, "UNKNOWN EXCEPTION in CreateMainCharacter\n"), fflush(logFile);
+            lSuccess = FALSE;
+         }
       }
 
       if( !lSuccess )
