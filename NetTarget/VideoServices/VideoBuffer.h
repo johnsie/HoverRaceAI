@@ -88,14 +88,13 @@ class MR_VideoBuffer
       void  DeleteInternalSurfaces();
       void  ReturnToWindowsResolution(); //Automaticly call DeleteInternalSurfaces
 
-      void Flip();
-
 
    public:
 
       MR_DllDeclare MR_VideoBuffer( HWND pWindow, double lGamma, double lContrast, double mBrightness );
       MR_DllDeclare ~MR_VideoBuffer();
 
+      MR_DllDeclare void Flip();  // Display rendered frame on screen
 
       // Video mode selection
       MR_DllDeclare BOOL SetVideoMode( );     // In a window mode

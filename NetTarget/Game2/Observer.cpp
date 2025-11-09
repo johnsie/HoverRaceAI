@@ -1250,49 +1250,87 @@ void MR_Observer::RenderNormalDisplay( MR_VideoBuffer* pDest, const MR_ClientSes
 
 void MR_Observer::PlaySounds( const MR_Level* pLevel, MR_MainCharacter* pViewingCharacter )
 {
-   // Play the sound of all moving elemnts arround
-
-   int lCurrentRoom   = pViewingCharacter->mRoom;
-   int lNeighborCount = pLevel->GetRoomVertexCount( lCurrentRoom );
-
-   for( int lCounter = -1; lCounter < lNeighborCount; lCounter++ )
+   // Play the sound of all moving elements around
+   try
    {
-      int      lRoomId;
-      
-      if( lCounter == -1 )
+      if( pLevel == NULL || pViewingCharacter == NULL )
       {
-         lRoomId = lCurrentRoom;
-      }
-      else
-      {
-         lRoomId = pLevel->GetNeighbor( lCurrentRoom, lCounter );
+         return;
       }
 
-      if( lRoomId != -1 )
-      {
-         MR_FreeElementHandle lHandle = pLevel->GetFirstFreeElement( lRoomId );
+      int lCurrentRoom   = pViewingCharacter->mRoom;
+      int lNeighborCount = pLevel->GetRoomVertexCount( lCurrentRoom );
 
-         while( lHandle != NULL )
+      for( int lCounter = -1; lCounter < lNeighborCount; lCounter++ )
+      {
+         try
          {
-            MR_FreeElement* lElement = MR_Level::GetFreeElement( lHandle );
-
-            if( lElement != pViewingCharacter )
+            int      lRoomId;
+            
+            if( lCounter == -1 )
             {
-               double lXDist = pViewingCharacter->mPosition.mX-lElement->mPosition.mX;
-               double lYDist = pViewingCharacter->mPosition.mY-lElement->mPosition.mY;
-
-               int lDB = -sqrt( lXDist*lXDist+lYDist*lYDist )/15.0;
-
-
-               lElement->PlayExternalSounds( lDB, 0 );
+               lRoomId = lCurrentRoom;
+            }
+            else
+            {
+               lRoomId = pLevel->GetNeighbor( lCurrentRoom, lCounter );
             }
 
-            lHandle = MR_Level::GetNextFreeElement( lHandle );
+            if( lRoomId != -1 )
+            {
+               MR_FreeElementHandle lHandle = pLevel->GetFirstFreeElement( lRoomId );
+
+               while( lHandle != NULL )
+               {
+                  try
+                  {
+                     MR_FreeElement* lElement = MR_Level::GetFreeElement( lHandle );
+
+                     if( lElement != NULL && lElement != pViewingCharacter )
+                     {
+                        double lXDist = pViewingCharacter->mPosition.mX-lElement->mPosition.mX;
+                        double lYDist = pViewingCharacter->mPosition.mY-lElement->mPosition.mY;
+
+                        int lDB = -(int)sqrt( lXDist*lXDist+lYDist*lYDist )/15;
+
+                        try
+                        {
+                           lElement->PlayExternalSounds( lDB, 0 );
+                        }
+                        catch(...)
+                        {
+                           // Silently ignore sound play errors
+                        }
+                     }
+                  }
+                  catch(...)
+                  {
+                     // Silently ignore element sound errors
+                  }
+
+                  lHandle = MR_Level::GetNextFreeElement( lHandle );
+               }
+            }
+         }
+         catch(...)
+         {
+            // Silently ignore room sound errors
          }
       }
-   }
 
-   pViewingCharacter->PlayInternalSounds();
+      try
+      {
+         pViewingCharacter->PlayInternalSounds();
+      }
+      catch(...)
+      {
+         // Silently ignore viewing character sound errors
+      }
+   }
+   catch(...)
+   {
+      // Silently ignore all sound errors
+   }
 }
 
 

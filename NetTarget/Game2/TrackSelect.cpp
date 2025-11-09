@@ -411,6 +411,10 @@ MR_TrackAvail MR_GetTrackAvail( const char* pFileName, BOOL pAllowRegistred )
 BOOL ReadTrackEntry( MR_RecordFile* pRecordFile, TrackEntry* pDest, const char* pFileName )
 {
    BOOL lReturnValue = FALSE;
+   FILE* logFile = fopen("Game2_TrackLoad.log", "a");
+
+   fprintf(logFile, "\n    ReadTrackEntry: Starting to read track\n");
+   fflush(logFile);
 
    pRecordFile->SelectRecord( 0 );
 
@@ -420,12 +424,16 @@ BOOL ReadTrackEntry( MR_RecordFile* pRecordFile, TrackEntry* pDest, const char* 
       CArchive lArchive( pRecordFile, CArchive::load|CArchive::bNoFlushOnDelete );
    
       lArchive >> lMagicNumber;
+      fprintf(logFile, "    Magic number read: 0x%X (expected: 0x%X)\n", lMagicNumber, MR_MAGIC_TRACK_NUMBER);
+      fflush(logFile);
 
       if( lMagicNumber == MR_MAGIC_TRACK_NUMBER )
       {
          int lVersion;
 
          lArchive >> lVersion;
+         fprintf(logFile, "    Version read: %d\n", lVersion);
+         fflush(logFile);
 
          if( lVersion == 1 )
          {
@@ -435,6 +443,10 @@ BOOL ReadTrackEntry( MR_RecordFile* pRecordFile, TrackEntry* pDest, const char* 
             lArchive >> pDest->mDescription;
             lArchive >> lMinorID;
             lArchive >> lMajorID;
+            
+            fprintf(logFile, "    Description: '%s', Minor ID: %d, Major ID: %d\n", 
+                    (const char*)pDest->mDescription, lMinorID, lMajorID);
+            fflush(logFile);
 
             BOOL lIDOk = FALSE;
 
@@ -455,10 +467,14 @@ BOOL ReadTrackEntry( MR_RecordFile* pRecordFile, TrackEntry* pDest, const char* 
                      lIDOk = TRUE;
                   }
                }
+               fprintf(logFile, "    ID validation: lIDOk=%d\n", lIDOk);
+               fflush(logFile);
             }
             else
             {
                lIDOk = TRUE;
+               fprintf(logFile, "    Skipping ID validation (lMajorID=%d, pFileName=%s)\n", lMajorID, pFileName ? pFileName : "NULL");
+               fflush(logFile);
             }
 
             if( lIDOk )
@@ -466,24 +482,56 @@ BOOL ReadTrackEntry( MR_RecordFile* pRecordFile, TrackEntry* pDest, const char* 
                lArchive >> pDest->mSortingIndex;
                lArchive >> pDest->mRegistrationMode;
 
+               fprintf(logFile, "    Sorting index: %d, Registration: %d\n", 
+                       pDest->mSortingIndex, pDest->mRegistrationMode);
+               fflush(logFile);
+
                if( pDest->mRegistrationMode == MR_FREE_TRACK )
                {
                   lMagicNumber = 1;
                   lArchive >> lMagicNumber;
+                  
+                  fprintf(logFile, "    Final magic number for FREE_TRACK: 0x%X\n", lMagicNumber);
+                  fflush(logFile);
 
                   if( lMagicNumber == MR_MAGIC_TRACK_NUMBER )
                   {
                      lReturnValue = TRUE;
-                  }                  
+                     fprintf(logFile, "    SUCCESS: Track entry validated\n");
+                     fflush(logFile);
+                  }
+                  else
+                  {
+                     fprintf(logFile, "    ERROR: Final magic number mismatch\n");
+                     fflush(logFile);
+                  }
                }
                else
                {
                   lReturnValue = TRUE;
+                  fprintf(logFile, "    SUCCESS: Registered track validated\n");
+                  fflush(logFile);
                }
             }
+            else
+            {
+               fprintf(logFile, "    ERROR: ID validation failed\n");
+               fflush(logFile);
+            }
+         }
+         else
+         {
+            fprintf(logFile, "    ERROR: Version mismatch (got %d, expected 1)\n", lVersion);
+            fflush(logFile);
          }
       }
+      else
+      {
+         fprintf(logFile, "    ERROR: Magic number mismatch\n");
+         fflush(logFile);
+      }
    }
+   if(logFile) fclose(logFile);
    return lReturnValue;
 }
 

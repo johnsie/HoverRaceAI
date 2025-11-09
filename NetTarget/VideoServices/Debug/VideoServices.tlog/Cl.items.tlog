@@ -1,0 +1,16 @@
+c:\originalhr\HoverRace\NetTarget\VideoServices\2DViewPort.cpp;c:\originalhr\HoverRace\NetTarget\VideoServices\Debug\2DViewPort.obj
+c:\originalhr\HoverRace\NetTarget\VideoServices\3DViewport.cpp;c:\originalhr\HoverRace\NetTarget\VideoServices\Debug\3DViewport.obj
+c:\originalhr\HoverRace\NetTarget\VideoServices\3DViewportRendering.cpp;c:\originalhr\HoverRace\NetTarget\VideoServices\Debug\3DViewportRendering.obj
+c:\originalhr\HoverRace\NetTarget\VideoServices\Bitmap.cpp;c:\originalhr\HoverRace\NetTarget\VideoServices\Debug\Bitmap.obj
+c:\originalhr\HoverRace\NetTarget\VideoServices\ColorPalette.cpp;c:\originalhr\HoverRace\NetTarget\VideoServices\Debug\ColorPalette.obj
+c:\originalhr\HoverRace\NetTarget\VideoServices\ColorTab.cpp;c:\originalhr\HoverRace\NetTarget\VideoServices\Debug\ColorTab.obj
+c:\originalhr\HoverRace\NetTarget\VideoServices\Patch.cpp;c:\originalhr\HoverRace\NetTarget\VideoServices\Debug\Patch.obj
+c:\originalhr\HoverRace\NetTarget\VideoServices\SoundServer.cpp;c:\originalhr\HoverRace\NetTarget\VideoServices\Debug\SoundServer.obj
+c:\originalhr\HoverRace\NetTarget\VideoServices\Sprite.cpp;c:\originalhr\HoverRace\NetTarget\VideoServices\Debug\Sprite.obj
+c:\originalhr\HoverRace\NetTarget\VideoServices\StdAfx.cpp;c:\originalhr\HoverRace\NetTarget\VideoServices\Debug\StdAfx.obj
+c:\originalhr\HoverRace\NetTarget\VideoServices\VideoBuffer.cpp;c:\originalhr\HoverRace\NetTarget\VideoServices\Debug\VideoBuffer.obj
+c:\originalhr\HoverRace\NetTarget\VideoServices\VideoBuffer2DDraw.cpp;c:\originalhr\HoverRace\NetTarget\VideoServices\Debug\VideoBuffer2DDraw.obj
+c:\originalhr\HoverRace\NetTarget\GraphicsSDL2\SDL2Graphics.cpp;c:\originalhr\HoverRace\NetTarget\VideoServices\Debug\SDL2Graphics.obj
+c:\originalhr\HoverRace\NetTarget\GraphicsSDL2\VideoBufferSDL2Adapter.cpp;c:\originalhr\HoverRace\NetTarget\VideoServices\Debug\VideoBufferSDL2Adapter.obj
+c:\originalhr\HoverRace\NetTarget\VideoServices\VideoBufferSDL2Integration.cpp;c:\originalhr\HoverRace\NetTarget\VideoServices\Debug\VideoBufferSDL2Integration.obj
+c:\originalhr\HoverRace\OpenAL\alstub.cpp;c:\originalhr\HoverRace\NetTarget\VideoServices\Debug\alstub.obj

@@ -58,6 +58,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NetTarget", "NetTarget\NetT
 		{DDC913AD-31C6-481A-BD31-3949CBF06FE3} = {DDC913AD-31C6-481A-BD31-3949CBF06FE3}
 	EndProjectSection
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HoverCad", "HoverCad\HoverCad.vcxproj", "{7F8E9C5A-1B2D-4C3E-9F7A-2B5C8D9E1A3F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Default = Debug|Default
@@ -116,6 +118,10 @@ Global
 		{2FC6949D-2681-4423-8CB9-F98D6F2B33EE}.Debug|Default.Build.0 = Debug|Win32
 		{2FC6949D-2681-4423-8CB9-F98D6F2B33EE}.Release|Default.ActiveCfg = Release|Win32
 		{2FC6949D-2681-4423-8CB9-F98D6F2B33EE}.Release|Default.Build.0 = Release|Win32
+		{7F8E9C5A-1B2D-4C3E-9F7A-2B5C8D9E1A3F}.Debug|Default.ActiveCfg = Debug|Win32
+		{7F8E9C5A-1B2D-4C3E-9F7A-2B5C8D9E1A3F}.Debug|Default.Build.0 = Debug|Win32
+		{7F8E9C5A-1B2D-4C3E-9F7A-2B5C8D9E1A3F}.Release|Default.ActiveCfg = Release|Win32
+		{7F8E9C5A-1B2D-4C3E-9F7A-2B5C8D9E1A3F}.Release|Default.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

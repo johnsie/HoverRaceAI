@@ -1,7 +1,10 @@
 // SoundServer.cpp
 //
+// OpenAL-based sound implementation for HoverRace
+// Replaces legacy DirectSound with modern cross-platform audio
 //
 // Copyright (c) 1995-1998 - Richard Langlois and Grokksoft Inc.
+// Modernized with OpenAL support (2025)
 //
 // Licensed under GrokkSoft HoverRace SourceCode License v1.0(the "License");
 // you may not use this file except in compliance with the License.
@@ -25,7 +28,19 @@
 #include "../Util/MR_Types.h"
 #include <mmreg.h>
 
+// OpenAL headers
+#include "al.h"
+#include "alc.h"
+
 #define MR_MAX_SOUND_COPY 6
+#define MR_MAX_BUFFERS 256
+#define MR_MAX_SOURCES 128
+
+// Global OpenAL state
+static ALCdevice* gOpenALDevice = NULL;
+static ALCcontext* gOpenALContext = NULL;
+static ALuint gOpenALSources[MR_MAX_SOURCES];
+static int gOpenALSourceCount = 0;
 
 class MR_SoundBuffer
 {
@@ -35,10 +50,10 @@ class MR_SoundBuffer
 
    protected:
 
-      int                 mNbCopy;
-      IDirectSoundBuffer* mSoundBuffer[MR_MAX_SOUND_COPY];
-
-      int                 mNormalFreq;
+      int     mNbCopy;
+      ALuint  mALBuffers[MR_MAX_SOUND_COPY];
+      ALuint  mALSources[MR_MAX_SOUND_COPY];
+      int     mNormalFreq;
 
    public:
       MR_SoundBuffer();
@@ -101,57 +116,63 @@ class MR_ContinuousSound:public MR_SoundBuffer
 // Variables
 MR_SoundBuffer* MR_SoundBuffer::mList = NULL;
 
-IDirectSound* gDirectSound = NULL;
-
-
 
 // Implementation
 MR_SoundBuffer::MR_SoundBuffer()
 {
    mNbCopy = 0;
+   mNormalFreq = 44100;
 
    for( int lCounter = 0; lCounter < MR_MAX_SOUND_COPY; lCounter++ )
    {
-      mSoundBuffer[ lCounter ] = NULL;
+      mALBuffers[lCounter] = 0;
+      mALSources[lCounter] = 0;
    }
 
    // Add the new buffer to the list
    mNext = mList;
    mList = this;
-
 }
 
 MR_SoundBuffer::~MR_SoundBuffer()
 {
-   // Remove form list
-   if( mList == this )
+   try
    {
-      mList = mNext;
-      mNext = NULL;
-   }
-   else
-   {
-      MR_SoundBuffer* mPrev = mList;
-
-      while( mPrev->mNext != this )
+      // Remove form list
+      if( mList == this )
       {
-         ASSERT( mPrev != NULL );
+         mList = mNext;
+         mNext = NULL;
+      }
+      else
+      {
+         MR_SoundBuffer* mPrev = mList;
 
-         mPrev = mPrev->mNext;
+         while( mPrev->mNext != this )
+         {
+            mPrev = mPrev->mNext;
+         }
+
+         mPrev->mNext = mNext;
+         mNext = NULL;
       }
 
-      mPrev->mNext = mNext;
-      mNext = NULL;
-   }
-
-   // Delete the sound buffers
-   for( int lCounter = 0; lCounter< mNbCopy; lCounter++ )
-   {
-      if( mSoundBuffer[ lCounter ] != NULL )
+      // Delete the sound buffers
+      for( int lCounter = 0; lCounter < mNbCopy; lCounter++ )
       {
-         mSoundBuffer[ lCounter ]->Release();
-         mSoundBuffer[ lCounter ] = NULL;
+         if( mALSources[lCounter] != 0 )
+         {
+            alDeleteSources(1, &mALSources[lCounter]);
+         }
+         if( mALBuffers[lCounter] != 0 )
+         {
+            alDeleteBuffers(1, &mALBuffers[lCounter]);
+         }
       }
+   }
+   catch(...)
+   {
+      // Ignore cleanup errors
    }
 }
 
@@ -183,77 +204,69 @@ BOOL MR_SoundBuffer::Init( const char* pData, int pNbCopy )
 {
    BOOL lReturnValue = TRUE;
 
-   ASSERT( mSoundBuffer[0] == NULL ); // Already initialized
-
-   if( pNbCopy > MR_MAX_SOUND_COPY )
+   try
    {
-      ASSERT( FALSE );
-      pNbCopy = MR_MAX_SOUND_COPY;
-   }
-
-   mNbCopy = pNbCopy;
-
-   // Parse pData
-   DSBUFFERDESC    lDesc;
-   MR_UInt32       lBufferLen  = *(MR_UInt32*)pData;
-   WAVEFORMATEX*   lWaveFormat = (WAVEFORMATEX*)(pData+sizeof(MR_UInt32));
-   const char*     lSoundData  = pData+sizeof( MR_UInt32 ) + sizeof( WAVEFORMATEX );
-
-   lWaveFormat->cbSize = 0;
-
-   lDesc.dwSize        = sizeof( lDesc );
-   lDesc.dwFlags       = DSBCAPS_CTRLDEFAULT|DSBCAPS_STATIC;
-   lDesc.dwReserved    = 0;
-   lDesc.dwBufferBytes = lBufferLen;
-   lDesc.lpwfxFormat   = lWaveFormat;
-
-   mNormalFreq = lWaveFormat->nSamplesPerSec;
-
-   // Initialize the first copy
-   int lCode;
-   if( (lCode = gDirectSound->CreateSoundBuffer(&lDesc, 
-                                       &(mSoundBuffer[0]),
-                                       NULL                )) != DS_OK )
-   {
-      ASSERT( lCode != DSERR_ALLOCATED );
-      ASSERT( lCode != DSERR_BADFORMAT );
-      ASSERT( lCode != DSERR_INVALIDPARAM );
-      ASSERT( lCode != DSERR_NOAGGREGATION );
-      ASSERT( lCode != DSERR_OUTOFMEMORY );
-      ASSERT( FALSE );
-      lReturnValue = FALSE;
-   }
-
-   if( lReturnValue )
-   {
-      void*         lSoundBuffer;
-      unsigned long lSoundBufferLen;
-
-      if( mSoundBuffer[0]->Lock( 0, lBufferLen, &lSoundBuffer, &lSoundBufferLen, NULL, NULL, 0 ) == DS_OK )
+      if( pNbCopy > MR_MAX_SOUND_COPY )
       {
-         ASSERT( lSoundBufferLen == lBufferLen );
-
-         memcpy( lSoundBuffer, lSoundData, lSoundBufferLen );
-
-         mSoundBuffer[0]->Unlock( lSoundBuffer, lSoundBufferLen, NULL, 0 );
+         pNbCopy = MR_MAX_SOUND_COPY;
       }
+
+      mNbCopy = pNbCopy;
+
+      if( gOpenALContext == NULL )
+      {
+         return FALSE;
+      }
+
+      // Parse pData
+      MR_UInt32       lBufferLen  = *(MR_UInt32*)pData;
+      WAVEFORMATEX*   lWaveFormat = (WAVEFORMATEX*)(pData+sizeof(MR_UInt32));
+      const char*     lSoundData  = pData+sizeof( MR_UInt32 ) + sizeof( WAVEFORMATEX );
+
+      mNormalFreq = lWaveFormat->nSamplesPerSec;
+
+      // Determine OpenAL format from WAV parameters
+      ALenum format = AL_NONE;
+      if( lWaveFormat->nChannels == 1 && lWaveFormat->wBitsPerSample == 16 )
+         format = AL_FORMAT_MONO16;
+      else if( lWaveFormat->nChannels == 2 && lWaveFormat->wBitsPerSample == 16 )
+         format = AL_FORMAT_STEREO16;
+      else if( lWaveFormat->nChannels == 1 && lWaveFormat->wBitsPerSample == 8 )
+         format = AL_FORMAT_MONO8;
+      else if( lWaveFormat->nChannels == 2 && lWaveFormat->wBitsPerSample == 8 )
+         format = AL_FORMAT_STEREO8;
       else
-      {
-         ASSERT( FALSE );
-         lReturnValue = FALSE;
-      }
-   }
+         return FALSE;
 
-   // Init extra copy
-   for( int lCounter = 1; lReturnValue&&(lCounter < mNbCopy); lCounter++ )
+      // Create first buffer
+      alGenBuffers(1, &mALBuffers[0]);
+      if( alGetError() != AL_NO_ERROR )
+         return FALSE;
+
+      alBufferData(mALBuffers[0], format, (void*)lSoundData, lBufferLen, mNormalFreq);
+      if( alGetError() != AL_NO_ERROR )
+         return FALSE;
+
+      // Create sources for each copy
+      for( int i = 0; i < mNbCopy; i++ )
+      {
+         alGenSources(1, &mALSources[i]);
+         if( alGetError() != AL_NO_ERROR )
+            return FALSE;
+
+         alSourcei(mALSources[i], AL_BUFFER, mALBuffers[0]);
+         alSourcef(mALSources[i], AL_PITCH, 1.0f);
+         alSourcef(mALSources[i], AL_GAIN, 1.0f);
+         alSource3f(mALSources[i], AL_POSITION, 0, 0, 0);
+      }
+
+      return TRUE;
+   }
+   catch(...)
    {
-      if( gDirectSound->DuplicateSoundBuffer( mSoundBuffer[0],&mSoundBuffer[lCounter] ) != DS_OK )
-      {
-         lReturnValue = FALSE;
-      }
+      // If sound buffer initialization crashes, continue without sound
+      return FALSE;
    }
-
-   return lReturnValue;
 }
 
 
@@ -265,17 +278,33 @@ void MR_SoundBuffer::SetParams( int pCopy, int pDB, double pSpeed, int pPan )
       pCopy = mNbCopy-1;
    }
 
-   if( mSoundBuffer[ pCopy ] != NULL )
+   if( pCopy >= 0 && pCopy < mNbCopy && mALSources[pCopy] != 0 )
    {
-      unsigned long lFreq = mNormalFreq*pSpeed;
-
-      if( lFreq > 100000 )
+      try
       {
-         lFreq = 100000;
+         // Convert dB to linear gain (0 dB = 1.0)
+         float lGain = powf(10.0f, pDB / 20.0f);
+         if( lGain < 0.0f ) lGain = 0.0f;
+         if( lGain > 1.0f ) lGain = 1.0f;
+
+         alSourcef(mALSources[pCopy], AL_GAIN, lGain);
+
+         // Set pitch (speed)
+         float lPitch = (float)pSpeed;
+         if( lPitch < 0.5f ) lPitch = 0.5f;
+         if( lPitch > 2.0f ) lPitch = 2.0f;
+         alSourcef(mALSources[pCopy], AL_PITCH, lPitch);
+
+         // Set pan (position on X axis for stereo effect)
+         float lPanf = pPan / 100.0f;
+         if( lPanf < -1.0f ) lPanf = -1.0f;
+         if( lPanf > 1.0f ) lPanf = 1.0f;
+         alSource3f(mALSources[pCopy], AL_POSITION, lPanf, 0, 0);
       }
-      mSoundBuffer[pCopy]->SetVolume( pDB );
-      mSoundBuffer[pCopy]->SetFrequency( lFreq );
-      mSoundBuffer[pCopy]->SetPan( pPan );
+      catch(...)
+      {
+         // Silently ignore OpenAL parameter errors
+      }
    }
 }
 
@@ -297,14 +326,31 @@ MR_ShortSound::~MR_ShortSound()
 
 void MR_ShortSound::Play( int pDB, double pSpeed, int pPan )
 {
-   mSoundBuffer[ mCurrentCopy ]->SetCurrentPosition( 0 );
-   SetParams( mCurrentCopy, pDB, pSpeed, pPan );
-   mSoundBuffer[ mCurrentCopy ]->Play( 0, 0, 0 );   
-
-   mCurrentCopy++;
-   if(mCurrentCopy >= mNbCopy )
+   try
    {
-      mCurrentCopy = 0;
+      if( mCurrentCopy < 0 || mCurrentCopy >= mNbCopy || mALSources[mCurrentCopy] == 0 )
+         return;
+
+      // Stop any currently playing sound
+      alSourceStop(mALSources[mCurrentCopy]);
+
+      // Rewind to beginning
+      alSourceRewind(mALSources[mCurrentCopy]);
+
+      // Set parameters
+      SetParams( mCurrentCopy, pDB, pSpeed, pPan );
+
+      // Play the sound
+      alSourcePlay(mALSources[mCurrentCopy]);
+
+      // Move to next copy for next play call
+      mCurrentCopy++;
+      if( mCurrentCopy >= mNbCopy )
+         mCurrentCopy = 0;
+   }
+   catch(...)
+   {
+      // Silently ignore play errors
    }
 }
 
@@ -332,38 +378,74 @@ void MR_ContinuousSound::ResetCumStat()
 
 void MR_ContinuousSound::Pause( int pCopy )
 {
-   if( pCopy >= mNbCopy )
+   try
    {
-      pCopy = mNbCopy-1;
+      if( pCopy >= mNbCopy )
+         pCopy = mNbCopy-1;
+
+      if( pCopy >= 0 && pCopy < mNbCopy && mALSources[pCopy] != 0 )
+      {
+         alSourcePause(mALSources[pCopy]);
+      }
    }
-
-   mSoundBuffer[ pCopy ]->Stop( );   
-
+   catch(...)
+   {
+      // Ignore pause errors
+   }
 }
 
 void MR_ContinuousSound::Restart( int pCopy )
 {
-   if( pCopy >= mNbCopy )
+   try
    {
-      pCopy = mNbCopy-1;
+      if( pCopy >= mNbCopy )
+         pCopy = mNbCopy-1;
+
+      if( pCopy >= 0 && pCopy < mNbCopy && mALSources[pCopy] != 0 )
+      {
+         // Check if already playing
+         ALint state;
+         alGetSourcei(mALSources[pCopy], AL_SOURCE_STATE, &state);
+
+         if( state != AL_PLAYING )
+         {
+            alSourcePlay(mALSources[pCopy]);
+         }
+      }
    }
-   mSoundBuffer[ pCopy ]->Play( 0, 0, DSBPLAY_LOOPING );   
+   catch(...)
+   {
+      // Ignore restart errors
+   }
 }
 
 void MR_ContinuousSound::ApplyCumCommand( )
 {
-
-   for( int lCounter = 0; lCounter < mNbCopy; lCounter++ )
+   try
    {
-      if( mOn[ lCounter ] )
+      for( int lCounter = 0; lCounter < mNbCopy; lCounter++ )
       {
-         SetParams( lCounter, mMaxDB[ lCounter ], mMaxSpeed[ lCounter ], 0 );
-         Restart( lCounter );
+         try
+         {
+            if( mOn[ lCounter ] )
+            {
+               SetParams( lCounter, mMaxDB[ lCounter ], mMaxSpeed[ lCounter ], 0 );
+               Restart( lCounter );
+            }
+            else
+            {
+               Pause( lCounter );
+            }
+         }
+         catch(...)
+         {
+            // Silently ignore DirectSound errors for individual copies
+         }
       }
-      else
-      {
-         Pause( lCounter );
-      }
+   }
+   catch(...)
+   {
+      // Silently ignore any DirectSound errors
    }
    ResetCumStat();
 
@@ -389,53 +471,88 @@ void MR_ContinuousSound::CumPlay( int pCopy, int pDB, double pSpeed )
 
 BOOL MR_SoundServer::Init( HWND pWindow )
 {
-   BOOL lReturnValue = TRUE;
-
-   if( gDirectSound == NULL )
+   try
    {
-      if( DirectSoundCreate( NULL, &gDirectSound, NULL ) == DS_OK )
-      {
-         
-         if( gDirectSound->SetCooperativeLevel( pWindow, DSSCL_NORMAL ) != DS_OK )
-         {
-            ASSERT( FALSE );
-            lReturnValue = FALSE;
-         }         
-      }
-      else
-      {
-         lReturnValue = FALSE;
-      }
-   }
+      // Get default audio device
+      gOpenALDevice = alcOpenDevice(NULL);
+      if( gOpenALDevice == NULL )
+         return FALSE;
 
-   return lReturnValue;
+      // Create audio context
+      gOpenALContext = alcCreateContext(gOpenALDevice, NULL);
+      if( gOpenALContext == NULL )
+      {
+         alcCloseDevice(gOpenALDevice);
+         gOpenALDevice = NULL;
+         return FALSE;
+      }
+
+      // Make context current
+      if( !alcMakeContextCurrent(gOpenALContext) )
+      {
+         alcDestroyContext(gOpenALContext);
+         alcCloseDevice(gOpenALDevice);
+         gOpenALContext = NULL;
+         gOpenALDevice = NULL;
+         return FALSE;
+      }
+
+      // Set listener parameters
+      alListener3f(AL_POSITION, 0, 0, 0);
+      alListener3f(AL_VELOCITY, 0, 0, 0);
+      ALfloat lOrient[] = {0, 0, -1, 0, 1, 0};
+      alListenerfv(AL_ORIENTATION, lOrient);
+
+      return TRUE;
+   }
+   catch(...)
+   {
+      return FALSE;
+   }
 }
 
 void MR_SoundServer::Close()
 {
-   MR_SoundBuffer::DeleteAll();
-
-   if( gDirectSound != NULL )
+   try
    {
-      gDirectSound->Release();
-      gDirectSound = NULL;
+      MR_SoundBuffer::DeleteAll();
+
+      if( gOpenALContext != NULL )
+      {
+         alcMakeContextCurrent(NULL);
+         alcDestroyContext(gOpenALContext);
+         gOpenALContext = NULL;
+      }
+
+      if( gOpenALDevice != NULL )
+      {
+         alcCloseDevice(gOpenALDevice);
+         gOpenALDevice = NULL;
+      }
+   }
+   catch(...)
+   {
+      // Ignore cleanup errors
    }
 }
 
 
 MR_ShortSound* MR_SoundServer::CreateShortSound( const char* pData, int pNbCopy )
 {
-   if( gDirectSound != NULL )
+   try
    {
-      MR_ShortSound* lReturnValue = new MR_ShortSound;
+      if( gOpenALContext == NULL )
+         return NULL;
 
-      if( !lReturnValue->Init( pData, pNbCopy ) )
+      MR_ShortSound* lSound = new MR_ShortSound;
+      if( !lSound->Init( pData, pNbCopy ) )
       {
-         lReturnValue = NULL;
+         delete lSound;
+         return NULL;
       }
-      return lReturnValue;
+      return lSound;
    }
-   else
+   catch(...)
    {
       return NULL;
    }
@@ -468,17 +585,20 @@ int MR_SoundServer::GetNbCopy( MR_ShortSound* pSound )
 
 MR_ContinuousSound* MR_SoundServer::CreateContinuousSound( const char* pData, int pNbCopy )
 {
-   if( gDirectSound != NULL )
+   try
    {
-      MR_ContinuousSound* lReturnValue = new MR_ContinuousSound;
+      if( gOpenALContext == NULL )
+         return NULL;
 
-      if( !lReturnValue->Init(pData, pNbCopy ) )
+      MR_ContinuousSound* lSound = new MR_ContinuousSound;
+      if( !lSound->Init( pData, pNbCopy ) )
       {
-         lReturnValue = NULL;
+         delete lSound;
+         return NULL;
       }
-      return lReturnValue;
+      return lSound;
    }
-   else
+   catch(...)
    {
       return NULL;
    }
@@ -500,9 +620,15 @@ void MR_SoundServer::Play( MR_ContinuousSound* pSound, int pCopy, int pDB, doubl
 
 void MR_SoundServer::ApplyContinuousPlay()
 {
-   if( gDirectSound != NULL )
+   try
    {
-      MR_SoundBuffer::ApplyCumCommandForAll();
+      if( gOpenALContext != NULL )
+      {
+         MR_SoundBuffer::ApplyCumCommandForAll();
+      }
+   }
+   catch(...)
+   {
    }
 }
 

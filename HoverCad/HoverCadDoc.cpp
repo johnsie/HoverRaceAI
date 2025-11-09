@@ -1912,106 +1912,204 @@ void HCItem::Serialize( CArchive& pArchive )
 
 void CHoverCadDoc::OnFileCompile() 
 {
-   // Verify if it is a registred version
-   BOOL lRegistred = TRUE;
+   // Registration check disabled - always allow compilation
+   // Previously required HoverRace registration to compile tracks
+   // BOOL lRegistred = TRUE;
+   // if( !LoadRegistry() ) { ... error check removed ... }
 
-   if( !LoadRegistry() )
+   // Load registry for version info (non-blocking)
+   LoadRegistry();
+
+   // Proceed with compilation regardless of registration status
+   CString szFilter;
+   szFilter.LoadString( IDS_DOC_FILTER );
+   // static char BASED_CODE szFilter[] = "HoverRace track(*.trk)|*.trk||";
+   // Ask for a destination file name
+   CString lTitle = GetTitle();
+
+   if( lTitle.ReverseFind( '.' ) != -1 )
    {
-      // Pop registration box
-      // ASSERT( FALSE );
-      CString lErrorMessage;
-      lErrorMessage.LoadString( IDS_MUST_REG );
-      AfxMessageBox( lErrorMessage );
-
-
+      lTitle = lTitle.Left( lTitle.ReverseFind( '.' ) );
    }
-   else
+
+   if( lTitle.ReverseFind( '[' ) != -1 )
    {
+      lTitle = lTitle.Left( lTitle.ReverseFind( '[' ) );
+   }
 
-      CString szFilter;
-      szFilter.LoadString( IDS_DOC_FILTER );
-      // static char BASED_CODE szFilter[] = "HoverRace track(*.trk)|*.trk||";
-      // Ask for a destination file name
-      CString lTitle = GetTitle();
+   if( gMajorID != 0 )
+   {
+      CString lExt;
+      lExt.Format( "[%d-%d]", gMajorID, gMinorID );
 
-      if( lTitle.ReverseFind( '.' ) != -1 )
+      lTitle += lExt;
+   }
+
+   lTitle += ".trk";
+
+   CFileDialog lDialog( FALSE, ".trk", lTitle, OFN_HIDEREADONLY | OFN_OVERWRITEPROMPT, szFilter, NULL );
+
+   if( lDialog.DoModal()== IDOK )
+   {     
+
+      // Create the temporary file
+      char lTempPath[300];
+      char lTempFileName[320];
+
+      if(    GetTempPath(sizeof( lTempPath ), lTempPath ) 
+          && GetTempFileName( lTempPath, "HC", 0, lTempFileName ) )
       {
-         lTitle = lTitle.Left( lTitle.ReverseFind( '.' ) );
-      }
+         FILE* lFile = fopen( lTempFileName, "w" );
 
-      if( lTitle.ReverseFind( '[' ) != -1 )
-      {
-         lTitle = lTitle.Left( lTitle.ReverseFind( '[' ) );
-      }
-
-      if( gMajorID != 0 )
-      {
-         CString lExt;
-         lExt.Format( "[%d-%d]", gMajorID, gMinorID );
-
-         lTitle += lExt;
-      }
-
-      lTitle += ".trk";
-
-      CFileDialog lDialog( FALSE, ".trk", lTitle, OFN_HIDEREADONLY | OFN_OVERWRITEPROMPT, szFilter, NULL );
-
-      if( lDialog.DoModal()== IDOK )
-      {     
-
-         // Create the temporary file
-         char lTempPath[300];
-         char lTempFileName[320];
-
-         if(    GetTempPath(sizeof( lTempPath ), lTempPath ) 
-             && GetTempFileName( lTempPath, "HC", 0, lTempFileName ) )
+         if( lFile != NULL )
          {
-            FILE* lFile = fopen( lTempFileName, "w" );
+            // Generate output
+            BOOL lSuccess = GenerateOutputFile( lFile );
 
-            if( lFile != NULL )
+            // Ensure data is written to disk
+            fflush( lFile );
+            fclose( lFile );
+
+            // Save a debug copy for troubleshooting
+            char lDebugFileName[320];
+            strcpy( lDebugFileName, lTempFileName );
+            strcat( lDebugFileName, ".debug" );
+            CopyFile( lTempFileName, lDebugFileName, FALSE );
+
+            // Verify temp file has content
+            FILE* lCheckFile = fopen( lTempFileName, "r" );
+            long lFileSize = 0;
+            if( lCheckFile != NULL )
             {
-               // Generate output
-               BOOL lSuccess = GenerateOutputFile( lFile );
+               fseek( lCheckFile, 0, SEEK_END );
+               lFileSize = ftell( lCheckFile );
+               fclose( lCheckFile );
+            }
 
-               fclose( lFile );
+            // Call the compiler
+            if( lSuccess && lFileSize > 0 )
+            {
+               char lExecPath[260];
+               char lCurrentDir[260];
 
-               // Call the compiler
-               if( lSuccess )
+               GetModuleFileName( NULL, lExecPath, sizeof( lExecPath ) );
+
+               getcwd( lCurrentDir, sizeof( lCurrentDir ) );
+
+               if( strrchr( lExecPath, '\\' ) != NULL )
                {
-                  char lExecPath[260];
-                  char lCurrentDir[260];
+                  strrchr( lExecPath, '\\' )[1] = 0;
 
-                  GetModuleFileName( NULL, lExecPath, sizeof( lExecPath ) );
-
-                  getcwd( lCurrentDir, sizeof( lCurrentDir ) );
-
-                  if( strrchr( lExecPath, '\\' ) != NULL )
-                  {
-                     strrchr( lExecPath, '\\' )[1] = 0;
-
-                     chdir( lExecPath );
-                  }
-
-                  CString lCommand = CString("MazeCompiler \"")+lDialog.GetPathName()+"\" \""+lTempFileName+'\"';
-
-                  if( system( lCommand ) != 0 )
-                  {
-                     CString lErrorMessage;
-                     lErrorMessage.LoadString( IDS_CANNOTRUN_COMPILER );
-                     AfxMessageBox( lErrorMessage );
-                  }            
-
-                  chdir( lCurrentDir );
-
+                  chdir( lExecPath );
                }
 
+               // Create temporary file for compiler output
+               char lLogFile[260];
+               GetTempPath( sizeof(lLogFile), lLogFile );
+               strcat( lLogFile, "MazeCompiler_Output.log" );
 
-               // Delete temp file
-               unlink( lTempFileName );
+               CString lCommand = CString("MazeCompiler \"")+lDialog.GetPathName()+"\" \""+lTempFileName+"\" > \""+lLogFile+"\" 2>&1";
+
+               int lExitCode = system( lCommand );
+
+               if( lExitCode != 0 )
+               {
+                  CString lErrorMessage = "Compilation failed.\n\n";
+                  lErrorMessage += "Command: MazeCompiler\n";
+                  lErrorMessage += "Exit code: ";
+                  char lExitStr[16];
+                  sprintf( lExitStr, "%d", lExitCode );
+                  lErrorMessage += lExitStr;
+                  lErrorMessage += "\n\n";
+                  
+                  // Try to read compiler output from log file
+                  FILE* lFile = fopen( lLogFile, "r" );
+                  if( lFile != NULL )
+                  {
+                     // Check if file has content
+                     fseek( lFile, 0, SEEK_END );
+                     long lFileSize = ftell( lFile );
+                     rewind( lFile );
+                     
+                     if( lFileSize > 0 )
+                     {
+                        char lBuffer[512];
+                        lErrorMessage += "Compiler output:\n";
+                        lErrorMessage += "-------------------\n";
+                        
+                        while( fgets( lBuffer, sizeof(lBuffer), lFile ) != NULL )
+                        {
+                           lErrorMessage += lBuffer;
+                        }
+                     }
+                     else
+                     {
+                        lErrorMessage += "Compiler produced no output.\n";
+                        lErrorMessage += "This may indicate MazeCompiler.exe failed to run.\n";
+                        lErrorMessage += "\nPlease verify:\n";
+                        lErrorMessage += "1. MazeCompiler.exe exists in: ";
+                        lErrorMessage += lExecPath;
+                        lErrorMessage += "\n2. The input track file is valid\n";
+                        lErrorMessage += "3. You have write permissions to the output directory";
+                     }
+                     fclose( lFile );
+                  }
+                  else
+                  {
+                     lErrorMessage += "Unable to read compiler output log.\n";
+                     lErrorMessage += "Log file path: ";
+                     lErrorMessage += lLogFile;
+                     lErrorMessage += "\n\nPlease check that MazeCompiler.exe is in: ";
+                     lErrorMessage += lExecPath;
+                  }
+
+                  AfxMessageBox( lErrorMessage );
+               }
+
+               // Clean up log file
+               unlink( lLogFile );
+               
+               chdir( lCurrentDir );
+
             }
+            else
+            {
+               // Error: GenerateOutputFile failed or temp file is empty
+               CString lErrorMessage = "Failed to generate track data for compilation.\n\n";
+               
+               if( !lSuccess )
+               {
+                  lErrorMessage += "Error: GenerateOutputFile() returned failure.\n";
+                  lErrorMessage += "This may indicate a problem with the track structure.\n\n";
+                  lErrorMessage += "Please verify:\n";
+                  lErrorMessage += "1. All track sections (rooms) are properly defined\n";
+                  lErrorMessage += "2. At least one starting position is set\n";
+                  lErrorMessage += "3. The track has valid floor and ceiling textures\n";
+                  lErrorMessage += "4. All track elements are placed within valid sections";
+               }
+               else if( lFileSize == 0 )
+               {
+                  lErrorMessage += "Error: Temporary file is empty (0 bytes).\n";
+                  lErrorMessage += "The track data was not written to the file.\n\n";
+                  lErrorMessage += "Please verify:\n";
+                  lErrorMessage += "1. You have write permissions to the temp directory\n";
+                  lErrorMessage += "2. There is available disk space\n";
+                  lErrorMessage += "3. The track contains at least one section and starting position";
+               }
+               else
+               {
+                  lErrorMessage += "Error: Unknown failure during track generation.\n";
+                  lErrorMessage += CString("Temp file size: ") + char('0' + lFileSize);
+               }
+
+               AfxMessageBox( lErrorMessage );
+            }
+
+            // Delete temp file
+            unlink( lTempFileName );
          }
       }
-   }	
+   }
 }
 
 void CHoverCadDoc::OnUpdateEditScaleselection(CCmdUI* pCmdUI) 

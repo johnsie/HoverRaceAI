@@ -35,6 +35,15 @@
 
 BOOL MR_MapSprite::CreateMap( MR_Level* pLevel, int& pX0, int& pY0, int& pX1, int& pY1 )
 {
+   // Safety check: if the level has no rooms, use default dimensions
+   if( pLevel->GetRoomCount() == 0 )
+   {
+      pX0 = 0;
+      pX1 = 256;
+      pY0 = 0;
+      pY1 = 256;
+      return TRUE;
+   }
 
    mNbItem     = 1;
    mWidth      = 200;
@@ -93,6 +102,10 @@ void MR_MapSprite::ComputeMinMax( MR_Level* pLevel )
       mXMax += -lDiff/2;
       mXMin -= -lDiff/2;
    }
+
+   // Safety: Ensure we don't have zero or negative dimensions
+   if( mXMax <= mXMin ) mXMax = mXMin + 1;
+   if( mYMax <= mYMin ) mYMax = mYMin + 1;
 }
 
 void MR_MapSprite::DrawMap( MR_Level* pLevel )
@@ -123,27 +136,43 @@ void MR_MapSprite::DrawMap( MR_Level* pLevel )
          lCurrentElem = MR_Level::GetNextFreeElement( lCurrentElem );
       }
 
-
-
       MR_PolygonShape* lShape = pLevel->GetRoomShape( lRoom );
+      
+      // Safety check for polygon validity
+      if( lShape == NULL )
+         continue;
 
-      int lXStart = (lShape->XMin()-mXMin)*mWidth/(mXMax-mXMin);
-      int lXEnd   = (lShape->XMax()-mXMin)*mWidth/(mXMax-mXMin);
-      int lYStart = (lShape->YMin()-mYMin)*mItemHeight/(mYMax-mYMin);
-      int lYEnd   = (lShape->YMax()-mYMin)*mItemHeight/(mYMax-mYMin);
+      // Prevent division by zero
+      int lXDiff = mXMax - mXMin;
+      int lYDiff = mYMax - mYMin;
+      if( lXDiff <= 0 ) lXDiff = 1;
+      if( lYDiff <= 0 ) lYDiff = 1;
 
-      for( int lX = lXStart; lX <=lXEnd; lX++ )
+      int lXStart = (lShape->XMin()-mXMin)*mWidth/lXDiff;
+      int lXEnd   = (lShape->XMax()-mXMin)*mWidth/lXDiff;
+      int lYStart = (lShape->YMin()-mYMin)*mItemHeight/lYDiff;
+      int lYEnd   = (lShape->YMax()-mYMin)*mItemHeight/lYDiff;
+
+      // Bounds check
+      if( lXStart < 0 ) lXStart = 0;
+      if( lXEnd >= mWidth ) lXEnd = mWidth - 1;
+      if( lYStart < 0 ) lYStart = 0;
+      if( lYEnd >= mItemHeight ) lYEnd = mItemHeight - 1;
+
+      for( int lX = lXStart; lX <=lXEnd && lX < mWidth; lX++ )
       {
-         for( int lY = lYStart; lY<=lYEnd; lY++ )
+         for( int lY = lYStart; lY<=lYEnd && lY < mItemHeight; lY++ )
          {
             MR_2DCoordinate lPos;
 
-            lPos.mX = (lX*(mXMax-mXMin)/mWidth)+mXMin;
-            lPos.mY = (lY*(mYMax-mYMin)/mItemHeight)+mYMin;
+            lPos.mX = (lX*lXDiff/mWidth)+mXMin;
+            lPos.mY = (lY*lYDiff/mItemHeight)+mYMin;
 
             if( MR_GetPolygonInclusion( *lShape, lPos ) )
             {
-               mData[ (mItemHeight-1-lY)*mWidth+lX ] = lColor;
+               int lIndex = (mItemHeight-1-lY)*mWidth+lX;
+               if( lIndex >= 0 && lIndex < mTotalHeight*mWidth )
+                  mData[ lIndex ] = lColor;
             }
          }
       }

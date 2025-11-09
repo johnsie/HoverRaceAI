@@ -24,9 +24,10 @@
 
 #include "VideoBuffer.h"
 #include "ColorPalette.h"
-
+#include "VideoBufferSDL2Integration.h"
 
 #include "../Util/Profiler.h"
+#include <fstream>
 
 
 // Debug flag
@@ -298,6 +299,9 @@ MR_VideoBuffer::~MR_VideoBuffer()
 //   mSpecialWindowMode = FALSE;   // force real windows resolution
    ReturnToWindowsResolution();
 
+   // Shut down SDL2Graphics if active
+   ShutdownSDL2Graphics();
+
    if( mPalette != NULL )
    {
       mPalette->Release();
@@ -523,6 +527,13 @@ void MR_VideoBuffer::SetBackPalette( MR_UInt8* pPalette )
    mBackPalette = pPalette;
 
    CreatePalette( mGamma, mContrast, mBrightness );
+   
+   // If SDL2Graphics is active, update its palette as well
+   if( IsSDL2GraphicsAvailable() && g_SDL2GraphicsAdapter != NULL )
+   {
+      g_SDL2GraphicsAdapter->SetPalette( mBackPalette );
+      PRINT_LOG( "Updated SDL2Graphics palette" );
+   }
 }
 
 
@@ -629,52 +640,114 @@ void MR_VideoBuffer::ReturnToWindowsResolution()
 
 BOOL MR_VideoBuffer::SetVideoMode()
 {
+   // Log to file to track when SetVideoMode is called
+   {
+      std::ofstream logfile("C:\\originalhr\\HoverRace\\Release\\videobuffer_setvideo_mode.log", std::ios::app);
+      logfile << "=== SetVideoMode() called ===" << std::endl;
+      logfile.flush();
+   }
+   
    PRINT_LOG( "SetVideoMode(Window)" );
 
    BOOL            lReturnValue;
    DDSURFACEDESC   lSurfaceDesc;
+   RECT            lRect;
 
    ASSERT( !mModeSettingInProgress );
 
    mModeSettingInProgress = TRUE;
 
+   // Try to initialize SDL2 graphics (modern graphics backend)
+   // Uses SDL_CreateWindowFrom() to wrap the existing MFC window
+   PRINT_LOG( "Attempting SDL2Graphics initialization with existing window" );
+   
+   // Retrieve window dimensions first
+   if( !GetClientRect( mWindow, &lRect ) )
+   {
+      PRINT_LOG( "GetClientRect failed" );
+      mXRes = 800;
+      mYRes = 600;
+   }
+   else
+   {
+      mXRes = lRect.right;
+      mYRes = lRect.bottom;
+   }
+   
+   // Try SDL2 graphics backend with existing MFC window
+   if( InitializeSDL2Graphics( mWindow, mXRes, mYRes ) )
+   {
+      PRINT_LOG( "SDL2Graphics initialized successfully" );
+      
+      // Configure SDL2 adapter for rendering
+      mLineLen = mXRes;
+      
+      // Get window position
+      POINT lPoint = {0,0};
+      ClientToScreen( mWindow, &lPoint );
+      mX0 = lPoint.x;
+      mY0 = lPoint.y;
+      
+      // Create Z-buffer
+      mZBuffer = new MR_UInt16[ mXRes * mYRes ];
+      
+      mModeSettingInProgress = FALSE;
+      
+      PRINT_LOG( "SetVideoMode returning TRUE (SDL2Graphics active, mXRes=%d, mYRes=%d)", mXRes, mYRes );
+      return TRUE;
+   }
+   
+   PRINT_LOG( "SDL2Graphics initialization failed, falling back to DirectDraw" );
+
+   // Try to initialize DirectDraw
    lReturnValue = InitDirectDraw();
+   
+   // For GDI fallback support, we continue even if DirectDraw fails
+   BOOL lUsingGDI = !lReturnValue;
 
    if( lReturnValue )
    {
       ReturnToWindowsResolution();      
    }
 
-   // Retrieve the window size
-   if( lReturnValue )
+   // Retrieve the window size (needed for both DirectDraw and GDI modes)
+   if( TRUE )  // Always get window size, even if DirectDraw failed
    {
-      RECT lRect;
-
-      lReturnValue = GetClientRect( mWindow, &lRect );
-
-      ASSERT( lReturnValue );
-
-      mXRes = lRect.right;
-      mYRes = lRect.bottom;
-      mLineLen = mXRes;
+      if( !GetClientRect( mWindow, &lRect ) )
+      {
+         PRINT_LOG( "GetClientRect failed" );
+         lReturnValue = FALSE;
+      }
+      else
+      {
+         mXRes = lRect.right;
+         mYRes = lRect.bottom;
+         mLineLen = mXRes;
+         
+         PRINT_LOG( "Window size: %dx%d", mXRes, mYRes );
+      }
    }
 
-   if( lReturnValue )
+   if( TRUE )  // Always get window position
    {
       POINT lPoint = {0,0};
 
-      lReturnValue = ClientToScreen( mWindow, &lPoint );
-
-      mX0 = lPoint.x;
-      mY0 = lPoint.y;
-
-      ASSERT( lReturnValue );
+      if( !ClientToScreen( mWindow, &lPoint ) )
+      {
+         PRINT_LOG( "ClientToScreen failed" );
+         lReturnValue = FALSE;
+      }
+      else
+      {
+         mX0 = lPoint.x;
+         mY0 = lPoint.y;
+         
+         PRINT_LOG( "Window position: %d,%d", mX0, mY0 );
+      }
    }
 
-
-
-   // Create a front buffer
-   if( lReturnValue )
+   // Only attempt DirectDraw surface creation if DirectDraw was initialized
+   if( lReturnValue && !lUsingGDI )
    {
       // Ask specificcly for a 8 bit per pixel mode
       memset( &lSurfaceDesc, 0, sizeof( lSurfaceDesc ) );
@@ -792,12 +865,44 @@ BOOL MR_VideoBuffer::SetVideoMode()
    if( !lReturnValue )
    {
       DeleteInternalSurfaces();
+      
+      // GDI FALLBACK: If DirectDraw fails, allocate system memory buffer for GDI rendering
+      PRINT_LOG( "DirectDraw initialization failed, using GDI software rendering fallback" );
+      
+      try
+      {
+         // Allocate buffer for GDI rendering (8-bit paletted)
+         mBuffer = new MR_UInt8[ mXRes * mYRes ];
+         mLineLen = mXRes;
+         
+         // Allocate Z-buffer for rendering
+         mZBuffer = new MR_UInt16[ mXRes * mYRes ];
+         
+         // Mark as window mode with fallback surfaces
+         mFullScreen = FALSE;
+         
+         // Get window position for blitting
+         POINT lPoint = {0,0};
+         ClientToScreen( mWindow, &lPoint );
+         mX0 = lPoint.x;
+         mY0 = lPoint.y;
+         
+         // Success with GDI fallback
+         lReturnValue = TRUE;
+         PRINT_LOG( "GDI software rendering fallback activated successfully" );
+      }
+      catch(...)
+      {
+         PRINT_LOG( "GDI fallback allocation failed" );
+         lReturnValue = FALSE;
+      }
    }
 
    // AssignPalette();
 
    mModeSettingInProgress = FALSE;
 
+   PRINT_LOG( "SetVideoMode returning %d (mBuffer=%p, mXRes=%d, mYRes=%d, mZBuffer=%p)", (int)lReturnValue, mBuffer, mXRes, mYRes, mZBuffer );
    return lReturnValue;
 }
 
@@ -1017,7 +1122,42 @@ BOOL MR_VideoBuffer::Lock()
    HRESULT lErrorCode;
    BOOL lReturnValue = TRUE;
 
-   ASSERT( mBuffer == NULL );
+   // Check if we're in SDL2Graphics mode (modern graphics backend)
+   if( IsSDL2GraphicsAvailable() && g_SDL2GraphicsAdapter != NULL )
+   {
+      // SDL2Graphics mode - use adapter for buffer access
+      PRINT_LOG( "Lock: SDL2Graphics mode - requesting buffer" );
+      uint8_t* lBuffer = nullptr;
+      if( g_SDL2GraphicsAdapter->Lock( lBuffer ) )
+      {
+         mBuffer = lBuffer;
+         PRINT_LOG( "Lock: SDL2Graphics buffer acquired, returning TRUE" );
+         return TRUE;
+      }
+      else
+      {
+         PRINT_LOG( "Lock: SDL2Graphics buffer acquisition failed" );
+         return FALSE;
+      }
+   }
+
+   // Check if we're in GDI fallback mode (buffer in system memory, no DirectDraw)
+   if( mBuffer != NULL && mBackBuffer == NULL && mDirectDraw == NULL )
+   {
+      // GDI mode - buffer already allocated and ready
+      PRINT_LOG( "Lock: GDI mode - returning TRUE" );
+      return TRUE;
+   }
+
+   // If buffer already allocated but we don't know the mode, it's an error
+   if( mBuffer != NULL )
+   {
+      PRINT_LOG( "Lock: Buffer exists but mode unclear, asserting" );
+      ASSERT( FALSE );
+      return FALSE;
+   }
+
+   // DirectDraw mode - proceed with original logic
    ASSERT( mDirectDraw != NULL );
 
    if( mIconMode )
@@ -1027,12 +1167,11 @@ BOOL MR_VideoBuffer::Lock()
 
    if( mBackBuffer == NULL )
    {
-      // ASSERT( FALSE ); // It is possible but I want to know when it append
       // No surface 
       lReturnValue = FALSE;
    }
    
-   // Restore lost buffers (I have to do that but I don't know why
+   // Restore lost buffers
    if( lReturnValue )
    {
       if( DD_CALL( mFrontBuffer->IsLost() ) == DDERR_SURFACELOST )
@@ -1087,13 +1226,47 @@ BOOL MR_VideoBuffer::Lock()
 
 void MR_VideoBuffer::Unlock()
 {
-   PRINT_LOG( "Unlock" );
+   PRINT_LOG( "Unlock: START" );
 
    MR_SAMPLE_CONTEXT( "UnlockVideoBuffer" );
 
-   ASSERT( mBuffer != NULL );
-   ASSERT( mDirectDraw != NULL );
-   ASSERT( mBackBuffer != NULL );
+   if( mBuffer == NULL )
+   {
+      PRINT_LOG( "Unlock: ERROR - No buffer to unlock" );
+      return;
+   }
+
+   PRINT_LOG( "Unlock: Buffer OK, checking mode" );
+
+   // Check if we're in SDL2Graphics mode (modern graphics backend)
+   if( IsSDL2GraphicsAvailable() && g_SDL2GraphicsAdapter != NULL )
+   {
+      // SDL2Graphics mode - let adapter handle unlocking and display
+      PRINT_LOG( "Unlock: SDL2Graphics mode, calling adapter Unlock" );
+      g_SDL2GraphicsAdapter->Unlock();
+      mBuffer = NULL;  // Reset buffer pointer after unlock
+      PRINT_LOG( "Unlock: END (SDL2Graphics mode)" );
+      return;
+   }
+
+   // Check if we're in GDI fallback mode (mBackBuffer is NULL but mBuffer is allocated)
+   if( mBackBuffer == NULL )
+   {
+      // GDI fallback mode - buffer is in system memory
+      PRINT_LOG( "Unlock: Detected GDI mode, calling Flip()" );
+      Flip();  // Display the buffer
+      PRINT_LOG( "Unlock: END (GDI mode)" );
+      return;
+   }
+
+   PRINT_LOG( "Unlock: DirectDraw mode" );
+
+   // DirectDraw mode - follow original path
+   if( mDirectDraw == NULL )
+   {
+      PRINT_LOG( "Unlock: ERROR - DirectDraw not available in non-GDI mode" );
+      return;
+   }
 
    if( !gDebugMode )
    {
@@ -1163,40 +1336,113 @@ void MR_VideoBuffer::Unlock()
 
 void MR_VideoBuffer::Flip()
 {
-   PRINT_LOG( "Flip" );
+   PRINT_LOG( "Flip: START" );
    
-   HRESULT lErrorCode;
-
-   ASSERT( mBuffer == NULL );
-   ASSERT( mDirectDraw != NULL );
-   ASSERT( mFrontBuffer != NULL );
-
-
-   if( mFullScreen )
+   // GDI SOFTWARE RENDERING (Option 1 Modernization)
+   // Uses Windows GDI to display 8-bit paletted buffer to screen
+   // This replaces deprecated DirectDraw with modern GDI fallback
+   
+   try
    {
-      if( DD_CALL(mFrontBuffer->Flip( NULL, DDFLIP_WAIT )) != DD_OK )
+      // Validate buffer exists before trying to flip
+      if( mBuffer == NULL || mXRes == 0 || mYRes == 0 || mWindow == NULL )
       {
-         // ASSERT( FALSE );
+         PRINT_LOG( "Flip: Invalid state - buffer/window/resolution not ready" );
+         return;
+      }
+      
+      PRINT_LOG( "Flip: Getting device context" );
+      
+      // Get device context for the window
+      HDC hdc = GetDC( mWindow );
+      if( hdc == NULL )
+      {
+         PRINT_LOG( "Flip: GetDC failed" );
+         return;  // Window not available, skip frame
       }
 
+      try
+      {
+         // Create simple 8-bit DIB header for StretchDIBits
+         struct {
+            BITMAPINFOHEADER bmiHeader;
+            RGBQUAD palette[256];
+         } bmi;
+
+         ZeroMemory( &bmi, sizeof(bmi) );
+         bmi.bmiHeader.biSize        = sizeof(BITMAPINFOHEADER);
+         bmi.bmiHeader.biWidth       = mXRes;
+         bmi.bmiHeader.biHeight      = -mYRes;  // Negative = top-down
+         bmi.bmiHeader.biPlanes      = 1;
+         bmi.bmiHeader.biBitCount    = 8;
+         bmi.bmiHeader.biCompression = BI_RGB;
+
+         // Build palette for GDI rendering
+         // For GDI, we need to convert from the game's RGB format to RGBQUAD format
+         if( mBackPalette != NULL )
+         {
+            // Convert 8-bit RGB palette (3 bytes per color) to RGBQUAD format (4 bytes per color)
+            for( int i = 0; i < 256; i++ )
+            {
+               if( i * 3 + 2 < 256 * 3 )  // Safety check
+               {
+                  bmi.palette[i].rgbRed   = mBackPalette[i*3 + 0];      // R
+                  bmi.palette[i].rgbGreen = mBackPalette[i*3 + 1];      // G
+                  bmi.palette[i].rgbBlue  = mBackPalette[i*3 + 2];      // B
+                  bmi.palette[i].rgbReserved = 0;
+               }
+            }
+         }
+         else
+         {
+            // Create a simple grayscale palette as fallback
+            for( int i = 0; i < 256; i++ )
+            {
+               bmi.palette[i].rgbRed   = (BYTE)i;
+               bmi.palette[i].rgbGreen = (BYTE)i;
+               bmi.palette[i].rgbBlue  = (BYTE)i;
+               bmi.palette[i].rgbReserved = 0;
+            }
+         }
+
+         PRINT_LOG( "Flip: Calling StretchDIBits" );
+         
+         // Use StretchDIBits to directly display the buffer
+         // This is more reliable than CreateDIBitmap for simple 8-bit display
+         int result = StretchDIBits(
+            hdc,                    // destination DC
+            0, 0,                   // destination position
+            mXRes, mYRes,           // destination size
+            0, 0,                   // source position
+            mXRes, mYRes,           // source size
+            mBuffer,                // source buffer (8-bit paletted)
+            (BITMAPINFO*)&bmi,      // DIB info with palette
+            DIB_RGB_COLORS,         // color mode
+            SRCCOPY                 // copy operation
+         );
+
+         if( result == GDI_ERROR )
+         {
+            PRINT_LOG( "Flip: StretchDIBits returned GDI_ERROR" );
+         }
+         else
+         {
+            PRINT_LOG( "Flip: StretchDIBits succeeded" );
+         }
+      }
+      catch(...)
+      {
+         PRINT_LOG( "Flip: EXCEPTION in DIB operations" );
+      }
+
+      // Clean up device context
+      ReleaseDC( mWindow, hdc );
+      PRINT_LOG( "Flip: END" );
    }
-   else
+   catch(...)
    {
-      // We are in a window, use normal blitting
-      int lX0 = mFullScreen?0:mX0;
-      int lY0 = mFullScreen?0:mY0;
-
-
-      RECT lDestRectangle  = { lX0, lY0, lX0+mXRes, lY0+mYRes };
-      RECT lSrcRectangle  = { 0, 0, mXRes, mYRes };
-
-
-      lErrorCode = DD_CALL(mFrontBuffer->Blt( &lDestRectangle, mBackBuffer, &lSrcRectangle, DDBLT_WAIT, NULL ));
-
-      if( lErrorCode != DD_OK )
-      {
-         // ASSERT( FALSE );
-      }
+      // Silently ignore all GDI errors
+      PRINT_LOG( "Flip: EXCEPTION in Flip()" );
    }
 }
 

@@ -1,0 +1,701 @@
+ReadList: Starting track search
+Executable path: C:\originalhr\HoverRace\Release\tracks\
+Found tracks, reading entries
+Track 0: ClassicH
+  Opening: C:\originalhr\HoverRace\Release\tracks\ClassicH.trk
+  Successfully opened, reading entry
+  Successfully read entry
+Track 1: fuckClassicH[-1--1]
+  Opening: C:\originalhr\HoverRace\Release\tracks\fuckClassicH[-1--1].trk
+  Successfully opened, reading entry
+  Successfully read entry
+Track 2: New_Simple_Track
+  Opening: C:\originalhr\HoverRace\Release\tracks\New_Simple_Track.trk
+  Successfully opened, reading entry
+  Successfully read entry
+Track 3: The Alley2
+  Opening: C:\originalhr\HoverRace\Release\tracks\The Alley2.trk
+  Successfully opened, reading entry
+  Successfully read entry
+Track 4: The River
+  Opening: C:\originalhr\HoverRace\Release\tracks\The River.trk
+  Successfully opened, reading entry
+  Successfully read entry
+ReadList: Completed, found 5 tracks
+tion (lMajorID=100, pFileName=NULL)
+    Sorting index: 50, Registration: 1
+    Final magic number for FREE_TRACK: 0x142B9
+    SUCCESS: Track entry validated
+
+    ReadTrackEntry: Starting to read track
+    Magic number read: 0x142B9 (expected: 0x142B9)
+    Version read: 1
+    Description: 'Unknown Track', Minor ID: -1, Major ID: 100
+    Skipping ID validation (lMajorID=100, pFileName=NULL)
+    Sorting index: 50, Registration: 1
+    Final magic number for FREE_TRACK: 0x142B9
+    SUCCESS: Track entry validated
+
+    ReadTrackEntry: Starting to read track
+    Magic number read: 0x142B9 (expected: 0x142B9)
+    Version read: 1
+    Description: 'Level: Expert
+Length: 3.2km
+Lot of speed zones
+', Minor ID: 0, Major ID: 0
+    Skipping ID validation (lMajorID=0, pFileName=NULL)
+    Sorting index: 30, Registration: 1
+    Final magic number for FREE_TRACK: 0x142B9
+    SUCCESS: Track entry validated
+
+    ReadTrackEntry: Starting to read track
+    Magic number read: 0x142B9 (expected: 0x142B9)
+    Version read: 1
+    Description: 'Level: Expert
+Length: 1.0 km
+Lots of shortcuts
+
+
+', Minor ID: 0, Major ID: 0
+    Skipping ID validation (lMajorID=0, pFileName=NULL)
+    Sorting index: 40, Registration: 0
+    SUCCESS: Registered track validated
+
+TrackSelectCallBack: Message 48
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 85
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 297
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 273
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 273
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 272
+  WM_INITDIALOG: gsNbTrack=5
+    Adding track 0: ClassicH
+    Adding track 1: The Alley2
+    Adding track 2: The River
+    Adding track 3: New_Simple_Track
+    Adding track 4: fuckClassicH[-1--1]
+  Setting lap count and weapons
+
+TrackSelectCallBack: Message 273
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 273
+TrackSelectCallBack: Returning 0
+  Setting description for track 0
+  WM_INITDIALOG completed successfully
+TrackSelectCallBack: Returning 1
+
+TrackSelectCallBack: Message 70
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 134
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 127
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 127
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 127
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 6
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 273
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 1024
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 295
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 296
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 799
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 24
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 70
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 133
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 127
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 127
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 127
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 20
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 310
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 71
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 127
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 127
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 127
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 15
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 308
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 308
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 307
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 307
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 312
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 309
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 309
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 312
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 312
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 312
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 312
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 132
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 512
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 132
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 160
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 674
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 132
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 160
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 132
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 512
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 674
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 132
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 512
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 132
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 512
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 132
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 160
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 132
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 512
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 674
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 132
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 512
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 132
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 512
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 132
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 512
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 132
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 512
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 132
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 512
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 132
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 512
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 132
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 512
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 132
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 512
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 132
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 512
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 132
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 512
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 132
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 512
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 132
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 512
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 132
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 512
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 132
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 512
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 132
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 512
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 132
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 512
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 132
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 512
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 134
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 127
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 127
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 127
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 6
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 28
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 273
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 309
+TrackSelectCallBack: Returning 0

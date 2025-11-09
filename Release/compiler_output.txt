@@ -1,0 +1,149 @@
+HoverRace Track Compiler                     (c)1996-1997 GrokkSoft inc.
+
+Compiling track(C:\Users\john.mccourt\AppData\Local\Temp\HCABC3.tmp.debug)
+DEBUG: Creating MR_LevelBuilder object
+DEBUG: MR_LevelBuilder object created
+DEBUG: Creating header record
+DEBUG: Initializing level from file
+DEBUG: File pointer position before init: 0
+DEBUG: About to call InitFromFile
+DEBUG: File rewound for parsing
+DEBUG: Calling InitFromFile now...
+DEBUG Parse: About to create MR_Parser
+DEBUG Parse: File pointer: 00C51460
+DEBUG Parse: File is valid, first char: 91
+DEBUG Parse: MR_Parser created
+DEBUG Parse: About to create CMaps
+DEBUG Parse: CMaps created
+DEBUG Parse: About to scan for rooms
+DEBUG Parse: Calling GetNextClass
+DEBUG Parse: GetNextClass returned: 0097F072
+DEBUG Parse: Found Room Id=1
+DEBUG Parse: GetNextClass(Room) loop returned: 0097F072
+DEBUG Parse: Found Room Id=2
+DEBUG Parse: GetNextClass(Room) loop returned: 0097F072
+DEBUG Parse: Found Room Id=3
+DEBUG Parse: GetNextClass(Room) loop returned: 0097F072
+DEBUG Parse: Found Room Id=4
+DEBUG Parse: GetNextClass(Room) loop returned: 0097F072
+DEBUG Parse: Found Room Id=5
+DEBUG Parse: GetNextClass(Room) loop returned: 0097F072
+DEBUG Parse: Found Room Id=6
+DEBUG Parse: GetNextClass(Room) loop returned: 0097F072
+DEBUG Parse: Found Room Id=7
+DEBUG Parse: GetNextClass(Room) loop returned: 0097F072
+DEBUG Parse: Found Room Id=8
+DEBUG Parse: GetNextClass(Room) loop returned: 0097F072
+DEBUG Parse: Found Room Id=9
+DEBUG Parse: GetNextClass(Room) loop returned: 0097F072
+DEBUG Parse: Found Room Id=10
+DEBUG Parse: GetNextClass(Room) loop returned: 0097F072
+DEBUG Parse: Found Room Id=11
+DEBUG Parse: GetNextClass(Room) loop returned: 0097F072
+DEBUG Parse: Found Room Id=12
+DEBUG Parse: GetNextClass(Room) loop returned: 0097F072
+DEBUG Parse: Found Room Id=13
+DEBUG Parse: GetNextClass(Room) loop returned: 0097F072
+DEBUG Parse: Found Room Id=14
+DEBUG Parse: GetNextClass(Room) loop returned: 0097F072
+DEBUG Parse: Found Room Id=15
+DEBUG Parse: GetNextClass(Room) loop returned: 0097F072
+DEBUG Parse: Found Room Id=16
+DEBUG Parse: GetNextClass(Room) loop returned: 0097F072
+DEBUG Parse: Found Room Id=17
+DEBUG Parse: GetNextClass(Room) loop returned: 0097F072
+DEBUG Parse: Found Room Id=18
+DEBUG Parse: GetNextClass(Room) loop returned: 0097F072
+DEBUG Parse: Found Room Id=19
+DEBUG Parse: GetNextClass(Room) loop returned: 0097F072
+DEBUG Parse: Found Room Id=20
+DEBUG Parse: GetNextClass(Room) loop returned: 0097F072
+DEBUG Parse: Found Room Id=22
+DEBUG Parse: GetNextClass(Room) loop returned: 0097F072
+DEBUG Parse: Found Room Id=23
+DEBUG Parse: GetNextClass(Room) loop returned: 0097F072
+DEBUG Parse: Found Room Id=24
+DEBUG Parse: GetNextClass(Room) loop returned: 0097F072
+DEBUG Parse: Found Room Id=25
+DEBUG Parse: GetNextClass(Room) loop returned: 0097F072
+DEBUG Parse: Found Room Id=26
+DEBUG Parse: GetNextClass(Room) loop returned: 0097F072
+DEBUG Parse: Found Room Id=27
+DEBUG Parse: GetNextClass(Room) loop returned: 0097F072
+DEBUG Parse: Found Room Id=28
+DEBUG Parse: GetNextClass(Room) loop returned: 0097F072
+DEBUG Parse: Found Room Id=29
+DEBUG Parse: GetNextClass(Room) loop returned: 0097F072
+DEBUG Parse: Found Room Id=30
+DEBUG Parse: GetNextClass(Room) loop returned: 0097F072
+DEBUG Parse: Found Room Id=31
+DEBUG Parse: GetNextClass(Room) loop returned: 0097F072
+DEBUG Parse: Found Room Id=32
+DEBUG Parse: GetNextClass(Room) loop returned: 0097F072
+DEBUG Parse: Found Room Id=33
+DEBUG Parse: GetNextClass(Room) loop returned: 0097F072
+DEBUG Parse: Found Room Id=34
+DEBUG Parse: GetNextClass(Room) loop returned: 0097F072
+DEBUG Parse: Found Room Id=35
+DEBUG Parse: GetNextClass(Room) loop returned: 0097F072
+DEBUG Parse: Found Room Id=36
+DEBUG Parse: GetNextClass(Room) loop returned: 0097F072
+DEBUG Parse: Found Room Id=37
+DEBUG Parse: GetNextClass(Room) loop returned: 0097F072
+DEBUG Parse: Found Room Id=38
+DEBUG Parse: GetNextClass(Room) loop returned: 0097F072
+DEBUG Parse: Found Room Id=39
+DEBUG Parse: GetNextClass(Room) loop returned: 00000000
+DEBUG Parse: Done with rooms, about to process features
+DEBUG Parse: lReturnValue=1
+DEBUG Parse: Parser reset, about to get first Feature
+DEBUG Parse: Getting first Feature
+DEBUG Parse: First GetNextClass(Feature) returned: 0097F072
+DEBUG Parse: GetNextClass(Feature) loop returned: 00000000
+DEBUG Parse: After feature loop, lReturnValue=1
+DEBUG Parse: Room count=38, Feature count=1
+DEBUG Parse: Creating room/feature lists
+DEBUG Parse: Room/feature lists created successfully
+DEBUG Parse: Starting second pass through rooms
+DEBUG Parse: Parser reset for second room pass
+DEBUG Parse: About to call GetNextClass(Room) in second pass
+DEBUG Parse: Second pass GetNextClass(Room) returned: 0097F072
+DEBUG Parse: Second pass processing room, lRoomClass2=0097F072
+DEBUG Parse: About to call GetNextAttrib(Id)
+DEBUG Parse: GetNextAttrib(Id) succeeded
+DEBUG Parse: About to call GetNextNumParam()
+DEBUG Parse: Got Room ID: 1
+DEBUG Parse: About to lookup Room ID 1
+DEBUG Parse: Room 1 found at index 0
+DEBUG Parse: Room 1 has 0 vertices
+DEBUG Parse: About to enter GetNextAttrib loop for Room 1
+DEBUG Parse: Got attribute: FLOOR
+DEBUG Parse: Processing Floor
+DEBUG Parse: About to get next num param for floor level
+DEBUG Parse: Got floor level: 0
+DEBUG Parse: About to load floor texture
+DEBUG: sLoadTexture called with pParser=0097EFD8
+DEBUG: About to get DLL ID
+DEBUG: Got DLL ID: 1
+DEBUG: Got Class ID: 51
+DEBUG: About to CreateObject
+DEBUG: CreateObject threw an exception!
+Unable to load texture 1 51 on line 7
+DEBUG Parse: Floor texture loaded: 00000000
+DEBUG Parse: Got attribute: CEILING
+DEBUG: sLoadTexture called with pParser=0097EFD8
+DEBUG: About to get DLL ID
+DEBUG: Got DLL ID: 1
+DEBUG: Got Class ID: 50
+DEBUG: About to CreateObject
+DEBUG: CreateObject threw an exception!
+Unable to load texture 1 50 on line 8
+DEBUG Parse: Got attribute: WALL
+DEBUG Parse: Processing Wall
+DEBUG Parse: Got attribute: WALL
+DEBUG Parse: Processing Wall
+DEBUG Parse: Got attribute: WALL
+DEBUG Parse: Processing Wall
+DEBUG Parse: Got attribute: WALL
+DEBUG Parse: Processing Wall
+DEBUG Parse: Second pass GetNextClass(Room) loop returned: 0097F072

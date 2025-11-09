@@ -10,3 +10,7 @@ C:\originalhr\HoverRace\NetTarget\VideoServices\Sprite.cpp;C:\originalhr\HoverRa
 C:\originalhr\HoverRace\NetTarget\VideoServices\StdAfx.cpp;C:\originalhr\HoverRace\NetTarget\VideoServices\Release\StdAfx.obj
 C:\originalhr\HoverRace\NetTarget\VideoServices\VideoBuffer.cpp;C:\originalhr\HoverRace\NetTarget\VideoServices\Release\VideoBuffer.obj
 C:\originalhr\HoverRace\NetTarget\VideoServices\VideoBuffer2DDraw.cpp;C:\originalhr\HoverRace\NetTarget\VideoServices\Release\VideoBuffer2DDraw.obj
+C:\originalhr\HoverRace\NetTarget\GraphicsSDL2\SDL2Graphics.cpp;C:\originalhr\HoverRace\NetTarget\VideoServices\Release\SDL2Graphics.obj
+C:\originalhr\HoverRace\NetTarget\GraphicsSDL2\VideoBufferSDL2Adapter.cpp;C:\originalhr\HoverRace\NetTarget\VideoServices\Release\VideoBufferSDL2Adapter.obj
+C:\originalhr\HoverRace\NetTarget\VideoServices\VideoBufferSDL2Integration.cpp;C:\originalhr\HoverRace\NetTarget\VideoServices\Release\VideoBufferSDL2Integration.obj
+C:\originalhr\HoverRace\OpenAL\alstub.cpp;C:\originalhr\HoverRace\NetTarget\VideoServices\Release\alstub.obj
