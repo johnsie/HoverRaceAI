@@ -49,8 +49,15 @@ bool SDL2GraphicsBackend::Initialize(void* windowHandle, int width, int height)
     log << "SDL_CreateRenderer OK (software)" << std::endl; log.flush();
     
     SDL_RenderSetLogicalSize(m_renderer, width, height);
-    m_texture = SDL_CreateTexture(m_renderer, SDL_PIXELFORMAT_INDEX8, SDL_TEXTUREACCESS_STREAMING, width, height);
-    if (!m_texture) { log << "ERROR: SDL_CreateTexture failed" << std::endl; log.close(); SDL_DestroyRenderer(m_renderer); SDL_DestroyWindow(m_window); SDL_QuitSubSystem(SDL_INIT_VIDEO); return false; }
+    m_texture = SDL_CreateTexture(m_renderer, SDL_PIXELFORMAT_RGB888, SDL_TEXTUREACCESS_STREAMING, width, height);
+    if (!m_texture) { 
+        log << "ERROR: SDL_CreateTexture failed: " << SDL_GetError() << std::endl; 
+        log.close(); 
+        SDL_DestroyRenderer(m_renderer); 
+        SDL_DestroyWindow(m_window); 
+        SDL_QuitSubSystem(SDL_INIT_VIDEO); 
+        return false; 
+    }
     log << "SDL_CreateTexture OK" << std::endl; log.flush();
     
     if (!m_paletteRGB) { m_paletteRGB = new uint8_t[768]; for (int i = 0; i < 256; i++) { m_paletteRGB[i*3+0] = m_paletteRGB[i*3+1] = m_paletteRGB[i*3+2] = i; } }
@@ -85,7 +92,28 @@ bool SDL2GraphicsBackend::SetPalette(const uint8_t* palette, int paletteSize)
 bool SDL2GraphicsBackend::Present(const uint8_t* buffer, int width, int height)
 {
     if (!m_renderer || !m_texture) return false;
-    SDL_UpdateTexture(m_texture, nullptr, buffer, width);
+    
+    // Log frame count periodically
+    static int frame_count = 0;
+    frame_count++;
+    if (frame_count % 100 == 0) {
+        std::ofstream log("C:\\originalhr\\HoverRace\\Release\\sdl2_debug.log", std::ios::app);
+        log << "Frame: " << frame_count << std::endl;
+        log.close();
+    }
+    
+    // Convert 8-bit indexed palette data to RGB888 for rendering
+    uint8_t* rgb_buffer = new uint8_t[width * height * 3];
+    for (int i = 0; i < width * height; i++) {
+        uint8_t index = buffer[i];
+        rgb_buffer[i*3 + 0] = m_paletteRGB[index*3 + 0];  // R
+        rgb_buffer[i*3 + 1] = m_paletteRGB[index*3 + 1];  // G
+        rgb_buffer[i*3 + 2] = m_paletteRGB[index*3 + 2];  // B
+    }
+    
+    SDL_UpdateTexture(m_texture, nullptr, rgb_buffer, width * 3);
+    delete[] rgb_buffer;
+    
     SDL_RenderClear(m_renderer);
     SDL_Rect r = {0, 0, width, height};
     SDL_RenderCopy(m_renderer, m_texture, nullptr, &r);

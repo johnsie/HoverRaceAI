@@ -1127,16 +1127,34 @@ BOOL MR_VideoBuffer::Lock()
    {
       // SDL2Graphics mode - use adapter for buffer access
       PRINT_LOG( "Lock: SDL2Graphics mode - requesting buffer" );
+      FILE *logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_VideoBuffer_Lock.log", "a");
+      if(logFile) { fprintf(logFile, "Lock: About to call g_SDL2GraphicsAdapter->Lock(), adapter=%p\n", g_SDL2GraphicsAdapter); fflush(logFile); fclose(logFile); }
+      
       uint8_t* lBuffer = nullptr;
-      if( g_SDL2GraphicsAdapter->Lock( lBuffer ) )
-      {
-         mBuffer = lBuffer;
-         PRINT_LOG( "Lock: SDL2Graphics buffer acquired, returning TRUE" );
-         return TRUE;
+      
+      // Add check to ensure adapter is still valid
+      try {
+         if( g_SDL2GraphicsAdapter->Lock( lBuffer ) )
+         {
+            logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_VideoBuffer_Lock.log", "a");
+            if(logFile) { fprintf(logFile, "Lock: Lock() succeeded, buffer=%p\n", lBuffer); fflush(logFile); fclose(logFile); }
+            
+            mBuffer = lBuffer;
+            PRINT_LOG( "Lock: SDL2Graphics buffer acquired, returning TRUE" );
+            return TRUE;
+         }
+         else
+         {
+            logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_VideoBuffer_Lock.log", "a");
+            if(logFile) { fprintf(logFile, "Lock: Lock() returned FALSE (already locked)\n"); fflush(logFile); fclose(logFile); }
+            
+            PRINT_LOG( "Lock: SDL2Graphics buffer acquisition failed" );
+            return FALSE;
+         }
       }
-      else
-      {
-         PRINT_LOG( "Lock: SDL2Graphics buffer acquisition failed" );
+      catch(...) {
+         logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_VideoBuffer_Lock.log", "a");
+         if(logFile) { fprintf(logFile, "Lock: EXCEPTION caught in Lock()\n"); fflush(logFile); fclose(logFile); }
          return FALSE;
       }
    }

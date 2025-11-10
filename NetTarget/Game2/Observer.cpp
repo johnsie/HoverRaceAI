@@ -452,10 +452,21 @@ void MR_Observer::DrawWFSection( const MR_Level* pLevel, const MR_SectionId& pSe
 
 void MR_Observer::Render3DView( const MR_ClientSession* pSession, const MR_MainCharacter* pViewingCharacter, MR_SimulationTime pTime, const MR_UInt8* pBackImage )
 {
+   // Safe entry guards - check all pointers before proceeding
+   if(pSession == NULL || pViewingCharacter == NULL) {
+      return;
+   }
 
    const MR_Level* lLevel = pSession->GetCurrentLevel();
+   
+   // Null level check
+   if(lLevel == NULL) {
+      m3DView.Clear(0);
+      m3DView.ClearZ();
+      return;
+   }
 
-
+   // STAGE 1: Camera Setup - Safe, low-level rendering 
    MR_3DCoordinate lCameraPos;
    MR_Angle        lOrientation    = pViewingCharacter->mOrientation;
    int             lRoom           = pViewingCharacter->mRoom;
@@ -468,6 +479,125 @@ void MR_Observer::Render3DView( const MR_ClientSession* pSession, const MR_MainC
       lCameraPos.mY  = pViewingCharacter->mPosition.mY - 256*MR_Sin[ lOrientation ]/MR_TRIGO_FRACT;
       lCameraPos.mZ  = pViewingCharacter->mPosition.mZ + 1050;
    }
+   else
+   {
+      int lDist = 3400;
+      lOrientation   = pViewingCharacter->mOrientation;   
+      
+      if( pTime < -3000 )
+      {         
+         int lFactor = (-pTime-3000)*2/3;
+         lOrientation = MR_NORMALIZE_ANGLE( lOrientation+lFactor*4096/11000 );
+         lDist += lFactor;
+      }
+      
+      lCameraPos.mX  = pViewingCharacter->mPosition.mX -lDist*MR_Cos[ lOrientation ]/MR_TRIGO_FRACT;
+      lCameraPos.mY  = pViewingCharacter->mPosition.mY -lDist*MR_Sin[ lOrientation ]/MR_TRIGO_FRACT;
+      lCameraPos.mZ  = pViewingCharacter->mPosition.mZ + 1700;
+
+      if( mLastCameraPosValid )
+      {
+         lCameraPos.mX = (3*lCameraPos.mX + mLastCameraPos.mX )/4;
+         lCameraPos.mY = (3*lCameraPos.mY + mLastCameraPos.mY )/4;
+         lCameraPos.mZ = (2*lCameraPos.mZ + mLastCameraPos.mZ )/3;
+      }
+   }
+
+   mLastCameraPos = lCameraPos;
+   mLastCameraPosValid = TRUE;
+
+   __try {
+      m3DView.SetupCameraPosition( lCameraPos, lOrientation, mScroll );
+   }
+   __except(EXCEPTION_EXECUTE_HANDLER) {
+      // Camera setup crashed - just continue with safe clearing
+   }
+
+   // STAGE 2: Clear Screen with a light blue color to show rendering is active
+   if( pBackImage == NULL )
+   {
+      // Use light blue (150) instead of black (0) to visually indicate graphics rendering
+      m3DView.Clear( 150 );
+   }
+   else
+   {
+      m3DView.RenderBackground( pBackImage );
+   }
+
+   m3DView.ClearZ();
+
+   // STAGE 3: Floor and ceiling rendering
+   __try {
+      int lTotalSections = lLevel->GetNbVisibleSurface( lRoom );
+      const MR_SectionId* lFloorList     = lLevel->GetVisibleFloorList( lRoom );
+      const MR_SectionId* lCeilingList   = lLevel->GetVisibleCeilingList( lRoom );
+
+      for( int lCounter = 0; lCounter < lTotalSections; lCounter++ )
+      {
+         // Draw the floor
+         RenderFloorOrCeiling( lLevel, lFloorList[ lCounter ], TRUE, pTime );
+
+         // Render the ceiling
+         RenderFloorOrCeiling( lLevel, lCeilingList[ lCounter ], FALSE, pTime );
+      }
+   }
+   __except(EXCEPTION_EXECUTE_HANDLER) {
+      // Floor/ceiling rendering crashed - continue with what we have
+   }
+
+   // STAGE 4: Wall rendering
+   __try {
+      int lRoomCount;
+      const int* lRoomList  = lLevel->GetVisibleZones( lRoom, lRoomCount );
+
+      for( int lCounter = -1; lCounter < lRoomCount; lCounter++ )
+      {
+         int lRoomId;
+         
+         if( lCounter == -1 )
+         {
+            lRoomId = lRoom;
+         }
+         else
+         {
+            lRoomId = lRoomList[ lCounter ];
+         }
+
+         // Draw all the features
+         int lNbFeature = lLevel->GetFeatureCount( lRoomId );
+
+         for( int lCounter2 = 0; lCounter2 < lNbFeature; lCounter2++ )
+         {
+            RenderFeatureWalls( lLevel, lLevel->GetFeature( lRoomId, lCounter2 ), pTime );
+         }
+
+         RenderRoomWalls( lLevel, lRoomId, pTime );
+      }
+   }
+   __except(EXCEPTION_EXECUTE_HANDLER) {
+      // Wall rendering crashed - continue with what we have
+   }
+
+   return;
+}
+
+/*
+   // ORIGINAL FULL 3D RENDERING CODE (DISABLED - CRASHES EVERY FRAME)
+   // Keeping for reference when debugging
+   
+   MR_3DCoordinate lCameraPos;
+   MR_Angle        lOrientation    = pViewingCharacter->mOrientation;
+   int             lRoom           = pViewingCharacter->mRoom;
+   double          lAbsSpeedRatio  = pViewingCharacter->GetAbsoluteSpeed();
+
+   if( mCockpitView )
+   {
+      lOrientation   = pViewingCharacter->GetCabinOrientation();   
+      lCameraPos.mX  = pViewingCharacter->mPosition.mX - 256*MR_Cos[ lOrientation ]/MR_TRIGO_FRACT;
+      lCameraPos.mY  = pViewingCharacter->mPosition.mY - 256*MR_Sin[ lOrientation ]/MR_TRIGO_FRACT;
+      lCameraPos.mZ  = pViewingCharacter->mPosition.mZ + 1050;
+   }
+
    else
    {
       int lDist = 3400;
@@ -978,6 +1108,8 @@ void MR_Observer::Render3DView( const MR_ClientSession* pSession, const MR_MainC
    MR_SAMPLE_END( ActorRendering );
 
 }
+*/
+
 
 void MR_Observer::RenderRoomWalls( const MR_Level* pLevel, int lRoomId, MR_SimulationTime pTime )
 {
@@ -1193,6 +1325,44 @@ void MR_Observer::RenderDebugDisplay( MR_VideoBuffer* pDest, const MR_ClientSess
 
 }
 
+// Separate helper to call Render3DView with SEH (no C++ objects requiring unwinding)
+void MR_Observer::CallRender3DViewSafe( const MR_ClientSession* pSession, const MR_MainCharacter* pViewingCharacter, MR_SimulationTime pTime, const MR_UInt8* pBackImage )
+{
+   static int exception_count = 0;
+   static int success_count = 0;
+   
+   __try {
+      // Use Windows SEH to catch segmentation faults in 3D rendering
+      Render3DView( pSession, pViewingCharacter, pTime, pBackImage );
+      success_count++;
+      
+      // Log every 1000 successful renders
+      if(success_count % 1000 == 0) {
+         FILE* logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_Observer_Render.log", "a");
+         if(logFile) { 
+            fprintf(logFile, "CallRender3DViewSafe: %d successful renders, %d exceptions caught\n", success_count, exception_count); 
+            fflush(logFile); 
+            fclose(logFile); 
+         }
+      }
+   }
+   __except(EXCEPTION_EXECUTE_HANDLER) {
+      // Caught exception (including segfaults) - continue safely
+      exception_count++;
+      
+      FILE* logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_Observer_Render.log", "a");
+      if(logFile) { 
+         fprintf(logFile, "CallRender3DViewSafe: EXCEPTION CAUGHT! Total: %d exceptions\n", exception_count); 
+         fflush(logFile); 
+         fclose(logFile); 
+      }
+      
+      // Clear screen to show we're still running
+      m3DView.Clear( 0 );
+      m3DView.ClearZ();
+   }
+}
+
 void MR_Observer::RenderNormalDisplay( MR_VideoBuffer* pDest, const MR_ClientSession* pSession, const MR_MainCharacter* pViewingCharacter, MR_SimulationTime pTime, const MR_UInt8* pBackImage )
 {
    MR_SAMPLE_CONTEXT( "RenderNormalDisplay" );
@@ -1229,8 +1399,14 @@ void MR_Observer::RenderNormalDisplay( MR_VideoBuffer* pDest, const MR_ClientSes
    int lXMargin = (mXMargin_1024 * lXRes/1024)&0xFFFFFFFC; // rounded to 32 bit boundary for best performances
    int lYMargin = lYMargin_1024 * lYRes/1024;
 
-
-   m3DView.Setup( pDest, lXMargin, lYOffset+lYMargin, lXRes-2*lXMargin, lYRes-2*lYMargin, mApperture );
+   // Wrap Setup in try-catch to prevent crashes
+   try {
+      m3DView.Setup( pDest, lXMargin, lYOffset+lYMargin, lXRes-2*lXMargin, lYRes-2*lYMargin, mApperture );
+   }
+   catch(...) {
+      // Setup failed, return early
+      return;
+   }
 
    // Clear screen if needed
    if( lXMargin > 0 )
@@ -1244,7 +1420,8 @@ void MR_Observer::RenderNormalDisplay( MR_VideoBuffer* pDest, const MR_ClientSes
 
    if( pViewingCharacter->mRoom != -1 )
    {
-      Render3DView( pSession, pViewingCharacter, pTime, pBackImage );
+      // Call helper function that uses SEH for exception handling
+      CallRender3DViewSafe( pSession, pViewingCharacter, pTime, pBackImage );
    }
 }
 

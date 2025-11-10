@@ -1082,6 +1082,11 @@ int MR_GameApp::MainLoop()
                if(logFile) { fprintf(logFile, "Frame %d:   RefreshView() succeeded\n", lFrameCount); fflush(logFile); }
                
                lFrameCount++;
+               
+               // Log every 100 frames
+               if(lFrameCount % 100 == 0) {
+                  if(logFile) { fprintf(logFile, "Frame %d: Milestone - 100 frames checkpoint\n", lFrameCount); fflush(logFile); }
+               }
             }
             catch(const std::exception &e)
             {
@@ -1106,8 +1111,12 @@ int MR_GameApp::MainLoop()
 
    if(logFile) { fprintf(logFile, "MainLoop exited after %d frames\n", lFrameCount); fflush(logFile); }
 
+   if(logFile) { fprintf(logFile, "MainLoop: About to call Clean()\n"); fflush(logFile); fclose(logFile); }
+
    Clean();
 
+   if(logFile) { fprintf(logFile, "MainLoop: Clean() completed\n"); fflush(logFile); fclose(logFile); }
+   logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_MainLoop.log", "a");
    if(logFile) { fprintf(logFile, "--- MainLoop END ---\n"); fflush(logFile); fclose(logFile); }
 
    return 0;
@@ -1224,7 +1233,7 @@ void MR_GameApp::RefreshTitleBar()
 
 BOOL MR_GameApp::InitGame()
 {
-   FILE* logFile = fopen("Game2_TrackLoad.log", "a");
+   FILE* logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_TrackLoad.log", "a");
    if(logFile) fprintf(logFile, "\n--- MR_GameApp::InitGame START ---\n"), fflush(logFile);
    
    BOOL lReturnValue =TRUE;
@@ -1308,9 +1317,17 @@ BOOL MR_GameApp::InitGame()
    if(logFile) fflush(logFile);
    // DON'T close logFile yet - NewLocalSession will use it too
    
-   NewLocalSession();
+   try {
+      NewLocalSession();
+      if(logFile) fprintf(logFile, "Returned from NewLocalSession() successfully\n"), fflush(logFile);
+   }
+   catch(const std::exception& e) {
+      if(logFile) fprintf(logFile, "EXCEPTION in NewLocalSession: %s\n", e.what()), fflush(logFile);
+   }
+   catch(...) {
+      if(logFile) fprintf(logFile, "UNKNOWN EXCEPTION in NewLocalSession\n"), fflush(logFile);
+   }
    
-   if(logFile) fprintf(logFile, "Returned from NewLocalSession()\n"), fflush(logFile);
    if(logFile) fclose(logFile);
 
    return lReturnValue;
@@ -1322,6 +1339,8 @@ void MR_GameApp::RefreshView()
    FILE *logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_MainLoop.log", "a");
    if(logFile) { fprintf(logFile, "RefreshView: ENTERED\n"); fflush(logFile); fclose(logFile); }
 
+   BOOL bLocked = FALSE;  // Track if we successfully locked the buffer
+
    try {
       // Game processing
       logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_MainLoop.log", "a");
@@ -1332,6 +1351,7 @@ void MR_GameApp::RefreshView()
          if(logFile) { fprintf(logFile, "RefreshView: About to call Lock()\n"); fflush(logFile); fclose(logFile); }
          if( mVideoBuffer->Lock() )
          {
+            bLocked = TRUE;  // Mark that we successfully locked
             logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_MainLoop.log", "a");
             if(logFile) { fprintf(logFile, "RefreshView: Lock() succeeded\n"); fflush(logFile); fclose(logFile); }
             if( mCurrentSession != NULL )
@@ -1342,62 +1362,112 @@ void MR_GameApp::RefreshView()
                {
                   if( lTime > 100 )
                   {
-                     try {
-                        MR_MainCharacter* lCharacter = mCurrentSession->GetMainCharacter();
+                     MR_MainCharacter* lCharacter = mCurrentSession->GetMainCharacter();
 
-                        if( lCharacter != NULL )
+                     if( lCharacter != NULL )
+                     {
+                        if( lCharacter->GetHoverModel() != 0 )
                         {
-                           if( lCharacter->GetHoverModel() != 0 )
-                           {
-                              lCharacter->SetHoverModel( 0 );
-                              mCurrentSession->AddMessage( MR_LoadString( IDS_CAR_FOR_REG ) );
-                           }
+                           lCharacter->SetHoverModel( 0 );
+                           mCurrentSession->AddMessage( MR_LoadString( IDS_CAR_FOR_REG ) );
                         }
+                     }
 
-                        lCharacter = mCurrentSession->GetMainCharacter2();
+                     lCharacter = mCurrentSession->GetMainCharacter2();
 
-                        if( lCharacter != NULL )
+                     if( lCharacter != NULL )
+                     {
+                        if( lCharacter->GetHoverModel() != 0 )
                         {
-                           if( lCharacter->GetHoverModel() != 0 )
-                           {
-                              lCharacter->SetHoverModel( 0 );
-                              mCurrentSession->AddMessage( MR_LoadString( IDS_CAR_FOR_REG ) );
-                           }
+                           lCharacter->SetHoverModel( 0 );
+                           mCurrentSession->AddMessage( MR_LoadString( IDS_CAR_FOR_REG ) );
                         }
-                     } catch(...) {}
+                     }
                   }
                }
 
                if( mCurrentMode == e3DView )
                {
-                  // For now, skip Observer rendering in GDI mode due to DirectDraw dependencies
-                  // Just clear the screen with a color to verify rendering pipeline works
                   logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_MainLoop.log", "a");
-                  if(logFile) { fprintf(logFile, "RefreshView: Clearing screen instead of rendering\n"); fflush(logFile); fclose(logFile); }
-                  mVideoBuffer->Clear( 42 );  // Clear with a recognizable color
+                  if(logFile) { fprintf(logFile, "RefreshView: In e3DView mode\n"); fflush(logFile); fclose(logFile); }
+                  
+                  logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_MainLoop.log", "a");
+                  if(logFile) { fprintf(logFile, "RefreshView: mClrScrTodo=%d\n", mClrScrTodo); fflush(logFile); fclose(logFile); }
+                     
+                     if( mClrScrTodo > 0 )
+                     {
+                        mClrScrTodo--;
+                        logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_MainLoop.log", "a");
+                        if(logFile) { fprintf(logFile, "RefreshView: About to call DrawBackground\n"); fflush(logFile); fclose(logFile); }
+                        
+                        DrawBackground();
+                        
+                        logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_MainLoop.log", "a");
+                        if(logFile) { fprintf(logFile, "RefreshView: DrawBackground completed\n"); fflush(logFile); fclose(logFile); }
+                     }
+
+                     logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_MainLoop.log", "a");
+                     if(logFile) { fprintf(logFile, "RefreshView: mObserver1=%p\n", mObserver1); fflush(logFile); fclose(logFile); }
+                     
+                     MR_MainCharacter* lCharacter1 = mCurrentSession->GetMainCharacter();
+                     logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_MainLoop.log", "a");
+                     if(logFile) { fprintf(logFile, "RefreshView: GetMainCharacter() returned %p\n", lCharacter1); fflush(logFile); fclose(logFile); }
+                     
+                     if( mObserver1 != NULL && lCharacter1 != NULL )
+                     {
+                        logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_MainLoop.log", "a");
+                        if(logFile) { fprintf(logFile, "RefreshView: About to call Observer1 RenderNormalDisplay\n"); fflush(logFile); fclose(logFile); }
+                        
+                        mObserver1->RenderNormalDisplay( mVideoBuffer, mCurrentSession, lCharacter1, lTime, mCurrentSession->GetBackImage() );
+                        
+                        logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_MainLoop.log", "a");
+                        if(logFile) { fprintf(logFile, "RefreshView: Observer1 RenderNormalDisplay completed\n"); fflush(logFile); fclose(logFile); }
+                     }
+                     else
+                     {
+                        logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_MainLoop.log", "a");
+                        if(logFile) { fprintf(logFile, "RefreshView: Cannot render - observer1=%p, character1=%p\n", mObserver1, lCharacter1); fflush(logFile); fclose(logFile); }
+                     }
+
+                  logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_MainLoop.log", "a");
+                  if(logFile) { fprintf(logFile, "RefreshView: mObserver2=%p\n", mObserver2); fflush(logFile); fclose(logFile); }
+                  
+                  MR_MainCharacter* lCharacter2 = mCurrentSession->GetMainCharacter2();
+                  logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_MainLoop.log", "a");
+                  if(logFile) { fprintf(logFile, "RefreshView: GetMainCharacter2() returned %p\n", lCharacter2); fflush(logFile); fclose(logFile); }
+                     
+                     if( mObserver2 != NULL && lCharacter2 != NULL )
+                     {
+                        logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_MainLoop.log", "a");
+                        if(logFile) { fprintf(logFile, "RefreshView: About to call Observer2 RenderNormalDisplay\n"); fflush(logFile); fclose(logFile); }
+                        
+                        mObserver2->RenderNormalDisplay( mVideoBuffer, mCurrentSession, lCharacter2, lTime, mCurrentSession->GetBackImage() );
+                        
+                        logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_MainLoop.log", "a");
+                        if(logFile) { fprintf(logFile, "RefreshView: Observer2 RenderNormalDisplay completed\n"); fflush(logFile); fclose(logFile); }
+                     }
+                     else
+                     {
+                        logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_MainLoop.log", "a");
+                        if(logFile) { fprintf(logFile, "RefreshView: Cannot render observer2 - observer2=%p, character2=%p\n", mObserver2, lCharacter2); fflush(logFile); fclose(logFile); }
+                     }
                }
                else if( mCurrentMode == eDebugView )
                {
-                  try {
-                     if( mObserver1 != NULL )
-                     {
-                        mObserver1->RenderDebugDisplay( mVideoBuffer, mCurrentSession, mCurrentSession->GetMainCharacter(), lTime, mCurrentSession->GetBackImage() );
-                     }
-                  } catch(...) {}
+                  if( mObserver1 != NULL )
+                  {
+                     mObserver1->RenderDebugDisplay( mVideoBuffer, mCurrentSession, mCurrentSession->GetMainCharacter(), lTime, mCurrentSession->GetBackImage() );
+                  }
 
-                  try {
-                     if( mObserver2 != NULL )
-                     {
-                        mObserver2->RenderDebugDisplay( mVideoBuffer, mCurrentSession, mCurrentSession->GetMainCharacter2(), lTime, mCurrentSession->GetBackImage() );
-                     }
-                  } catch(...) {}
+                  if( mObserver2 != NULL )
+                  {
+                     mObserver2->RenderDebugDisplay( mVideoBuffer, mCurrentSession, mCurrentSession->GetMainCharacter2(), lTime, mCurrentSession->GetBackImage() );
+                  }
                }
 
       
 #ifdef MR_AVI_CAPTURE
-               try {
-                  CaptureScreen( mVideoBuffer );
-               } catch(...) {}
+               CaptureScreen( mVideoBuffer );
 #endif
 
             }
@@ -1407,75 +1477,80 @@ void MR_GameApp::RefreshView()
             }
             logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_MainLoop.log", "a");
             if(logFile) { fprintf(logFile, "RefreshView: About to call Unlock()\n"); fflush(logFile); fclose(logFile); }
-            mVideoBuffer->Unlock();
-            logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_MainLoop.log", "a");
-            if(logFile) { fprintf(logFile, "RefreshView: Unlock() succeeded\n"); fflush(logFile); fclose(logFile); }
+            
+            if( bLocked && mVideoBuffer != NULL )
+            {
+               mVideoBuffer->Unlock();
+               logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_MainLoop.log", "a");
+               if(logFile) { fprintf(logFile, "RefreshView: Unlock() succeeded\n"); fflush(logFile); fclose(logFile); }
+            }
             
             // Flip() is now called from within Unlock() for both DirectDraw and GDI modes
-            // Try/catch block kept for compatibility with potential drawing errors
-            try {
-               // Note: Flip() is now called automatically from Unlock()
-               // This ensures proper synchronization between rendering and display
-            } catch(...) {
-               // Ignore Flip errors - might be display issue
-            }
+            // Note: Flip() is now called automatically from Unlock()
+            // This ensures proper synchronization between rendering and display
 
-         }
-      }
-   }
-   catch(...) {
-      // Silently ignore rendering exceptions
-   }
-
-   // Sound processing - Now using OpenAL backend
-   try
-   {
-      if( mObserver1 != NULL && mCurrentSession != NULL )
-      {
-         try
-         {
-            MR_MainCharacter* pCharacter = mCurrentSession->GetMainCharacter();
-            if( pCharacter != NULL )
-            {
-               try
-               {
-                  const MR_Level* pLevel = mCurrentSession->GetCurrentLevel();
-                  if( pLevel != NULL )
-                  {
-                     try
-                     {
-                        mObserver1->PlaySounds( pLevel, pCharacter );
-                     }
-                     catch(...)
-                     {
-                        // Sound playing failed
-                     }
-                     try
-                     {
-                        MR_SoundServer::ApplyContinuousPlay();
-                     }
-                     catch(...)
-                     {
-                        // Continuous play failed
-                     }
-                  }
-               }
-               catch(...)
-               {
-                  // Level retrieval failed
-               }
-            }
-         }
-         catch(...)
-         {
-            // Character retrieval failed
          }
       }
    }
    catch(...)
    {
-      // Outer catch
+      // Outer catch - catches C++ exceptions in rendering
+      logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_MainLoop.log", "a");
+      if(logFile) { fprintf(logFile, "RefreshView: CAUGHT EXCEPTION in rendering pipeline\n"); fflush(logFile); fclose(logFile); }
    }
+
+   // Sound processing - Now using OpenAL backend (no nested exceptions allowed with outer __try)
+   // TEMPORARY: Disabled sound processing due to crash in PlaySounds
+   // TODO: Debug and fix PlaySounds crash - likely OpenAL resource issue
+   logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_MainLoop.log", "a");
+   if(logFile) { fprintf(logFile, "RefreshView: Sound processing DISABLED (TODO: Fix PlaySounds crash)\n"); fflush(logFile); fclose(logFile); }
+   
+   /*
+   if( mObserver1 != NULL && mCurrentSession != NULL )
+   {
+      logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_MainLoop.log", "a");
+      if(logFile) { fprintf(logFile, "RefreshView: About to get main character for sound\n"); fflush(logFile); fclose(logFile); }
+      
+      MR_MainCharacter* pCharacter = mCurrentSession->GetMainCharacter();
+      if( pCharacter != NULL )
+      {
+         logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_MainLoop.log", "a");
+         if(logFile) { fprintf(logFile, "RefreshView: About to get current level for sound\n"); fflush(logFile); fclose(logFile); }
+         
+         const MR_Level* pLevel = mCurrentSession->GetCurrentLevel();
+         if( pLevel != NULL )
+         {
+            logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_MainLoop.log", "a");
+            if(logFile) { fprintf(logFile, "RefreshView: About to call PlaySounds\n"); fflush(logFile); fclose(logFile); }
+            
+            try {
+               mObserver1->PlaySounds( pLevel, pCharacter );
+            }
+            catch(...) {
+               logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_MainLoop.log", "a");
+               if(logFile) { fprintf(logFile, "RefreshView: EXCEPTION in PlaySounds\n"); fflush(logFile); fclose(logFile); }
+            }
+            
+            logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_MainLoop.log", "a");
+            if(logFile) { fprintf(logFile, "RefreshView: PlaySounds completed\n"); fflush(logFile); fclose(logFile); }
+            
+            logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_MainLoop.log", "a");
+            if(logFile) { fprintf(logFile, "RefreshView: About to call ApplyContinuousPlay\n"); fflush(logFile); fclose(logFile); }
+            
+            try {
+               MR_SoundServer::ApplyContinuousPlay();
+            }
+            catch(...) {
+               logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_MainLoop.log", "a");
+               if(logFile) { fprintf(logFile, "RefreshView: EXCEPTION in ApplyContinuousPlay\n"); fflush(logFile); fclose(logFile); }
+            }
+            
+            logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_MainLoop.log", "a");
+            if(logFile) { fprintf(logFile, "RefreshView: ApplyContinuousPlay completed\n"); fflush(logFile); fclose(logFile); }
+         }
+      }
+   }
+   */
    logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_MainLoop.log", "a");
    if(logFile) { fprintf(logFile, "RefreshView: EXITING (success)\n"); fflush(logFile); fclose(logFile); }
 }
@@ -1840,7 +1915,7 @@ void MR_GameApp::NewLocalSession()
    int     lNbLap;
    BOOL    lAllowWeapons;
 
-   FILE* logFile = fopen("Game2_TrackLoad.log", "a");
+   FILE* logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_TrackLoad.log", "a");
    if(logFile) fprintf(logFile, "\n=== NewLocalSession Start ===\n"), fflush(logFile);
    
    if(logFile) fprintf(logFile, "About to call MR_SelectTrack\n"), fflush(logFile);

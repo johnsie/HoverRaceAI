@@ -70,7 +70,20 @@ void VideoBufferSDL2Adapter::Shutdown()
 
 bool VideoBufferSDL2Adapter::Lock(uint8_t*& outBuffer)
 {
-    if (m_locked || !m_buffer)
+    // If buffer is already locked, it might be stuck from a previous crash
+    // Log the attempt but proceed
+    if (m_locked)
+    {
+        // Buffer is still locked from previous attempt
+        // This indicates a crash happened without calling Unlock()
+        // For robustness, we'll force-reset the lock
+        std::ofstream log("C:\\originalhr\\HoverRace\\Release\\sdl2_adapter_debug.log", std::ios::app);
+        log << "WARNING: Lock() called while m_locked=true! Forcibly resetting lock (possible crash recovery)" << std::endl;
+        log.flush();
+        m_locked = false;  // Force reset
+    }
+    
+    if (!m_buffer)
         return false;
 
     m_locked = true;
@@ -86,7 +99,16 @@ bool VideoBufferSDL2Adapter::Unlock()
     m_locked = false;
 
     // Present the buffer
-    return m_backend.Present(m_buffer, m_width, m_height);
+    std::ofstream log("C:\\originalhr\\HoverRace\\Release\\sdl2_adapter_present.log", std::ios::app);
+    log << "Calling Present()" << std::endl;
+    log.flush();
+    
+    bool result = m_backend.Present(m_buffer, m_width, m_height);
+    
+    log << "Present() returned: " << (result ? "TRUE" : "FALSE") << std::endl;
+    log.flush();
+    
+    return result;
 }
 
 bool VideoBufferSDL2Adapter::SetPalette(const uint8_t* paletteRGB)
