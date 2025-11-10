@@ -91,7 +91,7 @@ bool SDL2GraphicsBackend::SetPalette(const uint8_t* palette, int paletteSize)
 
 bool SDL2GraphicsBackend::Present(const uint8_t* buffer, int width, int height)
 {
-    if (!m_renderer || !m_texture) return false;
+    if (!m_renderer || !m_texture || !m_paletteRGB || !buffer) return false;
     
     // Log frame count periodically
     static int frame_count = 0;
@@ -102,16 +102,23 @@ bool SDL2GraphicsBackend::Present(const uint8_t* buffer, int width, int height)
         log.close();
     }
     
-    // Convert 8-bit indexed palette data to RGB888 for rendering
-    uint8_t* rgb_buffer = new uint8_t[width * height * 3];
-    for (int i = 0; i < width * height; i++) {
-        uint8_t index = buffer[i];
-        rgb_buffer[i*3 + 0] = m_paletteRGB[index*3 + 0];  // R
-        rgb_buffer[i*3 + 1] = m_paletteRGB[index*3 + 1];  // G
-        rgb_buffer[i*3 + 2] = m_paletteRGB[index*3 + 2];  // B
+    // Convert 8-bit indexed palette data to 24-bit RGB for rendering
+    // Use pitch-aligned buffer (each row padded to 4-byte boundary)
+    int pitch = ((width * 3 + 3) / 4) * 4;  // RGB24 with 4-byte row alignment
+    uint8_t* rgb_buffer = new uint8_t[pitch * height];
+    memset(rgb_buffer, 0, pitch * height);  // Clear padding bytes
+    
+    for (int y = 0; y < height; y++) {
+        for (int x = 0; x < width; x++) {
+            uint8_t index = buffer[y * width + x];
+            int offset = y * pitch + x * 3;
+            rgb_buffer[offset + 0] = m_paletteRGB[index*3 + 0];  // R
+            rgb_buffer[offset + 1] = m_paletteRGB[index*3 + 1];  // G
+            rgb_buffer[offset + 2] = m_paletteRGB[index*3 + 2];  // B
+        }
     }
     
-    SDL_UpdateTexture(m_texture, nullptr, rgb_buffer, width * 3);
+    SDL_UpdateTexture(m_texture, nullptr, rgb_buffer, pitch);
     delete[] rgb_buffer;
     
     SDL_RenderClear(m_renderer);

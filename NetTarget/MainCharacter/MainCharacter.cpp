@@ -240,12 +240,27 @@ int MR_MainCharacter::GetHoverId()const
 }
 void MR_MainCharacter::AddRenderer()
 {
+   FILE* logFile = fopen("Game2_AddRenderer.log", "a");
+   if(logFile) fprintf(logFile, "AddRenderer called, mRenderer=%p\n", mRenderer), fflush(logFile);
+   
    if( mRenderer == NULL )
    {
       MR_ObjectFromFactoryId lId = { 1, 100 };
-
-      mRenderer = (MR_MainCharacterRenderer*) MR_DllObjectFactory::CreateObject( lId );
+      
+      if(logFile) fprintf(logFile, "  About to call CreateObject with ID(1,100)\n"), fflush(logFile);
+      
+      __try {
+         mRenderer = (MR_MainCharacterRenderer*) MR_DllObjectFactory::CreateObject( lId );
+         if(logFile) fprintf(logFile, "  CreateObject succeeded, mRenderer=%p\n", mRenderer), fflush(logFile);
+      }
+      __except(EXCEPTION_EXECUTE_HANDLER) {
+         if(logFile) fprintf(logFile, "  SEH EXCEPTION in CreateObject: code=%x, continuing with NULL renderer\n", GetExceptionCode()), fflush(logFile);
+         mRenderer = NULL;  // Leave renderer NULL, character just won't be visible but won't crash
+      }
    }
+   
+   if(logFile) fprintf(logFile, "AddRenderer END, mRenderer=%p\n", mRenderer), fflush(logFile);
+   if(logFile) fclose(logFile);
 }
 
 void MR_MainCharacter::Render( MR_3DViewPort* pDest, MR_SimulationTime /*pTime*/ )

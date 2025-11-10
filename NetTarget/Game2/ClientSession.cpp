@@ -213,13 +213,17 @@ BOOL MR_ClientSession::CreateMainCharacter()
       mMainCharacter1->SetHoverId( 0 );
       if(logFile) fprintf(logFile, "  Properties set successfully\n"), fflush(logFile);
 
-      if(logFile) fprintf(logFile, "  About to InsertElement\n"), fflush(logFile);
+      if(logFile) fprintf(logFile, "  About to InsertElement (starting room=%d)\n", lCurrentLevel->GetStartingRoom(0)), fflush(logFile);
+      
+      int lStartingRoom = lCurrentLevel->GetStartingRoom(0);
+      if(logFile) fprintf(logFile, "    Starting room value: %d\n", lStartingRoom), fflush(logFile);
+      
       try {
-         lCurrentLevel->InsertElement( mMainCharacter1, lCurrentLevel->GetStartingRoom( 0 ) );
+         lCurrentLevel->InsertElement( mMainCharacter1, lStartingRoom);
          if(logFile) fprintf(logFile, "  InsertElement succeeded\n"), fflush(logFile);
       }
       catch(const std::exception& e) {
-         if(logFile) fprintf(logFile, "  EXCEPTION in InsertElement: %s (continuing anyway)\n", e.what()), fflush(logFile);
+         if(logFile) fprintf(logFile, "  C++ EXCEPTION in InsertElement: %s (continuing anyway)\n", e.what()), fflush(logFile);
          // Don't return false - just continue without inserting
       }
       catch(...) {

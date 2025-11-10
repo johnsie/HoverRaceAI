@@ -110,7 +110,7 @@ class MR_Observer
       void RenderNormalDisplay( MR_VideoBuffer* pDest, const MR_ClientSession* pSession, const MR_MainCharacter* pViewingCharacter, MR_SimulationTime pTime, const MR_UInt8* pBackImage );
 
       void PlaySounds( const MR_Level* pLevel, MR_MainCharacter* pViewingCharacter );
-
+      void PlaySoundsSafe( const MR_Level* pLevel, MR_MainCharacter* pViewingCharacter );
 
 };
 

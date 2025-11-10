@@ -466,6 +466,44 @@ void MR_Observer::Render3DView( const MR_ClientSession* pSession, const MR_MainC
       return;
    }
 
+   // DEFENSIVE: Check if character position is valid (within reasonable bounds)
+   // If not, it might be uninitialized garbage - clamp or reset it
+   const double POSITION_BOUNDS = 1000000.0;  // Max reasonable position value
+   BOOL position_valid = (pViewingCharacter->mPosition.mX > -POSITION_BOUNDS && pViewingCharacter->mPosition.mX < POSITION_BOUNDS &&
+                          pViewingCharacter->mPosition.mY > -POSITION_BOUNDS && pViewingCharacter->mPosition.mY < POSITION_BOUNDS &&
+                          pViewingCharacter->mPosition.mZ > -POSITION_BOUNDS && pViewingCharacter->mPosition.mZ < POSITION_BOUNDS);
+   
+   if(!position_valid) {
+      // Position is corrupted - attempt to get valid starting position
+      FILE* logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_Character_Debug.log", "a");
+      if(logFile) {
+         fprintf(logFile, "INVALID POSITION DETECTED: pos=(%.2e, %.2e, %.2e), Room=%d\n",
+            pViewingCharacter->mPosition.mX, pViewingCharacter->mPosition.mY, pViewingCharacter->mPosition.mZ,
+            pViewingCharacter->mRoom);
+         fflush(logFile);
+         fclose(logFile);
+      }
+      // Skip rendering for now - don't attempt to render with garbage coordinates
+      m3DView.Clear(0);
+      m3DView.ClearZ();
+      return;
+   }
+
+   // Log character position and room info
+   static int frame_counter = 0;
+   if(frame_counter % 100 == 0) {
+      FILE* logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_Character_Debug.log", "a");
+      if(logFile) {
+         fprintf(logFile, "Frame %d: Character pos=(%.1f, %.1f, %.1f), Room=%d, Speed=%.2f, Time=%d\n",
+            frame_counter, pViewingCharacter->mPosition.mX, pViewingCharacter->mPosition.mY, 
+            pViewingCharacter->mPosition.mZ, pViewingCharacter->mRoom, 
+            pViewingCharacter->GetAbsoluteSpeed(), pTime);
+         fflush(logFile);
+         fclose(logFile);
+      }
+   }
+   frame_counter++;
+
    // STAGE 1: Camera Setup - Safe, low-level rendering 
    MR_3DCoordinate lCameraPos;
    MR_Angle        lOrientation    = pViewingCharacter->mOrientation;
@@ -576,6 +614,161 @@ void MR_Observer::Render3DView( const MR_ClientSession* pSession, const MR_MainC
    }
    __except(EXCEPTION_EXECUTE_HANDLER) {
       // Wall rendering crashed - continue with what we have
+   }
+
+   // STAGE 5: Actor rendering
+   __try {
+      int lRoomCount;
+      const int* lRoomList  = lLevel->GetVisibleZones( lRoom, lRoomCount );
+      
+      FILE* logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_Actor_Render.log", "a");
+      if(logFile) { fprintf(logFile, "Actor rendering: Room=%d, VisibleRooms=%d\n", lRoom, lRoomCount); fflush(logFile); }
+
+      for( int lCounter = -1; lCounter < lRoomCount; lCounter++ )
+      {
+         int lRoomId;
+         
+         if( lCounter == -1 )
+         {
+            lRoomId = lRoom;
+         }
+         else
+         {
+            lRoomId = lRoomList[ lCounter ];
+         }
+
+         MR_FreeElementHandle lHandle = lLevel->GetFirstFreeElement( lRoomId );
+         
+         int actor_count = 0;
+         while( lHandle != NULL )
+         {
+            MR_FreeElement* lElement = MR_Level::GetFreeElement( lHandle );
+            
+            // Add bounds check - skip actors with impossible coordinates
+            if(lElement != NULL) {
+               // Check if coordinates are within reasonable bounds (-1000000 to +1000000)
+               double x = lElement->mPosition.mX;
+               double y = lElement->mPosition.mY;
+               double z = lElement->mPosition.mZ;
+               
+               BOOL valid_position = (x > -1000000 && x < 1000000 && 
+                                     y > -1000000 && y < 1000000 && 
+                                     z > -1000000 && z < 1000000);
+               
+               if(logFile) { fprintf(logFile, "  Actor %d in room %d: pos=(%.1f,%.1f,%.1f) valid=%d\n", 
+                  actor_count, lRoomId, x, y, z, valid_position); fflush(logFile); }
+               
+               if(valid_position) {
+                  lElement->Render( &m3DView, pTime );
+               } else {
+                  if(logFile) { fprintf(logFile, "    SKIPPED - invalid position\n"); fflush(logFile); }
+               }
+            }
+            actor_count++;
+
+            lHandle = MR_Level::GetNextFreeElement( lHandle );
+         }
+         
+         if(logFile && actor_count == 0) { fprintf(logFile, "  No actors in room %d\n", lRoomId); fflush(logFile); }
+      }
+      
+      if(logFile) { fprintf(logFile, "Actor rendering complete\n"); fflush(logFile); fclose(logFile); }
+   }
+   __except(EXCEPTION_EXECUTE_HANDLER) {
+      // Actor rendering crashed - continue with what we have
+      FILE* logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_Actor_Render.log", "a");
+      if(logFile) { fprintf(logFile, "EXCEPTION in actor rendering!\n"); fflush(logFile); fclose(logFile); }
+   }
+
+   // STAGE 6: Cockpit UI rendering (speed/fuel meters, weapons, map, text)
+   __try {
+      int lXRes = m3DView.GetXRes();
+      int lYRes = m3DView.GetYRes();
+
+      // Speed and fuel meters
+      if( lXRes > 0 && lYRes > 0 )
+      {
+         int lSpeedMeterLen = lXRes/2;
+         int lFuelMeterLen  = lXRes/4;
+         int lMeterHight    = lYRes/32;
+         int lXMargin       = lXRes/32;
+         int lYMargin       = lMeterHight;
+         
+         int    lAbsSpeedLen  = lAbsSpeedRatio*lSpeedMeterLen;
+         int    lDirSpeedLen  = pViewingCharacter->GetDirectionalSpeed()*lSpeedMeterLen;
+         double lFuelLevel    = pViewingCharacter->GetFuelLevel();
+         int    lFuelLen      = lFuelLevel*lFuelMeterLen;
+
+         m3DView.DrawHorizontalMeter( lXMargin, lSpeedMeterLen, lYMargin, lMeterHight, lAbsSpeedLen, 54, 56 );
+         if( lDirSpeedLen < 0 )
+         {
+            m3DView.DrawHorizontalMeter( lXMargin, lSpeedMeterLen, lYMargin+lMeterHight, lMeterHight, -lDirSpeedLen, 44, 56 );
+         }
+         else
+         {
+            m3DView.DrawHorizontalMeter( lXMargin, lSpeedMeterLen, lYMargin+lMeterHight, lMeterHight, lDirSpeedLen, 54, 56 );
+         }
+         m3DView.DrawHorizontalMeter( lXRes-lXMargin-lFuelMeterLen, lFuelMeterLen, lYMargin, lMeterHight*2, lFuelLen, 54, (lFuelLevel<0.20)?35:56 );
+      }
+   }
+   __except(EXCEPTION_EXECUTE_HANDLER) {
+      // Cockpit meters rendering crashed - continue
+   }
+
+   // STAGE 7: Weapon display
+   __try {
+      MR_SpriteHandle* lWeaponSprite = NULL;
+      int              lWeaponSpriteIndex = 0;
+
+      if( pViewingCharacter->GetCurrentWeapon() == MR_MainCharacter::eMissile )
+      {
+         lWeaponSprite = mMissileLevel;
+         if( lWeaponSprite != NULL )
+         {
+            lWeaponSpriteIndex = pViewingCharacter->GetMissileRefillLevel( lWeaponSprite->GetSprite()->GetNbItem() );
+         }
+      }
+      else if( pViewingCharacter->GetCurrentWeapon() == MR_MainCharacter::eMine )
+      {
+         lWeaponSprite = mMineDisp;
+         lWeaponSpriteIndex = pViewingCharacter->GetMineCount();
+
+         if( lWeaponSpriteIndex > 0 )
+         {
+            lWeaponSpriteIndex = ((lWeaponSpriteIndex-1)*2)+1;
+            if( (pTime >> 9)&1 )
+            {
+               lWeaponSpriteIndex++;
+            }
+         }
+      }
+      else if( pViewingCharacter->GetCurrentWeapon() == MR_MainCharacter::ePowerUp )
+      {
+         lWeaponSprite = mPowerUpDisp;
+         if( lWeaponSprite != NULL )
+         {
+            lWeaponSpriteIndex = pViewingCharacter->GetPowerUpFraction(4);
+            if( lWeaponSpriteIndex == 0 )
+            {
+               lWeaponSpriteIndex = pViewingCharacter->GetPowerUpCount();
+            }
+            else
+            {
+               lWeaponSpriteIndex = 9-lWeaponSpriteIndex;
+            }
+         }
+      }
+
+      if( lWeaponSprite != NULL )
+      {
+         int lXRes = m3DView.GetXRes();
+         int lYRes = m3DView.GetYRes();
+         int lMissileScaling = 1+(310/lXRes);
+         lWeaponSprite->GetSprite()->Blt( lXRes, lYRes/16, &m3DView, MR_Sprite::eRight, MR_Sprite::eTop, lWeaponSpriteIndex, lMissileScaling );
+      }
+   }
+   __except(EXCEPTION_EXECUTE_HANDLER) {
+      // Weapon rendering crashed - continue
    }
 
    return;
@@ -1331,41 +1524,39 @@ void MR_Observer::CallRender3DViewSafe( const MR_ClientSession* pSession, const 
    static int exception_count = 0;
    static int success_count = 0;
    
-   __try {
-      // Use Windows SEH to catch segmentation faults in 3D rendering
-      Render3DView( pSession, pViewingCharacter, pTime, pBackImage );
-      success_count++;
-      
-      // Log every 1000 successful renders
-      if(success_count % 1000 == 0) {
-         FILE* logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_Observer_Render.log", "a");
-         if(logFile) { 
-            fprintf(logFile, "CallRender3DViewSafe: %d successful renders, %d exceptions caught\n", success_count, exception_count); 
-            fflush(logFile); 
-            fclose(logFile); 
-         }
-      }
-   }
-   __except(EXCEPTION_EXECUTE_HANDLER) {
-      // Caught exception (including segfaults) - continue safely
-      exception_count++;
-      
+   // Try to render normally - this function has its own internal try/except blocks
+   Render3DView( pSession, pViewingCharacter, pTime, pBackImage );
+   success_count++;
+   
+   // Log every 1000 successful renders
+   if(success_count % 1000 == 0) {
       FILE* logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_Observer_Render.log", "a");
       if(logFile) { 
-         fprintf(logFile, "CallRender3DViewSafe: EXCEPTION CAUGHT! Total: %d exceptions\n", exception_count); 
+         fprintf(logFile, "CallRender3DViewSafe: %d successful renders, %d exceptions caught\n", success_count, exception_count); 
          fflush(logFile); 
          fclose(logFile); 
       }
-      
-      // Clear screen to show we're still running
-      m3DView.Clear( 0 );
-      m3DView.ClearZ();
    }
 }
 
 void MR_Observer::RenderNormalDisplay( MR_VideoBuffer* pDest, const MR_ClientSession* pSession, const MR_MainCharacter* pViewingCharacter, MR_SimulationTime pTime, const MR_UInt8* pBackImage )
 {
    MR_SAMPLE_CONTEXT( "RenderNormalDisplay" );
+
+   static int render_frame = 0;
+   if(render_frame % 100 == 0) {
+      FILE* logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_Render_Entry.log", "a");
+      if(logFile) {
+         fprintf(logFile, "Frame %d: RenderNormalDisplay called with char=%p, room=%d, pos=(%.1f,%.1f,%.1f)\n",
+            render_frame, pViewingCharacter, pViewingCharacter ? pViewingCharacter->mRoom : -999,
+            pViewingCharacter ? pViewingCharacter->mPosition.mX : 0,
+            pViewingCharacter ? pViewingCharacter->mPosition.mY : 0,
+            pViewingCharacter ? pViewingCharacter->mPosition.mZ : 0);
+         fflush(logFile);
+         fclose(logFile);
+      }
+   }
+   render_frame++;
 
    int lXRes = pDest->GetXRes();
    int lYRes = pDest->GetYRes();
@@ -1509,5 +1700,18 @@ void MR_Observer::PlaySounds( const MR_Level* pLevel, MR_MainCharacter* pViewing
       // Silently ignore all sound errors
    }
 }
+
+void MR_Observer::PlaySoundsSafe( const MR_Level* pLevel, MR_MainCharacter* pViewingCharacter )
+{
+   // SEH wrapper for PlaySounds to catch OS-level exceptions
+   __try {
+      PlaySounds( pLevel, pViewingCharacter );
+   }
+   __except(EXCEPTION_EXECUTE_HANDLER) {
+      // Silently catch and continue on any crash in sound system
+   }
+}
+
+
 
 

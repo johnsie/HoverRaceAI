@@ -116,5 +116,16 @@ bool VideoBufferSDL2Adapter::SetPalette(const uint8_t* paletteRGB)
     if (!paletteRGB)
         return false;
 
+    // Log first few palette colors for debugging
+    std::ofstream log("C:\\originalhr\\HoverRace\\Release\\sdl2_palette_debug.log", std::ios::app);
+    log << "SetPalette called - first 5 colors:" << std::endl;
+    for (int i = 0; i < 5; i++) {
+        int r = paletteRGB[i*3 + 0];
+        int g = paletteRGB[i*3 + 1];
+        int b = paletteRGB[i*3 + 2];
+        log << "  Color[" << i << "] = RGB(" << r << "," << g << "," << b << ")" << std::endl;
+    }
+    log.flush();
+
     return m_backend.SetPalette(paletteRGB, 768);  // 256 colors * 3 bytes
 }

@@ -494,10 +494,10 @@ void MR_GameApp::LoadRegistry()
    mBreak2     = 16;
    mWeapon2    = 29;
 
-   // Screen
-   mGamma       = 1.2;
-   mContrast    = 0.95;
-   mBrightness  = 0.95;
+   // Screen - Increased brightness and contrast for better visibility
+   mGamma       = 1.0;        // Neutral gamma
+   mContrast    = 1.0;        // Maximum contrast
+   mBrightness  = 1.0;        // Maximum brightness
 
    // Nickname
    char  lBuffer[80];
@@ -1191,8 +1191,8 @@ BOOL MR_GameApp::CreateMainWindow( )
                                  WS_EX_CLIENTEDGE)&~WS_MAXIMIZEBOX,
                                  CW_USEDEFAULT,
                                  CW_USEDEFAULT,
-                                 480,
-                                 320,
+                                 960,
+                                 720,
                                  NULL,
                                  NULL,
                                  mInstance,
@@ -1499,45 +1499,21 @@ void MR_GameApp::RefreshView()
       if(logFile) { fprintf(logFile, "RefreshView: CAUGHT EXCEPTION in rendering pipeline\n"); fflush(logFile); fclose(logFile); }
    }
 
-   // Sound processing - Now using OpenAL backend (no nested exceptions allowed with outer __try)
-   // TEMPORARY: Disabled sound processing due to crash in PlaySounds
-   // TODO: Debug and fix PlaySounds crash - likely OpenAL resource issue
-   logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_MainLoop.log", "a");
-   if(logFile) { fprintf(logFile, "RefreshView: Sound processing DISABLED (TODO: Fix PlaySounds crash)\n"); fflush(logFile); fclose(logFile); }
-   
-   /*
+   // Sound processing - Using safe wrapper
    if( mObserver1 != NULL && mCurrentSession != NULL )
    {
-      logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_MainLoop.log", "a");
-      if(logFile) { fprintf(logFile, "RefreshView: About to get main character for sound\n"); fflush(logFile); fclose(logFile); }
-      
       MR_MainCharacter* pCharacter = mCurrentSession->GetMainCharacter();
       if( pCharacter != NULL )
       {
-         logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_MainLoop.log", "a");
-         if(logFile) { fprintf(logFile, "RefreshView: About to get current level for sound\n"); fflush(logFile); fclose(logFile); }
-         
          const MR_Level* pLevel = mCurrentSession->GetCurrentLevel();
          if( pLevel != NULL )
          {
-            logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_MainLoop.log", "a");
-            if(logFile) { fprintf(logFile, "RefreshView: About to call PlaySounds\n"); fflush(logFile); fclose(logFile); }
-            
-            try {
-               mObserver1->PlaySounds( pLevel, pCharacter );
-            }
-            catch(...) {
-               logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_MainLoop.log", "a");
-               if(logFile) { fprintf(logFile, "RefreshView: EXCEPTION in PlaySounds\n"); fflush(logFile); fclose(logFile); }
-            }
-            
-            logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_MainLoop.log", "a");
-            if(logFile) { fprintf(logFile, "RefreshView: PlaySounds completed\n"); fflush(logFile); fclose(logFile); }
-            
-            logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_MainLoop.log", "a");
-            if(logFile) { fprintf(logFile, "RefreshView: About to call ApplyContinuousPlay\n"); fflush(logFile); fclose(logFile); }
-            
-            try {
+            mObserver1->PlaySoundsSafe( pLevel, pCharacter );
+         }
+      }
+   }
+
+   /*
                MR_SoundServer::ApplyContinuousPlay();
             }
             catch(...) {

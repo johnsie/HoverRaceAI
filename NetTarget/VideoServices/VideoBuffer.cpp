@@ -509,6 +509,22 @@ void MR_VideoBuffer::CreatePalette( double pGamma, double pContrast, double pBri
          mPalette = NULL;
       }
 
+      // Convert palette to RGB format and pass to SDL2Graphics if available
+      if( IsSDL2GraphicsAvailable() && g_SDL2GraphicsAdapter != NULL )
+      {
+         // Convert PALETTEENTRY to RGB format (3 bytes per color)
+         uint8_t* rgbPalette = new uint8_t[768];
+         for( int i = 0; i < 256; i++ )
+         {
+            rgbPalette[i*3 + 0] = lPalette[i].peRed;
+            rgbPalette[i*3 + 1] = lPalette[i].peGreen;
+            rgbPalette[i*3 + 2] = lPalette[i].peBlue;
+         }
+         g_SDL2GraphicsAdapter->SetPalette( rgbPalette );
+         PRINT_LOG( "Updated SDL2Graphics palette from CreatePalette" );
+         delete[] rgbPalette;
+      }
+
       // Assign the palette to the existing buffers
       // AssignPalette();
    }
@@ -527,13 +543,6 @@ void MR_VideoBuffer::SetBackPalette( MR_UInt8* pPalette )
    mBackPalette = pPalette;
 
    CreatePalette( mGamma, mContrast, mBrightness );
-   
-   // If SDL2Graphics is active, update its palette as well
-   if( IsSDL2GraphicsAvailable() && g_SDL2GraphicsAdapter != NULL )
-   {
-      g_SDL2GraphicsAdapter->SetPalette( mBackPalette );
-      PRINT_LOG( "Updated SDL2Graphics palette" );
-   }
 }
 
 
