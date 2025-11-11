@@ -49,7 +49,8 @@ bool SDL2GraphicsBackend::Initialize(void* windowHandle, int width, int height)
     log << "SDL_CreateRenderer OK (software)" << std::endl; log.flush();
     
     SDL_RenderSetLogicalSize(m_renderer, width, height);
-    m_texture = SDL_CreateTexture(m_renderer, SDL_PIXELFORMAT_RGB888, SDL_TEXTUREACCESS_STREAMING, width, height);
+    // Use RGB24 (3 bytes per pixel, no padding) instead of RGB888 to ensure correct pitch handling
+    m_texture = SDL_CreateTexture(m_renderer, SDL_PIXELFORMAT_RGB24, SDL_TEXTUREACCESS_STREAMING, width, height);
     if (!m_texture) { 
         log << "ERROR: SDL_CreateTexture failed: " << SDL_GetError() << std::endl; 
         log.close(); 
@@ -58,7 +59,7 @@ bool SDL2GraphicsBackend::Initialize(void* windowHandle, int width, int height)
         SDL_QuitSubSystem(SDL_INIT_VIDEO); 
         return false; 
     }
-    log << "SDL_CreateTexture OK" << std::endl; log.flush();
+    log << "SDL_CreateTexture OK (RGB24 format)" << std::endl; log.flush();
     
     // Allocate palette buffer but don't initialize with any data - wait for SetPalette()
     // to provide the real game palette loaded from track files
@@ -145,6 +146,18 @@ bool SDL2GraphicsBackend::Present(const uint8_t* buffer, int width, int height)
 {
     if (!m_renderer || !m_texture || !m_paletteRGB || !buffer) return false;
     
+    // Verify dimensions match texture
+    if (width != m_width || height != m_height) {
+        FILE* errorLog = fopen("C:\\originalhr\\HoverRace\\Release\\sdl2_present_error.log", "a");
+        if (errorLog) {
+            fprintf(errorLog, "ERROR: Present dimension mismatch! Expected %dx%d, got %dx%d\n", 
+                    m_width, m_height, width, height);
+            fflush(errorLog);
+            fclose(errorLog);
+        }
+        return false;
+    }
+    
     // Log frame count periodically
     static int frame_count = 0;
     frame_count++;
@@ -158,18 +171,17 @@ bool SDL2GraphicsBackend::Present(const uint8_t* buffer, int width, int height)
     if (frame_count == 1 || frame_count % 500 == 0) {
         FILE* debugLog = fopen("C:\\originalhr\\HoverRace\\Release\\Debug_SDL2_Present.log", "a");
         if (debugLog) {
-            fprintf(debugLog, "Present called: width=%d, height=%d, pitch_calculated=%d, buffer=%p\n",
-                    width, height, ((width * 3 + 3) / 4) * 4, buffer);
+            fprintf(debugLog, "Present called: width=%d, height=%d, m_width=%d, m_height=%d, pitch=%d, buffer=%p\n",
+                    width, height, m_width, m_height, width * 3, buffer);
             fflush(debugLog);
             fclose(debugLog);
         }
     }
     
     // Convert 8-bit indexed palette data to 24-bit RGB for rendering
-    // Use pitch-aligned buffer (each row padded to 4-byte boundary)
-    int pitch = ((width * 3 + 3) / 4) * 4;  // RGB24 with 4-byte row alignment
+    // CRITICAL: Use exact pitch (width * 3) with NO padding - SDL_PIXELFORMAT_RGB24 expects contiguous data
+    int pitch = width * 3;  // RGB24 with exactly 3 bytes per pixel, no padding
     uint8_t* rgb_buffer = new uint8_t[pitch * height];
-    memset(rgb_buffer, 0, pitch * height);  // Clear padding bytes
     
     for (int y = 0; y < height; y++) {
         for (int x = 0; x < width; x++) {
@@ -178,6 +190,30 @@ bool SDL2GraphicsBackend::Present(const uint8_t* buffer, int width, int height)
             rgb_buffer[offset + 0] = m_paletteRGB[index*3 + 0];  // R
             rgb_buffer[offset + 1] = m_paletteRGB[index*3 + 1];  // G
             rgb_buffer[offset + 2] = m_paletteRGB[index*3 + 2];  // B
+        }
+    }
+    
+    // Diagnostic: log last row indices and converted RGB on frame 1 to verify buffer integrity
+    if (frame_count == 1) {
+        FILE* diagLog = fopen("C:\\originalhr\\HoverRace\\Release\\sdl2_present_diag.log", "w");
+        if (diagLog) {
+            fprintf(diagLog, "Diagnostic buffer check (frame 1):\n");
+            fprintf(diagLog, "Buffer size: %d x %d = %d bytes\n", width, height, width * height);
+            fprintf(diagLog, "RGB buffer size: %d x %d = %d bytes\n", width, height, pitch * height);
+            fprintf(diagLog, "Pitch: %d\n", pitch);
+            fprintf(diagLog, "\nLast 3 rows (starting at y=%d):\n", height - 3);
+            for (int y = height - 3; y < height; y++) {
+                fprintf(diagLog, "Row y=%d: ", y);
+                int rowStart = y * width;
+                for (int x = 0; x < width; x++) {
+                    uint8_t idx = buffer[rowStart + x];
+                    fprintf(diagLog, "%3d ", idx);
+                    if ((x + 1) % 20 == 0) fprintf(diagLog, "\n            ");
+                }
+                fprintf(diagLog, "\n");
+            }
+            fflush(diagLog);
+            fclose(diagLog);
         }
     }
     
