@@ -5,9 +5,6 @@
       <FullPath>c:\originalhr\HoverRace\Release\Util.dll</FullPath>
     </ProjectOutput>
     <ProjectOutput>
-      <FullPath>c:\originalhr\HoverRace\Release\ColorTools.dll</FullPath>
-    </ProjectOutput>
-    <ProjectOutput>
       <FullPath>c:\originalhr\HoverRace\Release\VideoServices.dll</FullPath>
     </ProjectOutput>
     <ProjectOutput>
@@ -20,7 +17,7 @@
       <FullPath>c:\originalhr\HoverRace\Release\ObjFacTools.dll</FullPath>
     </ProjectOutput>
     <ProjectOutput>
-      <FullPath>c:\originalhr\HoverRace\Release\MazeCompiler.exe</FullPath>
+      <FullPath>C:\originalhr\HoverRace\NetTarget\MazeCompiler\Release\MazeCompiler.exe</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />

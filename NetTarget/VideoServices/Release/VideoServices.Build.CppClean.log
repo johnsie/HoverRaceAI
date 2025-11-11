@@ -1,9 +1,8 @@
-c:\originalhr\hoverrace\nettarget\videoservices\release\alstub.obj
-c:\originalhr\hoverrace\nettarget\videoservices\release\videobuffersdl2integration.obj
+c:\originalhr\hoverrace\nettarget\videoservices\release\videobuffer.obj
 c:\originalhr\hoverrace\nettarget\videoservices\release\videobuffersdl2adapter.obj
 c:\originalhr\hoverrace\nettarget\videoservices\release\sdl2graphics.obj
+c:\originalhr\hoverrace\nettarget\videoservices\release\videobuffersdl2integration.obj
 c:\originalhr\hoverrace\nettarget\videoservices\release\videobuffer2ddraw.obj
-c:\originalhr\hoverrace\nettarget\videoservices\release\videobuffer.obj
 c:\originalhr\hoverrace\nettarget\videoservices\release\stdafx.obj
 c:\originalhr\hoverrace\nettarget\videoservices\release\sprite.obj
 c:\originalhr\hoverrace\nettarget\videoservices\release\soundserver.obj
@@ -14,6 +13,7 @@ c:\originalhr\hoverrace\nettarget\videoservices\release\bitmap.obj
 c:\originalhr\hoverrace\nettarget\videoservices\release\3dviewportrendering.obj
 c:\originalhr\hoverrace\nettarget\videoservices\release\3dviewport.obj
 c:\originalhr\hoverrace\nettarget\videoservices\release\2dviewport.obj
+c:\originalhr\hoverrace\nettarget\videoservices\release\alstub.obj
 c:\originalhr\hoverrace\nettarget\videoservices\release\vc143.pdb
 c:\originalhr\hoverrace\release\videoservices.dll
 c:\originalhr\hoverrace\release\videoservices.pdb

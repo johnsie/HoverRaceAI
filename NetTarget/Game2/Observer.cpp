@@ -1512,6 +1512,10 @@ void MR_Observer::RenderDebugDisplay( MR_VideoBuffer* pDest, const MR_ClientSess
    // TEMP: Disabled minimap during testing
    // m2DDebugView.Setup(   pDest, lXRes-160, lYOffset,        160, 160, mApperture );
    
+   // DIAGNOSTIC: Draw test line at actual buffer width to verify clipping boundaries
+   // This should show us the actual usable width
+   pDest->DrawHorizontalLine(10, 0, lXRes-1, 255);  // White line at expected width (942px)
+   
    // Wire-frame disabled for now to show full 3D view
    // mWireFrameView.Setup( pDest, 0,       lYOffset        , lXRes/2, lYRes/2, mApperture );
 

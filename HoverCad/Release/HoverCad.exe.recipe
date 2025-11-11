@@ -2,7 +2,7 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>c:\originalhr\HoverRace\Release\HoverCad.exe</FullPath>
+      <FullPath>C:\originalhr\HoverRace\Release\HoverCad.exe</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />

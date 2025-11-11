@@ -60,12 +60,19 @@ bool SDL2GraphicsBackend::Initialize(void* windowHandle, int width, int height)
     }
     log << "SDL_CreateTexture OK" << std::endl; log.flush();
     
-    if (!m_paletteRGB) { m_paletteRGB = new uint8_t[768]; for (int i = 0; i < 256; i++) { m_paletteRGB[i*3+0] = m_paletteRGB[i*3+1] = m_paletteRGB[i*3+2] = i; } }
-    log << "Palette allocated" << std::endl; log.flush();
+    // Allocate palette buffer but don't initialize with any data - wait for SetPalette()
+    // to provide the real game palette loaded from track files
+    if (!m_paletteRGB) { 
+        m_paletteRGB = new uint8_t[768];
+        memset(m_paletteRGB, 0, 768);  // Initialize to zero - will be filled by SetPalette
+        log << "Palette buffer allocated (0 bytes)" << std::endl; log.flush();
+    }
     
-    if (!CreateSDLPalette()) { log << "ERROR: CreateSDLPalette failed" << std::endl; log.close(); Shutdown(); return false; }
+    // Don't call CreateSDLPalette yet - we don't have valid palette data
+    // CreateSDLPalette will be called from SetPalette once real palette is available
+    
     m_initialized = true;
-    log << "Initialization successful" << std::endl; log.close();
+    log << "Initialization successful (waiting for SetPalette to provide real palette)" << std::endl; log.close();
     return true;
 }
 
@@ -87,7 +94,52 @@ void SDL2GraphicsBackend::FreeBuffer(uint8_t* buffer)
 { if (buffer) delete[] buffer; }
 
 bool SDL2GraphicsBackend::SetPalette(const uint8_t* palette, int paletteSize)
-{ if (!palette || paletteSize < 768) return false; memcpy(m_paletteRGB, palette, 768); return CreateSDLPalette(); }
+{ 
+    if (!palette || paletteSize < 768) {
+        FILE* log = fopen("C:\\originalhr\\HoverRace\\Release\\sdl2_palette_error.log", "a");
+        if (log) {
+            fprintf(log, "ERROR: SetPalette called with invalid params - palette=%p, paletteSize=%d\n", palette, paletteSize);
+            fclose(log);
+        }
+        return false; 
+    }
+    
+    memcpy(m_paletteRGB, palette, 768);
+    
+    FILE* log = fopen("C:\\originalhr\\HoverRace\\Release\\sdl2_palette_debug.log", "w");
+    if (log) {
+        fprintf(log, "SetPalette called successfully - logging ALL 256 colors (RGB):\n");
+        fprintf(log, "========================================================\n\n");
+        for (int i = 0; i < 256; i++) {
+            int r = m_paletteRGB[i*3 + 0];
+            int g = m_paletteRGB[i*3 + 1];
+            int b = m_paletteRGB[i*3 + 2];
+            
+            // Mark grayscale colors (where R=G=B)
+            int is_gray = (r == g && g == b) ? 1 : 0;
+            
+            if (i % 8 == 0) fprintf(log, "Index %3d-%3d: ", i, i+7);
+            fprintf(log, "(%3d,%3d,%3d)%s ", r, g, b, is_gray ? "*" : " ");
+            if (i % 8 == 7) fprintf(log, "\n");
+        }
+        fprintf(log, "\n* = Grayscale color (R=G=B)\n");
+        
+        // Count grayscale vs colored
+        int gray_count = 0, color_count = 0;
+        for (int i = 0; i < 256; i++) {
+            int r = m_paletteRGB[i*3 + 0];
+            int g = m_paletteRGB[i*3 + 1];
+            int b = m_paletteRGB[i*3 + 2];
+            if (r == g && g == b) gray_count++;
+            else color_count++;
+        }
+        fprintf(log, "\nSummary: %d grayscale colors, %d colored colors\n", gray_count, color_count);
+        fflush(log);
+        fclose(log);
+    }
+    
+    return CreateSDLPalette(); 
+}
 
 bool SDL2GraphicsBackend::Present(const uint8_t* buffer, int width, int height)
 {

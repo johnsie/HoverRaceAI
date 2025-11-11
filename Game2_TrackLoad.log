@@ -1,0 +1,7 @@
+
+=== WinMain START ===
+Creating MR_GameApp...
+MR_GameApp created successfully
+Checking first instance...
+IsFirstInstance returned: 0
+=== WinMain END, returning -1 ===

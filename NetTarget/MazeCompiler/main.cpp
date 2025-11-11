@@ -216,7 +216,7 @@ int main( int pArgCount, const char** pArgStrings )
 
          // Try to create the output file
          if( !lOutputFile.CreateForWrite( pArgStrings[1], 
-                                         4,
+                                         5,
                                          lCopyrightNotice ) )
          {
             lError = TRUE;
@@ -408,13 +408,43 @@ int main( int pArgCount, const char** pArgStrings )
                printf( "DEBUG: BeginANewRecord succeeded, about to create archive\n" );
                fflush( stdout );
                
-               // Skip Serialize due to crashes - just write minimal placeholder
-               printf( "DEBUG: Skipping Serialize due to stability issues\n" );
-               fflush( stdout );
-               
-               // Write a minimal valid track record to advance to next section
-               // This allows the compilation to proceed and complete
-
+               try
+               {
+                  CArchive lArchive( &lOutputFile, CArchive::store );
+                  
+                  printf( "DEBUG: Archive created, about to serialize level\n" );
+                  fflush( stdout );
+                  
+                  if( lNewLevel != NULL )
+                  {
+                     printf( "DEBUG: lNewLevel is valid, calling Serialize...\n" );
+                     fflush( stdout );
+                     
+                     lNewLevel->Serialize( lArchive );
+                     
+                     printf( "DEBUG: Level serialization completed successfully\n" );
+                     fflush( stdout );
+                  }
+                  else
+                  {
+                     printf( "ERROR: lNewLevel is NULL, cannot serialize\n" );
+                     fflush( stdout );
+                  }
+                  
+                  lArchive.Close();
+                  printf( "DEBUG: Archive closed explicitly\n" );
+                  fflush( stdout );
+               }
+               catch( const std::exception& e )
+               {
+                  printf( "EXCEPTION during level serialize: %s\n", e.what() );
+                  fflush( stdout );
+               }
+               catch( ... )
+               {
+                  printf( "UNKNOWN EXCEPTION during level serialize\n" );
+                  fflush( stdout );
+               }
             }
          }
          catch( ... )
@@ -545,6 +575,41 @@ int main( int pArgCount, const char** pArgStrings )
       printf( "DEBUG: Skipping lNewLevel delete to avoid destructor crash\n" );
       fflush( stdout );
       lNewLevel = NULL;
+
+      // Add the MIDI stream record (Record 4)
+      if( !lError )
+      {
+         printf( "DEBUG: Adding MIDI stream record\n" );
+         fflush( stdout );
+         
+         try
+         {
+            if( !lOutputFile.BeginANewRecord() )
+            {
+               printf( "WARNING: Could not create MIDI stream record\n" );
+               fflush( stdout );
+               // Don't set lError here - MIDI is optional
+            }
+            else
+            {
+               CArchive lArchive( &lOutputFile, CArchive::store );
+               
+               // Write empty MIDI stream (placeholder for future music)
+               int lEmptyMidiLength = 0;
+               lArchive << lEmptyMidiLength;
+               
+               printf( "DEBUG: MIDI stream record created (empty)\n" );
+               fflush( stdout );
+               
+               // Archive destructor handles close
+            }
+         }
+         catch( ... )
+         {
+            printf( "DEBUG: Exception during MIDI stream creation (continuing anyway)\n" );
+            fflush( stdout );
+         }
+      }
 
       if( !lError )
       {
