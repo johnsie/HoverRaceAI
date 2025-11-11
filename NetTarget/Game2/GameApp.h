@@ -164,6 +164,9 @@ class MR_GameApp
 
       void DrawBackground( );
 
+      void RenderGameInfoOverlay( MR_VideoBuffer* pDest, const MR_ClientSession* pSession, 
+                                   MR_MainCharacter* pChar1, MR_MainCharacter* pChar2, MR_SimulationTime pTime );
+
       void DisplayHelp();
       void DisplayBetaZone();
       void DisplaySite();

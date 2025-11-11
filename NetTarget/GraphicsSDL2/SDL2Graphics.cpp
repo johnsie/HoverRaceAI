@@ -102,6 +102,17 @@ bool SDL2GraphicsBackend::Present(const uint8_t* buffer, int width, int height)
         log.close();
     }
     
+    // Debug: Log the Present call parameters
+    if (frame_count == 1 || frame_count % 500 == 0) {
+        FILE* debugLog = fopen("C:\\originalhr\\HoverRace\\Release\\Debug_SDL2_Present.log", "a");
+        if (debugLog) {
+            fprintf(debugLog, "Present called: width=%d, height=%d, pitch_calculated=%d, buffer=%p\n",
+                    width, height, ((width * 3 + 3) / 4) * 4, buffer);
+            fflush(debugLog);
+            fclose(debugLog);
+        }
+    }
+    
     // Convert 8-bit indexed palette data to 24-bit RGB for rendering
     // Use pitch-aligned buffer (each row padded to 4-byte boundary)
     int pitch = ((width * 3 + 3) / 4) * 4;  // RGB24 with 4-byte row alignment

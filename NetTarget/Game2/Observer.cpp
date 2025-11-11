@@ -1503,17 +1503,37 @@ void MR_Observer::RenderDebugDisplay( MR_VideoBuffer* pDest, const MR_ClientSess
 
 
 
-   mWireFrameView.Setup( pDest, 0,       lYOffset        , lXRes/2, lYRes/2, mApperture );
-   m3DView.Setup(        pDest, 0,       lYOffset+lYRes/2, lXRes/2, lYRes/2, mApperture );
-   m2DDebugView.Setup(   pDest, lXRes/2, lYOffset,         lXRes/2, lYRes );
+   // New layout: Main 3D view on left, mini-map on right
+   // 3D View takes up most of the screen
+   // TEMP: Give 3D view full width to test if rendering respects viewport boundaries
+   m3DView.Setup(        pDest, 0,         lYOffset,        lXRes, lYRes, mApperture );
+   
+   // Mini-map in the top-right corner (160x160 pixels)
+   // TEMP: Disabled minimap during testing
+   // m2DDebugView.Setup(   pDest, lXRes-160, lYOffset,        160, 160, mApperture );
+   
+   // Wire-frame disabled for now to show full 3D view
+   // mWireFrameView.Setup( pDest, 0,       lYOffset        , lXRes/2, lYRes/2, mApperture );
 
-   if( pViewingCharacter->mRoom != -1 )
+   // Always try to render if we have valid level data
+   const MR_Level* lLevel = pSession->GetCurrentLevel();
+   
+   if( lLevel != NULL )
    {
-      const MR_Level* lLevel = pSession->GetCurrentLevel();
-
+      // Always render the 2D minimap (shows track layout)
       Render2DDebugView( pDest, lLevel, pViewingCharacter );
-      RenderWireFrameView(      lLevel, pViewingCharacter );
-      Render3DView(             pSession, pViewingCharacter, pTime, pBackImage );
+      
+      // Render 3D view (main display)
+      if( pViewingCharacter->mRoom != -1 || pViewingCharacter->mRoom >= -10 )
+      {
+         Render3DView( pSession, pViewingCharacter, pTime, pBackImage );
+      }
+      else
+      {
+         // If character is in truly invalid room, still try rendering but log it
+         FILE* logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_Render_Debug.log", "a");
+         if(logFile) { fprintf(logFile, "WARNING: Character in invalid room: %d\n", pViewingCharacter->mRoom); fflush(logFile); fclose(logFile); }
+      }
    }
 
 }
@@ -1589,6 +1609,15 @@ void MR_Observer::RenderNormalDisplay( MR_VideoBuffer* pDest, const MR_ClientSes
 
    int lXMargin = (mXMargin_1024 * lXRes/1024)&0xFFFFFFFC; // rounded to 32 bit boundary for best performances
    int lYMargin = lYMargin_1024 * lYRes/1024;
+
+   // Debug: Log the viewport setup parameters
+   FILE* debugLog = fopen("c:\\originalhr\\HoverRace\\Release\\Debug_ViewportSetup.log", "a");
+   if(debugLog) {
+      fprintf(debugLog, "RenderNormalDisplay Setup: lXRes=%d, lYRes=%d, lXMargin=%d, lYMargin=%d, pSizeX=%d, pSizeY=%d\n",
+              lXRes, lYRes, lXMargin, lYMargin, lXRes-2*lXMargin, lYRes-2*lYMargin);
+      fflush(debugLog);
+      fclose(debugLog);
+   }
 
    // Wrap Setup in try-catch to prevent crashes
    try {

@@ -691,6 +691,14 @@ BOOL MR_VideoBuffer::SetVideoMode()
       // Configure SDL2 adapter for rendering
       mLineLen = mXRes;
       
+      FILE* debugLog = fopen("c:\\originalhr\\HoverRace\\Release\\Debug_VideoBuffer.log", "a");
+      if(debugLog) {
+         fprintf(debugLog, "SetVideoMode: SDL2Graphics init - mXRes=%d, mYRes=%d, mLineLen=%d, mBuffer=%p\n",
+                 mXRes, mYRes, mLineLen, mBuffer);
+         fflush(debugLog);
+         fclose(debugLog);
+      }
+      
       // Get window position
       POINT lPoint = {0,0};
       ClientToScreen( mWindow, &lPoint );
