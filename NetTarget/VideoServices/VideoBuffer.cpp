@@ -456,7 +456,7 @@ void MR_VideoBuffer::CreatePalette( double pGamma, double pContrast, double pBri
       mPalette = NULL;
    }
 
-   if( mDirectDraw != NULL )
+   // Generate the game palette (system colors + game colors)
    {
       // Initialize with system colors (Ignore errors)
       HDC hdc = GetDC(NULL);
@@ -477,7 +477,7 @@ void MR_VideoBuffer::CreatePalette( double pGamma, double pContrast, double pBri
       for( lCounter = 0; lCounter<MR_BASIC_COLORS; lCounter++ )
       {
          lPalette[ MR_RESERVED_COLORS_BEGINNING+lCounter ] = lOurEntries[ lCounter ];
-         lPalette[ MR_RESERVED_COLORS_BEGINNING+lCounter ].peFlags = PC_NOCOLLAPSE; //|*/PC_EXPLICIT; //lPalette[ 0 ].peFlags;
+         lPalette[ MR_RESERVED_COLORS_BEGINNING+lCounter ].peFlags = PC_NOCOLLAPSE;
       }
       delete []lOurEntries;
 
@@ -489,40 +489,51 @@ void MR_VideoBuffer::CreatePalette( double pGamma, double pContrast, double pBri
             lPalette[ MR_RESERVED_COLORS_BEGINNING+MR_BASIC_COLORS+lCounter ] = 
                MR_ConvertColor( mBackPalette[ lCounter*3], mBackPalette[ lCounter*3+1], mBackPalette[ lCounter*3+2],
                                 1.0/mGamma, mContrast*mBrightness, mBrightness-(mContrast*mBrightness) );
-            lPalette[ MR_RESERVED_COLORS_BEGINNING+MR_BASIC_COLORS+lCounter ].peFlags = PC_NOCOLLAPSE; //|*/PC_EXPLICIT; //lPalette[ 0 ].peFlags;
-
+            lPalette[ MR_RESERVED_COLORS_BEGINNING+MR_BASIC_COLORS+lCounter ].peFlags = PC_NOCOLLAPSE;
          }
       }
       
 
       for( lCounter = 0; lCounter<MR_RESERVED_COLORS_BEGINNING; lCounter++ )
       {
-         lPalette[ lCounter ].peFlags = 0; //PC_NOCOLLAPSE; //lPalette[ 0 ].peFlags;
+         lPalette[ lCounter ].peFlags = 0;
+      }
+   }
+
+   // CRITICAL: Update SDL2Graphics palette if available (before DirectDraw, so it works even if DirectDraw not initialized)
+   if( IsSDL2GraphicsAvailable() && g_SDL2GraphicsAdapter != NULL )
+   {
+      // Convert PALETTEENTRY to RGB format (3 bytes per color)
+      uint8_t* rgbPalette = new uint8_t[768];
+      for( int i = 0; i < 256; i++ )
+      {
+         rgbPalette[i*3 + 0] = lPalette[i].peRed;
+         rgbPalette[i*3 + 1] = lPalette[i].peGreen;
+         rgbPalette[i*3 + 2] = lPalette[i].peBlue;
       }
       
+      FILE* paletteLog = fopen("C:\\originalhr\\HoverRace\\Release\\Debug_CreatePalette.log", "a");
+      if(paletteLog) {
+         fprintf(paletteLog, "CreatePalette: Setting palette via adapter, adapter=%p\n", g_SDL2GraphicsAdapter);
+         fprintf(paletteLog, "  Palette[0] = RGB(%d,%d,%d)\n", rgbPalette[0], rgbPalette[1], rgbPalette[2]);
+         fprintf(paletteLog, "  Palette[1] = RGB(%d,%d,%d)\n", rgbPalette[3], rgbPalette[4], rgbPalette[5]);
+         fflush(paletteLog);
+         fclose(paletteLog);
+      }
+      
+      g_SDL2GraphicsAdapter->SetPalette( rgbPalette );
+      PRINT_LOG( "Updated SDL2Graphics palette from CreatePalette" );
+      delete[] rgbPalette;
+   }
 
-
+   // Update DirectDraw palette if available
+   if( mDirectDraw != NULL )
+   {
       // Create the palette
       if( DD_CALL( mDirectDraw->CreatePalette(DDPCAPS_8BIT /*|DDPCAPS_ALLOW256*/, lPalette, &mPalette, NULL)) != DD_OK )
       {
          ASSERT( FALSE );
          mPalette = NULL;
-      }
-
-      // Convert palette to RGB format and pass to SDL2Graphics if available
-      if( IsSDL2GraphicsAvailable() && g_SDL2GraphicsAdapter != NULL )
-      {
-         // Convert PALETTEENTRY to RGB format (3 bytes per color)
-         uint8_t* rgbPalette = new uint8_t[768];
-         for( int i = 0; i < 256; i++ )
-         {
-            rgbPalette[i*3 + 0] = lPalette[i].peRed;
-            rgbPalette[i*3 + 1] = lPalette[i].peGreen;
-            rgbPalette[i*3 + 2] = lPalette[i].peBlue;
-         }
-         g_SDL2GraphicsAdapter->SetPalette( rgbPalette );
-         PRINT_LOG( "Updated SDL2Graphics palette from CreatePalette" );
-         delete[] rgbPalette;
       }
 
       // Assign the palette to the existing buffers
@@ -684,12 +695,34 @@ BOOL MR_VideoBuffer::SetVideoMode()
    }
    
    // Try SDL2 graphics backend with existing MFC window
+   {
+      FILE* dbgFile = fopen("c:\\originalhr\\HoverRace\\Release\\Debug_SetVideoMode_Flow.log", "a");
+      if(dbgFile) { fprintf(dbgFile, "Before InitializeSDL2Graphics call\n"); fflush(dbgFile); fclose(dbgFile); }
+   }
    if( InitializeSDL2Graphics( mWindow, mXRes, mYRes ) )
    {
+      FILE* dbgFile = fopen("c:\\originalhr\\HoverRace\\Release\\Debug_SetVideoMode_Flow.log", "a");
+      if(dbgFile) { fprintf(dbgFile, "InitializeSDL2Graphics returned TRUE - entering SDL2 mode\n"); fflush(dbgFile); fclose(dbgFile); }
       PRINT_LOG( "SDL2Graphics initialized successfully" );
       
       // Configure SDL2 adapter for rendering
       mLineLen = mXRes;
+      
+      // CRITICAL FIX: Allocate the rendering buffer for game code to write to
+      // The adapter has its own buffer, but VideoBuffer.mBuffer must be allocated
+      // so that rendering code (game logic) has a surface to draw on
+      if( mBuffer == NULL )
+      {
+         mBuffer = new MR_UInt8[ mXRes * mYRes ];
+         if( mBuffer == NULL )
+         {
+            PRINT_LOG( "ERROR: Failed to allocate rendering buffer for SDL2Graphics" );
+            ShutdownSDL2Graphics();
+            mModeSettingInProgress = FALSE;
+            return FALSE;
+         }
+         PRINT_LOG( "Allocated SDL2 rendering buffer: %dx%d (%d bytes)", mXRes, mYRes, mXRes * mYRes );
+      }
       
       FILE* debugLog = fopen("c:\\originalhr\\HoverRace\\Release\\Debug_VideoBuffer.log", "a");
       if(debugLog) {
@@ -708,10 +741,20 @@ BOOL MR_VideoBuffer::SetVideoMode()
       // Create Z-buffer
       mZBuffer = new MR_UInt16[ mXRes * mYRes ];
       
+      // CRITICAL: Create palette now that SDL2 is initialized
+      // The palette is necessary to convert 8-bit game graphics to actual colors
+      CreatePalette( mGamma, mContrast, mBrightness );
+      PRINT_LOG( "SetVideoMode: Palette created for SDL2Graphics" );
+      
       mModeSettingInProgress = FALSE;
       
       PRINT_LOG( "SetVideoMode returning TRUE (SDL2Graphics active, mXRes=%d, mYRes=%d)", mXRes, mYRes );
       return TRUE;
+   }
+   
+   {
+      FILE* dbgFile = fopen("c:\\originalhr\\HoverRace\\Release\\Debug_SetVideoMode_Flow.log", "a");
+      if(dbgFile) { fprintf(dbgFile, "InitializeSDL2Graphics returned FALSE - falling back to DirectDraw\n"); fflush(dbgFile); fclose(dbgFile); }
    }
    
    PRINT_LOG( "SDL2Graphics initialization failed, falling back to DirectDraw" );
@@ -1276,9 +1319,9 @@ void MR_VideoBuffer::Unlock()
    // Check if we're in SDL2Graphics mode (modern graphics backend)
    if( IsSDL2GraphicsAvailable() && g_SDL2GraphicsAdapter != NULL )
    {
-      // SDL2Graphics mode - let adapter handle unlocking and display
-      PRINT_LOG( "Unlock: SDL2Graphics mode, calling adapter Unlock" );
-      g_SDL2GraphicsAdapter->Unlock();
+      // SDL2Graphics mode - pass our buffer to adapter for display
+      PRINT_LOG( "Unlock: SDL2Graphics mode, calling adapter Unlock with buffer=%p", mBuffer );
+      g_SDL2GraphicsAdapter->Unlock(mBuffer);  // Pass our buffer for display
       mBuffer = NULL;  // Reset buffer pointer after unlock
       PRINT_LOG( "Unlock: END (SDL2Graphics mode)" );
       return;

@@ -16,84 +16,31 @@ SDL_CreateRenderer OK (software)
 SDL_CreateTexture OK
 Palette buffer allocated (0 bytes)
 Initialization successful (waiting for SetPalette to provide real palette)
-=== SDL2Graphics Software Rendering Initialize called ===
-Width: 942, Height: 648
-Window handle valid
-SDL_InitSubSystem OK
-SDL_CreateWindowFrom OK
-SDL_CreateRenderer OK (software)
-SDL_CreateTexture OK
-Palette buffer allocated (0 bytes)
-Initialization successful (waiting for SetPalette to provide real palette)
-=== SDL2Graphics Software Rendering Initialize called ===
-Width: 942, Height: 648
-Window handle valid
-SDL_InitSubSystem OK
-SDL_CreateWindowFrom OK
-SDL_CreateRenderer OK (software)
-SDL_CreateTexture OK
-Palette buffer allocated (0 bytes)
-Initialization successful (waiting for SetPalette to provide real palette)
-=== SDL2Graphics Software Rendering Initialize called ===
-Width: 942, Height: 648
-Window handle valid
-SDL_InitSubSystem OK
-SDL_CreateWindowFrom OK
-SDL_CreateRenderer OK (software)
-SDL_CreateTexture OK
-Palette buffer allocated (0 bytes)
-Initialization successful (waiting for SetPalette to provide real palette)
-=== SDL2Graphics Software Rendering Initialize called ===
-Width: 942, Height: 648
-Window handle valid
-SDL_InitSubSystem OK
-SDL_CreateWindowFrom OK
-SDL_CreateRenderer OK (software)
-SDL_CreateTexture OK
-Palette buffer allocated (0 bytes)
-Initialization successful (waiting for SetPalette to provide real palette)
-=== SDL2Graphics Software Rendering Initialize called ===
-Width: 942, Height: 648
-Window handle valid
-SDL_InitSubSystem OK
-SDL_CreateWindowFrom OK
-SDL_CreateRenderer OK (software)
-SDL_CreateTexture OK
-Palette buffer allocated (0 bytes)
-Initialization successful (waiting for SetPalette to provide real palette)
-=== SDL2Graphics Software Rendering Initialize called ===
-Width: 942, Height: 648
-Window handle valid
-SDL_InitSubSystem OK
-SDL_CreateWindowFrom OK
-SDL_CreateRenderer OK (software)
-SDL_CreateTexture OK
-Palette buffer allocated (0 bytes)
-Initialization successful (waiting for SetPalette to provide real palette)
-=== SDL2Graphics Software Rendering Initialize called ===
-Width: 942, Height: 648
-Window handle valid
-SDL_InitSubSystem OK
-SDL_CreateWindowFrom OK
-SDL_CreateRenderer OK (software)
-SDL_CreateTexture OK
-Palette buffer allocated (0 bytes)
-Initialization successful (waiting for SetPalette to provide real palette)
-=== SDL2Graphics Software Rendering Initialize called ===
-Width: 942, Height: 648
-Window handle valid
-SDL_InitSubSystem OK
-SDL_CreateWindowFrom OK
-SDL_CreateRenderer OK (software)
-SDL_CreateTexture OK
-Palette buffer allocated (0 bytes)
-Initialization successful (waiting for SetPalette to provide real palette)
 Frame: 100
 Frame: 200
 Frame: 300
 Frame: 400
 Frame: 500
 Frame: 600
+Frame: 700
+Frame: 800
+Frame: 900
+Frame: 1000
+Frame: 1100
+Frame: 1200
+Frame: 1300
+Frame: 1400
+Frame: 1500
+Frame: 1600
+Frame: 1700
+Frame: 1800
+Frame: 1900
+Frame: 2000
+Frame: 2100
+Frame: 2200
+Frame: 2300
+Frame: 2400
+Frame: 2500
 === SDL2Graphics Software Rendering Initialize called ===
 Width: 942, Height: 648
 Window handle valid
@@ -103,76 +50,23 @@ SDL_CreateRenderer OK (software)
 SDL_CreateTexture OK
 Palette buffer allocated (0 bytes)
 Initialization successful (waiting for SetPalette to provide real palette)
-=== SDL2Graphics Software Rendering Initialize called ===
-Width: 942, Height: 648
-Window handle valid
-SDL_InitSubSystem OK
-SDL_CreateWindowFrom OK
-SDL_CreateRenderer OK (software)
-SDL_CreateTexture OK
-Palette buffer allocated (0 bytes)
-Initialization successful (waiting for SetPalette to provide real palette)
-=== SDL2Graphics Software Rendering Initialize called ===
-Width: 942, Height: 648
-Window handle valid
-SDL_InitSubSystem OK
-SDL_CreateWindowFrom OK
-SDL_CreateRenderer OK (software)
-SDL_CreateTexture OK
-Palette buffer allocated (0 bytes)
-Initialization successful (waiting for SetPalette to provide real palette)
-=== SDL2Graphics Software Rendering Initialize called ===
-Width: 942, Height: 648
-Window handle valid
-SDL_InitSubSystem OK
-SDL_CreateWindowFrom OK
-SDL_CreateRenderer OK (software)
-SDL_CreateTexture OK
-Palette buffer allocated (0 bytes)
-Initialization successful (waiting for SetPalette to provide real palette)
-Frame: 100
-Frame: 200
-Frame: 300
-Frame: 400
-Frame: 500
-Frame: 600
-=== SDL2Graphics Software Rendering Initialize called ===
-Width: 942, Height: 648
-Window handle valid
-SDL_InitSubSystem OK
-SDL_CreateWindowFrom OK
-SDL_CreateRenderer OK (software)
-SDL_CreateTexture OK
-Palette buffer allocated (0 bytes)
-Initialization successful (waiting for SetPalette to provide real palette)
-=== SDL2Graphics Software Rendering Initialize called ===
-Width: 942, Height: 648
-Window handle valid
-SDL_InitSubSystem OK
-SDL_CreateWindowFrom OK
-SDL_CreateRenderer OK (software)
-SDL_CreateTexture OK
-Palette buffer allocated (0 bytes)
-Initialization successful (waiting for SetPalette to provide real palette)
-=== SDL2Graphics Software Rendering Initialize called ===
-Width: 942, Height: 648
-Window handle valid
-SDL_InitSubSystem OK
-SDL_CreateWindowFrom OK
-SDL_CreateRenderer OK (software)
-SDL_CreateTexture OK
-Palette buffer allocated (0 bytes)
-Initialization successful (waiting for SetPalette to provide real palette)
-=== SDL2Graphics Software Rendering Initialize called ===
-Width: 942, Height: 648
-Window handle valid
-SDL_InitSubSystem OK
-SDL_CreateWindowFrom OK
-SDL_CreateRenderer OK (software)
-SDL_CreateTexture OK
-Palette buffer allocated (0 bytes)
-Initialization successful (waiting for SetPalette to provide real palette)
-Frame: 100
+Frame: 2600
+Frame: 2700
+Frame: 2800
+Frame: 2900
+Frame: 3000
+Frame: 3100
+Frame: 3200
+Frame: 3300
+Frame: 3400
+Frame: 3500
+Frame: 3600
+Frame: 3700
+Frame: 3800
+Frame: 3900
+Frame: 4000
+Frame: 4100
+Frame: 4200
 === SDL2Graphics Software Rendering Initialize called ===
 Width: 942, Height: 648
 Window handle valid
@@ -200,66 +94,7 @@ Frame: 600
 Frame: 700
 Frame: 800
 Frame: 900
-=== SDL2Graphics Software Rendering Initialize called ===
-Width: 942, Height: 648
-Window handle valid
-SDL_InitSubSystem OK
-SDL_CreateWindowFrom OK
-SDL_CreateRenderer OK (software)
-SDL_CreateTexture OK
-Palette buffer allocated (0 bytes)
-Initialization successful (waiting for SetPalette to provide real palette)
 Frame: 1000
 Frame: 1100
-=== SDL2Graphics Software Rendering Initialize called ===
-Width: 0, Height: 0
-Window handle valid
-SDL_InitSubSystem OK
-SDL_CreateWindowFrom OK
-ERROR: SDL_CreateRenderer failed: Couldn't find matching render driver
-=== SDL2Graphics Software Rendering Initialize called ===
-Width: 942, Height: 648
-Window handle valid
-SDL_InitSubSystem OK
-SDL_CreateWindowFrom OK
-SDL_CreateRenderer OK (software)
-SDL_CreateTexture OK
-Palette buffer allocated (0 bytes)
-Initialization successful (waiting for SetPalette to provide real palette)
 Frame: 1200
 Frame: 1300
-Frame: 1400
-Frame: 1500
-=== SDL2Graphics Software Rendering Initialize called ===
-Width: 942, Height: 648
-Window handle valid
-SDL_InitSubSystem OK
-SDL_CreateWindowFrom OK
-SDL_CreateRenderer OK (software)
-SDL_CreateTexture OK
-Palette buffer allocated (0 bytes)
-Initialization successful (waiting for SetPalette to provide real palette)
-Frame: 1600
-=== SDL2Graphics Software Rendering Initialize called ===
-Width: 942, Height: 648
-Window handle valid
-SDL_InitSubSystem OK
-SDL_CreateWindowFrom OK
-SDL_CreateRenderer OK (software)
-SDL_CreateTexture OK
-Palette buffer allocated (0 bytes)
-Initialization successful (waiting for SetPalette to provide real palette)
-Frame: 1700
-Frame: 1800
-Frame: 1900
-=== SDL2Graphics Software Rendering Initialize called ===
-Width: 942, Height: 648
-Window handle valid
-SDL_InitSubSystem OK
-SDL_CreateWindowFrom OK
-SDL_CreateRenderer OK (software)
-SDL_CreateTexture OK
-Palette buffer allocated (0 bytes)
-Initialization successful (waiting for SetPalette to provide real palette)
-Frame: 2000
-Frame: 2100

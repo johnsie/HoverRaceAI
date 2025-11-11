@@ -19,7 +19,7 @@ public:
 
     // Buffer operations (match VideoBuffer interface)
     bool Lock(uint8_t*& outBuffer);
-    bool Unlock();
+    bool Unlock(uint8_t* pBuffer = nullptr);  // Optional buffer parameter for display
     
     // Palette operations
     bool SetPalette(const uint8_t* paletteRGB);

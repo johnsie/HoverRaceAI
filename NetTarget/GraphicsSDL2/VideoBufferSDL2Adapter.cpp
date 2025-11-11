@@ -91,19 +91,25 @@ bool VideoBufferSDL2Adapter::Lock(uint8_t*& outBuffer)
     return true;
 }
 
-bool VideoBufferSDL2Adapter::Unlock()
+bool VideoBufferSDL2Adapter::Unlock(uint8_t* pBuffer)
 {
-    if (!m_locked || !m_buffer)
+    if (!m_locked)
         return false;
 
     m_locked = false;
 
+    // Use provided buffer if given (from VideoBuffer.mBuffer), otherwise use internal buffer
+    uint8_t* bufferToPresent = (pBuffer != nullptr) ? pBuffer : m_buffer;
+    
+    if (!bufferToPresent)
+        return false;
+
     // Present the buffer
     std::ofstream log("C:\\originalhr\\HoverRace\\Release\\sdl2_adapter_present.log", std::ios::app);
-    log << "Calling Present()" << std::endl;
+    log << "Calling Present() with buffer=" << (void*)bufferToPresent << ", size=" << (m_width * m_height) << std::endl;
     log.flush();
     
-    bool result = m_backend.Present(m_buffer, m_width, m_height);
+    bool result = m_backend.Present(bufferToPresent, m_width, m_height);
     
     log << "Present() returned: " << (result ? "TRUE" : "FALSE") << std::endl;
     log.flush();

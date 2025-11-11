@@ -6,15 +6,3 @@ AddRenderer called, mRenderer=00000000
   About to call CreateObject with ID(1,100)
   SEH EXCEPTION in CreateObject: code=e06d7363, continuing with NULL renderer
 AddRenderer END, mRenderer=00000000
-AddRenderer called, mRenderer=00000000
-  About to call CreateObject with ID(1,100)
-  SEH EXCEPTION in CreateObject: code=e06d7363, continuing with NULL renderer
-AddRenderer END, mRenderer=00000000
-AddRenderer called, mRenderer=00000000
-  About to call CreateObject with ID(1,100)
-  SEH EXCEPTION in CreateObject: code=e06d7363, continuing with NULL renderer
-AddRenderer END, mRenderer=00000000
-AddRenderer called, mRenderer=00000000
-  About to call CreateObject with ID(1,100)
-  SEH EXCEPTION in CreateObject: code=e06d7363, continuing with NULL renderer
-AddRenderer END, mRenderer=00000000

@@ -1,40 +1,16 @@
-InsertElement START: pElement=00D47678, pRoom=13, mAllowRendering=1
-  Created new FreeElement: 00D4BAE0
+InsertElement START: pElement=00B2E270, pRoom=0, mAllowRendering=1
+  Created new FreeElement: 00B44450
   About to call AddRenderer()
   AddRenderer() succeeded
   Set mElement pointer
   About to call MoveElement()
   MoveElement() succeeded
-InsertElement END: returning 00D4BAE0
-InsertElement START: pElement=01187ED8, pRoom=13, mAllowRendering=1
-  Created new FreeElement: 0118C850
+InsertElement END: returning 00B44450
+InsertElement START: pElement=00647518, pRoom=0, mAllowRendering=1
+  Created new FreeElement: 0065D818
   About to call AddRenderer()
   AddRenderer() succeeded
   Set mElement pointer
   About to call MoveElement()
   MoveElement() succeeded
-InsertElement END: returning 0118C850
-InsertElement START: pElement=00A145B0, pRoom=0, mAllowRendering=1
-  Created new FreeElement: 00A2A5F8
-  About to call AddRenderer()
-  AddRenderer() succeeded
-  Set mElement pointer
-  About to call MoveElement()
-  MoveElement() succeeded
-InsertElement END: returning 00A2A5F8
-InsertElement START: pElement=00EE09B0, pRoom=0, mAllowRendering=1
-  Created new FreeElement: 00EF8730
-  About to call AddRenderer()
-  AddRenderer() succeeded
-  Set mElement pointer
-  About to call MoveElement()
-  MoveElement() succeeded
-InsertElement END: returning 00EF8730
-InsertElement START: pElement=011025D0, pRoom=0, mAllowRendering=1
-  Created new FreeElement: 01117F58
-  About to call AddRenderer()
-  AddRenderer() succeeded
-  Set mElement pointer
-  About to call MoveElement()
-  MoveElement() succeeded
-InsertElement END: returning 01117F58
+InsertElement END: returning 0065D818

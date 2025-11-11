@@ -1491,8 +1491,10 @@ void MR_GameApp::RefreshView()
             bLocked = TRUE;  // Mark that we successfully locked
             logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_MainLoop.log", "a");
             if(logFile) { fprintf(logFile, "RefreshView: Lock() succeeded\n"); fflush(logFile); fclose(logFile); }
-            if( mCurrentSession != NULL )
-            {
+            
+            try {
+               if( mCurrentSession != NULL )
+               {
                MR_SimulationTime lTime = mCurrentSession->GetSimulationTime();
 
                if( !gKeyFilled && (lTime<20000) )
@@ -1640,15 +1642,36 @@ void MR_GameApp::RefreshView()
             // Flip() is now called from within Unlock() for both DirectDraw and GDI modes
             // Note: Flip() is now called automatically from Unlock()
             // This ensures proper synchronization between rendering and display
+            }
+            catch(...)
+            {
+               // Inner catch - catches exceptions during rendering
+               // CRITICAL: Must unlock the buffer even if rendering fails
+               logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_MainLoop.log", "a");
+               if(logFile) { fprintf(logFile, "RefreshView: CAUGHT EXCEPTION in rendering pipeline, attempting Unlock()\n"); fflush(logFile); fclose(logFile); }
+               
+               if( bLocked && mVideoBuffer != NULL )
+               {
+                  try {
+                     mVideoBuffer->Unlock();
+                     logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_MainLoop.log", "a");
+                     if(logFile) { fprintf(logFile, "RefreshView: Emergency Unlock() succeeded\n"); fflush(logFile); fclose(logFile); }
+                  }
+                  catch(...) {
+                     logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_MainLoop.log", "a");
+                     if(logFile) { fprintf(logFile, "RefreshView: Emergency Unlock() also failed!\n"); fflush(logFile); fclose(logFile); }
+                  }
+               }
+            }
 
          }
       }
    }
    catch(...)
    {
-      // Outer catch - catches C++ exceptions in rendering
+      // Outer catch - catches any uncaught exceptions
       logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_MainLoop.log", "a");
-      if(logFile) { fprintf(logFile, "RefreshView: CAUGHT EXCEPTION in rendering pipeline\n"); fflush(logFile); fclose(logFile); }
+      if(logFile) { fprintf(logFile, "RefreshView: OUTER EXCEPTION CATCH\n"); fflush(logFile); fclose(logFile); }
    }
 
    // Sound processing - Using safe wrapper
