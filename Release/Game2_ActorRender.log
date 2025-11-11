@@ -1,0 +1,47 @@
+[AddRenderer] Exception creating renderer: e06d7363
+[AddRenderer] Created renderer: 00000000
+[AddRenderer] Created renderer: 010BC7A8
+[300] MainCharacter::Render: mRenderer=010BC7A8, motor=OFF, model=0
+[600] MainCharacter::Render: mRenderer=010BC7A8, motor=OFF, model=0
+[900] MainCharacter::Render: mRenderer=010BC7A8, motor=OFF, model=0
+[1201] MainCharacter::Render: mRenderer=010BC7A8, motor=OFF, model=0
+[1500] MainCharacter::Render: mRenderer=010BC7A8, motor=OFF, model=0
+[1800] MainCharacter::Render: mRenderer=010BC7A8, motor=OFF, model=0
+[2100] MainCharacter::Render: mRenderer=010BC7A8, motor=OFF, model=0
+[2400] MainCharacter::Render: mRenderer=010BC7A8, motor=OFF, model=0
+[2700] MainCharacter::Render: mRenderer=010BC7A8, motor=OFF, model=0
+[3000] MainCharacter::Render: mRenderer=010BC7A8, motor=OFF, model=0
+[3300] MainCharacter::Render: mRenderer=010BC7A8, motor=OFF, model=0
+[3600] MainCharacter::Render: mRenderer=010BC7A8, motor=OFF, model=0
+[3900] MainCharacter::Render: mRenderer=010BC7A8, motor=OFF, model=0
+[4200] MainCharacter::Render: mRenderer=010BC7A8, motor=OFF, model=0
+[4500] MainCharacter::Render: mRenderer=010BC7A8, motor=OFF, model=0
+[4800] MainCharacter::Render: mRenderer=010BC7A8, motor=OFF, model=0
+[5100] MainCharacter::Render: mRenderer=010BC7A8, motor=OFF, model=0
+[5400] MainCharacter::Render: mRenderer=010BC7A8, motor=OFF, model=0
+[5700] MainCharacter::Render: mRenderer=010BC7A8, motor=OFF, model=0
+[6000] MainCharacter::Render: mRenderer=010BC7A8, motor=OFF, model=0
+[AddRenderer] Created renderer: 0117B298
+[300] MainCharacter::Render: mRenderer=0117B298, motor=OFF, model=0
+[600] MainCharacter::Render: mRenderer=0117B298, motor=OFF, model=0
+[901] MainCharacter::Render: mRenderer=0117B298, motor=OFF, model=0
+[1200] MainCharacter::Render: mRenderer=0117B298, motor=OFF, model=0
+[1500] MainCharacter::Render: mRenderer=0117B298, motor=OFF, model=0
+[1800] MainCharacter::Render: mRenderer=0117B298, motor=OFF, model=0
+[2100] MainCharacter::Render: mRenderer=0117B298, motor=OFF, model=0
+[2400] MainCharacter::Render: mRenderer=0117B298, motor=OFF, model=0
+[2700] MainCharacter::Render: mRenderer=0117B298, motor=OFF, model=0
+[3000] MainCharacter::Render: mRenderer=0117B298, motor=OFF, model=0
+[3300] MainCharacter::Render: mRenderer=0117B298, motor=OFF, model=0
+[3600] MainCharacter::Render: mRenderer=0117B298, motor=OFF, model=0
+[3900] MainCharacter::Render: mRenderer=0117B298, motor=OFF, model=0
+[4200] MainCharacter::Render: mRenderer=0117B298, motor=OFF, model=0
+[4500] MainCharacter::Render: mRenderer=0117B298, motor=OFF, model=0
+[4800] MainCharacter::Render: mRenderer=0117B298, motor=OFF, model=0
+[5100] MainCharacter::Render: mRenderer=0117B298, motor=OFF, model=0
+[5400] MainCharacter::Render: mRenderer=0117B298, motor=OFF, model=0
+[5700] MainCharacter::Render: mRenderer=0117B298, motor=OFF, model=0
+[AddRenderer] Created renderer: 015F32E8
+[AddRenderer] Created renderer: 0165E278
+[EXCEPTION] Renderer crashed at render call 23
+[EXCEPTION] Renderer crashed at render call 35

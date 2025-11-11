@@ -452,6 +452,19 @@ void MR_Observer::DrawWFSection( const MR_Level* pLevel, const MR_SectionId& pSe
 
 void MR_Observer::Render3DView( const MR_ClientSession* pSession, const MR_MainCharacter* pViewingCharacter, MR_SimulationTime pTime, const MR_UInt8* pBackImage )
 {
+   static int render_3d_call_count = 0;
+   if(render_3d_call_count % 100 == 0) {
+      FILE* logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_Render3DView.log", "a");
+      if(logFile) {
+         fprintf(logFile, "Render3DView called #%d: pSession=%p, pViewingCharacter=%p, room=%d\n",
+            render_3d_call_count, pSession, pViewingCharacter,
+            pViewingCharacter ? pViewingCharacter->mRoom : -999);
+         fflush(logFile);
+         fclose(logFile);
+      }
+   }
+   render_3d_call_count++;
+
    // Safe entry guards - check all pointers before proceeding
    if(pSession == NULL || pViewingCharacter == NULL) {
       return;
@@ -678,6 +691,32 @@ void MR_Observer::Render3DView( const MR_ClientSession* pSession, const MR_MainC
       // Actor rendering crashed - continue with what we have
       FILE* logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_Actor_Render.log", "a");
       if(logFile) { fprintf(logFile, "EXCEPTION in actor rendering!\n"); fflush(logFile); fclose(logFile); }
+   }
+
+   // STAGE 5.5: Render the viewing character (player's hovercraft)
+   {
+      FILE* logFile2 = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_ViewingCharacterRender.log", "a");
+      if(logFile2) { fprintf(logFile2, "ENTERING viewing character render stage\n"); fflush(logFile2); fclose(logFile2); }
+   }
+   
+   __try {
+      FILE* logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_ViewingCharacterRender.log", "a");
+      if(logFile) { 
+         fprintf(logFile, "Rendering viewing character at pos=(%.1f,%.1f,%.1f), ptr=%p\n", 
+            pViewingCharacter->mPosition.mX, pViewingCharacter->mPosition.mY, pViewingCharacter->mPosition.mZ,
+            pViewingCharacter); 
+         fflush(logFile); 
+      }
+      
+      // Call the character's render method to draw the player's hovercraft
+      // Cast away const since Render() is not const (not ideal, but necessary for rendering)
+      const_cast<MR_MainCharacter*>(pViewingCharacter)->Render( &m3DView, pTime );
+      
+      if(logFile) { fprintf(logFile, "Viewing character render complete\n"); fflush(logFile); fclose(logFile); }
+   }
+   __except(EXCEPTION_EXECUTE_HANDLER) {
+      FILE* logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_ViewingCharacterRender.log", "a");
+      if(logFile) { fprintf(logFile, "EXCEPTION in viewing character rendering!\n"); fflush(logFile); fclose(logFile); }
    }
 
    // STAGE 6: Cockpit UI rendering (speed/fuel meters, weapons, map, text)
@@ -1548,6 +1587,15 @@ void MR_Observer::CallRender3DViewSafe( const MR_ClientSession* pSession, const 
    static int exception_count = 0;
    static int success_count = 0;
    
+   {
+      FILE* logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_CallRender3DViewSafe.log", "a");
+      if(logFile) {
+         fprintf(logFile, "CallRender3DViewSafe ENTRY: pSession=%p, pViewingCharacter=%p\n", pSession, pViewingCharacter);
+         fflush(logFile);
+         fclose(logFile);
+      }
+   }
+   
    // Try to render normally - this function has its own internal try/except blocks
    Render3DView( pSession, pViewingCharacter, pTime, pBackImage );
    success_count++;
@@ -1646,6 +1694,15 @@ void MR_Observer::RenderNormalDisplay( MR_VideoBuffer* pDest, const MR_ClientSes
    {
       // Call helper function that uses SEH for exception handling
       CallRender3DViewSafe( pSession, pViewingCharacter, pTime, pBackImage );
+   }
+   else
+   {
+      FILE* debugLog2 = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_RenderNormalDisplay_SkippedRendering.log", "a");
+      if(debugLog2) {
+         fprintf(debugLog2, "SKIPPED Render3DView: room=%d (should be != -1)\n", pViewingCharacter->mRoom);
+         fflush(debugLog2);
+         fclose(debugLog2);
+      }
    }
 }
 

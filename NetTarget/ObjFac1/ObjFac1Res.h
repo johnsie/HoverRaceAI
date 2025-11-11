@@ -23,6 +23,9 @@
 #define MR_WOOD1       2
 #define MR_BALL_BMP    3
 #define MR_DEFAULT_MAP 4
+#define MR_FIRE        5   // Fire texture
+#define MR_BIG_BRICK   6   // Big brick texture
+#define MR_RED_BRICK   7   // Red brick texture
 
 #define MR_STD_FLOOR          1051
 #define MR_STD_RIGHT_WALL     1052
@@ -63,6 +66,7 @@
 #define MR_CAR_DRIVER_NECK 26
 
 #define MR_CAR2_COCKPIT    27
+#define MR_ECAR_COCKPIT    30   // Electro Car cockpit
 #define MR_CAR_MOTOR2      28
 #define MR_CAR_MOTOR3      29
 

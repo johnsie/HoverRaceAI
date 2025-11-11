@@ -1,0 +1,7 @@
+Diagnostic buffer check (first Present call):
+width=942, height=648, pitch=2826
+Buffer total size: 610416 bytes
+RGB buffer total size: 1831248 bytes
+
+Sample from near bottom (y=646):
+Row 646 first 40 indices:   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0 

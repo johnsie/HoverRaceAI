@@ -1,32 +1,12 @@
 AddRenderer called, mRenderer=00000000
-  About to call CreateObject with ID(1,100)
-  SEH EXCEPTION in CreateObject: code=e06d7363, continuing with NULL renderer
-AddRenderer END, mRenderer=00000000
+  About to call CreateObject with ID(5000,100)
+  CreateObject succeeded, mRenderer=00FF34D8
+AddRenderer END, mRenderer=00FF34D8
 AddRenderer called, mRenderer=00000000
-  About to call CreateObject with ID(1,100)
-  SEH EXCEPTION in CreateObject: code=e06d7363, continuing with NULL renderer
-AddRenderer END, mRenderer=00000000
+  About to call CreateObject with ID(5000,100)
+  CreateObject succeeded, mRenderer=00EBE060
+AddRenderer END, mRenderer=00EBE060
 AddRenderer called, mRenderer=00000000
-  About to call CreateObject with ID(1,100)
-  SEH EXCEPTION in CreateObject: code=e06d7363, continuing with NULL renderer
-AddRenderer END, mRenderer=00000000
-AddRenderer called, mRenderer=00000000
-  About to call CreateObject with ID(1,100)
-  SEH EXCEPTION in CreateObject: code=e06d7363, continuing with NULL renderer
-AddRenderer END, mRenderer=00000000
-AddRenderer called, mRenderer=00000000
-  About to call CreateObject with ID(1,100)
-  SEH EXCEPTION in CreateObject: code=e06d7363, continuing with NULL renderer
-AddRenderer END, mRenderer=00000000
-AddRenderer called, mRenderer=00000000
-  About to call CreateObject with ID(1,100)
-  SEH EXCEPTION in CreateObject: code=e06d7363, continuing with NULL renderer
-AddRenderer END, mRenderer=00000000
-AddRenderer called, mRenderer=00000000
-  About to call CreateObject with ID(1,100)
-  SEH EXCEPTION in CreateObject: code=e06d7363, continuing with NULL renderer
-AddRenderer END, mRenderer=00000000
-AddRenderer called, mRenderer=00000000
-  About to call CreateObject with ID(1,100)
-  SEH EXCEPTION in CreateObject: code=e06d7363, continuing with NULL renderer
-AddRenderer END, mRenderer=00000000
+  About to call CreateObject with ID(5000,100)
+  CreateObject succeeded, mRenderer=013207F8
+AddRenderer END, mRenderer=013207F8

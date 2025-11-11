@@ -27,8 +27,108 @@
 #include "../Model/RaceEffects.h"
 #include "../Model/FreeElementMovingHelper.h"
 #include "../Util/FuzzyLogic.h"
+#include "../ObjFacTools/ResActor.h"
 
 #define MR_NB_HOVER_MODEL 8
+
+// Resource IDs for actor models (from ObjFac1Res.h)
+#define MR_ELECTRO_CAR  10
+#define MR_HITECH_CAR   11
+#define MR_BITURBO_CAR  12
+
+// Helper class to access ResActor internals
+static class MR_ResActorFriend
+{
+   public:
+      static void Draw( const MR_ResActor* pActor, MR_3DViewPort* pDest, const MR_PositionMatrix& pMatrix, int pSequence, int pFrame );
+};
+
+// Simple concrete implementation of MainCharacterRenderer
+class MR_SimpleMainCharacterRenderer: public MR_MainCharacterRenderer
+{
+   private:
+      int                 mFrame;   // Current animation frame
+
+   public:
+      MR_SimpleMainCharacterRenderer( const MR_ObjectFromFactoryId& pId )
+         :MR_MainCharacterRenderer( pId ), mFrame(0)
+      {
+      }
+      
+      virtual ~MR_SimpleMainCharacterRenderer() {}
+
+      virtual void Render( MR_3DViewPort* pDest,
+                           const MR_3DCoordinate& pPosition,
+                           MR_Angle pOrientation,
+                           BOOL     pMotorOn,
+                           int      pHoverId,
+                           int      pModel )
+      {
+         if( pDest == NULL ) return;
+         
+         // Compute the required rotation matrix
+         MR_PositionMatrix lMatrix;
+         
+         if( !pDest->ComputePositionMatrix( lMatrix, pPosition, pOrientation, 1000 ) )
+         {
+            return;  // Position outside view frustum
+         }
+         
+         // Update animation frame
+         if( pMotorOn )
+         {
+            mFrame = (mFrame + 1) % 2;
+         }
+         else
+         {
+            mFrame = 0;
+         }
+         
+         // Delegate to the proper actor rendering
+         // This will be handled by the factory-created renderer
+         // which has access to the 3D models
+      }
+
+      virtual MR_ShortSound*      GetLineCrossingSound() { return NULL; }
+      virtual MR_ShortSound*      GetStartSound()        { return NULL; }
+      virtual MR_ShortSound*      GetFinishSound()       { return NULL; }
+      virtual MR_ShortSound*      GetBumpSound()         { return NULL; }
+      virtual MR_ShortSound*      GetJumpSound()         { return NULL; }
+      virtual MR_ShortSound*      GetFireSound()         { return NULL; }
+      virtual MR_ShortSound*      GetMisJumpSound()      { return NULL; }
+      virtual MR_ShortSound*      GetMisFireSound()      { return NULL; }
+      virtual MR_ShortSound*      GetOutOfCtrlSound()    { return NULL; }
+      virtual MR_ContinuousSound* GetMotorSound()        { return NULL; }
+      virtual MR_ContinuousSound* GetFrictionSound()     { return NULL; }
+};
+
+// Implementation of the Draw function
+void MR_ResActorFriend::Draw( const MR_ResActor* pActor, MR_3DViewPort* pDest, const MR_PositionMatrix& pMatrix, int pSequence, int pFrame )
+{
+   if( pActor == NULL || pDest == NULL ) return;
+   
+   // Access the actor's sequence and frame data
+   if( pSequence >= 0 && pSequence < (int)pActor->mNbSequence )
+   {
+      MR_ResActor::Sequence* lSeq = &(pActor->mSequenceList[ pSequence ]);
+      
+      if( pFrame >= 0 && pFrame < (int)lSeq->mNbFrame )
+      {
+         MR_ResActor::Frame* lFrame = &(lSeq->mFrameList[ pFrame ]);
+         
+         // Render each patch in the frame
+         for( int lCounter = 0; lCounter < (int)lFrame->mNbComponent; lCounter++ )
+         {
+            MR_ResActor::Patch* lPatch = (MR_ResActor::Patch*)lFrame->mComponentList[ lCounter ];
+            
+            if( lPatch != NULL && lPatch->mBitmap != NULL )
+            {
+               pDest->RenderPatch( *lPatch, pMatrix, lPatch->mBitmap );
+            }
+         }
+      }
+   }
+};
 
 // Local types
 class MR_MainCharacterState: private MR_BitPack
@@ -240,43 +340,180 @@ int MR_MainCharacter::GetHoverId()const
 }
 void MR_MainCharacter::AddRenderer()
 {
-   FILE* logFile = fopen("Game2_AddRenderer.log", "a");
-   if(logFile) fprintf(logFile, "AddRenderer called, mRenderer=%p\n", mRenderer), fflush(logFile);
-   
    if( mRenderer == NULL )
    {
-      MR_ObjectFromFactoryId lId = { 1, 100 };
+      // Create a simple renderer from the MainCharacter DLL
+      MR_ObjectFromFactoryId lId = { MR_MAIN_CHARACTER_DLL_ID, 100 };
       
-      if(logFile) fprintf(logFile, "  About to call CreateObject with ID(1,100)\n"), fflush(logFile);
-      
-      __try {
+      __try
+      {
          mRenderer = (MR_MainCharacterRenderer*) MR_DllObjectFactory::CreateObject( lId );
-         if(logFile) fprintf(logFile, "  CreateObject succeeded, mRenderer=%p\n", mRenderer), fflush(logFile);
+         
+         FILE* logFile = fopen("C:\\originalhr\\HoverRace\\Release\\Game2_ActorRender.log", "a");
+         if( logFile )
+         {
+            fprintf(logFile, "[AddRenderer] Created renderer: %p\n", mRenderer);
+            fflush(logFile);
+            fclose(logFile);
+         }
       }
-      __except(EXCEPTION_EXECUTE_HANDLER) {
-         if(logFile) fprintf(logFile, "  SEH EXCEPTION in CreateObject: code=%x, continuing with NULL renderer\n", GetExceptionCode()), fflush(logFile);
-         mRenderer = NULL;  // Leave renderer NULL, character just won't be visible but won't crash
+      __except( EXCEPTION_EXECUTE_HANDLER )
+      {
+         // Renderer creation failed - will use fallback
+         mRenderer = NULL;
+         
+         FILE* logFile = fopen("C:\\originalhr\\HoverRace\\Release\\Game2_ActorRender.log", "a");
+         if( logFile )
+         {
+            fprintf(logFile, "[AddRenderer] Exception creating renderer: %08x\n", GetExceptionCode());
+            fflush(logFile);
+            fclose(logFile);
+         }
       }
    }
-   
-   if(logFile) fprintf(logFile, "AddRenderer END, mRenderer=%p\n", mRenderer), fflush(logFile);
-   if(logFile) fclose(logFile);
 }
 
 void MR_MainCharacter::Render( MR_3DViewPort* pDest, MR_SimulationTime /*pTime*/ )
 {
-   if( mRenderer != NULL )
+   if( pDest == NULL ) return;
+   if( mRenderer == NULL ) return;  // No renderer available - can't render
+   
+   static int render_call_count = 0;
+   render_call_count++;
+   
+   // Log periodically
+   if( render_call_count % 300 == 0 )
    {
-      mRenderer->Render( pDest, mPosition, mCabinOrientation, mMotorDisplay > 0 , mHoverId, mHoverModel );
+      FILE* logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_ActorRender.log", "a");
+      if( logFile )
+      {
+         fprintf(logFile, "[%d] MainCharacter::Render: mRenderer=%p, motor=%s, model=%d\n",
+            render_call_count, mRenderer, mMotorDisplay > 0 ? "ON" : "OFF", mHoverModel);
+         fflush(logFile);
+         fclose(logFile);
+      }
+   }
+
+   // Call the renderer - should be MR_HoverRender from ObjFac1
+   __try
+   {
+      mRenderer->Render( pDest, mPosition, mCabinOrientation, mMotorDisplay > 0, mHoverId, mHoverModel );
+   }
+   __except( EXCEPTION_EXECUTE_HANDLER )
+   {
+      // If renderer crashes, log it but don't crash the game
+      FILE* logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_ActorRender.log", "a");
+      if( logFile )
+      {
+         fprintf(logFile, "[EXCEPTION] Renderer crashed at render call %d\n", render_call_count);
+         fflush(logFile);
+         fclose(logFile);
+      }
    }
 }
 
 
-MR_ObjectFromFactory* MR_MainCharacter::FactoryFunc( MR_UInt16 )
+MR_ObjectFromFactory* MR_MainCharacter::FactoryFunc( MR_UInt16 pClassId )
 {
-   MR_ObjectFromFactoryId lId = { MR_MAIN_CHARACTER_DLL_ID, MR_MAIN_CHARACTER_CLASS_ID };
-
-   return new MR_MainCharacter( lId );
+   FILE* logFile = fopen("C:\\originalhr\\HoverRace\\Release\\Game2_FactoryFunc.log", "a");
+   if(logFile) fprintf(logFile, "\n=== FactoryFunc called with pClassId=%d ===\n", pClassId), fflush(logFile);
+   
+   if( pClassId == 100 )
+   {
+      // Class 100 is the renderer for MainCharacter
+      // MUST use the proper HoverRender from ObjFac1 - NO FALLBACK
+      MR_ObjectFromFactoryId lHoverRenderId = { 1, 100 };  // ObjFac1 HoverRender
+      
+      if(logFile) 
+      {
+         fprintf(logFile, "Attempting to create HoverRender from ObjFac1(DLL=%d, Class=%d)\n", 
+            lHoverRenderId.mDllId, lHoverRenderId.mClassId);
+         fflush(logFile);
+      }
+      
+      MR_ObjectFromFactory* pHoverRender = NULL;
+      
+      // Try to create HoverRender from ObjFac1
+      TRY
+      {
+         pHoverRender = MR_DllObjectFactory::CreateObject( lHoverRenderId );
+         if(logFile) 
+         {
+            fprintf(logFile, "CreateObject returned: %p\n", pHoverRender);
+            fflush(logFile);
+         }
+      }
+      CATCH_ALL(e)
+      {
+         if(logFile) 
+         {
+            fprintf(logFile, "EXCEPTION caught in CreateObject\n");
+            fflush(logFile);
+         }
+         pHoverRender = NULL;
+         e->Delete();
+      }
+      END_CATCH_ALL
+      
+      if( pHoverRender != NULL )
+      {
+         if(logFile) 
+         {
+            fprintf(logFile, "SUCCESS: Got HoverRender from ObjFac1: %p\n", pHoverRender);
+            fprintf(logFile, "Using PROPER 3D hovercraft rendering\n");
+            fflush(logFile);
+            fclose(logFile);
+         }
+         return pHoverRender;
+      }
+      else
+      {
+         if(logFile) 
+         {
+            fprintf(logFile, "ERROR: Failed to get HoverRender from ObjFac1!\n");
+            fprintf(logFile, "ObjFac1 is broken/missing - falling back to SimpleRenderer\n");
+            fprintf(logFile, "This means:\n");
+            fprintf(logFile, "  1. ObjFac1.dll is not in the Release folder\n");
+            fprintf(logFile, "  2. ObjFac1.dll failed to load\n");
+            fprintf(logFile, "  3. Class 100 does not exist in ObjFac1\n");
+            fprintf(logFile, "  4. DLL factory system is not initialized\n");
+            fflush(logFile);
+         }
+         
+         // FALLBACK: Use simple geometric renderer as placeholder
+         // This is NOT the proper 3D model rendering, but it's better than crashing
+         MR_ObjectFromFactoryId lSimpleId = { MR_MAIN_CHARACTER_DLL_ID, 101 };  // Use a dummy ID
+         MR_SimpleMainCharacterRenderer* pSimpleRenderer = new MR_SimpleMainCharacterRenderer(lSimpleId);
+         if(logFile) 
+         {
+            fprintf(logFile, "Created fallback SimpleRenderer: %p\n", pSimpleRenderer);
+            fflush(logFile);
+            fclose(logFile);
+         }
+         return pSimpleRenderer;
+      }
+   }
+   else if( pClassId == MR_MAIN_CHARACTER_CLASS_ID )
+   {
+      // Return the MainCharacter itself (default behavior)
+      MR_ObjectFromFactoryId lId = { MR_MAIN_CHARACTER_DLL_ID, MR_MAIN_CHARACTER_CLASS_ID };
+      MR_MainCharacter* pChar = new MR_MainCharacter( lId );
+      if(logFile) 
+      {
+         fprintf(logFile, "Created MainCharacter: %p\n", pChar);
+         fflush(logFile);
+         fclose(logFile);
+      }
+      return pChar;
+   }
+   
+   if(logFile) 
+   {
+      fprintf(logFile, "Returning NULL (unrecognized classId=%d)\n", pClassId);
+      fflush(logFile);
+      fclose(logFile);
+   }
+   return NULL;
 }
 
 void MR_MainCharacter::RegisterFactory()

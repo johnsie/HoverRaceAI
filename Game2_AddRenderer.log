@@ -1,0 +1,42 @@
+AddRenderer called, mRenderer=00000000
+  About to call CreateObject with ID(1,100)
+  SEH EXCEPTION in CreateObject: code=e06d7363, continuing with NULL renderer
+AddRenderer END, mRenderer=00000000
+AddRenderer called, mRenderer=00000000
+  About to call CreateObject with ID(1,100)
+  SEH EXCEPTION in CreateObject: code=e06d7363, continuing with NULL renderer
+AddRenderer END, mRenderer=00000000
+AddRenderer called, mRenderer=00000000
+  About to call CreateObject with ID(1,100)
+  SEH EXCEPTION in CreateObject: code=e06d7363
+    This is a C++ exception - the Model DLL likely threw std::exception
+    This could mean: class not found, factory not registered, or DLL incompatibility
+AddRenderer END, mRenderer=00000000
+AddRenderer called, mRenderer=00000000
+  About to call CreateObject with ID(1,100)
+  SEH EXCEPTION in CreateObject: code=e06d7363
+    This is a C++ exception - the Model DLL likely threw std::exception
+    This could mean: class not found, factory not registered, or DLL incompatibility
+AddRenderer END, mRenderer=00000000
+AddRenderer called, mRenderer=00000000
+  About to call CreateObject with ID(1,100)
+  SEH EXCEPTION in CreateObject: code=e06d7363
+    This is a C++ exception - the Model DLL likely threw std::exception
+    This could mean: class not found, factory not registered, or DLL incompatibility
+AddRenderer END, mRenderer=00000000
+AddRenderer called, mRenderer=00000000
+  About to call CreateObject with ID(5000,100)
+  CreateObject succeeded, mRenderer=0100AE00
+AddRenderer END, mRenderer=0100AE00
+AddRenderer called, mRenderer=00000000
+  About to call CreateObject with ID(5000,100)
+  CreateObject succeeded, mRenderer=011E6790
+AddRenderer END, mRenderer=011E6790
+AddRenderer called, mRenderer=00000000
+  About to call CreateObject with ID(5000,100)
+  CreateObject succeeded, mRenderer=012B69D8
+AddRenderer END, mRenderer=012B69D8
+AddRenderer called, mRenderer=00000000
+  About to call CreateObject with ID(5000,100)
+  CreateObject succeeded, mRenderer=014683A0
+AddRenderer END, mRenderer=014683A0

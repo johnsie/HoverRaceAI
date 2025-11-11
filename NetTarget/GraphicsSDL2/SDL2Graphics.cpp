@@ -183,9 +183,11 @@ bool SDL2GraphicsBackend::Present(const uint8_t* buffer, int width, int height)
     int pitch = width * 3;  // RGB24 with exactly 3 bytes per pixel, no padding
     uint8_t* rgb_buffer = new uint8_t[pitch * height];
     
+    // IMPORTANT: buffer is assumed to have stride == width (linear)
+    // This must match mLineLen from VideoBuffer!
     for (int y = 0; y < height; y++) {
         for (int x = 0; x < width; x++) {
-            uint8_t index = buffer[y * width + x];
+            uint8_t index = buffer[y * width + x];  // Linear stride = width
             int offset = y * pitch + x * 3;
             rgb_buffer[offset + 0] = m_paletteRGB[index*3 + 0];  // R
             rgb_buffer[offset + 1] = m_paletteRGB[index*3 + 1];  // G
@@ -193,25 +195,24 @@ bool SDL2GraphicsBackend::Present(const uint8_t* buffer, int width, int height)
         }
     }
     
-    // Diagnostic: log last row indices and converted RGB on frame 1 to verify buffer integrity
-    if (frame_count == 1) {
+    // Diagnostic: log last row indices on first successful call
+    static bool diagLogged = false;
+    if (!diagLogged) {
+        diagLogged = true;
         FILE* diagLog = fopen("C:\\originalhr\\HoverRace\\Release\\sdl2_present_diag.log", "w");
         if (diagLog) {
-            fprintf(diagLog, "Diagnostic buffer check (frame 1):\n");
-            fprintf(diagLog, "Buffer size: %d x %d = %d bytes\n", width, height, width * height);
-            fprintf(diagLog, "RGB buffer size: %d x %d = %d bytes\n", width, height, pitch * height);
-            fprintf(diagLog, "Pitch: %d\n", pitch);
-            fprintf(diagLog, "\nLast 3 rows (starting at y=%d):\n", height - 3);
-            for (int y = height - 3; y < height; y++) {
-                fprintf(diagLog, "Row y=%d: ", y);
-                int rowStart = y * width;
-                for (int x = 0; x < width; x++) {
-                    uint8_t idx = buffer[rowStart + x];
-                    fprintf(diagLog, "%3d ", idx);
-                    if ((x + 1) % 20 == 0) fprintf(diagLog, "\n            ");
-                }
-                fprintf(diagLog, "\n");
+            fprintf(diagLog, "Diagnostic buffer check (first Present call):\n");
+            fprintf(diagLog, "width=%d, height=%d, pitch=%d\n", width, height, pitch);
+            fprintf(diagLog, "Buffer total size: %d bytes\n", width * height);
+            fprintf(diagLog, "RGB buffer total size: %d bytes\n", pitch * height);
+            fprintf(diagLog, "\nSample from near bottom (y=%d):\n", height - 2);
+            int y = height - 2;
+            fprintf(diagLog, "Row %d first 40 indices: ", y);
+            for (int x = 0; x < 40 && x < width; x++) {
+                uint8_t idx = buffer[y * width + x];
+                fprintf(diagLog, "%3d ", idx);
             }
+            fprintf(diagLog, "\n");
             fflush(diagLog);
             fclose(diagLog);
         }

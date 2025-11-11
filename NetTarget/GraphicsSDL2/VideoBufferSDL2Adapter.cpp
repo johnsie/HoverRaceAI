@@ -86,6 +86,11 @@ bool VideoBufferSDL2Adapter::Lock(uint8_t*& outBuffer)
     if (!m_buffer)
         return false;
 
+    // Clear the buffer to black (index 0) at the start of each frame
+    // This ensures no garbage from previous frames persists
+    // while keeping the same buffer pointer for rendering consistency
+    memset(m_buffer, 0, m_width * m_height);
+
     m_locked = true;
     outBuffer = m_buffer;
     return true;

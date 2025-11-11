@@ -25,7 +25,7 @@
 #include "DefaultSurface.h"
 #include "WoodSurface.h"
 #include "BallElement.h"
-#include "BabeElement.h"
+// #include "BabeElement.h"  // File not found - not used
 #include "TestElement.h"
 #include "GenericRenderer.h"
 #include "FuelSource.h"
@@ -121,9 +121,9 @@ MR_ObjectFromFactory* MR_GetObject( MR_UInt16 pClassId )
          lReturnValue = new MR_TestElement( lId, MR_DEMO_FIGHTER );
          break;
 
-      case 11:
-         lReturnValue = new MR_BabeElement( lId );
-         break;
+      // case 11: BabeElement not available
+      //   lReturnValue = new MR_BabeElement( lId );
+      //   break;
 
       case 12:
          lReturnValue = new MR_BallElement( lId );

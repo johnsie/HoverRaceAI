@@ -1,0 +1,4 @@
+FactoryFunc called with pClassId=1
+  Created MainCharacter: 014738F0
+FactoryFunc called with pClassId=100
+  Created SimpleRenderer: 014683A0

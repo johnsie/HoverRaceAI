@@ -1,0 +1,172 @@
+MSBuild version 17.9.5+33de0b227 for .NET Framework
+Build started 11/11/2025 22:06:58.
+
+Project "C:\originalhr\HoverRace\NetTarget\ObjFac1\ObjFac1.vcxproj" on node 1 (Build target(s)).
+PrepareForBuild:
+  Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
+InitializeBuildStatus:
+  Touching "Release\ObjFac1.tlog\unsuccessfulbuild".
+Project "C:\originalhr\HoverRace\NetTarget\ObjFac1\ObjFac1.vcxproj" (1) is building "C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj" (2:3) on node 1 (GetProjectInfoForReference target(s)).
+PrepareForBuild:
+  Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
+Done Building Project "C:\originalhr\HoverRace\NetTarget\Util\Util.vcxproj" (GetProjectInfoForReference target(s)).
+Project "C:\originalhr\HoverRace\NetTarget\ObjFac1\ObjFac1.vcxproj" (1) is building "C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj" (3:3) on node 1 (GetProjectInfoForReference target(s)).
+PrepareForBuild:
+  Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
+Done Building Project "C:\originalhr\HoverRace\NetTarget\VideoServices\VideoServices.vcxproj" (GetProjectInfoForReference target(s)).
+Project "C:\originalhr\HoverRace\NetTarget\ObjFac1\ObjFac1.vcxproj" (1) is building "C:\originalhr\HoverRace\NetTarget\Model\Model.vcxproj" (4:3) on node 1 (GetProjectInfoForReference target(s)).
+PrepareForBuild:
+  Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
+Done Building Project "C:\originalhr\HoverRace\NetTarget\Model\Model.vcxproj" (GetProjectInfoForReference target(s)).
+Project "C:\originalhr\HoverRace\NetTarget\ObjFac1\ObjFac1.vcxproj" (1) is building "C:\originalhr\HoverRace\NetTarget\ObjFacTools\ObjFacTools.vcxproj" (5:3) on node 1 (GetProjectInfoForReference target(s)).
+PrepareForBuild:
+  Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
+Done Building Project "C:\originalhr\HoverRace\NetTarget\ObjFacTools\ObjFacTools.vcxproj" (GetProjectInfoForReference target(s)).
+Project "C:\originalhr\HoverRace\NetTarget\ObjFac1\ObjFac1.vcxproj" (1) is building "C:\originalhr\HoverRace\NetTarget\ColorTools\ColorTools.vcxproj" (6:3) on node 1 (GetProjectInfoForReference target(s)).
+PrepareForBuild:
+  Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
+Done Building Project "C:\originalhr\HoverRace\NetTarget\ColorTools\ColorTools.vcxproj" (GetProjectInfoForReference target(s)).
+ClCompile:
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\bin\HostX86\x86\CL.exe /c /I\gdk\sdk\inc /I"C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include" /I"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include" /Zi /nologo /W4 /WX- /diagnostics:column /O2 /Oy- /D NDEBUG /D WIN32 /D _WINDOWS /D _MBCS /D _AFXDLL /D _WINDLL /D _WINDLL /D _MBCS /D _AFXDLL /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Yc"stdafx.h" /Fp"Release\ObjFac1.pch" /Fo"Release\\" /Fd"Release\vc143.pdb" /external:W4 /Gd /TP /analyze- /FC /errorReport:queue StdAfx.cpp
+  StdAfx.cpp
+  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(880,1): warning C4005: '_MSVC_STL_VERSION': macro redefinition [C:\originalhr\HoverRace\NetTarget\ObjFac1\ObjFac1.vcxproj]
+  (compiling source file 'StdAfx.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(156,1):
+  see previous definition of '_MSVC_STL_VERSION'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(881,1): warning C4005: '_MSVC_STL_UPDATE': macro redefinition [C:\originalhr\HoverRace\NetTarget\ObjFac1\ObjFac1.vcxproj]
+  (compiling source file 'StdAfx.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(157,1):
+  see previous definition of '_MSVC_STL_UPDATE'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1000,1): warning C4005: '_DEPRECATE_TR1_NAMESPACE': macro redefinition [C:\originalhr\HoverRace\NetTarget\ObjFac1\ObjFac1.vcxproj]
+  (compiling source file 'StdAfx.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(247,1):
+  see previous definition of '_DEPRECATE_TR1_NAMESPACE'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1014,1): warning C4005: '_MISMATCHED_ALLOCATOR_MESSAGE': macro redefinition [C:\originalhr\HoverRace\NetTarget\ObjFac1\ObjFac1.vcxproj]
+  (compiling source file 'StdAfx.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(303,1):
+  see previous definition of '_MISMATCHED_ALLOCATOR_MESSAGE'
+  
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\bin\HostX86\x86\CL.exe /c /I\gdk\sdk\inc /I"C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include" /I"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include" /Zi /nologo /W4 /WX- /diagnostics:column /O2 /Oy- /D NDEBUG /D WIN32 /D _WINDOWS /D _MBCS /D _AFXDLL /D _WINDLL /D _WINDLL /D _MBCS /D _AFXDLL /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Yu"stdafx.h" /Fp"Release\ObjFac1.pch" /Fo"Release\\" /Fd"Release\vc143.pdb" /external:W4 /Gd /TP /analyze- /FC /errorReport:queue BallElement.cpp BumperGate.cpp DoubleSpeedSource.cpp FinishLine.cpp FuelSource.cpp GenericRenderer.cpp HoverRender.cpp main.cpp Mine.cpp Missile.cpp PowerUp.cpp TestElement.cpp
+  BallElement.cpp
+  BumperGate.cpp
+C:\originalhr\HoverRace\NetTarget\ObjFac1\BumperGate.cpp(115,69): warning C4100: 'pLevel': unreferenced formal parameter [C:\originalhr\HoverRace\NetTarget\ObjFac1\ObjFac1.vcxproj]
+  (compiling source file '/BumperGate.cpp')
+  
+C:\originalhr\HoverRace\NetTarget\ObjFac1\BumperGate.cpp(145,153): warning C4100: 'pHorizontalDirection': unreferenced formal parameter [C:\originalhr\HoverRace\NetTarget\ObjFac1\ObjFac1.vcxproj]
+  (compiling source file '/BumperGate.cpp')
+  
+C:\originalhr\HoverRace\NetTarget\ObjFac1\BumperGate.cpp(145,127): warning C4100: 'pValidDirection': unreferenced formal parameter [C:\originalhr\HoverRace\NetTarget\ObjFac1\ObjFac1.vcxproj]
+  (compiling source file '/BumperGate.cpp')
+  
+C:\originalhr\HoverRace\NetTarget\ObjFac1\BumperGate.cpp(145,111): warning C4100: 'pDuration': unreferenced formal parameter [C:\originalhr\HoverRace\NetTarget\ObjFac1\ObjFac1.vcxproj]
+  (compiling source file '/BumperGate.cpp')
+  
+C:\originalhr\HoverRace\NetTarget\ObjFac1\BumperGate.cpp(145,86): warning C4100: 'pTime': unreferenced formal parameter [C:\originalhr\HoverRace\NetTarget\ObjFac1\ObjFac1.vcxproj]
+  (compiling source file '/BumperGate.cpp')
+  
+  DoubleSpeedSource.cpp
+  FinishLine.cpp
+  FuelSource.cpp
+  GenericRenderer.cpp
+  HoverRender.cpp
+C:\originalhr\HoverRace\NetTarget\ObjFac1\HoverRender.cpp(35,2): warning C4091: 'static ': ignored on left of 'MR_ResActorFriend' when no variable is declared [C:\originalhr\HoverRace\NetTarget\ObjFac1\ObjFac1.vcxproj]
+  (compiling source file '/HoverRender.cpp')
+  
+  main.cpp
+C:\originalhr\HoverRace\NetTarget\ObjFac1\HoverRender.cpp(184,97): error C2065: 'MR_ECAR_COCKPIT': undeclared identifier [C:\originalhr\HoverRace\NetTarget\ObjFac1\ObjFac1.vcxproj]
+  (compiling source file '/HoverRender.cpp')
+  
+C:\originalhr\HoverRace\NetTarget\ObjFac1\main.cpp(28,10): error C1083: Cannot open include file: 'BabeElement.h': No such file or directory [C:\originalhr\HoverRace\NetTarget\ObjFac1\ObjFac1.vcxproj]
+  (compiling source file '/main.cpp')
+  
+  Mine.cpp
+C:\originalhr\HoverRace\NetTarget\ObjFac1\Mine.cpp(124,32): warning C4244: '-=': conversion from 'double' to 'MR_Int32', possible loss of data [C:\originalhr\HoverRace\NetTarget\ObjFac1\ObjFac1.vcxproj]
+  (compiling source file '/Mine.cpp')
+  
+C:\originalhr\HoverRace\NetTarget\ObjFac1\Mine.cpp(177,38): warning C4244: '=': conversion from 'const MR_Int32' to 'MR_Int16', possible loss of data [C:\originalhr\HoverRace\NetTarget\ObjFac1\ObjFac1.vcxproj]
+  (compiling source file '/Mine.cpp')
+  
+  Missile.cpp
+C:\originalhr\HoverRace\NetTarget\ObjFac1\Missile.cpp(114,41): warning C4244: '=': conversion from 'double' to 'MR_Int32', possible loss of data [C:\originalhr\HoverRace\NetTarget\ObjFac1\ObjFac1.vcxproj]
+  (compiling source file '/Missile.cpp')
+  
+C:\originalhr\HoverRace\NetTarget\ObjFac1\Missile.cpp(115,41): warning C4244: '=': conversion from 'double' to 'MR_Int32', possible loss of data [C:\originalhr\HoverRace\NetTarget\ObjFac1\ObjFac1.vcxproj]
+  (compiling source file '/Missile.cpp')
+  
+C:\originalhr\HoverRace\NetTarget\ObjFac1\Missile.cpp(238,31): warning C4244: '=': conversion from 'double' to 'MR_Int32', possible loss of data [C:\originalhr\HoverRace\NetTarget\ObjFac1\ObjFac1.vcxproj]
+  (compiling source file '/Missile.cpp')
+  
+C:\originalhr\HoverRace\NetTarget\ObjFac1\Missile.cpp(239,31): warning C4244: '=': conversion from 'double' to 'MR_Int32', possible loss of data [C:\originalhr\HoverRace\NetTarget\ObjFac1\ObjFac1.vcxproj]
+  (compiling source file '/Missile.cpp')
+  
+C:\originalhr\HoverRace\NetTarget\ObjFac1\Missile.cpp(303,108): warning C4100: 'pDuration': unreferenced formal parameter [C:\originalhr\HoverRace\NetTarget\ObjFac1\ObjFac1.vcxproj]
+  (compiling source file '/Missile.cpp')
+  
+C:\originalhr\HoverRace\NetTarget\ObjFac1\Missile.cpp(303,83): warning C4100: 'pTime': unreferenced formal parameter [C:\originalhr\HoverRace\NetTarget\ObjFac1\ObjFac1.vcxproj]
+  (compiling source file '/Missile.cpp')
+  
+C:\originalhr\HoverRace\NetTarget\ObjFac1\Missile.cpp(360,38): warning C4244: '=': conversion from 'const MR_Int32' to 'MR_Int16', possible loss of data [C:\originalhr\HoverRace\NetTarget\ObjFac1\ObjFac1.vcxproj]
+  (compiling source file '/Missile.cpp')
+  
+C:\originalhr\HoverRace\NetTarget\ObjFac1\Missile.cpp(364,29): warning C4244: '=': conversion from 'const int' to 'MR_Int8', possible loss of data [C:\originalhr\HoverRace\NetTarget\ObjFac1\ObjFac1.vcxproj]
+  (compiling source file '/Missile.cpp')
+  
+  PowerUp.cpp
+C:\originalhr\HoverRace\NetTarget\ObjFac1\PowerUp.cpp(166,38): warning C4244: '=': conversion from 'const MR_Int32' to 'MR_Int16', possible loss of data [C:\originalhr\HoverRace\NetTarget\ObjFac1\ObjFac1.vcxproj]
+  (compiling source file '/PowerUp.cpp')
+  
+  TestElement.cpp
+C:\originalhr\HoverRace\NetTarget\ObjFac1\TestElement.cpp(147,112): warning C4100: 'pDuration': unreferenced formal parameter [C:\originalhr\HoverRace\NetTarget\ObjFac1\ObjFac1.vcxproj]
+  (compiling source file '/TestElement.cpp')
+  
+C:\originalhr\HoverRace\NetTarget\ObjFac1\TestElement.cpp(147,87): warning C4100: 'pTime': unreferenced formal parameter [C:\originalhr\HoverRace\NetTarget\ObjFac1\ObjFac1.vcxproj]
+  (compiling source file '/TestElement.cpp')
+  
+  Generating Code...
+Done Building Project "C:\originalhr\HoverRace\NetTarget\ObjFac1\ObjFac1.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+"C:\originalhr\HoverRace\NetTarget\ObjFac1\ObjFac1.vcxproj" (Build target) (1) ->
+(ClCompile target) -> 
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(880,1): warning C4005: '_MSVC_STL_VERSION': macro redefinition [C:\originalhr\HoverRace\NetTarget\ObjFac1\ObjFac1.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(881,1): warning C4005: '_MSVC_STL_UPDATE': macro redefinition [C:\originalhr\HoverRace\NetTarget\ObjFac1\ObjFac1.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1000,1): warning C4005: '_DEPRECATE_TR1_NAMESPACE': macro redefinition [C:\originalhr\HoverRace\NetTarget\ObjFac1\ObjFac1.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1014,1): warning C4005: '_MISMATCHED_ALLOCATOR_MESSAGE': macro redefinition [C:\originalhr\HoverRace\NetTarget\ObjFac1\ObjFac1.vcxproj]
+
+
+"C:\originalhr\HoverRace\NetTarget\ObjFac1\ObjFac1.vcxproj" (Build target) (1) ->
+  C:\originalhr\HoverRace\NetTarget\ObjFac1\BumperGate.cpp(115,69): warning C4100: 'pLevel': unreferenced formal parameter [C:\originalhr\HoverRace\NetTarget\ObjFac1\ObjFac1.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\ObjFac1\BumperGate.cpp(145,153): warning C4100: 'pHorizontalDirection': unreferenced formal parameter [C:\originalhr\HoverRace\NetTarget\ObjFac1\ObjFac1.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\ObjFac1\BumperGate.cpp(145,127): warning C4100: 'pValidDirection': unreferenced formal parameter [C:\originalhr\HoverRace\NetTarget\ObjFac1\ObjFac1.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\ObjFac1\BumperGate.cpp(145,111): warning C4100: 'pDuration': unreferenced formal parameter [C:\originalhr\HoverRace\NetTarget\ObjFac1\ObjFac1.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\ObjFac1\BumperGate.cpp(145,86): warning C4100: 'pTime': unreferenced formal parameter [C:\originalhr\HoverRace\NetTarget\ObjFac1\ObjFac1.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\ObjFac1\HoverRender.cpp(35,2): warning C4091: 'static ': ignored on left of 'MR_ResActorFriend' when no variable is declared [C:\originalhr\HoverRace\NetTarget\ObjFac1\ObjFac1.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\ObjFac1\Mine.cpp(124,32): warning C4244: '-=': conversion from 'double' to 'MR_Int32', possible loss of data [C:\originalhr\HoverRace\NetTarget\ObjFac1\ObjFac1.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\ObjFac1\Mine.cpp(177,38): warning C4244: '=': conversion from 'const MR_Int32' to 'MR_Int16', possible loss of data [C:\originalhr\HoverRace\NetTarget\ObjFac1\ObjFac1.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\ObjFac1\Missile.cpp(114,41): warning C4244: '=': conversion from 'double' to 'MR_Int32', possible loss of data [C:\originalhr\HoverRace\NetTarget\ObjFac1\ObjFac1.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\ObjFac1\Missile.cpp(115,41): warning C4244: '=': conversion from 'double' to 'MR_Int32', possible loss of data [C:\originalhr\HoverRace\NetTarget\ObjFac1\ObjFac1.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\ObjFac1\Missile.cpp(238,31): warning C4244: '=': conversion from 'double' to 'MR_Int32', possible loss of data [C:\originalhr\HoverRace\NetTarget\ObjFac1\ObjFac1.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\ObjFac1\Missile.cpp(239,31): warning C4244: '=': conversion from 'double' to 'MR_Int32', possible loss of data [C:\originalhr\HoverRace\NetTarget\ObjFac1\ObjFac1.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\ObjFac1\Missile.cpp(303,108): warning C4100: 'pDuration': unreferenced formal parameter [C:\originalhr\HoverRace\NetTarget\ObjFac1\ObjFac1.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\ObjFac1\Missile.cpp(303,83): warning C4100: 'pTime': unreferenced formal parameter [C:\originalhr\HoverRace\NetTarget\ObjFac1\ObjFac1.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\ObjFac1\Missile.cpp(360,38): warning C4244: '=': conversion from 'const MR_Int32' to 'MR_Int16', possible loss of data [C:\originalhr\HoverRace\NetTarget\ObjFac1\ObjFac1.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\ObjFac1\Missile.cpp(364,29): warning C4244: '=': conversion from 'const int' to 'MR_Int8', possible loss of data [C:\originalhr\HoverRace\NetTarget\ObjFac1\ObjFac1.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\ObjFac1\PowerUp.cpp(166,38): warning C4244: '=': conversion from 'const MR_Int32' to 'MR_Int16', possible loss of data [C:\originalhr\HoverRace\NetTarget\ObjFac1\ObjFac1.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\ObjFac1\TestElement.cpp(147,112): warning C4100: 'pDuration': unreferenced formal parameter [C:\originalhr\HoverRace\NetTarget\ObjFac1\ObjFac1.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\ObjFac1\TestElement.cpp(147,87): warning C4100: 'pTime': unreferenced formal parameter [C:\originalhr\HoverRace\NetTarget\ObjFac1\ObjFac1.vcxproj]
+
+
+"C:\originalhr\HoverRace\NetTarget\ObjFac1\ObjFac1.vcxproj" (Build target) (1) ->
+(ClCompile target) -> 
+  C:\originalhr\HoverRace\NetTarget\ObjFac1\HoverRender.cpp(184,97): error C2065: 'MR_ECAR_COCKPIT': undeclared identifier [C:\originalhr\HoverRace\NetTarget\ObjFac1\ObjFac1.vcxproj]
+  C:\originalhr\HoverRace\NetTarget\ObjFac1\main.cpp(28,10): error C1083: Cannot open include file: 'BabeElement.h': No such file or directory [C:\originalhr\HoverRace\NetTarget\ObjFac1\ObjFac1.vcxproj]
+
+    23 Warning(s)
+    2 Error(s)
+
+Time Elapsed 00:00:03.17

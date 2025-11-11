@@ -708,20 +708,17 @@ BOOL MR_VideoBuffer::SetVideoMode()
       // Configure SDL2 adapter for rendering
       mLineLen = mXRes;
       
-      // CRITICAL FIX: Allocate the rendering buffer for game code to write to
-      // The adapter has its own buffer, but VideoBuffer.mBuffer must be allocated
-      // so that rendering code (game logic) has a surface to draw on
-      if( mBuffer == NULL )
+      // CRITICAL: In SDL2 mode, let the adapter manage the buffer
+      // DO NOT allocate a separate buffer here - the adapter provides the buffer via Lock()
+      // mBuffer will be assigned when rendering calls Lock(), which will get the adapter's buffer
+      PRINT_LOG( "SDL2Graphics mode: mBuffer will be provided by adapter during Lock()" );
+      
+      // Verify mBuffer is NULL so Lock() will call the adapter
+      if( mBuffer != NULL )
       {
-         mBuffer = new MR_UInt8[ mXRes * mYRes ];
-         if( mBuffer == NULL )
-         {
-            PRINT_LOG( "ERROR: Failed to allocate rendering buffer for SDL2Graphics" );
-            ShutdownSDL2Graphics();
-            mModeSettingInProgress = FALSE;
-            return FALSE;
-         }
-         PRINT_LOG( "Allocated SDL2 rendering buffer: %dx%d (%d bytes)", mXRes, mYRes, mXRes * mYRes );
+         delete[] mBuffer;
+         mBuffer = NULL;
+         PRINT_LOG( "Cleared pre-existing mBuffer to use adapter's buffer" );
       }
       
       FILE* debugLog = fopen("c:\\originalhr\\HoverRace\\Release\\Debug_VideoBuffer.log", "a");
@@ -1188,7 +1185,11 @@ BOOL MR_VideoBuffer::Lock()
       // SDL2Graphics mode - use adapter for buffer access
       PRINT_LOG( "Lock: SDL2Graphics mode - requesting buffer" );
       FILE *logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_VideoBuffer_Lock.log", "a");
-      if(logFile) { fprintf(logFile, "Lock: About to call g_SDL2GraphicsAdapter->Lock(), adapter=%p\n", g_SDL2GraphicsAdapter); fflush(logFile); fclose(logFile); }
+      if(logFile) { 
+         fprintf(logFile, "Lock: Before Lock() - mXRes=%d, mYRes=%d, mLineLen=%d, mBuffer=%p\n", mXRes, mYRes, mLineLen, mBuffer);
+         fprintf(logFile, "Lock: About to call g_SDL2GraphicsAdapter->Lock(), adapter=%p\n", g_SDL2GraphicsAdapter); 
+         fflush(logFile); fclose(logFile); 
+      }
       
       uint8_t* lBuffer = nullptr;
       
@@ -1197,7 +1198,11 @@ BOOL MR_VideoBuffer::Lock()
          if( g_SDL2GraphicsAdapter->Lock( lBuffer ) )
          {
             logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_VideoBuffer_Lock.log", "a");
-            if(logFile) { fprintf(logFile, "Lock: Lock() succeeded, buffer=%p\n", lBuffer); fflush(logFile); fclose(logFile); }
+            if(logFile) { 
+               fprintf(logFile, "Lock: Lock() succeeded, buffer=%p (mXRes=%d, mYRes=%d, expected size=%d)\n", 
+                       lBuffer, mXRes, mYRes, mXRes * mYRes);
+               fflush(logFile); fclose(logFile); 
+            }
             
             mBuffer = lBuffer;
             PRINT_LOG( "Lock: SDL2Graphics buffer acquired, returning TRUE" );
@@ -1304,6 +1309,9 @@ BOOL MR_VideoBuffer::Lock()
 
 void MR_VideoBuffer::Unlock()
 {
+   FILE *debugLog = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_Unlock_Called.log", "a");
+   if(debugLog) { fprintf(debugLog, "Unlock() called\n"); fflush(debugLog); fclose(debugLog); }
+   
    PRINT_LOG( "Unlock: START" );
 
    MR_SAMPLE_CONTEXT( "UnlockVideoBuffer" );
@@ -1315,12 +1323,31 @@ void MR_VideoBuffer::Unlock()
    }
 
    PRINT_LOG( "Unlock: Buffer OK, checking mode" );
+   
+   FILE *logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_Unlock_Path.log", "a");
+   if(logFile) {
+      fprintf(logFile, "Unlock called: mBuffer=%p, IsSDL2Available=%d, adapter=%p\n", 
+              mBuffer, IsSDL2GraphicsAvailable(), g_SDL2GraphicsAdapter);
+      fprintf(logFile, "  mBackBuffer=%p, mDirectDraw=%p\n", mBackBuffer, mDirectDraw);
+      fflush(logFile);
+   }
 
    // Check if we're in SDL2Graphics mode (modern graphics backend)
    if( IsSDL2GraphicsAvailable() && g_SDL2GraphicsAdapter != NULL )
    {
+      if(logFile) {
+         fprintf(logFile, "  -> Taking SDL2Graphics path\n");
+         fflush(logFile); fclose(logFile);
+      }
       // SDL2Graphics mode - pass our buffer to adapter for display
       PRINT_LOG( "Unlock: SDL2Graphics mode, calling adapter Unlock with buffer=%p", mBuffer );
+      FILE *logFile2 = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_VideoBuffer_Unlock.log", "a");
+      if(logFile2) {
+         fprintf(logFile2, "Unlock: SDL2Graphics mode - buffer=%p, mXRes=%d, mYRes=%d, mLineLen=%d\n", 
+                 mBuffer, mXRes, mYRes, mLineLen);
+         fflush(logFile2); fclose(logFile2);
+      }
+      
       g_SDL2GraphicsAdapter->Unlock(mBuffer);  // Pass our buffer for display
       mBuffer = NULL;  // Reset buffer pointer after unlock
       PRINT_LOG( "Unlock: END (SDL2Graphics mode)" );
@@ -1330,14 +1357,21 @@ void MR_VideoBuffer::Unlock()
    // Check if we're in GDI fallback mode (mBackBuffer is NULL but mBuffer is allocated)
    if( mBackBuffer == NULL )
    {
+      if(logFile) {
+         fprintf(logFile, "  -> Taking GDI fallback path\n");
+         fflush(logFile); fclose(logFile);
+      }
       // GDI fallback mode - buffer is in system memory
       PRINT_LOG( "Unlock: Detected GDI mode, calling Flip()" );
       Flip();  // Display the buffer
       PRINT_LOG( "Unlock: END (GDI mode)" );
       return;
    }
-
-   PRINT_LOG( "Unlock: DirectDraw mode" );
+   
+   if(logFile) {
+      fprintf(logFile, "  -> Taking DirectDraw path\n");
+      fflush(logFile); fclose(logFile);
+   }
 
    // DirectDraw mode - follow original path
    if( mDirectDraw == NULL )

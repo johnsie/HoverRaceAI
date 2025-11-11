@@ -1,0 +1,54 @@
+
+=== FactoryFunc called with pClassId=1 ===
+Created MainCharacter: 010C67A0
+
+=== FactoryFunc called with pClassId=100 ===
+Attempting to create HoverRender from ObjFac1(DLL=1, Class=100)
+EXCEPTION caught in CreateObject
+ERROR: Failed to get HoverRender from ObjFac1!
+ObjFac1 is broken/missing - falling back to SimpleRenderer
+This means:
+  1. ObjFac1.dll is not in the Release folder
+  2. ObjFac1.dll failed to load
+  3. Class 100 does not exist in ObjFac1
+  4. DLL factory system is not initialized
+Created fallback SimpleRenderer: 010BC7A8
+
+=== FactoryFunc called with pClassId=1 ===
+Created MainCharacter: 01185048
+
+=== FactoryFunc called with pClassId=100 ===
+Attempting to create HoverRender from ObjFac1(DLL=1, Class=100)
+EXCEPTION caught in CreateObject
+ERROR: Failed to get HoverRender from ObjFac1!
+ObjFac1 is broken/missing - falling back to SimpleRenderer
+This means:
+  1. ObjFac1.dll is not in the Release folder
+  2. ObjFac1.dll failed to load
+  3. Class 100 does not exist in ObjFac1
+  4. DLL factory system is not initialized
+Created fallback SimpleRenderer: 0117B298
+
+=== FactoryFunc called with pClassId=1 ===
+Created MainCharacter: 015DA5C8
+
+=== FactoryFunc called with pClassId=100 ===
+Attempting to create HoverRender from ObjFac1(DLL=1, Class=100)
+EXCEPTION caught in CreateObject
+ERROR: Failed to get HoverRender from ObjFac1!
+ObjFac1 is broken/missing - falling back to SimpleRenderer
+This means:
+  1. ObjFac1.dll is not in the Release folder
+  2. ObjFac1.dll failed to load
+  3. Class 100 does not exist in ObjFac1
+  4. DLL factory system is not initialized
+Created fallback SimpleRenderer: 015F32E8
+
+=== FactoryFunc called with pClassId=1 ===
+Created MainCharacter: 0169AB70
+
+=== FactoryFunc called with pClassId=100 ===
+Attempting to create HoverRender from ObjFac1(DLL=1, Class=100)
+CreateObject returned: 0165E278
+SUCCESS: Got HoverRender from ObjFac1: 0165E278
+Using PROPER 3D hovercraft rendering
