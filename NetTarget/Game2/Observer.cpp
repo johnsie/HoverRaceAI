@@ -452,19 +452,6 @@ void MR_Observer::DrawWFSection( const MR_Level* pLevel, const MR_SectionId& pSe
 
 void MR_Observer::Render3DView( const MR_ClientSession* pSession, const MR_MainCharacter* pViewingCharacter, MR_SimulationTime pTime, const MR_UInt8* pBackImage )
 {
-   static int render_3d_call_count = 0;
-   if(render_3d_call_count % 100 == 0) {
-      FILE* logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_Render3DView.log", "a");
-      if(logFile) {
-         fprintf(logFile, "Render3DView called #%d: pSession=%p, pViewingCharacter=%p, room=%d\n",
-            render_3d_call_count, pSession, pViewingCharacter,
-            pViewingCharacter ? pViewingCharacter->mRoom : -999);
-         fflush(logFile);
-         fclose(logFile);
-      }
-   }
-   render_3d_call_count++;
-
    // Safe entry guards - check all pointers before proceeding
    if(pSession == NULL || pViewingCharacter == NULL) {
       return;
@@ -480,42 +467,18 @@ void MR_Observer::Render3DView( const MR_ClientSession* pSession, const MR_MainC
    }
 
    // DEFENSIVE: Check if character position is valid (within reasonable bounds)
-   // If not, it might be uninitialized garbage - clamp or reset it
+   // If not, it might be uninitialized garbage - skip rendering
    const double POSITION_BOUNDS = 1000000.0;  // Max reasonable position value
    BOOL position_valid = (pViewingCharacter->mPosition.mX > -POSITION_BOUNDS && pViewingCharacter->mPosition.mX < POSITION_BOUNDS &&
                           pViewingCharacter->mPosition.mY > -POSITION_BOUNDS && pViewingCharacter->mPosition.mY < POSITION_BOUNDS &&
                           pViewingCharacter->mPosition.mZ > -POSITION_BOUNDS && pViewingCharacter->mPosition.mZ < POSITION_BOUNDS);
    
    if(!position_valid) {
-      // Position is corrupted - attempt to get valid starting position
-      FILE* logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_Character_Debug.log", "a");
-      if(logFile) {
-         fprintf(logFile, "INVALID POSITION DETECTED: pos=(%.2e, %.2e, %.2e), Room=%d\n",
-            pViewingCharacter->mPosition.mX, pViewingCharacter->mPosition.mY, pViewingCharacter->mPosition.mZ,
-            pViewingCharacter->mRoom);
-         fflush(logFile);
-         fclose(logFile);
-      }
-      // Skip rendering for now - don't attempt to render with garbage coordinates
+      // Position is corrupted - skip rendering to prevent crash
       m3DView.Clear(0);
       m3DView.ClearZ();
       return;
    }
-
-   // Log character position and room info
-   static int frame_counter = 0;
-   if(frame_counter % 100 == 0) {
-      FILE* logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_Character_Debug.log", "a");
-      if(logFile) {
-         fprintf(logFile, "Frame %d: Character pos=(%.1f, %.1f, %.1f), Room=%d, Speed=%.2f, Time=%d\n",
-            frame_counter, pViewingCharacter->mPosition.mX, pViewingCharacter->mPosition.mY, 
-            pViewingCharacter->mPosition.mZ, pViewingCharacter->mRoom, 
-            pViewingCharacter->GetAbsoluteSpeed(), pTime);
-         fflush(logFile);
-         fclose(logFile);
-      }
-   }
-   frame_counter++;
 
    // STAGE 1: Camera Setup - Safe, low-level rendering 
    MR_3DCoordinate lCameraPos;
@@ -633,9 +596,6 @@ void MR_Observer::Render3DView( const MR_ClientSession* pSession, const MR_MainC
    __try {
       int lRoomCount;
       const int* lRoomList  = lLevel->GetVisibleZones( lRoom, lRoomCount );
-      
-      FILE* logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_Actor_Render.log", "a");
-      if(logFile) { fprintf(logFile, "Actor rendering: Room=%d, VisibleRooms=%d\n", lRoom, lRoomCount); fflush(logFile); }
 
       for( int lCounter = -1; lCounter < lRoomCount; lCounter++ )
       {
@@ -652,7 +612,6 @@ void MR_Observer::Render3DView( const MR_ClientSession* pSession, const MR_MainC
 
          MR_FreeElementHandle lHandle = lLevel->GetFirstFreeElement( lRoomId );
          
-         int actor_count = 0;
          while( lHandle != NULL )
          {
             MR_FreeElement* lElement = MR_Level::GetFreeElement( lHandle );
@@ -668,36 +627,20 @@ void MR_Observer::Render3DView( const MR_ClientSession* pSession, const MR_MainC
                                      y > -1000000 && y < 1000000 && 
                                      z > -1000000 && z < 1000000);
                
-               if(logFile) { fprintf(logFile, "  Actor %d in room %d: pos=(%.1f,%.1f,%.1f) valid=%d\n", 
-                  actor_count, lRoomId, x, y, z, valid_position); fflush(logFile); }
-               
                if(valid_position) {
                   lElement->Render( &m3DView, pTime );
-               } else {
-                  if(logFile) { fprintf(logFile, "    SKIPPED - invalid position\n"); fflush(logFile); }
                }
             }
-            actor_count++;
 
             lHandle = MR_Level::GetNextFreeElement( lHandle );
          }
-         
-         if(logFile && actor_count == 0) { fprintf(logFile, "  No actors in room %d\n", lRoomId); fflush(logFile); }
       }
-      
-      if(logFile) { fprintf(logFile, "Actor rendering complete\n"); fflush(logFile); fclose(logFile); }
    }
    __except(EXCEPTION_EXECUTE_HANDLER) {
       // Actor rendering crashed - continue with what we have
-      FILE* logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_Actor_Render.log", "a");
-      if(logFile) { fprintf(logFile, "EXCEPTION in actor rendering!\n"); fflush(logFile); fclose(logFile); }
    }
 
    // STAGE 5.5: Render the viewing character (player's hovercraft)
-   {
-      FILE* logFile2 = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_ViewingCharacterRender.log", "a");
-      if(logFile2) { fprintf(logFile2, "ENTERING viewing character render stage\n"); fflush(logFile2); fclose(logFile2); }
-   }
    
    // DEFENSIVE: Check if viewing character position is valid before rendering
    const double VIEWING_CHAR_POSITION_BOUND = 100000.0;  // Max reasonable Z coordinate
@@ -1600,27 +1543,17 @@ void MR_Observer::RenderDebugDisplay( MR_VideoBuffer* pDest, const MR_ClientSess
 // Separate helper to call Render3DView with SEH (no C++ objects requiring unwinding)
 void MR_Observer::CallRender3DViewSafe( const MR_ClientSession* pSession, const MR_MainCharacter* pViewingCharacter, MR_SimulationTime pTime, const MR_UInt8* pBackImage )
 {
-   static int exception_count = 0;
    static int success_count = 0;
-   
-   {
-      FILE* logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_CallRender3DViewSafe.log", "a");
-      if(logFile) {
-         fprintf(logFile, "CallRender3DViewSafe ENTRY: pSession=%p, pViewingCharacter=%p\n", pSession, pViewingCharacter);
-         fflush(logFile);
-         fclose(logFile);
-      }
-   }
    
    // Try to render normally - this function has its own internal try/except blocks
    Render3DView( pSession, pViewingCharacter, pTime, pBackImage );
    success_count++;
    
-   // Log every 1000 successful renders
-   if(success_count % 1000 == 0) {
-      FILE* logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_Observer_Render.log", "a");
+   // Log every 100 successful renders (reduced file I/O)
+   if(success_count % 100 == 0) {
+      FILE* logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_Render_Progress.log", "a");
       if(logFile) { 
-         fprintf(logFile, "CallRender3DViewSafe: %d successful renders, %d exceptions caught\n", success_count, exception_count); 
+         fprintf(logFile, "Frame %d complete\n", success_count); 
          fflush(logFile); 
          fclose(logFile); 
       }

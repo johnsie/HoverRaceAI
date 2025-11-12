@@ -1,26 +1,26 @@
 
 === FactoryFunc called with pClassId=1 ===
-Created MainCharacter: 01672B00
+Created MainCharacter: 06645970
 
 === FactoryFunc called with pClassId=100 ===
 
 ========== CREATING HOVERRENDER ==========
 Attempting to create HoverRender from ObjFac1(DLL=1, Class=100)
-CreateObject returned: 01672CD0
+CreateObject returned: 066569A0
 ========== SUCCESS: Got HoverRender from ObjFac1 =========
-HoverRender object: 01672CD0
+HoverRender object: 066569A0
 Using PROPER 3D hovercraft rendering
 
 
 === FactoryFunc called with pClassId=1 ===
-Created MainCharacter: 01211420
+Created MainCharacter: 06336340
 
 === FactoryFunc called with pClassId=100 ===
 
 ========== CREATING HOVERRENDER ==========
 Attempting to create HoverRender from ObjFac1(DLL=1, Class=100)
-CreateObject returned: 011EA1E8
+CreateObject returned: 0632F760
 ========== SUCCESS: Got HoverRender from ObjFac1 =========
-HoverRender object: 011EA1E8
+HoverRender object: 0632F760
 Using PROPER 3D hovercraft rendering
 

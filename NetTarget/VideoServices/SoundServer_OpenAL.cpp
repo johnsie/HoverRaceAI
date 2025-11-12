@@ -123,8 +123,13 @@ BOOL MR_SoundBuffer::Init(const char* pData, int pNbCopy)
 {
    try
    {
-      if (gOpenALContext == NULL)
+      FILE* debugLog = fopen("C:\\originalhr\\HoverRace\\Release\\Game2_SoundInit_Debug.log", "a");
+      if(debugLog) fprintf(debugLog, "MR_SoundBuffer::Init called - pData=%p, pNbCopy=%d\n", pData, pNbCopy), fflush(debugLog);
+      
+      if (gOpenALContext == NULL) {
+         if(debugLog) fprintf(debugLog, "ERROR: gOpenALContext is NULL\n"), fflush(debugLog), fclose(debugLog);
          return FALSE;
+      }
 
       if (pNbCopy > MR_MAX_SOUND_COPY)
          pNbCopy = MR_MAX_SOUND_COPY;
@@ -135,6 +140,9 @@ BOOL MR_SoundBuffer::Init(const char* pData, int pNbCopy)
       MR_UInt32 lBufferLen = *(MR_UInt32*)pData;
       WAVEFORMATEX* lWaveFormat = (WAVEFORMATEX*)(pData + sizeof(MR_UInt32));
       const char* lSoundData = pData + sizeof(MR_UInt32) + sizeof(WAVEFORMATEX);
+
+      if(debugLog) fprintf(debugLog, "  BufferLen=%d, Channels=%d, BitsPerSample=%d, SamplesPerSec=%d\n", 
+                           lBufferLen, lWaveFormat->nChannels, lWaveFormat->wBitsPerSample, lWaveFormat->nSamplesPerSec), fflush(debugLog);
 
       mNormalFreq = lWaveFormat->nSamplesPerSec;
 
@@ -147,31 +155,46 @@ BOOL MR_SoundBuffer::Init(const char* pData, int pNbCopy)
          format = AL_FORMAT_MONO8;
       else if (lWaveFormat->nChannels == 2 && lWaveFormat->wBitsPerSample == 8)
          format = AL_FORMAT_STEREO8;
-      else
+      else {
+         if(debugLog) fprintf(debugLog, "ERROR: Unsupported format\n"), fflush(debugLog), fclose(debugLog);
          return FALSE;
+      }
 
       // Create first buffer
       alGenBuffers(1, &mALBuffers[0]);
-      if (alGetError() != AL_NO_ERROR)
+      if (alGetError() != AL_NO_ERROR) {
+         if(debugLog) fprintf(debugLog, "ERROR: alGenBuffers failed\n"), fflush(debugLog), fclose(debugLog);
          return FALSE;
+      }
+
+      if(debugLog) fprintf(debugLog, "  Created AL buffer: %u\n", mALBuffers[0]), fflush(debugLog);
 
       alBufferData(mALBuffers[0], format, (void*)lSoundData, lBufferLen, mNormalFreq);
-      if (alGetError() != AL_NO_ERROR)
+      if (alGetError() != AL_NO_ERROR) {
+         if(debugLog) fprintf(debugLog, "ERROR: alBufferData failed\n"), fflush(debugLog), fclose(debugLog);
          return FALSE;
+      }
+
+      if(debugLog) fprintf(debugLog, "  Loaded %d bytes into buffer\n", lBufferLen), fflush(debugLog);
 
       // Create sources for each copy
       for (int i = 0; i < mNbCopy; i++)
       {
          alGenSources(1, &mALSources[i]);
-         if (alGetError() != AL_NO_ERROR)
+         if (alGetError() != AL_NO_ERROR) {
+            if(debugLog) fprintf(debugLog, "ERROR: alGenSources failed for copy %d\n", i), fflush(debugLog), fclose(debugLog);
             return FALSE;
+         }
 
          alSourcei(mALSources[i], AL_BUFFER, mALBuffers[0]);
          alSourcef(mALSources[i], AL_PITCH, 1.0f);
          alSourcef(mALSources[i], AL_GAIN, 1.0f);
          alSource3f(mALSources[i], AL_POSITION, 0, 0, 0);
+         
+         if(debugLog) fprintf(debugLog, "  Created AL source %d: %u\n", i, mALSources[i]), fflush(debugLog);
       }
 
+      if(debugLog) fprintf(debugLog, "MR_SoundBuffer::Init SUCCESS - mNbCopy=%d\n", mNbCopy), fflush(debugLog), fclose(debugLog);
       return TRUE;
    }
    catch (...)

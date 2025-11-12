@@ -70,26 +70,54 @@ void VideoBufferSDL2Adapter::Shutdown()
 
 bool VideoBufferSDL2Adapter::Lock(uint8_t*& outBuffer)
 {
-    // If buffer is already locked, it might be stuck from a previous crash
-    // Log the attempt but proceed
+    // If buffer is already locked, return immediately without clearing
+    // This handles legitimate cases where Lock() is called multiple times
+    // before Unlock() (e.g., during viewport setup or exception handling)
     if (m_locked)
     {
-        // Buffer is still locked from previous attempt
-        // This indicates a crash happened without calling Unlock()
-        // For robustness, we'll force-reset the lock
-        std::ofstream log("C:\\originalhr\\HoverRace\\Release\\sdl2_adapter_debug.log", std::ios::app);
-        log << "WARNING: Lock() called while m_locked=true! Forcibly resetting lock (possible crash recovery)" << std::endl;
-        log.flush();
-        m_locked = false;  // Force reset
+        // Already locked - just return the existing buffer pointer
+        // Do NOT clear the buffer or modify m_locked state
+        if (!m_buffer)
+            return false;
+        outBuffer = m_buffer;
+        return true;
     }
     
     if (!m_buffer)
         return false;
 
+    // DEFENSIVE CHECK: Verify buffer size is valid before memset
+    // If width or height is invalid, this could cause massive memory write
+    if (m_width <= 0 || m_height <= 0)
+    {
+        std::ofstream log("C:\\originalhr\\HoverRace\\Release\\sdl2_adapter_lock_error.log", std::ios::app);
+        log << "ERROR in Lock(): Invalid dimensions - m_width=" << m_width << ", m_height=" << m_height << std::endl;
+        log.flush();
+        return false;
+    }
+
+    // Calculate total buffer size - use long long to detect overflow
+    long long totalSize = (long long)m_width * (long long)m_height;
+    if (totalSize > 1000000)  // Sanity check - reasonable max for retro game
+    {
+        std::ofstream log("C:\\originalhr\\HoverRace\\Release\\sdl2_adapter_lock_error.log", std::ios::app);
+        log << "ERROR in Lock(): Buffer size too large - " << totalSize << " bytes (width=" << m_width << ", height=" << m_height << ")" << std::endl;
+        log.flush();
+        return false;
+    }
+
     // Clear the buffer to black (index 0) at the start of each frame
     // This ensures no garbage from previous frames persists
     // while keeping the same buffer pointer for rendering consistency
-    memset(m_buffer, 0, m_width * m_height);
+    try {
+        memset(m_buffer, 0, (size_t)totalSize);
+    }
+    catch(...) {
+        std::ofstream log("C:\\originalhr\\HoverRace\\Release\\sdl2_adapter_lock_error.log", std::ios::app);
+        log << "EXCEPTION during memset in Lock(): size=" << totalSize << " bytes" << std::endl;
+        log.flush();
+        return false;
+    }
 
     m_locked = true;
     outBuffer = m_buffer;

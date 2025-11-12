@@ -17,7 +17,6 @@ SDL_CreateTexture OK (RGB24 format)
 Palette buffer allocated (0 bytes)
 Initialization successful (waiting for SetPalette to provide real palette)
 Frame: 100
-Frame: 200
 === SDL2Graphics Software Rendering Initialize called ===
 Width: 942, Height: 648
 Window handle valid
@@ -37,5 +36,3 @@ SDL_CreateTexture OK (RGB24 format)
 Palette buffer allocated (0 bytes)
 Initialization successful (waiting for SetPalette to provide real palette)
 Frame: 100
-Frame: 200
-Frame: 300

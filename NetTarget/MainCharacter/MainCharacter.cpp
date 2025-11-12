@@ -151,8 +151,8 @@ class MR_MainCharacterState: private MR_BitPack
    #define  MC_PADDING      141,   11,     0 
    //   #define  MC_SOUNDFX      141,    5,     0 
 
-   // Total                 146  = 19 bytes
-   MR_UInt8  mFieldList[18];
+   // Total                 146  = 19 bytes (146 bits / 8 = 18.25 bytes, rounds up to 19)
+   MR_UInt8  mFieldList[19];
 
    public:
 
@@ -617,8 +617,16 @@ MR_ElementNetState MR_MainCharacter::GetNetState()const
 
 }
 
-void MR_MainCharacter::SetNetState( int /*pDataLen*/, const MR_UInt8* pData )
+void MR_MainCharacter::SetNetState( int pDataLen, const MR_UInt8* pData )
 {
+   // CRITICAL FIX: Validate buffer size before casting to MR_MainCharacterState
+   // The MR_BitPack::Get() method can read up to 4 bytes past the declared
+   // 18-byte mFieldList array, potentially reading adjacent memory
+   if( pDataLen < (int)sizeof( MR_MainCharacterState ) )
+   {
+      ASSERT( FALSE );  // Network message too small!
+      return;
+   }
 
    const MR_MainCharacterState* lState = (const MR_MainCharacterState*)pData;
 
@@ -1580,6 +1588,20 @@ void MR_MainCharacter::PlayInternalSounds()
 {
    if( mRenderer != NULL )
    {
+      // Debug logging
+      static int frameCount = 0;
+      if(frameCount % 100 == 0) {
+         FILE* logFile = fopen("C:\\originalhr\\HoverRace\\Release\\Game2_PlaySound.log", "a");
+         if(logFile) {
+            fprintf(logFile, "[PlayInternalSounds] Frame %d: renderer=%p, motorSound=%p, motorOn=%d, speed=%.2f\n",
+               frameCount, mRenderer, mRenderer->GetMotorSound(), mControlState&eMotorOn, 
+               sqrt(mXSpeed*mXSpeed+mYSpeed*mYSpeed));
+            fflush(logFile);
+            fclose(logFile);
+         }
+      }
+      frameCount++;
+
       // Sound events
       while( !mInternalSoundList.IsEmpty() )
       {
@@ -1592,15 +1614,38 @@ void MR_MainCharacter::PlayInternalSounds()
       MR_ContinuousSound* lMotorSound = mRenderer->GetMotorSound();
       double lAbsSpeed = sqrt( mXSpeed*mXSpeed + mYSpeed*mYSpeed )/(eSteadySpeed[0]);
 
+      static int debugCount = 0;
+      if(debugCount % 100 == 0) {
+         FILE* logFile = fopen("C:\\originalhr\\HoverRace\\Release\\Game2_ContinuousSoundLogic.log", "a");
+         if(logFile) {
+            fprintf(logFile, "[ContinuousSoundLogic] Frame %d: lWindSound=%p, lMotorSound=%p, lAbsSpeed=%.3f, motorOn=%d\n",
+               debugCount, lWindSound, lMotorSound, lAbsSpeed, mControlState&eMotorOn);
+            fflush(logFile);
+            fclose(logFile);
+         }
+      }
+      debugCount++;
 
       if( lAbsSpeed > 0.02 )
       {
+         FILE* logFile = fopen("C:\\originalhr\\HoverRace\\Release\\Game2_PlayingFrictionSound.log", "a");
+         if(logFile) {
+            fprintf(logFile, "[PlayingFrictionSound] lWindSound=%p, speed=%.3f\n", lWindSound, lAbsSpeed);
+            fflush(logFile);
+            fclose(logFile);
+         }
          MR_SoundServer::Play( lWindSound, 0, 0, 1.5*lAbsSpeed );
       }
 
       if( mControlState&eMotorOn )
       {
-         MR_SoundServer::Play( lMotorSound, 0 );
+         FILE* logFile = fopen("C:\\originalhr\\HoverRace\\Release\\Game2_PlayingMotorSound.log", "a");
+         if(logFile) {
+            fprintf(logFile, "[PlayingMotorSound] lMotorSound=%p\n", lMotorSound);
+            fflush(logFile);
+            fclose(logFile);
+         }
+         MR_SoundServer::Play( lMotorSound, 0, 0 );
       }
    }
 }

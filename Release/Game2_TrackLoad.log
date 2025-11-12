@@ -1,16 +1,4 @@
 
-=== WinMain START ===
-Creating MR_GameApp...
-MR_GameApp created successfully
-Checking first instance...
-IsFirstInstance returned: 1
-Skipping DisplayLoginWindow entirely, going straight to game init
-Checking first instance (2nd time)...
-IsFirstInstance (2nd) returned: 1
-Calling InitApplication...
-InitApplication returned: 49379
-Calling InitGame...
-
 --- MR_GameApp::InitGame START ---
 Calling InitCommonControls
 Initializing modules
@@ -35,94 +23,25 @@ lCurrentTrack='ClassicH', lNbLap=5, lAllowWeapons=1
 4b. About to call MR_DllObjectFactory::Init()
 4c. MR_DllObjectFactory::Init() succeeded
 5. About to call MR_Observer::New()
-6. MR_Observer::New() succeeded, pointer: 016678A0
+6. MR_Observer::New() succeeded, pointer: 01647458
 7. About to create new MR_ClientSession
 8. MR_ClientSession created successfully
-8. MR_ClientSession pointer: 0166E0E8
+8. MR_ClientSession pointer: 0160AC10
 About to call MR_TrackOpen for 'ClassicH'
-
-MR_TrackOpen: Opening track 'ClassicH'
-  Searching in: C:\originalhr\HoverRace\Release\tracks\
-  Full search path: C:\originalhr\HoverRace\Release\tracks\ClassicH.trk
-  Found in absolute path
-  Opening file: C:\originalhr\HoverRace\Release\tracks\ClassicH.trk
-  Successfully opened, reading entry
-
-    ReadTrackEntry: Starting to read track
-    Magic number read: 0x142B9 (expected: 0x142B9)
-    Version read: 1
-    Description: 'Level: Easy
-Length: 0.6 km
-Short and fast track
-Lots of curve and no jumps
-
-', Minor ID: 0, Major ID: 0
-    Skipping ID validation (lMajorID=0, pFileName=ClassicH)
-    Sorting index: 30, Registration: 1
-    Final magic number for FREE_TRACK: 0x142B9
-    SUCCESS: Track entry validated
-  Successfully read entry, checking permissions
-MR_TrackOpen returning: 063A83F8
-MR_TrackOpen returned: 063A83F8
+MR_TrackOpen returned: 01637478
 About to call LoadNew()
-
---- MR_ClientSession::LoadNew START ---
-  pTitle='ClassicH'
-  pMazeFile=063A83F8
-  pNbLap=5, pAllowWeapons=1
-  pVideo=0163D398
-  About to call mSession.LoadNew()
-
---- MR_GameSession::LoadNew START ---
-  pTitle='ClassicH'
-  pMazeFile=063A83F8
-  About to call Clean()
-  Clean() succeeded
-  About to call LoadLevel(1)
-
---- MR_GameSession::LoadLevel START (pLevel=1) ---
-  Deleting old level
-  File has 4 records
-  About to create new MR_Level
-  MR_Level created successfully at 0166E1E0
-  Selecting record 1
-  Record selected
-  About to create CArchive for deserialization
-  CArchive created
-  About to deserialize level
-  Level deserialized successfully
---- MR_GameSession::LoadLevel END, returning: TRUE ---
-  LoadLevel(1) returned: TRUE
---- MR_GameSession::LoadNew END, returning: TRUE ---
-  mSession.LoadNew() returned: TRUE
-  About to call ReadLevelAttrib()
-  ReadLevelAttrib() completed
---- MR_ClientSession::LoadNew END, returning: TRUE ---
 LoadNew returned: SUCCESS
 About to call SetSimulationTime(-6000)
 SetSimulationTime(-6000) succeeded
 About to call CreateMainCharacter()
-
---- MR_ClientSession::CreateMainCharacter START ---
-  Creating MR_MainCharacter with mNbLap=5, mAllowWeapons=1
-  MR_MainCharacter created
-  Got current level: 0166E1E0
-  About to set mRoom, mPosition, Orientation
-  Properties set successfully
-  About to InsertElement (starting room=0)
-    Starting room value: 0
-  InsertElement succeeded
---- MR_ClientSession::CreateMainCharacter END, returning TRUE ---
 CreateMainCharacter() returned: TRUE
 === ROOM COUNT QUERY START ===
-lCurrentSession = 0166E0E8
-GetCurrentLevel() returned: 0166E1E0
+lCurrentSession = 0160AC10
+GetCurrentLevel() returned: 0663EDE8
 *** TRACK ROOM COUNT: 22 rooms ***
 === ROOM COUNT QUERY END ===
 About to close logFile
 Returned from NewLocalSession() successfully
-InitGame returned: 1
-Calling MainLoop...
 
 === WinMain START ===
 Creating MR_GameApp...
@@ -133,7 +52,7 @@ Skipping DisplayLoginWindow entirely, going straight to game init
 Checking first instance (2nd time)...
 IsFirstInstance (2nd) returned: 1
 Calling InitApplication...
-InitApplication returned: 49872
+InitApplication returned: 49995
 Calling InitGame...
 
 --- MR_GameApp::InitGame START ---
@@ -160,10 +79,10 @@ lCurrentTrack='ClassicH', lNbLap=5, lAllowWeapons=1
 4b. About to call MR_DllObjectFactory::Init()
 4c. MR_DllObjectFactory::Init() succeeded
 5. About to call MR_Observer::New()
-6. MR_Observer::New() succeeded, pointer: 01211150
+6. MR_Observer::New() succeeded, pointer: 01120E90
 7. About to create new MR_ClientSession
 8. MR_ClientSession created successfully
-8. MR_ClientSession pointer: 0121D7F0
+8. MR_ClientSession pointer: 0631D3F8
 About to call MR_TrackOpen for 'ClassicH'
 
 MR_TrackOpen: Opening track 'ClassicH'
@@ -187,20 +106,20 @@ Lots of curve and no jumps
     Final magic number for FREE_TRACK: 0x142B9
     SUCCESS: Track entry validated
   Successfully read entry, checking permissions
-MR_TrackOpen returning: 060A9338
-MR_TrackOpen returned: 060A9338
+MR_TrackOpen returning: 01117A48
+MR_TrackOpen returned: 01117A48
 About to call LoadNew()
 
 --- MR_ClientSession::LoadNew START ---
   pTitle='ClassicH'
-  pMazeFile=060A9338
+  pMazeFile=01117A48
   pNbLap=5, pAllowWeapons=1
-  pVideo=01203BF8
+  pVideo=010F52D8
   About to call mSession.LoadNew()
 
 --- MR_GameSession::LoadNew START ---
   pTitle='ClassicH'
-  pMazeFile=060A9338
+  pMazeFile=01117A48
   About to call Clean()
   Clean() succeeded
   About to call LoadLevel(1)
@@ -209,7 +128,7 @@ About to call LoadNew()
   Deleting old level
   File has 4 records
   About to create new MR_Level
-  MR_Level created successfully at 0121D8E8
+  MR_Level created successfully at 0633C370
   Selecting record 1
   Record selected
   About to create CArchive for deserialization
@@ -231,7 +150,7 @@ About to call CreateMainCharacter()
 --- MR_ClientSession::CreateMainCharacter START ---
   Creating MR_MainCharacter with mNbLap=5, mAllowWeapons=1
   MR_MainCharacter created
-  Got current level: 0121D8E8
+  Got current level: 0633C370
   About to set mRoom, mPosition, Orientation
   Properties set successfully
   About to InsertElement (starting room=0)
@@ -240,8 +159,8 @@ About to call CreateMainCharacter()
 --- MR_ClientSession::CreateMainCharacter END, returning TRUE ---
 CreateMainCharacter() returned: TRUE
 === ROOM COUNT QUERY START ===
-lCurrentSession = 0121D7F0
-GetCurrentLevel() returned: 0121D8E8
+lCurrentSession = 0631D3F8
+GetCurrentLevel() returned: 0633C370
 *** TRACK ROOM COUNT: 22 rooms ***
 === ROOM COUNT QUERY END ===
 About to close logFile

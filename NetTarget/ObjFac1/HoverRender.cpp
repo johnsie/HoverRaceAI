@@ -105,6 +105,16 @@ MR_HoverRender::MR_HoverRender( const MR_ObjectFromFactoryId& pId )
    lContSoundBuf = gObjectFactoryData->mResourceLib.GetContinuousSound( MR_SND_FRICTION );
    mFrictionSound = (lContSoundBuf != NULL) ? lContSoundBuf->GetSound() : NULL;
 
+   // Debug logging for sound system
+   {
+      FILE* logFile = fopen("C:\\originalhr\\HoverRace\\Release\\Game2_SoundInit.log", "a");
+      if(logFile) {
+         fprintf(logFile, "[HoverRender] Motor sound: %p, Friction sound: %p\n", mMotorSound, mFrictionSound);
+         fflush(logFile);
+         fclose(logFile);
+      }
+   }
+
    for( int lCounter = 0; lCounter < 10; lCounter++ )
    {
       mCockpitBitmap[ lCounter ] = gObjectFactoryData->mResourceLib.GetBitmap( MR_CAR_COCKPIT1+lCounter );

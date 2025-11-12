@@ -1535,22 +1535,12 @@ void MR_GameApp::RefreshView()
                   logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_MainLoop.log", "a");
                   if(logFile) { fprintf(logFile, "RefreshView: In e3DView mode\n"); fflush(logFile); fclose(logFile); }
                   
-                     // CRITICAL FIX: Clear viewport to BLACK during initialization only
-                     // The background now fills with BLACK (color 0) instead of red/sandy stripes
-                     // This prevents rendering artifacts from stale buffer data without flickering
+                     // Initialization: decrement mClrScrTodo and DO NOT call DrawBackground
+                     // DrawBackground is no longer needed - the SDL2 adapter handles buffer clearing
+                     // This prevents the strobing/flickering effect
                      if( mClrScrTodo > 0 )
                      {
                         mClrScrTodo--;
-                        if( mClrScrTodo == 1 )  // Draw on FIRST initialization frame only (mClrScrTodo goes from 2 to 1)
-                        {
-                           try {
-                              DrawBackground();  // Clear viewport to black - one time initialization
-                           }
-                           catch(...) {
-                              logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_MainLoop.log", "a");
-                              if(logFile) { fprintf(logFile, "RefreshView: EXCEPTION in DrawBackground!\n"); fflush(logFile); fclose(logFile); }
-                           }
-                        }
                      }
 
                      logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_MainLoop.log", "a");
@@ -1565,10 +1555,15 @@ void MR_GameApp::RefreshView()
                         logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_MainLoop.log", "a");
                         if(logFile) { fprintf(logFile, "RefreshView: About to call Observer1 RenderNormalDisplay\n"); fflush(logFile); fclose(logFile); }
                         
-                        mObserver1->RenderNormalDisplay( mVideoBuffer, mCurrentSession, lCharacter1, lTime, mCurrentSession->GetBackImage() );
-                        
-                        logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_MainLoop.log", "a");
-                        if(logFile) { fprintf(logFile, "RefreshView: Observer1 RenderNormalDisplay completed\n"); fflush(logFile); fclose(logFile); }
+                        try {
+                           mObserver1->RenderNormalDisplay( mVideoBuffer, mCurrentSession, lCharacter1, lTime, mCurrentSession->GetBackImage() );
+                           logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_MainLoop.log", "a");
+                           if(logFile) { fprintf(logFile, "RefreshView: Observer1 RenderNormalDisplay completed\n"); fflush(logFile); fclose(logFile); }
+                        }
+                        catch(...) {
+                           logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_MainLoop.log", "a");
+                           if(logFile) { fprintf(logFile, "RefreshView: EXCEPTION in Observer1 RenderNormalDisplay!\n"); fflush(logFile); fclose(logFile); }
+                        }
                      }
                      else
                      {
@@ -1588,10 +1583,15 @@ void MR_GameApp::RefreshView()
                         logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_MainLoop.log", "a");
                         if(logFile) { fprintf(logFile, "RefreshView: About to call Observer2 RenderNormalDisplay\n"); fflush(logFile); fclose(logFile); }
                         
-                        mObserver2->RenderNormalDisplay( mVideoBuffer, mCurrentSession, lCharacter2, lTime, mCurrentSession->GetBackImage() );
-                        
-                        logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_MainLoop.log", "a");
-                        if(logFile) { fprintf(logFile, "RefreshView: Observer2 RenderNormalDisplay completed\n"); fflush(logFile); fclose(logFile); }
+                        try {
+                           mObserver2->RenderNormalDisplay( mVideoBuffer, mCurrentSession, lCharacter2, lTime, mCurrentSession->GetBackImage() );
+                           logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_MainLoop.log", "a");
+                           if(logFile) { fprintf(logFile, "RefreshView: Observer2 RenderNormalDisplay completed\n"); fflush(logFile); fclose(logFile); }
+                        }
+                        catch(...) {
+                           logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_MainLoop.log", "a");
+                           if(logFile) { fprintf(logFile, "RefreshView: EXCEPTION in Observer2 RenderNormalDisplay!\n"); fflush(logFile); fclose(logFile); }
+                        }
                      }
                      else
                      {
@@ -2064,7 +2064,6 @@ void MR_GameApp::DeleteMovieWnd()
       // DestroyWindow( mMovieWnd );
       mMovieWnd = NULL;
    }
-   // MR_SoundServer::Init( mMainWindow );
 }
 
 void MR_GameApp::NewLocalSession()
@@ -2645,36 +2644,23 @@ void MR_GameApp::SetProperties()
 
 void MR_GameApp::DrawBackground()
 {
-   // CRITICAL FIX: Only draw background ONCE at startup
-   // After that, this function becomes a no-op to prevent flickering
-   // The system will call this multiple times during video mode changes, menu commands, etc.
-   // but we ignore all calls after the first one
-   static BOOL lBackgroundDrawn = FALSE;
+   // CRITICAL FIX: Fill with BLACK to prevent flickering, not red/sandy stripes
+   // The original pattern (colors 11 & 39) caused severe strobing/flickering
+   // Black (color 0) initialization is safer and doesn't create visual artifacts
    
-   if( lBackgroundDrawn )
-   {
-      return;  // Already drawn, do nothing
-   }
-   
-   lBackgroundDrawn = TRUE;  // Mark that we've drawn
+   // Note: This is called when mClrScrTodo > 0, which happens:
+   // - At startup (mClrScrTodo=2)
+   // - On video mode changes
+   // - On menu commands
+   // Filling with black every time these happen is better than red/sandy pattern
 
    MR_UInt8* lDest         = mVideoBuffer->GetBuffer();
    int       lXRes         = mVideoBuffer->GetXRes();
    int       lYRes         = mVideoBuffer->GetYRes();
    int       lDestLineStep = mVideoBuffer->GetLineLen()-lXRes;
 
-   // Clear viewport to BLACK (color 0) instead of red/sandy stripes
-   // This initializes the viewport cleanly without the flickering
-   for( int lY=0 ; lY<lYRes; lY++ )
-   {
-      for( int lX = 0; lX<lXRes; lX++ )
-      {
-         *lDest = 0;  // Color 0 = Black
-
-         lDest++;
-      }
-      lDest+= lDestLineStep;
-   }
+   // Fast memset to fill entire viewport with BLACK (color 0)
+   memset(lDest, 0, lXRes * lYRes);
 }
 
 

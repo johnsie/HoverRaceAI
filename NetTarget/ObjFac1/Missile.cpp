@@ -85,8 +85,11 @@ MR_Missile::MR_Missile( const MR_ObjectFromFactoryId& pId )
    mEffectList.AddTail( &mLostOfControlEffect );
    mActor = gObjectFactoryData->mResourceLib.GetActor( MR_MISSILE );
 
-   mBounceSound    = gObjectFactoryData->mResourceLib.GetShortSound( MR_SND_MISSILE_BOUNCE )->GetSound();
-   mMotorSound     = gObjectFactoryData->mResourceLib.GetContinuousSound( MR_SND_MISSILE_MOTOR )->GetSound();
+   auto lSoundBuf = gObjectFactoryData->mResourceLib.GetShortSound( MR_SND_MISSILE_BOUNCE );
+   mBounceSound    = (lSoundBuf != NULL) ? lSoundBuf->GetSound() : NULL;
+   
+   auto lContSoundBuf = gObjectFactoryData->mResourceLib.GetContinuousSound( MR_SND_MISSILE_MOTOR );
+   mMotorSound     = (lContSoundBuf != NULL) ? lContSoundBuf->GetSound() : NULL;
  
    mLostOfControlEffect.mType      = MR_LostOfControl::eMissile;
    mLostOfControlEffect.mElementId = -1;

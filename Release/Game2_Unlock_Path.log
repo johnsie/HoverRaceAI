@@ -1,3083 +1,816 @@
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=00000000, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=00000000, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=00000000, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=035F6020, IsSDL2Available=1, adapter=01661F50
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=00000000, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=00000000, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
-  mBackBuffer=00000000, mDirectDraw=00000000
-  -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=05F8B020, IsSDL2Available=1, adapter=0161C420
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path
-Unlock called: mBuffer=03153020, IsSDL2Available=1, adapter=01208BD0
+Unlock called: mBuffer=0315E020, IsSDL2Available=1, adapter=010FA2B0
   mBackBuffer=00000000, mDirectDraw=00000000
   -> Taking SDL2Graphics path

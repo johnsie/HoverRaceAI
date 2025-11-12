@@ -1,7 +1,7 @@
 /* 
  * OpenAL Soft stub library for HoverRace modernization
  * This provides basic OpenAL API stubs to allow compilation
- * A full OpenAL-soft binary would be used in production
+ * Modified to support Windows DirectSound audio
  */
 
 #include "al.h"
@@ -9,8 +9,19 @@
 #include <windows.h>
 #include <stdlib.h>
 #include <string.h>
+#include <dsound.h>
+#include <mmreg.h>
 
-/* Stub implementations - returns no error but doesn't actually play sound */
+#pragma comment(lib, "dsound.lib")
+#pragma comment(lib, "dxguid.lib")
+
+/* DirectSound support */
+IDirectSound8 *g_pDS = NULL;
+IDirectSoundBuffer *g_pPrimaryBuffer = NULL;
+IDirectSoundBuffer *g_pSecondaryBuffer = NULL;
+HWND g_hWnd = NULL;
+
+/* Stub implementations - now uses DirectSound when available */
 
 ALenum g_alError = AL_NO_ERROR;
 
