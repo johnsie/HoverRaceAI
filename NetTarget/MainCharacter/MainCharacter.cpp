@@ -378,6 +378,25 @@ void MR_MainCharacter::Render( MR_3DViewPort* pDest, MR_SimulationTime /*pTime*/
    if( pDest == NULL ) return;
    if( mRenderer == NULL ) return;  // No renderer available - can't render
    
+   // DEFENSIVE: Check if position is valid before rendering
+   // Corrupted positions cause visual flickering when coordinates overflow
+   const double POSITION_SANITY_BOUND = 500000.0;  // Absolute maximum reasonable coordinate
+   if( mPosition.mX < -POSITION_SANITY_BOUND || mPosition.mX > POSITION_SANITY_BOUND ||
+       mPosition.mY < -POSITION_SANITY_BOUND || mPosition.mY > POSITION_SANITY_BOUND ||
+       mPosition.mZ < -POSITION_SANITY_BOUND || mPosition.mZ > POSITION_SANITY_BOUND )
+   {
+      // Position is corrupted - abort rendering this frame
+      FILE* logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_ActorRender.log", "a");
+      if( logFile )
+      {
+         fprintf(logFile, "[SKIP] Position corrupted: (%.0e, %.0e, %.0e)\n", 
+            mPosition.mX, mPosition.mY, mPosition.mZ);
+         fflush(logFile);
+         fclose(logFile);
+      }
+      return;
+   }
+   
    static int render_call_count = 0;
    render_call_count++;
    
@@ -387,29 +406,34 @@ void MR_MainCharacter::Render( MR_3DViewPort* pDest, MR_SimulationTime /*pTime*/
       FILE* logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_ActorRender.log", "a");
       if( logFile )
       {
-         fprintf(logFile, "[%d] MainCharacter::Render: mRenderer=%p, motor=%s, model=%d\n",
-            render_call_count, mRenderer, mMotorDisplay > 0 ? "ON" : "OFF", mHoverModel);
+         fprintf(logFile, "[%d] MainCharacter::Render: mRenderer=%p, motor=%s, model=%d, pos=(%.1f,%.1f,%.1f)\n",
+            render_call_count, mRenderer, mMotorDisplay > 0 ? "ON" : "OFF", mHoverModel,
+            mPosition.mX, mPosition.mY, mPosition.mZ);
          fflush(logFile);
          fclose(logFile);
       }
    }
 
    // Call the renderer - should be MR_HoverRender from ObjFac1
-   __try
+   // Use MFC TRY/CATCH to catch BOTH SEH and C++ exceptions
+   TRY
    {
       mRenderer->Render( pDest, mPosition, mCabinOrientation, mMotorDisplay > 0, mHoverId, mHoverModel );
    }
-   __except( EXCEPTION_EXECUTE_HANDLER )
+   CATCH_ALL(e)
    {
-      // If renderer crashes, log it but don't crash the game
+      // If renderer crashes (C++ exception), log it but don't crash the game
       FILE* logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_ActorRender.log", "a");
       if( logFile )
       {
-         fprintf(logFile, "[EXCEPTION] Renderer crashed at render call %d\n", render_call_count);
+         fprintf(logFile, "[C++ EXCEPTION] Renderer crashed at render call %d\n", render_call_count);
          fflush(logFile);
          fclose(logFile);
       }
+      // Clean up the exception
+      e->Delete();
    }
+   END_CATCH_ALL
 }
 
 
@@ -421,11 +445,12 @@ MR_ObjectFromFactory* MR_MainCharacter::FactoryFunc( MR_UInt16 pClassId )
    if( pClassId == 100 )
    {
       // Class 100 is the renderer for MainCharacter
-      // MUST use the proper HoverRender from ObjFac1 - NO FALLBACK
+      // PRIORITY: Use ObjFac1 HoverRender - never fall back to SimpleRenderer
       MR_ObjectFromFactoryId lHoverRenderId = { 1, 100 };  // ObjFac1 HoverRender
       
       if(logFile) 
       {
+         fprintf(logFile, "\n========== CREATING HOVERRENDER ==========\n");
          fprintf(logFile, "Attempting to create HoverRender from ObjFac1(DLL=%d, Class=%d)\n", 
             lHoverRenderId.mDllId, lHoverRenderId.mClassId);
          fflush(logFile);
@@ -434,6 +459,7 @@ MR_ObjectFromFactory* MR_MainCharacter::FactoryFunc( MR_UInt16 pClassId )
       MR_ObjectFromFactory* pHoverRender = NULL;
       
       // Try to create HoverRender from ObjFac1
+      // NOTE: NEVER fall back to SimpleRenderer - we need ObjFac1 working
       TRY
       {
          pHoverRender = MR_DllObjectFactory::CreateObject( lHoverRenderId );
@@ -447,7 +473,8 @@ MR_ObjectFromFactory* MR_MainCharacter::FactoryFunc( MR_UInt16 pClassId )
       {
          if(logFile) 
          {
-            fprintf(logFile, "EXCEPTION caught in CreateObject\n");
+            fprintf(logFile, "ERROR: EXCEPTION caught in CreateObject!\n");
+            fprintf(logFile, "This means ObjFac1 DLL initialization failed.\n");
             fflush(logFile);
          }
          pHoverRender = NULL;
@@ -459,8 +486,9 @@ MR_ObjectFromFactory* MR_MainCharacter::FactoryFunc( MR_UInt16 pClassId )
       {
          if(logFile) 
          {
-            fprintf(logFile, "SUCCESS: Got HoverRender from ObjFac1: %p\n", pHoverRender);
-            fprintf(logFile, "Using PROPER 3D hovercraft rendering\n");
+            fprintf(logFile, "========== SUCCESS: Got HoverRender from ObjFac1 =========\n");
+            fprintf(logFile, "HoverRender object: %p\n", pHoverRender);
+            fprintf(logFile, "Using PROPER 3D hovercraft rendering\n\n");
             fflush(logFile);
             fclose(logFile);
          }
@@ -468,29 +496,32 @@ MR_ObjectFromFactory* MR_MainCharacter::FactoryFunc( MR_UInt16 pClassId )
       }
       else
       {
+         // DO NOT USE FALLBACK - We must use ObjFac1
+         // Log the failure and return NULL to force investigation
          if(logFile) 
          {
-            fprintf(logFile, "ERROR: Failed to get HoverRender from ObjFac1!\n");
-            fprintf(logFile, "ObjFac1 is broken/missing - falling back to SimpleRenderer\n");
-            fprintf(logFile, "This means:\n");
-            fprintf(logFile, "  1. ObjFac1.dll is not in the Release folder\n");
-            fprintf(logFile, "  2. ObjFac1.dll failed to load\n");
-            fprintf(logFile, "  3. Class 100 does not exist in ObjFac1\n");
+            fprintf(logFile, "========== CRITICAL: HoverRender creation FAILED ==========\n");
+            fprintf(logFile, "ObjFac1 is not available or failed to initialize.\n");
+            fprintf(logFile, "REFUSING TO FALL BACK TO SIMPLERENDERER\n");
+            fprintf(logFile, "Possible causes:\n");
+            fprintf(logFile, "  1. ObjFac1.dll is not in Release folder\n");
+            fprintf(logFile, "  2. ObjFac1.dll failed to load or initialize\n");
+            fprintf(logFile, "  3. ObjFac1.dat resource file is missing or corrupt\n");
             fprintf(logFile, "  4. DLL factory system is not initialized\n");
-            fflush(logFile);
-         }
-         
-         // FALLBACK: Use simple geometric renderer as placeholder
-         // This is NOT the proper 3D model rendering, but it's better than crashing
-         MR_ObjectFromFactoryId lSimpleId = { MR_MAIN_CHARACTER_DLL_ID, 101 };  // Use a dummy ID
-         MR_SimpleMainCharacterRenderer* pSimpleRenderer = new MR_SimpleMainCharacterRenderer(lSimpleId);
-         if(logFile) 
-         {
-            fprintf(logFile, "Created fallback SimpleRenderer: %p\n", pSimpleRenderer);
+            fprintf(logFile, "  5. gObjectFactoryData constructor threw exception\n");
+            fprintf(logFile, "\nDiagnostics:\n");
+            fprintf(logFile, "  - Check that ObjFac1.dll exists and is loadable\n");
+            fprintf(logFile, "  - Check that ObjFac1.dat exists in Release folder\n");
+            fprintf(logFile, "  - Check Windows Event Viewer for DLL load errors\n");
+            fprintf(logFile, "  - Verify all ObjFac1 dependencies are present\n");
+            fprintf(logFile, "\nRETURNING NULL - This will expose the real problem\n");
             fflush(logFile);
             fclose(logFile);
          }
-         return pSimpleRenderer;
+         
+         // Return NULL - force the caller to deal with missing renderer
+         // This ensures we find out why ObjFac1 isn't working instead of silently using SimpleRenderer
+         return NULL;
       }
    }
    else if( pClassId == MR_MAIN_CHARACTER_CLASS_ID )

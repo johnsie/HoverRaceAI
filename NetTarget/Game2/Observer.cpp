@@ -699,24 +699,40 @@ void MR_Observer::Render3DView( const MR_ClientSession* pSession, const MR_MainC
       if(logFile2) { fprintf(logFile2, "ENTERING viewing character render stage\n"); fflush(logFile2); fclose(logFile2); }
    }
    
-   __try {
+   // DEFENSIVE: Check if viewing character position is valid before rendering
+   const double VIEWING_CHAR_POSITION_BOUND = 100000.0;  // Max reasonable Z coordinate
+   BOOL viewing_char_pos_valid = (fabs(pViewingCharacter->mPosition.mX) < VIEWING_CHAR_POSITION_BOUND &&
+                                  fabs(pViewingCharacter->mPosition.mY) < VIEWING_CHAR_POSITION_BOUND &&
+                                  fabs(pViewingCharacter->mPosition.mZ) < VIEWING_CHAR_POSITION_BOUND);
+   
+   if(!viewing_char_pos_valid) {
       FILE* logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_ViewingCharacterRender.log", "a");
       if(logFile) { 
-         fprintf(logFile, "Rendering viewing character at pos=(%.1f,%.1f,%.1f), ptr=%p\n", 
-            pViewingCharacter->mPosition.mX, pViewingCharacter->mPosition.mY, pViewingCharacter->mPosition.mZ,
-            pViewingCharacter); 
+         fprintf(logFile, "SKIPPED: Viewing character position corrupted: (%.0e,%.0e,%.0e)\n", 
+            pViewingCharacter->mPosition.mX, pViewingCharacter->mPosition.mY, pViewingCharacter->mPosition.mZ); 
          fflush(logFile); 
+         fclose(logFile); 
       }
-      
-      // Call the character's render method to draw the player's hovercraft
-      // Cast away const since Render() is not const (not ideal, but necessary for rendering)
-      const_cast<MR_MainCharacter*>(pViewingCharacter)->Render( &m3DView, pTime );
-      
-      if(logFile) { fprintf(logFile, "Viewing character render complete\n"); fflush(logFile); fclose(logFile); }
-   }
-   __except(EXCEPTION_EXECUTE_HANDLER) {
-      FILE* logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_ViewingCharacterRender.log", "a");
-      if(logFile) { fprintf(logFile, "EXCEPTION in viewing character rendering!\n"); fflush(logFile); fclose(logFile); }
+   } else {
+      __try {
+         FILE* logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_ViewingCharacterRender.log", "a");
+         if(logFile) { 
+            fprintf(logFile, "Rendering viewing character at pos=(%.1f,%.1f,%.1f), ptr=%p\n", 
+               pViewingCharacter->mPosition.mX, pViewingCharacter->mPosition.mY, pViewingCharacter->mPosition.mZ,
+               pViewingCharacter); 
+            fflush(logFile); 
+         }
+         
+         // Call the character's render method to draw the player's hovercraft
+         // Cast away const since Render() is not const (not ideal, but necessary for rendering)
+         const_cast<MR_MainCharacter*>(pViewingCharacter)->Render( &m3DView, pTime );
+         
+         if(logFile) { fprintf(logFile, "Viewing character render complete\n"); fflush(logFile); fclose(logFile); }
+      }
+      __except(EXCEPTION_EXECUTE_HANDLER) {
+         FILE* logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_ViewingCharacterRender.log", "a");
+         if(logFile) { fprintf(logFile, "SEH EXCEPTION in viewing character rendering!\n"); fflush(logFile); fclose(logFile); }
+      }
    }
 
    // STAGE 6: Cockpit UI rendering (speed/fuel meters, weapons, map, text)

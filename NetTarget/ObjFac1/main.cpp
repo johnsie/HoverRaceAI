@@ -65,7 +65,90 @@ MR_ObjectFactoryData* gObjectFactoryData = NULL;
 void MR_InitModule( HMODULE pModule )
 {
    delete gObjectFactoryData;
-   gObjectFactoryData = new MR_ObjectFactoryData( pModule, "ObjFac1.dat" );
+   
+   // CRITICAL FIX: Build full path to ObjFac1.dat from module directory, not current working dir
+   char lModulePath[MAX_PATH];
+   char lResourcePath[MAX_PATH];
+   
+   // Write log file at working directory
+   FILE* logFile = fopen("Game2_ObjFac1Init.log", "a");
+   if (logFile)
+   {
+      fprintf(logFile, "\n========== MR_InitModule Called ==========\n");
+      fprintf(logFile, "Module handle: 0x%p\n", pModule);
+   }
+   
+   if (GetModuleFileNameA(pModule, lModulePath, sizeof(lModulePath)) > 0)
+   {
+      if (logFile) fprintf(logFile, "Module path: %s\n", lModulePath);
+      
+      // Get the directory containing this DLL
+      char* lLastBackslash = strrchr(lModulePath, '\\');
+      if (lLastBackslash)
+      {
+         *lLastBackslash = '\0';  // Truncate at the backslash
+         sprintf_s(lResourcePath, sizeof(lResourcePath), "%s\\ObjFac1.dat", lModulePath);
+      }
+      else
+      {
+         strcpy_s(lResourcePath, sizeof(lResourcePath), "ObjFac1.dat");
+      }
+   }
+   else
+   {
+      if (logFile) fprintf(logFile, "ERROR: GetModuleFileNameA failed\n");
+      strcpy_s(lResourcePath, sizeof(lResourcePath), "ObjFac1.dat");
+   }
+   
+   if (logFile) fprintf(logFile, "Attempting to load resource file: %s\n", lResourcePath);
+   
+   try
+   {
+      gObjectFactoryData = new MR_ObjectFactoryData( pModule, lResourcePath );
+      if (logFile)
+      {
+         fprintf(logFile, "SUCCESS: ObjFac1 resources loaded successfully\n");
+         fprintf(logFile, "gObjectFactoryData: 0x%p\n", gObjectFactoryData);
+      }
+   }
+   catch(CFileException* pEx)
+   {
+      char lBuffer[512];
+      sprintf_s(lBuffer, sizeof(lBuffer), "CRITICAL: Failed to open ObjFac1.dat at: %s\nError: %d", lResourcePath, pEx->m_cause);
+      if (logFile)
+      {
+         fprintf(logFile, "EXCEPTION: CFileException caught\n");
+         fprintf(logFile, "%s\n", lBuffer);
+      }
+      pEx->Delete();
+      gObjectFactoryData = NULL;
+   }
+   catch(CArchiveException* pEx)
+   {
+      char lBuffer[512];
+      sprintf_s(lBuffer, sizeof(lBuffer), "CRITICAL: ObjFac1.dat is corrupted or invalid format at: %s\nError: %d", lResourcePath, pEx->m_cause);
+      if (logFile)
+      {
+         fprintf(logFile, "EXCEPTION: CArchiveException caught\n");
+         fprintf(logFile, "%s\n", lBuffer);
+      }
+      pEx->Delete();
+      gObjectFactoryData = NULL;
+   }
+   catch(...)
+   {
+      if (logFile)
+      {
+         fprintf(logFile, "EXCEPTION: Unknown exception caught in MR_InitModule\n");
+      }
+      gObjectFactoryData = NULL;
+   }
+   
+   if (logFile)
+   {
+      fprintf(logFile, "========== MR_InitModule Complete ==========\n");
+      fclose(logFile);
+   }
 }
 
 void MR_CleanModule()
@@ -92,78 +175,87 @@ CString MR_GetObjectDescription( MR_UInt16 /*pClassId*/ )
 
 MR_ObjectFromFactory* MR_GetObject( MR_UInt16 pClassId )
 {
+   FILE* logFile = fopen("Game2_ObjFac1GetObject.log", "a");
+   if (logFile)
+   {
+      fprintf(logFile, "\nMR_GetObject called with pClassId=%d\n", pClassId);
+      fflush(logFile);
+   }
+   
    MR_ObjectFromFactory*  lReturnValue = NULL;
    MR_ObjectFromFactoryId lId = { 1, pClassId };
 
-   switch( pClassId )
+   try
    {
-      case 1:
-         lReturnValue = new MR_DefaultSurface( lId );
-         break;
+      switch( pClassId )
+      {
+         case 1:
+            lReturnValue = new MR_DefaultSurface( lId );
+            break;
 
-      case 2:
-         lReturnValue = new MR_WoodSurface( lId );
-         break;
+         case 2:
+            lReturnValue = new MR_WoodSurface( lId );
+            break;
 
-      case 3:
-         lReturnValue = new MR_BitmapSurface( lId, gObjectFactoryData->mResourceLib.GetBitmap( MR_FIRE ) );
-         break;
+         case 3:
+            lReturnValue = new MR_BitmapSurface( lId, gObjectFactoryData->mResourceLib.GetBitmap( MR_FIRE ) );
+            break;
 
-      case 4:
-         lReturnValue = new MR_BitmapSurface( lId, gObjectFactoryData->mResourceLib.GetBitmap( MR_BIG_BRICK ) );
-         break;
+         case 4:
+            lReturnValue = new MR_BitmapSurface( lId, gObjectFactoryData->mResourceLib.GetBitmap( MR_BIG_BRICK ) );
+            break;
 
-      case 5:
-         lReturnValue = new MR_BitmapSurface( lId, gObjectFactoryData->mResourceLib.GetBitmap( MR_RED_BRICK ) );
-         break;
+         case 5:
+            lReturnValue = new MR_BitmapSurface( lId, gObjectFactoryData->mResourceLib.GetBitmap( MR_RED_BRICK ) );
+            break;
 
-      case 10:
-         lReturnValue = new MR_TestElement( lId, MR_DEMO_FIGHTER );
-         break;
+         case 10:
+            lReturnValue = new MR_TestElement( lId, MR_DEMO_FIGHTER );
+            break;
 
-      // case 11: BabeElement not available
-      //   lReturnValue = new MR_BabeElement( lId );
-      //   break;
+         // case 11: BabeElement not available
+         //   lReturnValue = new MR_BabeElement( lId );
+         //   break;
 
-      case 12:
-         lReturnValue = new MR_BallElement( lId );
-         break;
+         case 12:
+            lReturnValue = new MR_BallElement( lId );
+            break;
 
-      case 13:
-         lReturnValue = new MR_TestElement( lId, MR_ELECTRO_CAR );
-         break;
+         case 13:
+            lReturnValue = new MR_TestElement( lId, MR_ELECTRO_CAR );
+            break;
 
-      case 50:
-         lReturnValue = new MR_BitmapSurface( lId, NULL );
-         break;
+         case 50:
+            lReturnValue = new MR_BitmapSurface( lId, NULL );
+            break;
 
-      case 51:
-         lReturnValue = new MR_BitmapSurface( lId, gObjectFactoryData->mResourceLib.GetBitmap( MR_STD_FLOOR ) );
-         break;
+         case 51:
+            lReturnValue = new MR_BitmapSurface( lId, gObjectFactoryData->mResourceLib.GetBitmap( MR_STD_FLOOR ) );
+            break;
 
-      case 52:
-         lReturnValue = new MR_VStretchBitmapSurface( lId, gObjectFactoryData->mResourceLib.GetBitmap( MR_STD_RIGHT_WALL ), 4000 );
-         break;
+         case 52:
+            lReturnValue = new MR_VStretchBitmapSurface( lId, gObjectFactoryData->mResourceLib.GetBitmap( MR_STD_RIGHT_WALL ), 4000 );
+            break;
 
-      case 53:
-         lReturnValue = new MR_VStretchBitmapSurface( lId, gObjectFactoryData->mResourceLib.GetBitmap( MR_STD_LEFT_WALL ), 4000 );
-         break;
+         case 53:
+            lReturnValue = new MR_VStretchBitmapSurface( lId, gObjectFactoryData->mResourceLib.GetBitmap( MR_STD_LEFT_WALL ), 4000 );
+            break;
 
-      case 54:
-         lReturnValue = new MR_VStretchBitmapSurface( lId, gObjectFactoryData->mResourceLib.GetBitmap( MR_RED_RIGHT_WALL_OFF ),gObjectFactoryData->mResourceLib.GetBitmap( MR_RED_RIGHT_WALL ),200, 4, 4000 );
-         break;
+         case 54:
+            lReturnValue = new MR_VStretchBitmapSurface( lId, gObjectFactoryData->mResourceLib.GetBitmap( MR_RED_RIGHT_WALL_OFF ),gObjectFactoryData->mResourceLib.GetBitmap( MR_RED_RIGHT_WALL ),200, 4, 4000 );
+            break;
 
-      case 55:
-         lReturnValue = new MR_VStretchBitmapSurface( lId, gObjectFactoryData->mResourceLib.GetBitmap( MR_RED_LEFT_WALL_OFF ), gObjectFactoryData->mResourceLib.GetBitmap( MR_RED_LEFT_WALL ), -200, 4, 4000 );
-         break;
+         case 55:
+            lReturnValue = new MR_VStretchBitmapSurface( lId, gObjectFactoryData->mResourceLib.GetBitmap( MR_RED_LEFT_WALL_OFF ), gObjectFactoryData->mResourceLib.GetBitmap( MR_RED_LEFT_WALL ), -200, 4, 4000 );
+            break;
 
-      case 56:
-         lReturnValue = new MR_VStretchBitmapSurface( lId, gObjectFactoryData->mResourceLib.GetBitmap( MR_GREEN_RIGHT_WALL_OFF ),gObjectFactoryData->mResourceLib.GetBitmap( MR_GREEN_RIGHT_WALL ), 200, 4, 4000 );
-         break;
+         case 56:
+            lReturnValue = new MR_VStretchBitmapSurface( lId, gObjectFactoryData->mResourceLib.GetBitmap( MR_GREEN_RIGHT_WALL_OFF ),gObjectFactoryData->mResourceLib.GetBitmap( MR_GREEN_RIGHT_WALL ), 200, 4, 4000 );
+            break;
 
-      case 57:
-         lReturnValue = new MR_VStretchBitmapSurface( lId, gObjectFactoryData->mResourceLib.GetBitmap( MR_GREEN_LEFT_WALL_OFF ), gObjectFactoryData->mResourceLib.GetBitmap( MR_GREEN_LEFT_WALL ), -200, 4, 4000 );
-         break;
+         case 57:
+            lReturnValue = new MR_VStretchBitmapSurface( lId, gObjectFactoryData->mResourceLib.GetBitmap( MR_GREEN_LEFT_WALL_OFF ), gObjectFactoryData->mResourceLib.GetBitmap( MR_GREEN_LEFT_WALL ), -200, 4, 4000 );
+            break;
 
       case 58:
          lReturnValue = new MR_BitmapSurface( lId, gObjectFactoryData->mResourceLib.GetBitmap( MR_STEP_WALL ) );
@@ -290,6 +382,64 @@ MR_ObjectFromFactory* MR_GetObject( MR_UInt16 pClassId )
          lReturnValue = new MR_SpriteHandle( lId, gObjectFactoryData->mResourceLib.GetSprite( MR_PWRUP_STAT ) );
          break;
 
+      }  // End of try-catch wrapped switch
+      
+      if (logFile)
+      {
+         if (lReturnValue)
+         {
+            fprintf(logFile, "  SUCCESS: Object created at 0x%p\n", lReturnValue);
+         }
+         else
+         {
+            fprintf(logFile, "  RESULT: No object created (NULL) - class ID not handled\n");
+         }
+         fflush(logFile);
+      }
+   }
+   catch(CMemoryException* pEx)
+   {
+      if (logFile)
+      {
+         fprintf(logFile, "  EXCEPTION: CMemoryException - Out of memory\n");
+         fflush(logFile);
+      }
+      pEx->Delete();
+      lReturnValue = NULL;
+   }
+   catch(CFileException* pEx)
+   {
+      if (logFile)
+      {
+         fprintf(logFile, "  EXCEPTION: CFileException - Resource file error (code=%d)\n", pEx->m_cause);
+         fflush(logFile);
+      }
+      pEx->Delete();
+      lReturnValue = NULL;
+   }
+   catch(CArchiveException* pEx)
+   {
+      if (logFile)
+      {
+         fprintf(logFile, "  EXCEPTION: CArchiveException - Archive format error (code=%d)\n", pEx->m_cause);
+         fflush(logFile);
+      }
+      pEx->Delete();
+      lReturnValue = NULL;
+   }
+   catch(...)
+   {
+      if (logFile)
+      {
+         fprintf(logFile, "  EXCEPTION: Unknown exception thrown\n");
+         fflush(logFile);
+      }
+      lReturnValue = NULL;
+   }
+
+   if (logFile)
+   {
+      fclose(logFile);
    }
 
    return lReturnValue;

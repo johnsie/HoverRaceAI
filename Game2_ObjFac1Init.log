@@ -1,0 +1,24 @@
+
+========== MR_InitModule Called ==========
+Module handle: 0x6A7A0000
+Module path: C:\originalhr\HoverRace\Release\ObjFac1.dll
+Attempting to load resource file: C:\originalhr\HoverRace\Release\ObjFac1.dat
+SUCCESS: ObjFac1 resources loaded successfully
+gObjectFactoryData: 0x01181510
+========== MR_InitModule Complete ==========
+
+========== MR_InitModule Called ==========
+Module handle: 0x6A7A0000
+Module path: C:\originalhr\HoverRace\Release\ObjFac1.dll
+Attempting to load resource file: C:\originalhr\HoverRace\Release\ObjFac1.dat
+SUCCESS: ObjFac1 resources loaded successfully
+gObjectFactoryData: 0x011F5048
+========== MR_InitModule Complete ==========
+
+========== MR_InitModule Called ==========
+Module handle: 0x6A7A0000
+Module path: C:\originalhr\HoverRace\Release\ObjFac1.dll
+Attempting to load resource file: C:\originalhr\HoverRace\Release\ObjFac1.dat
+SUCCESS: ObjFac1 resources loaded successfully
+gObjectFactoryData: 0x01015270
+========== MR_InitModule Complete ==========

@@ -439,6 +439,7 @@ MR_GameApp::MR_GameApp( HINSTANCE pInstance )
 
    mCurrentMode = e3DView;
 
+   // Draw background for initial frames only (2 frames), then stop
    mClrScrTodo = 2;
 
    mPaletteChangeAllowed = TRUE;
@@ -473,7 +474,8 @@ void MR_GameApp::Clean()
 
    MR_DllObjectFactory::Clean( TRUE );
 
-   mClrScrTodo    = 2;
+   // CRITICAL FIX: Set to 0 to prevent background pattern flickering
+   mClrScrTodo    = 0;
    gFirstKDBCall  = TRUE; // Set to TRUE on each new game
 
 }
@@ -1533,19 +1535,22 @@ void MR_GameApp::RefreshView()
                   logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_MainLoop.log", "a");
                   if(logFile) { fprintf(logFile, "RefreshView: In e3DView mode\n"); fflush(logFile); fclose(logFile); }
                   
-                  logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_MainLoop.log", "a");
-                  if(logFile) { fprintf(logFile, "RefreshView: mClrScrTodo=%d\n", mClrScrTodo); fflush(logFile); fclose(logFile); }
-                     
+                     // CRITICAL FIX: Clear viewport to BLACK during initialization only
+                     // The background now fills with BLACK (color 0) instead of red/sandy stripes
+                     // This prevents rendering artifacts from stale buffer data without flickering
                      if( mClrScrTodo > 0 )
                      {
                         mClrScrTodo--;
-                        logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_MainLoop.log", "a");
-                        if(logFile) { fprintf(logFile, "RefreshView: About to call DrawBackground\n"); fflush(logFile); fclose(logFile); }
-                        
-                        DrawBackground();
-                        
-                        logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_MainLoop.log", "a");
-                        if(logFile) { fprintf(logFile, "RefreshView: DrawBackground completed\n"); fflush(logFile); fclose(logFile); }
+                        if( mClrScrTodo == 1 )  // Draw on FIRST initialization frame only (mClrScrTodo goes from 2 to 1)
+                        {
+                           try {
+                              DrawBackground();  // Clear viewport to black - one time initialization
+                           }
+                           catch(...) {
+                              logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_MainLoop.log", "a");
+                              if(logFile) { fprintf(logFile, "RefreshView: EXCEPTION in DrawBackground!\n"); fflush(logFile); fclose(logFile); }
+                           }
+                        }
                      }
 
                      logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_MainLoop.log", "a");
@@ -1634,9 +1639,15 @@ void MR_GameApp::RefreshView()
             
             if( bLocked && mVideoBuffer != NULL )
             {
-               mVideoBuffer->Unlock();
-               logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_MainLoop.log", "a");
-               if(logFile) { fprintf(logFile, "RefreshView: Unlock() succeeded\n"); fflush(logFile); fclose(logFile); }
+               try {
+                  mVideoBuffer->Unlock();
+                  logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_MainLoop.log", "a");
+                  if(logFile) { fprintf(logFile, "RefreshView: Unlock() succeeded\n"); fflush(logFile); fclose(logFile); }
+               }
+               catch(...) {
+                  logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_MainLoop.log", "a");
+                  if(logFile) { fprintf(logFile, "RefreshView: EXCEPTION in Unlock()!\n"); fflush(logFile); fclose(logFile); }
+               }
             }
             
             // Flip() is now called from within Unlock() for both DirectDraw and GDI modes
@@ -2634,23 +2645,32 @@ void MR_GameApp::SetProperties()
 
 void MR_GameApp::DrawBackground()
 {
+   // CRITICAL FIX: Only draw background ONCE at startup
+   // After that, this function becomes a no-op to prevent flickering
+   // The system will call this multiple times during video mode changes, menu commands, etc.
+   // but we ignore all calls after the first one
+   static BOOL lBackgroundDrawn = FALSE;
+   
+   if( lBackgroundDrawn )
+   {
+      return;  // Already drawn, do nothing
+   }
+   
+   lBackgroundDrawn = TRUE;  // Mark that we've drawn
 
    MR_UInt8* lDest         = mVideoBuffer->GetBuffer();
    int       lXRes         = mVideoBuffer->GetXRes();
    int       lYRes         = mVideoBuffer->GetYRes();
    int       lDestLineStep = mVideoBuffer->GetLineLen()-lXRes;
 
-   int lColorIndex;
-
-
+   // Clear viewport to BLACK (color 0) instead of red/sandy stripes
+   // This initializes the viewport cleanly without the flickering
    for( int lY=0 ; lY<lYRes; lY++ )
    {
-      lColorIndex = lY;
       for( int lX = 0; lX<lXRes; lX++ )
       {
-         *lDest = (lColorIndex&16)?11:39;
+         *lDest = 0;  // Color 0 = Black
 
-         lColorIndex++;
          lDest++;
       }
       lDest+= lDestLineStep;
