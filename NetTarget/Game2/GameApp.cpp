@@ -1600,13 +1600,14 @@ void MR_GameApp::RefreshView()
                      }
 
                   // Render UI overlay with game information AFTER 3D view
-                  logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_MainLoop.log", "a");
-                  if(logFile) { fprintf(logFile, "RefreshView: About to render UI overlay\n"); fflush(logFile); fclose(logFile); }
+                  // DISABLED: Overlay text boxes removed per user request
+                  // logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_MainLoop.log", "a");
+                  // if(logFile) { fprintf(logFile, "RefreshView: About to render UI overlay\n"); fflush(logFile); fclose(logFile); }
                   
-                  RenderGameInfoOverlay( mVideoBuffer, mCurrentSession, lCharacter1, lCharacter2, lTime );
+                  // RenderGameInfoOverlay( mVideoBuffer, mCurrentSession, lCharacter1, lCharacter2, lTime );
                   
-                  logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_MainLoop.log", "a");
-                  if(logFile) { fprintf(logFile, "RefreshView: UI overlay rendering completed\n"); fflush(logFile); fclose(logFile); }
+                  // logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_MainLoop.log", "a");
+                  // if(logFile) { fprintf(logFile, "RefreshView: UI overlay rendering completed\n"); fflush(logFile); fclose(logFile); }
                   
                   logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_MainLoop.log", "a");
                   if(logFile) { fprintf(logFile, "RefreshView: EXITING e3DView block\n"); fflush(logFile); fclose(logFile); }
@@ -2088,14 +2089,12 @@ void MR_GameApp::NewLocalSession()
    FILE* logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_TrackLoad.log", "a");
    if(logFile) fprintf(logFile, "\n=== NewLocalSession Start ===\n"), fflush(logFile);
    
-   // FOR TESTING: Auto-select ClassicH track without showing dialog
-   if(logFile) fprintf(logFile, "AUTO-SELECTING ClassicH track for testing\n"), fflush(logFile);
-   lCurrentTrack = "ClassicH";
-   lNbLap = 5;
-   lAllowWeapons = 1;
-   lSuccess = TRUE;
+   // Show track selector dialog to user
+   if(logFile) fprintf(logFile, "Showing track selector dialog\n"), fflush(logFile);
+   lSuccess = MR_SelectTrack( mMainWindow, lCurrentTrack, lNbLap, lAllowWeapons, gKeyFilled );
    
-   if(logFile) fprintf(logFile, "lCurrentTrack='%s', lNbLap=%d, lAllowWeapons=%d\n", (const char*)lCurrentTrack, lNbLap, lAllowWeapons), fflush(logFile);
+   if(logFile) fprintf(logFile, "Track selection completed: lCurrentTrack='%s', lNbLap=%d, lAllowWeapons=%d, lSuccess=%d\n", 
+                                 (const char*)lCurrentTrack, lNbLap, lAllowWeapons, lSuccess), fflush(logFile);
 
    if( lSuccess )
    {

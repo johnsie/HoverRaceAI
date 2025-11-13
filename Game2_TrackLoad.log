@@ -2685,3 +2685,84 @@ MR_TrackOpen returning: 01637478
 --- MR_ClientSession::CreateMainCharacter END, returning TRUE ---
 InitGame returned: 1
 Calling MainLoop...
+
+=== WinMain START ===
+Creating MR_GameApp...
+MR_GameApp created successfully
+Checking first instance...
+IsFirstInstance returned: 1
+Skipping DisplayLoginWindow entirely, going straight to game init
+Checking first instance (2nd time)...
+IsFirstInstance (2nd) returned: 1
+Calling InitApplication...
+InitApplication returned: 50009
+Calling InitGame...
+
+MR_TrackOpen: Opening track 'ClassicH'
+  Searching in: C:\originalhr\HoverRace\Release\tracks\
+  Full search path: C:\originalhr\HoverRace\Release\tracks\ClassicH.trk
+  Found in absolute path
+  Opening file: C:\originalhr\HoverRace\Release\tracks\ClassicH.trk
+  Successfully opened, reading entry
+
+    ReadTrackEntry: Starting to read track
+    Magic number read: 0x142B9 (expected: 0x142B9)
+    Version read: 1
+    Description: 'Level: Easy
+Length: 0.6 km
+Short and fast track
+Lots of curve and no jumps
+
+', Minor ID: 0, Major ID: 0
+    Skipping ID validation (lMajorID=0, pFileName=ClassicH)
+    Sorting index: 30, Registration: 1
+    Final magic number for FREE_TRACK: 0x142B9
+    SUCCESS: Track entry validated
+  Successfully read entry, checking permissions
+MR_TrackOpen returning: 00B17928
+
+--- MR_ClientSession::LoadNew START ---
+  pTitle='ClassicH'
+  pMazeFile=00B17928
+  pNbLap=5, pAllowWeapons=1
+  pVideo=00AF5378
+  About to call mSession.LoadNew()
+
+--- MR_GameSession::LoadNew START ---
+  pTitle='ClassicH'
+  pMazeFile=00B17928
+  About to call Clean()
+  Clean() succeeded
+  About to call LoadLevel(1)
+
+--- MR_GameSession::LoadLevel START (pLevel=1) ---
+  Deleting old level
+  File has 4 records
+  About to create new MR_Level
+  MR_Level created successfully at 05B63428
+  Selecting record 1
+  Record selected
+  About to create CArchive for deserialization
+  CArchive created
+  About to deserialize level
+  Level deserialized successfully
+--- MR_GameSession::LoadLevel END, returning: TRUE ---
+  LoadLevel(1) returned: TRUE
+--- MR_GameSession::LoadNew END, returning: TRUE ---
+  mSession.LoadNew() returned: TRUE
+  About to call ReadLevelAttrib()
+  ReadLevelAttrib() completed
+--- MR_ClientSession::LoadNew END, returning: TRUE ---
+
+--- MR_ClientSession::CreateMainCharacter START ---
+  Creating MR_MainCharacter with mNbLap=5, mAllowWeapons=1
+  MR_MainCharacter created
+  Got current level: 05B63428
+  About to set mRoom, mPosition, Orientation
+  Properties set successfully
+  About to InsertElement (starting room=0)
+    Starting room value: 0
+  InsertElement succeeded
+--- MR_ClientSession::CreateMainCharacter END, returning TRUE ---
+InitGame returned: 1
+Calling MainLoop...

@@ -1348,8 +1348,39 @@ void MR_VideoBuffer::Unlock()
          fflush(logFile2); fclose(logFile2);
       }
       
-      g_SDL2GraphicsAdapter->Unlock(mBuffer);  // Pass our buffer for display
-      mBuffer = NULL;  // Reset buffer pointer after unlock
+      // Wrap SDL2 Unlock call to catch potential crashes
+      try {
+         g_SDL2GraphicsAdapter->Unlock(mBuffer);  // Pass our buffer for display
+         
+         // Log successful SDL2 unlock
+         FILE *logFile3 = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_SDL2_Unlock_Success.log", "a");
+         if(logFile3) {
+            fprintf(logFile3, "SDL2 Unlock succeeded\n");
+            fflush(logFile3);
+            fclose(logFile3);
+         }
+         
+         // DON'T set mBuffer to NULL - keep it for the next frame
+         // Setting it to NULL was causing buffer re-allocation issues
+         // The buffer remains valid across Lock/Unlock cycles
+         FILE *logFile4 = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_Unlock_Lifecycle.log", "a");
+         if(logFile4) {
+            fprintf(logFile4, "Keeping mBuffer at %p (NOT setting to NULL)\n", mBuffer);
+            fflush(logFile4);
+            fclose(logFile4);
+         }
+      }
+      catch(...) {
+         // SDL2 Unlock crashed!
+         FILE *crashLog = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_SDL2_Unlock_CRASHED.log", "a");
+         if(crashLog) {
+            fprintf(crashLog, "SDL2 Unlock CRASHED! mBuffer was %p\n", mBuffer);
+            fflush(crashLog);
+            fclose(crashLog);
+         }
+         // Don't set mBuffer to NULL if the unlock crashed, to preserve state for debugging
+      }
+      
       PRINT_LOG( "Unlock: END (SDL2Graphics mode)" );
       return;
    }

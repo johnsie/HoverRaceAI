@@ -1,26 +1,91 @@
 
 === FactoryFunc called with pClassId=1 ===
-Created MainCharacter: 06645970
+Created MainCharacter: 00ECA548
 
 === FactoryFunc called with pClassId=100 ===
 
 ========== CREATING HOVERRENDER ==========
 Attempting to create HoverRender from ObjFac1(DLL=1, Class=100)
-CreateObject returned: 066569A0
+CreateObject returned: 0611F698
 ========== SUCCESS: Got HoverRender from ObjFac1 =========
-HoverRender object: 066569A0
+HoverRender object: 0611F698
 Using PROPER 3D hovercraft rendering
 
 
 === FactoryFunc called with pClassId=1 ===
-Created MainCharacter: 06336340
+Created MainCharacter: 00C3A4B8
 
 === FactoryFunc called with pClassId=100 ===
 
 ========== CREATING HOVERRENDER ==========
 Attempting to create HoverRender from ObjFac1(DLL=1, Class=100)
-CreateObject returned: 0632F760
+CreateObject returned: 05DD20F8
 ========== SUCCESS: Got HoverRender from ObjFac1 =========
-HoverRender object: 0632F760
+HoverRender object: 05DD20F8
+Using PROPER 3D hovercraft rendering
+
+
+=== FactoryFunc called with pClassId=1 ===
+Created MainCharacter: 061E54A8
+
+=== FactoryFunc called with pClassId=100 ===
+
+========== CREATING HOVERRENDER ==========
+Attempting to create HoverRender from ObjFac1(DLL=1, Class=100)
+CreateObject returned: 061E14B8
+========== SUCCESS: Got HoverRender from ObjFac1 =========
+HoverRender object: 061E14B8
+Using PROPER 3D hovercraft rendering
+
+
+=== FactoryFunc called with pClassId=1 ===
+Created MainCharacter: 050B1F90
+
+=== FactoryFunc called with pClassId=100 ===
+
+========== CREATING HOVERRENDER ==========
+Attempting to create HoverRender from ObjFac1(DLL=1, Class=100)
+CreateObject returned: 0508ADE8
+========== SUCCESS: Got HoverRender from ObjFac1 =========
+HoverRender object: 0508ADE8
+Using PROPER 3D hovercraft rendering
+
+
+=== FactoryFunc called with pClassId=1 ===
+Created MainCharacter: 014EF360
+
+=== FactoryFunc called with pClassId=100 ===
+
+========== CREATING HOVERRENDER ==========
+Attempting to create HoverRender from ObjFac1(DLL=1, Class=100)
+CreateObject returned: 014AEBD0
+========== SUCCESS: Got HoverRender from ObjFac1 =========
+HoverRender object: 014AEBD0
+Using PROPER 3D hovercraft rendering
+
+
+=== FactoryFunc called with pClassId=1 ===
+Created MainCharacter: 015DA200
+
+=== FactoryFunc called with pClassId=100 ===
+
+========== CREATING HOVERRENDER ==========
+Attempting to create HoverRender from ObjFac1(DLL=1, Class=100)
+CreateObject returned: 0159B670
+========== SUCCESS: Got HoverRender from ObjFac1 =========
+HoverRender object: 0159B670
+Using PROPER 3D hovercraft rendering
+
+
+=== FactoryFunc called with pClassId=1 ===
+Created MainCharacter: 0141A010
+
+=== FactoryFunc called with pClassId=100 ===
+
+========== CREATING HOVERRENDER ==========
+Attempting to create HoverRender from ObjFac1(DLL=1, Class=100)
+CreateObject returned: 013DAAA8
+========== SUCCESS: Got HoverRender from ObjFac1 =========
+HoverRender object: 013DAAA8
 Using PROPER 3D hovercraft rendering
 

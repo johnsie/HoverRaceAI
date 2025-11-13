@@ -277,6 +277,11 @@ MR_MainCharacter::MR_MainCharacter( const MR_ObjectFromFactoryId& pId )
    mPowerUpLeft      = 0;
 
    mFuelLevel        = eFuelCapacity;
+   
+   // CRITICAL FIX: Initialize mPosition to valid values (0,0,0) instead of garbage
+   mPosition.mX = 0.0;
+   mPosition.mY = 0.0;
+   mPosition.mZ = 0.0;
 
    mCollisionShape.mRay = eCharacterRay;
    mContactShape.mRay   = eCharacterContactRay;
@@ -348,27 +353,11 @@ void MR_MainCharacter::AddRenderer()
       __try
       {
          mRenderer = (MR_MainCharacterRenderer*) MR_DllObjectFactory::CreateObject( lId );
-         
-         FILE* logFile = fopen("C:\\originalhr\\HoverRace\\Release\\Game2_ActorRender.log", "a");
-         if( logFile )
-         {
-            fprintf(logFile, "[AddRenderer] Created renderer: %p\n", mRenderer);
-            fflush(logFile);
-            fclose(logFile);
-         }
       }
       __except( EXCEPTION_EXECUTE_HANDLER )
       {
          // Renderer creation failed - will use fallback
          mRenderer = NULL;
-         
-         FILE* logFile = fopen("C:\\originalhr\\HoverRace\\Release\\Game2_ActorRender.log", "a");
-         if( logFile )
-         {
-            fprintf(logFile, "[AddRenderer] Exception creating renderer: %08x\n", GetExceptionCode());
-            fflush(logFile);
-            fclose(logFile);
-         }
       }
    }
 }
@@ -386,34 +375,9 @@ void MR_MainCharacter::Render( MR_3DViewPort* pDest, MR_SimulationTime /*pTime*/
        mPosition.mZ < -POSITION_SANITY_BOUND || mPosition.mZ > POSITION_SANITY_BOUND )
    {
       // Position is corrupted - abort rendering this frame
-      FILE* logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_ActorRender.log", "a");
-      if( logFile )
-      {
-         fprintf(logFile, "[SKIP] Position corrupted: (%.0e, %.0e, %.0e)\n", 
-            mPosition.mX, mPosition.mY, mPosition.mZ);
-         fflush(logFile);
-         fclose(logFile);
-      }
       return;
    }
    
-   static int render_call_count = 0;
-   render_call_count++;
-   
-   // Log periodically
-   if( render_call_count % 300 == 0 )
-   {
-      FILE* logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_ActorRender.log", "a");
-      if( logFile )
-      {
-         fprintf(logFile, "[%d] MainCharacter::Render: mRenderer=%p, motor=%s, model=%d, pos=(%.1f,%.1f,%.1f)\n",
-            render_call_count, mRenderer, mMotorDisplay > 0 ? "ON" : "OFF", mHoverModel,
-            mPosition.mX, mPosition.mY, mPosition.mZ);
-         fflush(logFile);
-         fclose(logFile);
-      }
-   }
-
    // Call the renderer - should be MR_HoverRender from ObjFac1
    // Use MFC TRY/CATCH to catch BOTH SEH and C++ exceptions
    TRY
@@ -422,15 +386,7 @@ void MR_MainCharacter::Render( MR_3DViewPort* pDest, MR_SimulationTime /*pTime*/
    }
    CATCH_ALL(e)
    {
-      // If renderer crashes (C++ exception), log it but don't crash the game
-      FILE* logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_ActorRender.log", "a");
-      if( logFile )
-      {
-         fprintf(logFile, "[C++ EXCEPTION] Renderer crashed at render call %d\n", render_call_count);
-         fflush(logFile);
-         fclose(logFile);
-      }
-      // Clean up the exception
+      // If renderer crashes (C++ exception), silently clean up
       e->Delete();
    }
    END_CATCH_ALL
@@ -439,44 +395,21 @@ void MR_MainCharacter::Render( MR_3DViewPort* pDest, MR_SimulationTime /*pTime*/
 
 MR_ObjectFromFactory* MR_MainCharacter::FactoryFunc( MR_UInt16 pClassId )
 {
-   FILE* logFile = fopen("C:\\originalhr\\HoverRace\\Release\\Game2_FactoryFunc.log", "a");
-   if(logFile) fprintf(logFile, "\n=== FactoryFunc called with pClassId=%d ===\n", pClassId), fflush(logFile);
-   
    if( pClassId == 100 )
    {
       // Class 100 is the renderer for MainCharacter
       // PRIORITY: Use ObjFac1 HoverRender - never fall back to SimpleRenderer
       MR_ObjectFromFactoryId lHoverRenderId = { 1, 100 };  // ObjFac1 HoverRender
       
-      if(logFile) 
-      {
-         fprintf(logFile, "\n========== CREATING HOVERRENDER ==========\n");
-         fprintf(logFile, "Attempting to create HoverRender from ObjFac1(DLL=%d, Class=%d)\n", 
-            lHoverRenderId.mDllId, lHoverRenderId.mClassId);
-         fflush(logFile);
-      }
-      
       MR_ObjectFromFactory* pHoverRender = NULL;
       
       // Try to create HoverRender from ObjFac1
-      // NOTE: NEVER fall back to SimpleRenderer - we need ObjFac1 working
       TRY
       {
          pHoverRender = MR_DllObjectFactory::CreateObject( lHoverRenderId );
-         if(logFile) 
-         {
-            fprintf(logFile, "CreateObject returned: %p\n", pHoverRender);
-            fflush(logFile);
-         }
       }
       CATCH_ALL(e)
       {
-         if(logFile) 
-         {
-            fprintf(logFile, "ERROR: EXCEPTION caught in CreateObject!\n");
-            fprintf(logFile, "This means ObjFac1 DLL initialization failed.\n");
-            fflush(logFile);
-         }
          pHoverRender = NULL;
          e->Delete();
       }
@@ -484,43 +417,11 @@ MR_ObjectFromFactory* MR_MainCharacter::FactoryFunc( MR_UInt16 pClassId )
       
       if( pHoverRender != NULL )
       {
-         if(logFile) 
-         {
-            fprintf(logFile, "========== SUCCESS: Got HoverRender from ObjFac1 =========\n");
-            fprintf(logFile, "HoverRender object: %p\n", pHoverRender);
-            fprintf(logFile, "Using PROPER 3D hovercraft rendering\n\n");
-            fflush(logFile);
-            fclose(logFile);
-         }
          return pHoverRender;
       }
       else
       {
-         // DO NOT USE FALLBACK - We must use ObjFac1
-         // Log the failure and return NULL to force investigation
-         if(logFile) 
-         {
-            fprintf(logFile, "========== CRITICAL: HoverRender creation FAILED ==========\n");
-            fprintf(logFile, "ObjFac1 is not available or failed to initialize.\n");
-            fprintf(logFile, "REFUSING TO FALL BACK TO SIMPLERENDERER\n");
-            fprintf(logFile, "Possible causes:\n");
-            fprintf(logFile, "  1. ObjFac1.dll is not in Release folder\n");
-            fprintf(logFile, "  2. ObjFac1.dll failed to load or initialize\n");
-            fprintf(logFile, "  3. ObjFac1.dat resource file is missing or corrupt\n");
-            fprintf(logFile, "  4. DLL factory system is not initialized\n");
-            fprintf(logFile, "  5. gObjectFactoryData constructor threw exception\n");
-            fprintf(logFile, "\nDiagnostics:\n");
-            fprintf(logFile, "  - Check that ObjFac1.dll exists and is loadable\n");
-            fprintf(logFile, "  - Check that ObjFac1.dat exists in Release folder\n");
-            fprintf(logFile, "  - Check Windows Event Viewer for DLL load errors\n");
-            fprintf(logFile, "  - Verify all ObjFac1 dependencies are present\n");
-            fprintf(logFile, "\nRETURNING NULL - This will expose the real problem\n");
-            fflush(logFile);
-            fclose(logFile);
-         }
-         
-         // Return NULL - force the caller to deal with missing renderer
-         // This ensures we find out why ObjFac1 isn't working instead of silently using SimpleRenderer
+         // Failed to create renderer
          return NULL;
       }
    }
@@ -529,21 +430,9 @@ MR_ObjectFromFactory* MR_MainCharacter::FactoryFunc( MR_UInt16 pClassId )
       // Return the MainCharacter itself (default behavior)
       MR_ObjectFromFactoryId lId = { MR_MAIN_CHARACTER_DLL_ID, MR_MAIN_CHARACTER_CLASS_ID };
       MR_MainCharacter* pChar = new MR_MainCharacter( lId );
-      if(logFile) 
-      {
-         fprintf(logFile, "Created MainCharacter: %p\n", pChar);
-         fflush(logFile);
-         fclose(logFile);
-      }
       return pChar;
    }
    
-   if(logFile) 
-   {
-      fprintf(logFile, "Returning NULL (unrecognized classId=%d)\n", pClassId);
-      fflush(logFile);
-      fclose(logFile);
-   }
    return NULL;
 }
 
@@ -629,7 +518,6 @@ void MR_MainCharacter::SetNetState( int pDataLen, const MR_UInt8* pData )
    }
 
    const MR_MainCharacterState* lState = (const MR_MainCharacterState*)pData;
-
 
    mPosition.mX = lState->Get( MC_POSX );
    mPosition.mY = lState->Get( MC_POSY );

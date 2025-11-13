@@ -262,3 +262,11 @@ Attempting to load resource file: C:\originalhr\HoverRace\Release\ObjFac1.dat
 SUCCESS: ObjFac1 resources loaded successfully
 gObjectFactoryData: 0x015D2C40
 ========== MR_InitModule Complete ==========
+
+========== MR_InitModule Called ==========
+Module handle: 0x52220000
+Module path: C:\originalhr\HoverRace\Release\ObjFac1.dll
+Attempting to load resource file: C:\originalhr\HoverRace\Release\ObjFac1.dat
+SUCCESS: ObjFac1 resources loaded successfully
+gObjectFactoryData: 0x00AB1750
+========== MR_InitModule Complete ==========

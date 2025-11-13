@@ -642,40 +642,13 @@ void MR_Observer::Render3DView( const MR_ClientSession* pSession, const MR_MainC
 
    // STAGE 5.5: Render the viewing character (player's hovercraft)
    
-   // DEFENSIVE: Check if viewing character position is valid before rendering
-   const double VIEWING_CHAR_POSITION_BOUND = 100000.0;  // Max reasonable Z coordinate
-   BOOL viewing_char_pos_valid = (fabs(pViewingCharacter->mPosition.mX) < VIEWING_CHAR_POSITION_BOUND &&
-                                  fabs(pViewingCharacter->mPosition.mY) < VIEWING_CHAR_POSITION_BOUND &&
-                                  fabs(pViewingCharacter->mPosition.mZ) < VIEWING_CHAR_POSITION_BOUND);
-   
-   if(!viewing_char_pos_valid) {
-      FILE* logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_ViewingCharacterRender.log", "a");
-      if(logFile) { 
-         fprintf(logFile, "SKIPPED: Viewing character position corrupted: (%.0e,%.0e,%.0e)\n", 
-            pViewingCharacter->mPosition.mX, pViewingCharacter->mPosition.mY, pViewingCharacter->mPosition.mZ); 
-         fflush(logFile); 
-         fclose(logFile); 
-      }
-   } else {
-      __try {
-         FILE* logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_ViewingCharacterRender.log", "a");
-         if(logFile) { 
-            fprintf(logFile, "Rendering viewing character at pos=(%.1f,%.1f,%.1f), ptr=%p\n", 
-               pViewingCharacter->mPosition.mX, pViewingCharacter->mPosition.mY, pViewingCharacter->mPosition.mZ,
-               pViewingCharacter); 
-            fflush(logFile); 
-         }
-         
-         // Call the character's render method to draw the player's hovercraft
-         // Cast away const since Render() is not const (not ideal, but necessary for rendering)
-         const_cast<MR_MainCharacter*>(pViewingCharacter)->Render( &m3DView, pTime );
-         
-         if(logFile) { fprintf(logFile, "Viewing character render complete\n"); fflush(logFile); fclose(logFile); }
-      }
-      __except(EXCEPTION_EXECUTE_HANDLER) {
-         FILE* logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_ViewingCharacterRender.log", "a");
-         if(logFile) { fprintf(logFile, "SEH EXCEPTION in viewing character rendering!\n"); fflush(logFile); fclose(logFile); }
-      }
+   __try {
+      // Call the character's render method to draw the player's hovercraft
+      // Cast away const since Render() is not const (not ideal, but necessary for rendering)
+      const_cast<MR_MainCharacter*>(pViewingCharacter)->Render( &m3DView, pTime );
+   }
+   __except(EXCEPTION_EXECUTE_HANDLER) {
+      // Exception handled silently
    }
 
    // STAGE 6: Cockpit UI rendering (speed/fuel meters, weapons, map, text)
@@ -1532,9 +1505,7 @@ void MR_Observer::RenderDebugDisplay( MR_VideoBuffer* pDest, const MR_ClientSess
       }
       else
       {
-         // If character is in truly invalid room, still try rendering but log it
-         FILE* logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_Render_Debug.log", "a");
-         if(logFile) { fprintf(logFile, "WARNING: Character in invalid room: %d\n", pViewingCharacter->mRoom); fflush(logFile); fclose(logFile); }
+         // If character is in truly invalid room, still try rendering
       }
    }
 
@@ -1549,35 +1520,11 @@ void MR_Observer::CallRender3DViewSafe( const MR_ClientSession* pSession, const 
    Render3DView( pSession, pViewingCharacter, pTime, pBackImage );
    success_count++;
    
-   // Log every 100 successful renders (reduced file I/O)
-   if(success_count % 100 == 0) {
-      FILE* logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_Render_Progress.log", "a");
-      if(logFile) { 
-         fprintf(logFile, "Frame %d complete\n", success_count); 
-         fflush(logFile); 
-         fclose(logFile); 
-      }
-   }
 }
 
 void MR_Observer::RenderNormalDisplay( MR_VideoBuffer* pDest, const MR_ClientSession* pSession, const MR_MainCharacter* pViewingCharacter, MR_SimulationTime pTime, const MR_UInt8* pBackImage )
 {
    MR_SAMPLE_CONTEXT( "RenderNormalDisplay" );
-
-   static int render_frame = 0;
-   if(render_frame % 100 == 0) {
-      FILE* logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_Render_Entry.log", "a");
-      if(logFile) {
-         fprintf(logFile, "Frame %d: RenderNormalDisplay called with char=%p, room=%d, pos=(%.1f,%.1f,%.1f)\n",
-            render_frame, pViewingCharacter, pViewingCharacter ? pViewingCharacter->mRoom : -999,
-            pViewingCharacter ? pViewingCharacter->mPosition.mX : 0,
-            pViewingCharacter ? pViewingCharacter->mPosition.mY : 0,
-            pViewingCharacter ? pViewingCharacter->mPosition.mZ : 0);
-         fflush(logFile);
-         fclose(logFile);
-      }
-   }
-   render_frame++;
 
    int lXRes = pDest->GetXRes();
    int lYRes = pDest->GetYRes();
@@ -1611,15 +1558,6 @@ void MR_Observer::RenderNormalDisplay( MR_VideoBuffer* pDest, const MR_ClientSes
    int lXMargin = (mXMargin_1024 * lXRes/1024)&0xFFFFFFFC; // rounded to 32 bit boundary for best performances
    int lYMargin = lYMargin_1024 * lYRes/1024;
 
-   // Debug: Log the viewport setup parameters
-   FILE* debugLog = fopen("c:\\originalhr\\HoverRace\\Release\\Debug_ViewportSetup.log", "a");
-   if(debugLog) {
-      fprintf(debugLog, "RenderNormalDisplay Setup: lXRes=%d, lYRes=%d, lXMargin=%d, lYMargin=%d, pSizeX=%d, pSizeY=%d\n",
-              lXRes, lYRes, lXMargin, lYMargin, lXRes-2*lXMargin, lYRes-2*lYMargin);
-      fflush(debugLog);
-      fclose(debugLog);
-   }
-
    // Wrap Setup in try-catch to prevent crashes
    try {
       m3DView.Setup( pDest, lXMargin, lYOffset+lYMargin, lXRes-2*lXMargin, lYRes-2*lYMargin, mApperture );
@@ -1643,15 +1581,6 @@ void MR_Observer::RenderNormalDisplay( MR_VideoBuffer* pDest, const MR_ClientSes
    {
       // Call helper function that uses SEH for exception handling
       CallRender3DViewSafe( pSession, pViewingCharacter, pTime, pBackImage );
-   }
-   else
-   {
-      FILE* debugLog2 = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_RenderNormalDisplay_SkippedRendering.log", "a");
-      if(debugLog2) {
-         fprintf(debugLog2, "SKIPPED Render3DView: room=%d (should be != -1)\n", pViewingCharacter->mRoom);
-         fflush(debugLog2);
-         fclose(debugLog2);
-      }
    }
 }
 

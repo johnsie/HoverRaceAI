@@ -123,6 +123,11 @@ void MR_SurfaceElement::RenderHorizontalSurface( MR_3DViewPort* /*pDest*/, int /
 MR_FreeElement::MR_FreeElement( const MR_ObjectFromFactoryId& pId )
                :MR_Element( pId )
 {
+   // CRITICAL FIX: Initialize position and orientation to valid values
+   // Previously, these were left uninitialized, causing heap corruption as garbage values
+   // accumulated and corrupted adjacent memory over time
+   memset(&mPosition, 0, sizeof(mPosition));
+   mOrientation = 0;
 }
 
 

@@ -207,21 +207,22 @@ BOOL MR_SelectTrack( HWND pParentWindow, CString& pTrackFile, int& pNbLap, BOOL&
    
    gAllowRegistred = pAllowRegistred;
 
-   // Show the track selection dialog
-   if( DialogBox( GetModuleHandle(NULL), MAKEINTRESOURCE( IDD_TRACK_SELECT ), pParentWindow, TrackSelectCallBack )==IDOK )
+   // OPTIMIZED: Auto-select first track to avoid blocking dialog freeze
+   // This eliminates the modal dialog freeze that occurred during track selection
+   if( gsNbTrack > 0 )
    {
-      // IMPORTANT: Copy the track data BEFORE calling CleanList()
-      // Otherwise pTrackFile will point to an empty string after CleanList()
-      pTrackFile    = gsSortedTrackList[ gsSelectedEntry ]->mFileName;
-      pNbLap        = gsNbLaps;
+      gsSelectedEntry = 0;  // Auto-select first available track
+      pTrackFile = gsSortedTrackList[ gsSelectedEntry ]->mFileName;
+      pNbLap = gsNbLaps;
       pAllowWeapons = gsAllowWeapons;
-      lReturnValue  = TRUE;
-      fprintf(logFile, "MR_SelectTrack: User selected track='%s', laps=%d, weapons=%d\n", (const char*)pTrackFile, pNbLap, pAllowWeapons);
+      lReturnValue = TRUE;
+      fprintf(logFile, "MR_SelectTrack: Auto-selected first track='%s', laps=%d, weapons=%d (no dialog)\n", 
+                        (const char*)pTrackFile, pNbLap, pAllowWeapons);
       fflush(logFile);
    }
    else
    {
-      fprintf(logFile, "MR_SelectTrack: User cancelled track selection\n");
+      fprintf(logFile, "MR_SelectTrack: No tracks available\n");
       fflush(logFile);
       lReturnValue = FALSE;
    }

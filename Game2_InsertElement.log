@@ -262,3 +262,11 @@ InsertElement START: pElement=06645970, pRoom=0, mAllowRendering=1
   About to call MoveElement()
   MoveElement() succeeded
 InsertElement END: returning 06628CE8
+InsertElement START: pElement=05B63A28, pRoom=0, mAllowRendering=1
+  Created new FreeElement: 05B62848
+  About to call AddRenderer()
+  AddRenderer() succeeded
+  Set mElement pointer
+  About to call MoveElement()
+  MoveElement() succeeded
+InsertElement END: returning 05B62848
