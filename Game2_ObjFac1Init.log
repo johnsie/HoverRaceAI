@@ -287,3 +287,99 @@ Attempting to load resource file: C:\originalhr2\HoverRaceAI\Release\ObjFac1.dat
 SUCCESS: ObjFac1 resources loaded successfully
 gObjectFactoryData: 0x00A24CD0
 ========== MR_InitModule Complete ==========
+
+========== MR_InitModule Called ==========
+Module handle: 0x777A0000
+Module path: C:\originalhr2\HoverRaceAI\Release\ObjFac1.dll
+Attempting to load resource file: C:\originalhr2\HoverRaceAI\Release\ObjFac1.dat
+SUCCESS: ObjFac1 resources loaded successfully
+gObjectFactoryData: 0x00BD5BC8
+========== MR_InitModule Complete ==========
+
+========== MR_InitModule Called ==========
+Module handle: 0x777A0000
+Module path: C:\originalhr2\HoverRaceAI\Release\ObjFac1.dll
+Attempting to load resource file: C:\originalhr2\HoverRaceAI\Release\ObjFac1.dat
+SUCCESS: ObjFac1 resources loaded successfully
+gObjectFactoryData: 0x01026148
+========== MR_InitModule Complete ==========
+
+========== MR_InitModule Called ==========
+Module handle: 0x777B0000
+Module path: C:\originalhr2\HoverRaceAI\Release\ObjFac1.dll
+Attempting to load resource file: C:\originalhr2\HoverRaceAI\Release\ObjFac1.dat
+SUCCESS: ObjFac1 resources loaded successfully
+gObjectFactoryData: 0x012B5FB0
+========== MR_InitModule Complete ==========
+
+========== MR_InitModule Called ==========
+Module handle: 0x777A0000
+Module path: C:\originalhr2\HoverRaceAI\Release\ObjFac1.dll
+Attempting to load resource file: C:\originalhr2\HoverRaceAI\Release\ObjFac1.dat
+SUCCESS: ObjFac1 resources loaded successfully
+gObjectFactoryData: 0x01305308
+========== MR_InitModule Complete ==========
+
+========== MR_InitModule Called ==========
+Module handle: 0x777A0000
+Module path: C:\originalhr2\HoverRaceAI\Release\ObjFac1.dll
+Attempting to load resource file: C:\originalhr2\HoverRaceAI\Release\ObjFac1.dat
+SUCCESS: ObjFac1 resources loaded successfully
+gObjectFactoryData: 0x0162E4C0
+========== MR_InitModule Complete ==========
+
+========== MR_InitModule Called ==========
+Module handle: 0x777A0000
+Module path: C:\originalhr2\HoverRaceAI\Release\ObjFac1.dll
+Attempting to load resource file: C:\originalhr2\HoverRaceAI\Release\ObjFac1.dat
+SUCCESS: ObjFac1 resources loaded successfully
+gObjectFactoryData: 0x014D73F0
+========== MR_InitModule Complete ==========
+
+========== MR_InitModule Called ==========
+Module handle: 0x777A0000
+Module path: C:\originalhr2\HoverRaceAI\Release\ObjFac1.dll
+Attempting to load resource file: C:\originalhr2\HoverRaceAI\Release\ObjFac1.dat
+SUCCESS: ObjFac1 resources loaded successfully
+gObjectFactoryData: 0x011840D8
+========== MR_InitModule Complete ==========
+
+========== MR_InitModule Called ==========
+Module handle: 0x777A0000
+Module path: C:\originalhr2\HoverRaceAI\Release\ObjFac1.dll
+Attempting to load resource file: C:\originalhr2\HoverRaceAI\Release\ObjFac1.dat
+SUCCESS: ObjFac1 resources loaded successfully
+gObjectFactoryData: 0x00B8E4C8
+========== MR_InitModule Complete ==========
+
+========== MR_InitModule Called ==========
+Module handle: 0x777A0000
+Module path: C:\originalhr2\HoverRaceAI\Release\ObjFac1.dll
+Attempting to load resource file: C:\originalhr2\HoverRaceAI\Release\ObjFac1.dat
+SUCCESS: ObjFac1 resources loaded successfully
+gObjectFactoryData: 0x010E78F8
+========== MR_InitModule Complete ==========
+
+========== MR_InitModule Called ==========
+Module handle: 0x507B0000
+Module path: C:\originalhr2\HoverRaceAI\Release\ObjFac1.dll
+Attempting to load resource file: C:\originalhr2\HoverRaceAI\Release\ObjFac1.dat
+SUCCESS: ObjFac1 resources loaded successfully
+gObjectFactoryData: 0x00DC6310
+========== MR_InitModule Complete ==========
+
+========== MR_InitModule Called ==========
+Module handle: 0x50690000
+Module path: C:\originalhr2\HoverRaceAI\Release\ObjFac1.dll
+Attempting to load resource file: C:\originalhr2\HoverRaceAI\Release\ObjFac1.dat
+SUCCESS: ObjFac1 resources loaded successfully
+gObjectFactoryData: 0x00ED6650
+========== MR_InitModule Complete ==========
+
+========== MR_InitModule Called ==========
+Module handle: 0x50690000
+Module path: C:\originalhr2\HoverRaceAI\Release\ObjFac1.dll
+Attempting to load resource file: C:\originalhr2\HoverRaceAI\Release\ObjFac1.dat
+SUCCESS: ObjFac1 resources loaded successfully
+gObjectFactoryData: 0x00A5D648
+========== MR_InitModule Complete ==========

@@ -13,7 +13,7 @@ C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoBuffer2DDraw.cpp;C:\orig
 C:\originalhr2\HoverRaceAI\NetTarget\GraphicsSDL2\SDL2Graphics.cpp;C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\Release\SDL2Graphics.obj
 C:\originalhr2\HoverRaceAI\NetTarget\GraphicsSDL2\VideoBufferSDL2Adapter.cpp;C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\Release\VideoBufferSDL2Adapter.obj
 C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoBufferSDL2Integration.cpp;C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\Release\VideoBufferSDL2Integration.obj
-C:\originalhr2\HoverRaceAI\OpenAL\alsdl2wrapper.cpp;C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\Release\alsdl2wrapper.obj
+C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp;C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\Release\alstub.obj
 C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\RenderingEngine.cpp;C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\Release\RenderingEngine.obj
 C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\GraphicsUtilities.cpp;C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\Release\GraphicsUtilities.obj
 C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\ModernVideoBuffer.cpp;C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\Release\ModernVideoBuffer.obj

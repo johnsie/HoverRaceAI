@@ -1,2 +1,1 @@
 C:\originalhr\HoverRace\NetTarget\MazeCompiler\Release\MazeCompiler.exe
-c:\originalhr2\HoverRaceAI\NetTarget\MazeCompiler\Release\MazeCompiler.exe

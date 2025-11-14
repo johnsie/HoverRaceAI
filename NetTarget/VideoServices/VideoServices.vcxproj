@@ -82,7 +82,7 @@
     <ClCompile Include="..\GraphicsSDL2\SDL2Graphics.cpp" />
     <ClCompile Include="..\GraphicsSDL2\VideoBufferSDL2Adapter.cpp" />
     <ClCompile Include="VideoBufferSDL2Integration.cpp" />
-    <ClCompile Include="..\..\OpenAL\alsdl2wrapper.cpp" />
+    <ClCompile Include="..\..\OpenAL\alstub.cpp" />
     <ClCompile Include="RenderingEngine.cpp" />
     <ClCompile Include="GraphicsUtilities.cpp" />
     <ClCompile Include="ModernVideoBuffer.cpp" />

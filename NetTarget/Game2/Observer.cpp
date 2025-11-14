@@ -752,7 +752,7 @@ void MR_Observer::Render3DView( const MR_ClientSession* pSession, const MR_MainC
    return;
 }
 
-/*
+/*  #### DISABLED SECTION START ####
    // ORIGINAL FULL 3D RENDERING CODE (DISABLED - CRASHES EVERY FRAME)
    // Keeping for reference when debugging
    
@@ -1181,12 +1181,10 @@ void MR_Observer::Render3DView( const MR_ClientSession* pSession, const MR_MainC
       }
    }
 
-
+   // DISABLED SECTION END: Original 3D rendering code
 
    if( mBaseFont != NULL )
    {
-
-
       // Display timers
       char lMainLineBuffer[80];
       char lLapLineBuffer[80];
@@ -1252,6 +1250,9 @@ void MR_Observer::Render3DView( const MR_ClientSession* pSession, const MR_MainC
       mBaseFont->GetSprite()->StrBlt( lXRes/2, lYRes/16, Ascii2Simple( lMainLineBuffer ), &m3DView, MR_Sprite::eCenter, MR_Sprite::eTop, 0 );
       mBaseFont->GetSprite()->StrBlt( lXRes/2, lYRes-1,  Ascii2Simple( lLapLineBuffer ), &m3DView, MR_Sprite::eCenter, MR_Sprite::eBottom, 0 );
 
+   }
+   else
+   {
    }
 
    MR_SAMPLE_END( ActorRendering );

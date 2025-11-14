@@ -1,2 +1,1 @@
 c:\originalhr\HoverRace\HoverCad\Release\HoverCad.exe
-c:\originalhr2\HoverRaceAI\HoverCad\Release\HoverCad.exe

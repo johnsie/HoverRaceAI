@@ -2993,3 +2993,1389 @@ GetCurrentLevel() returned: 05B05890
 About to close logFile
 InitGame returned: 1
 Calling MainLoop...
+
+=== WinMain START ===
+Creating MR_GameApp...
+MR_GameApp created successfully
+Testing graphics system...
+Calling TestGraphicsSystem...
+TestGraphicsSystem completed
+Checking first instance...
+IsFirstInstance returned: 1
+Skipping DisplayLoginWindow entirely, going straight to game init
+Checking first instance (2nd time)...
+IsFirstInstance (2nd) returned: 1
+Calling InitApplication...
+InitApplication returned: 49880
+Calling InitGame...
+
+=== NewLocalSession Start ===
+Auto-loading ClassicH track (bypassing dialog)
+Track auto-selected: lCurrentTrack='ClassicH', lNbLap=1, lAllowWeapons=0, lSuccess=1
+1. About to call DeleteMovieWnd()
+2. DeleteMovieWnd() succeeded
+3. About to call MR_SoundServer::Init()
+4. MR_SoundServer::Init() succeeded
+4b. About to call MR_DllObjectFactory::Init()
+4c. MR_DllObjectFactory::Init() succeeded
+5. About to call MR_Observer::New()
+6. MR_Observer::New() succeeded, pointer: 00C31DB8
+7. About to create new MR_ClientSession
+8. MR_ClientSession created successfully
+8. MR_ClientSession pointer: 00C330C8
+About to call MR_TrackOpen for 'ClassicH'
+Checking track file at: C:\originalhr2\HoverRaceAI\Release\tracks\ClassicH.trk
+Track file verified to exist
+
+MR_TrackOpen: Opening track 'ClassicH'
+  Searching in: C:\originalhr2\HoverRaceAI\Release\tracks\
+  Full search path: C:\originalhr2\HoverRaceAI\Release\tracks\ClassicH.trk
+  Found in absolute path
+  Opening file: C:\originalhr2\HoverRaceAI\Release\tracks\ClassicH.trk
+  Successfully opened, reading entry
+
+    ReadTrackEntry: Starting to read track
+    Magic number read: 0x142B9 (expected: 0x142B9)
+    Version read: 1
+    Description: 'Level: Easy
+Length: 0.6 km
+Short and fast track
+Lots of curve and no jumps
+
+', Minor ID: 0, Major ID: 0
+    Skipping ID validation (lMajorID=0, pFileName=ClassicH)
+    Sorting index: 30, Registration: 1
+    Final magic number for FREE_TRACK: 0x142B9
+    SUCCESS: Track entry validated
+  Successfully read entry, checking permissions
+MR_TrackOpen returning: 00CB05F0
+MR_TrackOpen returned: 00CB05F0
+About to call LoadNew()
+
+--- MR_ClientSession::LoadNew START ---
+  pTitle='ClassicH'
+  pMazeFile=00CB05F0
+  pNbLap=1, pAllowWeapons=0
+  pVideo=00C1A030
+  About to call mSession.LoadNew()
+
+--- MR_GameSession::LoadNew START ---
+  pTitle='ClassicH'
+  pMazeFile=00CB05F0
+  About to call Clean()
+  Clean() succeeded
+  About to call LoadLevel(1)
+
+--- MR_GameSession::LoadLevel START (pLevel=1) ---
+  Deleting old level
+  File has 4 records
+  About to create new MR_Level
+  MR_Level created successfully at 00C331C0
+  Selecting record 1
+  Record selected
+  About to create CArchive for deserialization
+  CArchive created
+  About to deserialize level
+  Level deserialized successfully
+--- MR_GameSession::LoadLevel END, returning: TRUE ---
+  LoadLevel(1) returned: TRUE
+--- MR_GameSession::LoadNew END, returning: TRUE ---
+  mSession.LoadNew() returned: TRUE
+  About to call ReadLevelAttrib()
+  ReadLevelAttrib() completed
+--- MR_ClientSession::LoadNew END, returning: TRUE ---
+LoadNew returned: SUCCESS
+About to call SetSimulationTime(-6000)
+SetSimulationTime(-6000) succeeded
+About to call CreateMainCharacter()
+
+--- MR_ClientSession::CreateMainCharacter START ---
+  Creating MR_MainCharacter with mNbLap=1, mAllowWeapons=0
+  MR_MainCharacter created
+  Got current level: 00C331C0
+  About to set mRoom, mPosition, Orientation
+  Properties set successfully
+  About to InsertElement (starting room=0)
+    Starting room value: 0
+  InsertElement succeeded
+--- MR_ClientSession::CreateMainCharacter END, returning TRUE ---
+CreateMainCharacter() returned: TRUE
+=== ROOM COUNT QUERY START ===
+lCurrentSession = 00C330C8
+GetCurrentLevel() returned: 00C331C0
+*** TRACK ROOM COUNT: 22 rooms ***
+=== ROOM COUNT QUERY END ===
+About to close logFile
+InitGame returned: 1
+Calling MainLoop...
+
+=== WinMain START ===
+Creating MR_GameApp...
+MR_GameApp created successfully
+Testing graphics system...
+Calling TestGraphicsSystem...
+TestGraphicsSystem completed
+Checking first instance...
+IsFirstInstance returned: 1
+Skipping DisplayLoginWindow entirely, going straight to game init
+Checking first instance (2nd time)...
+IsFirstInstance (2nd) returned: 1
+Calling InitApplication...
+InitApplication returned: 49884
+Calling InitGame...
+
+=== NewLocalSession Start ===
+Auto-loading ClassicH track (bypassing dialog)
+Track auto-selected: lCurrentTrack='ClassicH', lNbLap=1, lAllowWeapons=0, lSuccess=1
+1. About to call DeleteMovieWnd()
+2. DeleteMovieWnd() succeeded
+3. About to call MR_SoundServer::Init()
+4. MR_SoundServer::Init() succeeded
+4b. About to call MR_DllObjectFactory::Init()
+4c. MR_DllObjectFactory::Init() succeeded
+5. About to call MR_Observer::New()
+6. MR_Observer::New() succeeded, pointer: 0107E7A8
+7. About to create new MR_ClientSession
+8. MR_ClientSession created successfully
+8. MR_ClientSession pointer: 01089D80
+About to call MR_TrackOpen for 'ClassicH'
+Checking track file at: C:\originalhr2\HoverRaceAI\Release\tracks\ClassicH.trk
+Track file verified to exist
+
+MR_TrackOpen: Opening track 'ClassicH'
+  Searching in: C:\originalhr2\HoverRaceAI\Release\tracks\
+  Full search path: C:\originalhr2\HoverRaceAI\Release\tracks\ClassicH.trk
+  Found in absolute path
+  Opening file: C:\originalhr2\HoverRaceAI\Release\tracks\ClassicH.trk
+  Successfully opened, reading entry
+
+    ReadTrackEntry: Starting to read track
+    Magic number read: 0x142B9 (expected: 0x142B9)
+    Version read: 1
+    Description: 'Level: Easy
+Length: 0.6 km
+Short and fast track
+Lots of curve and no jumps
+
+', Minor ID: 0, Major ID: 0
+    Skipping ID validation (lMajorID=0, pFileName=ClassicH)
+    Sorting index: 30, Registration: 1
+    Final magic number for FREE_TRACK: 0x142B9
+    SUCCESS: Track entry validated
+  Successfully read entry, checking permissions
+MR_TrackOpen returning: 05E19088
+MR_TrackOpen returned: 05E19088
+About to call LoadNew()
+
+--- MR_ClientSession::LoadNew START ---
+  pTitle='ClassicH'
+  pMazeFile=05E19088
+  pNbLap=1, pAllowWeapons=0
+  pVideo=01069BC0
+  About to call mSession.LoadNew()
+
+--- MR_GameSession::LoadNew START ---
+  pTitle='ClassicH'
+  pMazeFile=05E19088
+  About to call Clean()
+  Clean() succeeded
+  About to call LoadLevel(1)
+
+--- MR_GameSession::LoadLevel START (pLevel=1) ---
+  Deleting old level
+  File has 4 records
+  About to create new MR_Level
+  MR_Level created successfully at 01075998
+  Selecting record 1
+  Record selected
+  About to create CArchive for deserialization
+  CArchive created
+  About to deserialize level
+  Level deserialized successfully
+--- MR_GameSession::LoadLevel END, returning: TRUE ---
+  LoadLevel(1) returned: TRUE
+--- MR_GameSession::LoadNew END, returning: TRUE ---
+  mSession.LoadNew() returned: TRUE
+  About to call ReadLevelAttrib()
+  ReadLevelAttrib() completed
+--- MR_ClientSession::LoadNew END, returning: TRUE ---
+LoadNew returned: SUCCESS
+About to call SetSimulationTime(-6000)
+SetSimulationTime(-6000) succeeded
+About to call CreateMainCharacter()
+
+--- MR_ClientSession::CreateMainCharacter START ---
+  Creating MR_MainCharacter with mNbLap=1, mAllowWeapons=0
+  MR_MainCharacter created
+  Got current level: 01075998
+  About to set mRoom, mPosition, Orientation
+  Properties set successfully
+  About to InsertElement (starting room=0)
+    Starting room value: 0
+  InsertElement succeeded
+--- MR_ClientSession::CreateMainCharacter END, returning TRUE ---
+CreateMainCharacter() returned: TRUE
+=== ROOM COUNT QUERY START ===
+lCurrentSession = 01089D80
+GetCurrentLevel() returned: 01075998
+*** TRACK ROOM COUNT: 22 rooms ***
+=== ROOM COUNT QUERY END ===
+About to close logFile
+InitGame returned: 1
+Calling MainLoop...
+
+=== WinMain START ===
+Creating MR_GameApp...
+MR_GameApp created successfully
+Testing graphics system...
+Calling TestGraphicsSystem...
+TestGraphicsSystem completed
+Checking first instance...
+IsFirstInstance returned: 1
+Skipping DisplayLoginWindow entirely, going straight to game init
+Checking first instance (2nd time)...
+IsFirstInstance (2nd) returned: 1
+Calling InitApplication...
+InitApplication returned: 49892
+Calling InitGame...
+
+=== NewLocalSession Start ===
+Auto-loading ClassicH track (bypassing dialog)
+Track auto-selected: lCurrentTrack='ClassicH', lNbLap=1, lAllowWeapons=0, lSuccess=1
+1. About to call DeleteMovieWnd()
+2. DeleteMovieWnd() succeeded
+3. About to call MR_SoundServer::Init()
+4. MR_SoundServer::Init() succeeded
+4b. About to call MR_DllObjectFactory::Init()
+4c. MR_DllObjectFactory::Init() succeeded
+5. About to call MR_Observer::New()
+6. MR_Observer::New() succeeded, pointer: 01307EC8
+7. About to create new MR_ClientSession
+8. MR_ClientSession created successfully
+8. MR_ClientSession pointer: 013067B0
+About to call MR_TrackOpen for 'ClassicH'
+Checking track file at: C:\originalhr2\HoverRaceAI\Release\tracks\ClassicH.trk
+Track file verified to exist
+
+MR_TrackOpen: Opening track 'ClassicH'
+  Searching in: C:\originalhr2\HoverRaceAI\Release\tracks\
+  Full search path: C:\originalhr2\HoverRaceAI\Release\tracks\ClassicH.trk
+  Found in absolute path
+  Opening file: C:\originalhr2\HoverRaceAI\Release\tracks\ClassicH.trk
+  Successfully opened, reading entry
+
+    ReadTrackEntry: Starting to read track
+    Magic number read: 0x142B9 (expected: 0x142B9)
+    Version read: 1
+    Description: 'Level: Easy
+Length: 0.6 km
+Short and fast track
+Lots of curve and no jumps
+
+', Minor ID: 0, Major ID: 0
+    Skipping ID validation (lMajorID=0, pFileName=ClassicH)
+    Sorting index: 30, Registration: 1
+    Final magic number for FREE_TRACK: 0x142B9
+    SUCCESS: Track entry validated
+  Successfully read entry, checking permissions
+MR_TrackOpen returning: 0139E8B0
+MR_TrackOpen returned: 0139E8B0
+About to call LoadNew()
+
+--- MR_ClientSession::LoadNew START ---
+  pTitle='ClassicH'
+  pMazeFile=0139E8B0
+  pNbLap=1, pAllowWeapons=0
+  pVideo=012FD828
+  About to call mSession.LoadNew()
+
+--- MR_GameSession::LoadNew START ---
+  pTitle='ClassicH'
+  pMazeFile=0139E8B0
+  About to call Clean()
+  Clean() succeeded
+  About to call LoadLevel(1)
+
+--- MR_GameSession::LoadLevel START (pLevel=1) ---
+  Deleting old level
+  File has 4 records
+  About to create new MR_Level
+  MR_Level created successfully at 013068A8
+  Selecting record 1
+  Record selected
+  About to create CArchive for deserialization
+  CArchive created
+  About to deserialize level
+  Level deserialized successfully
+--- MR_GameSession::LoadLevel END, returning: TRUE ---
+  LoadLevel(1) returned: TRUE
+--- MR_GameSession::LoadNew END, returning: TRUE ---
+  mSession.LoadNew() returned: TRUE
+  About to call ReadLevelAttrib()
+  ReadLevelAttrib() completed
+--- MR_ClientSession::LoadNew END, returning: TRUE ---
+LoadNew returned: SUCCESS
+About to call SetSimulationTime(-6000)
+SetSimulationTime(-6000) succeeded
+About to call CreateMainCharacter()
+
+--- MR_ClientSession::CreateMainCharacter START ---
+  Creating MR_MainCharacter with mNbLap=1, mAllowWeapons=0
+  MR_MainCharacter created
+  Got current level: 013068A8
+  About to set mRoom, mPosition, Orientation
+  Properties set successfully
+  About to InsertElement (starting room=0)
+    Starting room value: 0
+  InsertElement succeeded
+--- MR_ClientSession::CreateMainCharacter END, returning TRUE ---
+CreateMainCharacter() returned: TRUE
+=== ROOM COUNT QUERY START ===
+lCurrentSession = 013067B0
+GetCurrentLevel() returned: 013068A8
+*** TRACK ROOM COUNT: 22 rooms ***
+=== ROOM COUNT QUERY END ===
+About to close logFile
+InitGame returned: 1
+Calling MainLoop...
+
+=== WinMain START ===
+Creating MR_GameApp...
+MR_GameApp created successfully
+Testing graphics system...
+Calling TestGraphicsSystem...
+TestGraphicsSystem completed
+Checking first instance...
+IsFirstInstance returned: 1
+Skipping DisplayLoginWindow entirely, going straight to game init
+Checking first instance (2nd time)...
+IsFirstInstance (2nd) returned: 1
+Calling InitApplication...
+InitApplication returned: 49884
+Calling InitGame...
+
+=== NewLocalSession Start ===
+Auto-loading ClassicH track (bypassing dialog)
+Track auto-selected: lCurrentTrack='ClassicH', lNbLap=1, lAllowWeapons=0, lSuccess=1
+1. About to call DeleteMovieWnd()
+2. DeleteMovieWnd() succeeded
+3. About to call MR_SoundServer::Init()
+4. MR_SoundServer::Init() succeeded
+4b. About to call MR_DllObjectFactory::Init()
+4c. MR_DllObjectFactory::Init() succeeded
+5. About to call MR_Observer::New()
+6. MR_Observer::New() succeeded, pointer: 0135F940
+7. About to create new MR_ClientSession
+8. MR_ClientSession created successfully
+8. MR_ClientSession pointer: 013551E0
+About to call MR_TrackOpen for 'ClassicH'
+Checking track file at: C:\originalhr2\HoverRaceAI\Release\tracks\ClassicH.trk
+Track file verified to exist
+
+MR_TrackOpen: Opening track 'ClassicH'
+  Searching in: C:\originalhr2\HoverRaceAI\Release\tracks\
+  Full search path: C:\originalhr2\HoverRaceAI\Release\tracks\ClassicH.trk
+  Found in absolute path
+  Opening file: C:\originalhr2\HoverRaceAI\Release\tracks\ClassicH.trk
+  Successfully opened, reading entry
+
+    ReadTrackEntry: Starting to read track
+    Magic number read: 0x142B9 (expected: 0x142B9)
+    Version read: 1
+    Description: 'Level: Easy
+Length: 0.6 km
+Short and fast track
+Lots of curve and no jumps
+
+', Minor ID: 0, Major ID: 0
+    Skipping ID validation (lMajorID=0, pFileName=ClassicH)
+    Sorting index: 30, Registration: 1
+    Final magic number for FREE_TRACK: 0x142B9
+    SUCCESS: Track entry validated
+  Successfully read entry, checking permissions
+MR_TrackOpen returning: 013ED970
+MR_TrackOpen returned: 013ED970
+About to call LoadNew()
+
+--- MR_ClientSession::LoadNew START ---
+  pTitle='ClassicH'
+  pMazeFile=013ED970
+  pNbLap=1, pAllowWeapons=0
+  pVideo=01348CC0
+  About to call mSession.LoadNew()
+
+--- MR_GameSession::LoadNew START ---
+  pTitle='ClassicH'
+  pMazeFile=013ED970
+  About to call Clean()
+  Clean() succeeded
+  About to call LoadLevel(1)
+
+--- MR_GameSession::LoadLevel START (pLevel=1) ---
+  Deleting old level
+  File has 4 records
+  About to create new MR_Level
+  MR_Level created successfully at 013552D8
+  Selecting record 1
+  Record selected
+  About to create CArchive for deserialization
+  CArchive created
+  About to deserialize level
+  Level deserialized successfully
+--- MR_GameSession::LoadLevel END, returning: TRUE ---
+  LoadLevel(1) returned: TRUE
+--- MR_GameSession::LoadNew END, returning: TRUE ---
+  mSession.LoadNew() returned: TRUE
+  About to call ReadLevelAttrib()
+  ReadLevelAttrib() completed
+--- MR_ClientSession::LoadNew END, returning: TRUE ---
+LoadNew returned: SUCCESS
+About to call SetSimulationTime(-6000)
+SetSimulationTime(-6000) succeeded
+About to call CreateMainCharacter()
+
+--- MR_ClientSession::CreateMainCharacter START ---
+  Creating MR_MainCharacter with mNbLap=1, mAllowWeapons=0
+  MR_MainCharacter created
+  Got current level: 013552D8
+  About to set mRoom, mPosition, Orientation
+  Properties set successfully
+  About to InsertElement (starting room=0)
+    Starting room value: 0
+  InsertElement succeeded
+--- MR_ClientSession::CreateMainCharacter END, returning TRUE ---
+CreateMainCharacter() returned: TRUE
+=== ROOM COUNT QUERY START ===
+lCurrentSession = 013551E0
+GetCurrentLevel() returned: 013552D8
+*** TRACK ROOM COUNT: 22 rooms ***
+=== ROOM COUNT QUERY END ===
+About to close logFile
+InitGame returned: 1
+Calling MainLoop...
+
+=== WinMain START ===
+Creating MR_GameApp...
+MR_GameApp created successfully
+Testing graphics system...
+Calling TestGraphicsSystem...
+TestGraphicsSystem completed
+Checking first instance...
+IsFirstInstance returned: 1
+Skipping DisplayLoginWindow entirely, going straight to game init
+Checking first instance (2nd time)...
+IsFirstInstance (2nd) returned: 1
+Calling InitApplication...
+InitApplication returned: 49859
+Calling InitGame...
+
+=== NewLocalSession Start ===
+Auto-loading ClassicH track (bypassing dialog)
+Track auto-selected: lCurrentTrack='ClassicH', lNbLap=1, lAllowWeapons=0, lSuccess=1
+1. About to call DeleteMovieWnd()
+2. DeleteMovieWnd() succeeded
+3. About to call MR_SoundServer::Init()
+4. MR_SoundServer::Init() succeeded
+4b. About to call MR_DllObjectFactory::Init()
+4c. MR_DllObjectFactory::Init() succeeded
+5. About to call MR_Observer::New()
+6. MR_Observer::New() succeeded, pointer: 01681AB0
+7. About to create new MR_ClientSession
+8. MR_ClientSession created successfully
+8. MR_ClientSession pointer: 01675BB0
+About to call MR_TrackOpen for 'ClassicH'
+Checking track file at: C:\originalhr2\HoverRaceAI\Release\tracks\ClassicH.trk
+Track file verified to exist
+
+MR_TrackOpen: Opening track 'ClassicH'
+  Searching in: C:\originalhr2\HoverRaceAI\Release\tracks\
+  Full search path: C:\originalhr2\HoverRaceAI\Release\tracks\ClassicH.trk
+  Found in absolute path
+  Opening file: C:\originalhr2\HoverRaceAI\Release\tracks\ClassicH.trk
+  Successfully opened, reading entry
+
+    ReadTrackEntry: Starting to read track
+    Magic number read: 0x142B9 (expected: 0x142B9)
+    Version read: 1
+    Description: 'Level: Easy
+Length: 0.6 km
+Short and fast track
+Lots of curve and no jumps
+
+', Minor ID: 0, Major ID: 0
+    Skipping ID validation (lMajorID=0, pFileName=ClassicH)
+    Sorting index: 30, Registration: 1
+    Final magic number for FREE_TRACK: 0x142B9
+    SUCCESS: Track entry validated
+  Successfully read entry, checking permissions
+MR_TrackOpen returning: 01702520
+MR_TrackOpen returned: 01702520
+About to call LoadNew()
+
+--- MR_ClientSession::LoadNew START ---
+  pTitle='ClassicH'
+  pMazeFile=01702520
+  pNbLap=1, pAllowWeapons=0
+  pVideo=01669158
+  About to call mSession.LoadNew()
+
+--- MR_GameSession::LoadNew START ---
+  pTitle='ClassicH'
+  pMazeFile=01702520
+  About to call Clean()
+  Clean() succeeded
+  About to call LoadLevel(1)
+
+--- MR_GameSession::LoadLevel START (pLevel=1) ---
+  Deleting old level
+  File has 4 records
+  About to create new MR_Level
+  MR_Level created successfully at 01675CA8
+  Selecting record 1
+  Record selected
+  About to create CArchive for deserialization
+  CArchive created
+  About to deserialize level
+  Level deserialized successfully
+--- MR_GameSession::LoadLevel END, returning: TRUE ---
+  LoadLevel(1) returned: TRUE
+--- MR_GameSession::LoadNew END, returning: TRUE ---
+  mSession.LoadNew() returned: TRUE
+  About to call ReadLevelAttrib()
+  ReadLevelAttrib() completed
+--- MR_ClientSession::LoadNew END, returning: TRUE ---
+LoadNew returned: SUCCESS
+About to call SetSimulationTime(-6000)
+SetSimulationTime(-6000) succeeded
+About to call CreateMainCharacter()
+
+--- MR_ClientSession::CreateMainCharacter START ---
+  Creating MR_MainCharacter with mNbLap=1, mAllowWeapons=0
+  MR_MainCharacter created
+  Got current level: 01675CA8
+  About to set mRoom, mPosition, Orientation
+  Properties set successfully
+  About to InsertElement (starting room=0)
+    Starting room value: 0
+  InsertElement succeeded
+--- MR_ClientSession::CreateMainCharacter END, returning TRUE ---
+CreateMainCharacter() returned: TRUE
+=== ROOM COUNT QUERY START ===
+lCurrentSession = 01675BB0
+GetCurrentLevel() returned: 01675CA8
+*** TRACK ROOM COUNT: 22 rooms ***
+=== ROOM COUNT QUERY END ===
+About to close logFile
+InitGame returned: 1
+Calling MainLoop...
+
+=== WinMain START ===
+Creating MR_GameApp...
+MR_GameApp created successfully
+Testing graphics system...
+Calling TestGraphicsSystem...
+TestGraphicsSystem completed
+Checking first instance...
+IsFirstInstance returned: 1
+Skipping DisplayLoginWindow entirely, going straight to game init
+Checking first instance (2nd time)...
+IsFirstInstance (2nd) returned: 1
+Calling InitApplication...
+InitApplication returned: 49867
+Calling InitGame...
+
+=== NewLocalSession Start ===
+Auto-loading ClassicH track (bypassing dialog)
+Track auto-selected: lCurrentTrack='ClassicH', lNbLap=1, lAllowWeapons=0, lSuccess=1
+1. About to call DeleteMovieWnd()
+2. DeleteMovieWnd() succeeded
+3. About to call MR_SoundServer::Init()
+4. MR_SoundServer::Init() succeeded
+4b. About to call MR_DllObjectFactory::Init()
+4c. MR_DllObjectFactory::Init() succeeded
+5. About to call MR_Observer::New()
+6. MR_Observer::New() succeeded, pointer: 015300F8
+7. About to create new MR_ClientSession
+8. MR_ClientSession created successfully
+8. MR_ClientSession pointer: 014FAF40
+About to call MR_TrackOpen for 'ClassicH'
+Checking track file at: C:\originalhr2\HoverRaceAI\Release\tracks\ClassicH.trk
+Track file verified to exist
+
+MR_TrackOpen: Opening track 'ClassicH'
+  Searching in: C:\originalhr2\HoverRaceAI\Release\tracks\
+  Full search path: C:\originalhr2\HoverRaceAI\Release\tracks\ClassicH.trk
+  Found in absolute path
+  Opening file: C:\originalhr2\HoverRaceAI\Release\tracks\ClassicH.trk
+  Successfully opened, reading entry
+
+    ReadTrackEntry: Starting to read track
+    Magic number read: 0x142B9 (expected: 0x142B9)
+    Version read: 1
+    Description: 'Level: Easy
+Length: 0.6 km
+Short and fast track
+Lots of curve and no jumps
+
+', Minor ID: 0, Major ID: 0
+    Skipping ID validation (lMajorID=0, pFileName=ClassicH)
+    Sorting index: 30, Registration: 1
+    Final magic number for FREE_TRACK: 0x142B9
+    SUCCESS: Track entry validated
+  Successfully read entry, checking permissions
+MR_TrackOpen returning: 015B55C0
+MR_TrackOpen returned: 015B55C0
+About to call LoadNew()
+
+--- MR_ClientSession::LoadNew START ---
+  pTitle='ClassicH'
+  pMazeFile=015B55C0
+  pNbLap=1, pAllowWeapons=0
+  pVideo=01520608
+  About to call mSession.LoadNew()
+
+--- MR_GameSession::LoadNew START ---
+  pTitle='ClassicH'
+  pMazeFile=015B55C0
+  About to call Clean()
+  Clean() succeeded
+  About to call LoadLevel(1)
+
+--- MR_GameSession::LoadLevel START (pLevel=1) ---
+  Deleting old level
+  File has 4 records
+  About to create new MR_Level
+  MR_Level created successfully at 0633E160
+  Selecting record 1
+  Record selected
+  About to create CArchive for deserialization
+  CArchive created
+  About to deserialize level
+  Level deserialized successfully
+--- MR_GameSession::LoadLevel END, returning: TRUE ---
+  LoadLevel(1) returned: TRUE
+--- MR_GameSession::LoadNew END, returning: TRUE ---
+  mSession.LoadNew() returned: TRUE
+  About to call ReadLevelAttrib()
+  ReadLevelAttrib() completed
+--- MR_ClientSession::LoadNew END, returning: TRUE ---
+LoadNew returned: SUCCESS
+About to call SetSimulationTime(-6000)
+SetSimulationTime(-6000) succeeded
+About to call CreateMainCharacter()
+
+--- MR_ClientSession::CreateMainCharacter START ---
+  Creating MR_MainCharacter with mNbLap=1, mAllowWeapons=0
+  MR_MainCharacter created
+  Got current level: 0633E160
+  About to set mRoom, mPosition, Orientation
+  Properties set successfully
+  About to InsertElement (starting room=0)
+    Starting room value: 0
+  InsertElement succeeded
+--- MR_ClientSession::CreateMainCharacter END, returning TRUE ---
+CreateMainCharacter() returned: TRUE
+=== ROOM COUNT QUERY START ===
+lCurrentSession = 014FAF40
+GetCurrentLevel() returned: 0633E160
+*** TRACK ROOM COUNT: 22 rooms ***
+=== ROOM COUNT QUERY END ===
+About to close logFile
+InitGame returned: 1
+Calling MainLoop...
+
+=== WinMain START ===
+Creating MR_GameApp...
+MR_GameApp created successfully
+Testing graphics system...
+Calling TestGraphicsSystem...
+TestGraphicsSystem completed
+Checking first instance...
+IsFirstInstance returned: 1
+Skipping DisplayLoginWindow entirely, going straight to game init
+Checking first instance (2nd time)...
+IsFirstInstance (2nd) returned: 1
+Calling InitApplication...
+InitApplication returned: 49897
+Calling InitGame...
+
+=== NewLocalSession Start ===
+Auto-loading ClassicH track (bypassing dialog)
+Track auto-selected: lCurrentTrack='ClassicH', lNbLap=1, lAllowWeapons=0, lSuccess=1
+1. About to call DeleteMovieWnd()
+2. DeleteMovieWnd() succeeded
+3. About to call MR_SoundServer::Init()
+4. MR_SoundServer::Init() succeeded
+4b. About to call MR_DllObjectFactory::Init()
+4c. MR_DllObjectFactory::Init() succeeded
+5. About to call MR_Observer::New()
+6. MR_Observer::New() succeeded, pointer: 01183598
+7. About to create new MR_ClientSession
+8. MR_ClientSession created successfully
+8. MR_ClientSession pointer: 01177E30
+About to call MR_TrackOpen for 'ClassicH'
+Checking track file at: C:\originalhr2\HoverRaceAI\Release\tracks\ClassicH.trk
+Track file verified to exist
+
+MR_TrackOpen: Opening track 'ClassicH'
+  Searching in: C:\originalhr2\HoverRaceAI\Release\tracks\
+  Full search path: C:\originalhr2\HoverRaceAI\Release\tracks\ClassicH.trk
+  Found in absolute path
+  Opening file: C:\originalhr2\HoverRaceAI\Release\tracks\ClassicH.trk
+  Successfully opened, reading entry
+
+    ReadTrackEntry: Starting to read track
+    Magic number read: 0x142B9 (expected: 0x142B9)
+    Version read: 1
+    Description: 'Level: Easy
+Length: 0.6 km
+Short and fast track
+Lots of curve and no jumps
+
+', Minor ID: 0, Major ID: 0
+    Skipping ID validation (lMajorID=0, pFileName=ClassicH)
+    Sorting index: 30, Registration: 1
+    Final magic number for FREE_TRACK: 0x142B9
+    SUCCESS: Track entry validated
+  Successfully read entry, checking permissions
+MR_TrackOpen returning: 01201F98
+MR_TrackOpen returned: 01201F98
+About to call LoadNew()
+
+--- MR_ClientSession::LoadNew START ---
+  pTitle='ClassicH'
+  pMazeFile=01201F98
+  pNbLap=1, pAllowWeapons=0
+  pVideo=0116BAD8
+  About to call mSession.LoadNew()
+
+--- MR_GameSession::LoadNew START ---
+  pTitle='ClassicH'
+  pMazeFile=01201F98
+  About to call Clean()
+  Clean() succeeded
+  About to call LoadLevel(1)
+
+--- MR_GameSession::LoadLevel START (pLevel=1) ---
+  Deleting old level
+  File has 4 records
+  About to create new MR_Level
+  MR_Level created successfully at 01177F28
+  Selecting record 1
+  Record selected
+  About to create CArchive for deserialization
+  CArchive created
+  About to deserialize level
+  Level deserialized successfully
+--- MR_GameSession::LoadLevel END, returning: TRUE ---
+  LoadLevel(1) returned: TRUE
+--- MR_GameSession::LoadNew END, returning: TRUE ---
+  mSession.LoadNew() returned: TRUE
+  About to call ReadLevelAttrib()
+  ReadLevelAttrib() completed
+--- MR_ClientSession::LoadNew END, returning: TRUE ---
+LoadNew returned: SUCCESS
+About to call SetSimulationTime(-6000)
+SetSimulationTime(-6000) succeeded
+About to call CreateMainCharacter()
+
+--- MR_ClientSession::CreateMainCharacter START ---
+  Creating MR_MainCharacter with mNbLap=1, mAllowWeapons=0
+  MR_MainCharacter created
+  Got current level: 01177F28
+  About to set mRoom, mPosition, Orientation
+  Properties set successfully
+  About to InsertElement (starting room=0)
+    Starting room value: 0
+  InsertElement succeeded
+--- MR_ClientSession::CreateMainCharacter END, returning TRUE ---
+CreateMainCharacter() returned: TRUE
+=== ROOM COUNT QUERY START ===
+lCurrentSession = 01177E30
+GetCurrentLevel() returned: 01177F28
+*** TRACK ROOM COUNT: 22 rooms ***
+=== ROOM COUNT QUERY END ===
+About to close logFile
+InitGame returned: 1
+Calling MainLoop...
+
+=== WinMain START ===
+Creating MR_GameApp...
+MR_GameApp created successfully
+Testing graphics system...
+Calling TestGraphicsSystem...
+TestGraphicsSystem completed
+Checking first instance...
+IsFirstInstance returned: 1
+Skipping DisplayLoginWindow entirely, going straight to game init
+Checking first instance (2nd time)...
+IsFirstInstance (2nd) returned: 1
+Calling InitApplication...
+InitApplication returned: 49897
+Calling InitGame...
+
+=== NewLocalSession Start ===
+Auto-loading ClassicH track (bypassing dialog)
+Track auto-selected: lCurrentTrack='ClassicH', lNbLap=1, lAllowWeapons=0, lSuccess=1
+1. About to call DeleteMovieWnd()
+2. DeleteMovieWnd() succeeded
+3. About to call MR_SoundServer::Init()
+4. MR_SoundServer::Init() succeeded
+4b. About to call MR_DllObjectFactory::Init()
+4c. MR_DllObjectFactory::Init() succeeded
+5. About to call MR_Observer::New()
+6. MR_Observer::New() succeeded, pointer: 00B781A0
+7. About to create new MR_ClientSession
+8. MR_ClientSession created successfully
+8. MR_ClientSession pointer: 0589EB70
+About to call MR_TrackOpen for 'ClassicH'
+Checking track file at: C:\originalhr2\HoverRaceAI\Release\tracks\ClassicH.trk
+Track file verified to exist
+
+MR_TrackOpen: Opening track 'ClassicH'
+  Searching in: C:\originalhr2\HoverRaceAI\Release\tracks\
+  Full search path: C:\originalhr2\HoverRaceAI\Release\tracks\ClassicH.trk
+  Found in absolute path
+  Opening file: C:\originalhr2\HoverRaceAI\Release\tracks\ClassicH.trk
+  Successfully opened, reading entry
+
+    ReadTrackEntry: Starting to read track
+    Magic number read: 0x142B9 (expected: 0x142B9)
+    Version read: 1
+    Description: 'Level: Easy
+Length: 0.6 km
+Short and fast track
+Lots of curve and no jumps
+
+', Minor ID: 0, Major ID: 0
+    Skipping ID validation (lMajorID=0, pFileName=ClassicH)
+    Sorting index: 30, Registration: 1
+    Final magic number for FREE_TRACK: 0x142B9
+    SUCCESS: Track entry validated
+  Successfully read entry, checking permissions
+MR_TrackOpen returning: 058791F0
+MR_TrackOpen returned: 058791F0
+About to call LoadNew()
+
+--- MR_ClientSession::LoadNew START ---
+  pTitle='ClassicH'
+  pMazeFile=058791F0
+  pNbLap=1, pAllowWeapons=0
+  pVideo=00BC0E30
+  About to call mSession.LoadNew()
+
+--- MR_GameSession::LoadNew START ---
+  pTitle='ClassicH'
+  pMazeFile=058791F0
+  About to call Clean()
+  Clean() succeeded
+  About to call LoadLevel(1)
+
+--- MR_GameSession::LoadLevel START (pLevel=1) ---
+  Deleting old level
+  File has 4 records
+  About to create new MR_Level
+  MR_Level created successfully at 00BCF4E8
+  Selecting record 1
+  Record selected
+  About to create CArchive for deserialization
+  CArchive created
+  About to deserialize level
+  Level deserialized successfully
+--- MR_GameSession::LoadLevel END, returning: TRUE ---
+  LoadLevel(1) returned: TRUE
+--- MR_GameSession::LoadNew END, returning: TRUE ---
+  mSession.LoadNew() returned: TRUE
+  About to call ReadLevelAttrib()
+  ReadLevelAttrib() completed
+--- MR_ClientSession::LoadNew END, returning: TRUE ---
+LoadNew returned: SUCCESS
+About to call SetSimulationTime(-6000)
+SetSimulationTime(-6000) succeeded
+About to call CreateMainCharacter()
+
+--- MR_ClientSession::CreateMainCharacter START ---
+  Creating MR_MainCharacter with mNbLap=1, mAllowWeapons=0
+  MR_MainCharacter created
+  Got current level: 00BCF4E8
+  About to set mRoom, mPosition, Orientation
+  Properties set successfully
+  About to InsertElement (starting room=0)
+    Starting room value: 0
+  InsertElement succeeded
+--- MR_ClientSession::CreateMainCharacter END, returning TRUE ---
+CreateMainCharacter() returned: TRUE
+=== ROOM COUNT QUERY START ===
+lCurrentSession = 0589EB70
+GetCurrentLevel() returned: 00BCF4E8
+*** TRACK ROOM COUNT: 22 rooms ***
+=== ROOM COUNT QUERY END ===
+About to close logFile
+InitGame returned: 1
+Calling MainLoop...
+
+=== WinMain START ===
+Creating MR_GameApp...
+MR_GameApp created successfully
+Testing graphics system...
+Calling TestGraphicsSystem...
+TestGraphicsSystem completed
+Checking first instance...
+IsFirstInstance returned: 1
+Skipping DisplayLoginWindow entirely, going straight to game init
+Checking first instance (2nd time)...
+IsFirstInstance (2nd) returned: 1
+Calling InitApplication...
+InitApplication returned: 49899
+Calling InitGame...
+
+=== NewLocalSession Start ===
+Auto-loading ClassicH track (bypassing dialog)
+Track auto-selected: lCurrentTrack='ClassicH', lNbLap=1, lAllowWeapons=0, lSuccess=1
+1. About to call DeleteMovieWnd()
+2. DeleteMovieWnd() succeeded
+3. About to call MR_SoundServer::Init()
+4. MR_SoundServer::Init() succeeded
+4b. About to call MR_DllObjectFactory::Init()
+4c. MR_DllObjectFactory::Init() succeeded
+5. About to call MR_Observer::New()
+6. MR_Observer::New() succeeded, pointer: 0113D870
+7. About to create new MR_ClientSession
+8. MR_ClientSession created successfully
+8. MR_ClientSession pointer: 05E5E948
+About to call MR_TrackOpen for 'ClassicH'
+Checking track file at: C:\originalhr2\HoverRaceAI\Release\tracks\ClassicH.trk
+Track file verified to exist
+
+MR_TrackOpen: Opening track 'ClassicH'
+  Searching in: C:\originalhr2\HoverRaceAI\Release\tracks\
+  Full search path: C:\originalhr2\HoverRaceAI\Release\tracks\ClassicH.trk
+  Found in absolute path
+  Opening file: C:\originalhr2\HoverRaceAI\Release\tracks\ClassicH.trk
+  Successfully opened, reading entry
+
+    ReadTrackEntry: Starting to read track
+    Magic number read: 0x142B9 (expected: 0x142B9)
+    Version read: 1
+    Description: 'Level: Easy
+Length: 0.6 km
+Short and fast track
+Lots of curve and no jumps
+
+', Minor ID: 0, Major ID: 0
+    Skipping ID validation (lMajorID=0, pFileName=ClassicH)
+    Sorting index: 30, Registration: 1
+    Final magic number for FREE_TRACK: 0x142B9
+    SUCCESS: Track entry validated
+  Successfully read entry, checking permissions
+MR_TrackOpen returning: 011C15B8
+MR_TrackOpen returned: 011C15B8
+About to call LoadNew()
+
+--- MR_ClientSession::LoadNew START ---
+  pTitle='ClassicH'
+  pMazeFile=011C15B8
+  pNbLap=1, pAllowWeapons=0
+  pVideo=0112BDE0
+  About to call mSession.LoadNew()
+
+--- MR_GameSession::LoadNew START ---
+  pTitle='ClassicH'
+  pMazeFile=011C15B8
+  About to call Clean()
+  Clean() succeeded
+  About to call LoadLevel(1)
+
+--- MR_GameSession::LoadLevel START (pLevel=1) ---
+  Deleting old level
+  File has 4 records
+  About to create new MR_Level
+  MR_Level created successfully at 01136748
+  Selecting record 1
+  Record selected
+  About to create CArchive for deserialization
+  CArchive created
+  About to deserialize level
+  Level deserialized successfully
+--- MR_GameSession::LoadLevel END, returning: TRUE ---
+  LoadLevel(1) returned: TRUE
+--- MR_GameSession::LoadNew END, returning: TRUE ---
+  mSession.LoadNew() returned: TRUE
+  About to call ReadLevelAttrib()
+  ReadLevelAttrib() completed
+--- MR_ClientSession::LoadNew END, returning: TRUE ---
+LoadNew returned: SUCCESS
+About to call SetSimulationTime(-6000)
+SetSimulationTime(-6000) succeeded
+About to call CreateMainCharacter()
+
+--- MR_ClientSession::CreateMainCharacter START ---
+  Creating MR_MainCharacter with mNbLap=1, mAllowWeapons=0
+  MR_MainCharacter created
+  Got current level: 01136748
+  About to set mRoom, mPosition, Orientation
+  Properties set successfully
+  About to InsertElement (starting room=0)
+    Starting room value: 0
+  InsertElement succeeded
+--- MR_ClientSession::CreateMainCharacter END, returning TRUE ---
+CreateMainCharacter() returned: TRUE
+=== ROOM COUNT QUERY START ===
+lCurrentSession = 05E5E948
+GetCurrentLevel() returned: 01136748
+*** TRACK ROOM COUNT: 22 rooms ***
+=== ROOM COUNT QUERY END ===
+About to close logFile
+InitGame returned: 1
+Calling MainLoop...
+
+=== WinMain START ===
+Creating MR_GameApp...
+MR_GameApp created successfully
+Testing graphics system...
+Calling TestGraphicsSystem...
+TestGraphicsSystem completed
+Checking first instance...
+IsFirstInstance returned: 1
+Skipping DisplayLoginWindow entirely, going straight to game init
+Checking first instance (2nd time)...
+IsFirstInstance (2nd) returned: 1
+Calling InitApplication...
+InitApplication returned: 49872
+Calling InitGame...
+
+=== NewLocalSession Start ===
+Auto-loading ClassicH track (bypassing dialog)
+Track auto-selected: lCurrentTrack='ClassicH', lNbLap=1, lAllowWeapons=0, lSuccess=1
+1. About to call DeleteMovieWnd()
+2. DeleteMovieWnd() succeeded
+3. About to call MR_SoundServer::Init()
+4. MR_SoundServer::Init() succeeded
+4b. About to call MR_DllObjectFactory::Init()
+4c. MR_DllObjectFactory::Init() succeeded
+5. About to call MR_Observer::New()
+6. MR_Observer::New() succeeded, pointer: 00E7B990
+7. About to create new MR_ClientSession
+8. MR_ClientSession created successfully
+8. MR_ClientSession pointer: 05EADC30
+About to call MR_TrackOpen for 'ClassicH'
+Checking track file at: C:\originalhr2\HoverRaceAI\Release\tracks\ClassicH.trk
+Track file verified to exist
+
+MR_TrackOpen: Opening track 'ClassicH'
+  Searching in: C:\originalhr2\HoverRaceAI\Release\tracks\
+  Full search path: C:\originalhr2\HoverRaceAI\Release\tracks\ClassicH.trk
+  Found in absolute path
+  Opening file: C:\originalhr2\HoverRaceAI\Release\tracks\ClassicH.trk
+  Successfully opened, reading entry
+
+    ReadTrackEntry: Starting to read track
+    Magic number read: 0x142B9 (expected: 0x142B9)
+    Version read: 1
+    Description: 'Level: Easy
+Length: 0.6 km
+Short and fast track
+Lots of curve and no jumps
+
+', Minor ID: 0, Major ID: 0
+    Skipping ID validation (lMajorID=0, pFileName=ClassicH)
+    Sorting index: 30, Registration: 1
+    Final magic number for FREE_TRACK: 0x142B9
+    SUCCESS: Track entry validated
+  Successfully read entry, checking permissions
+MR_TrackOpen returning: 05E393B0
+MR_TrackOpen returned: 05E393B0
+About to call LoadNew()
+
+--- MR_ClientSession::LoadNew START ---
+  pTitle='ClassicH'
+  pMazeFile=05E393B0
+  pNbLap=1, pAllowWeapons=0
+  pVideo=00E07570
+  About to call mSession.LoadNew()
+
+--- MR_GameSession::LoadNew START ---
+  pTitle='ClassicH'
+  pMazeFile=05E393B0
+  About to call Clean()
+  Clean() succeeded
+  About to call LoadLevel(1)
+
+--- MR_GameSession::LoadLevel START (pLevel=1) ---
+  Deleting old level
+  File has 4 records
+  About to create new MR_Level
+  MR_Level created successfully at 00E26508
+  Selecting record 1
+  Record selected
+  About to create CArchive for deserialization
+  CArchive created
+  About to deserialize level
+  Level deserialized successfully
+--- MR_GameSession::LoadLevel END, returning: TRUE ---
+  LoadLevel(1) returned: TRUE
+--- MR_GameSession::LoadNew END, returning: TRUE ---
+  mSession.LoadNew() returned: TRUE
+  About to call ReadLevelAttrib()
+  ReadLevelAttrib() completed
+--- MR_ClientSession::LoadNew END, returning: TRUE ---
+LoadNew returned: SUCCESS
+About to call SetSimulationTime(-6000)
+SetSimulationTime(-6000) succeeded
+About to call CreateMainCharacter()
+
+--- MR_ClientSession::CreateMainCharacter START ---
+  Creating MR_MainCharacter with mNbLap=1, mAllowWeapons=0
+  MR_MainCharacter created
+  Got current level: 00E26508
+  About to set mRoom, mPosition, Orientation
+  Properties set successfully
+  About to InsertElement (starting room=0)
+    Starting room value: 0
+  InsertElement succeeded
+--- MR_ClientSession::CreateMainCharacter END, returning TRUE ---
+CreateMainCharacter() returned: TRUE
+=== ROOM COUNT QUERY START ===
+lCurrentSession = 05EADC30
+GetCurrentLevel() returned: 00E26508
+*** TRACK ROOM COUNT: 22 rooms ***
+=== ROOM COUNT QUERY END ===
+About to close logFile
+InitGame returned: 1
+Calling MainLoop...
+MainLoop returned: 0
+=== WinMain END, returning 0 ===
+
+=== WinMain START ===
+Creating MR_GameApp...
+MR_GameApp created successfully
+Testing graphics system...
+Calling TestGraphicsSystem...
+TestGraphicsSystem completed
+Checking first instance...
+IsFirstInstance returned: 1
+Skipping DisplayLoginWindow entirely, going straight to game init
+Checking first instance (2nd time)...
+IsFirstInstance (2nd) returned: 1
+Calling InitApplication...
+InitApplication returned: 49867
+Calling InitGame...
+
+=== NewLocalSession Start ===
+Auto-loading ClassicH track (bypassing dialog)
+Track auto-selected: lCurrentTrack='ClassicH', lNbLap=1, lAllowWeapons=0, lSuccess=1
+1. About to call DeleteMovieWnd()
+2. DeleteMovieWnd() succeeded
+3. About to call MR_SoundServer::Init()
+4. MR_SoundServer::Init() succeeded
+4b. About to call MR_DllObjectFactory::Init()
+4c. MR_DllObjectFactory::Init() succeeded
+5. About to call MR_Observer::New()
+6. MR_Observer::New() succeeded, pointer: 00F369C0
+7. About to create new MR_ClientSession
+8. MR_ClientSession created successfully
+8. MR_ClientSession pointer: 05E95170
+About to call MR_TrackOpen for 'ClassicH'
+Checking track file at: C:\originalhr2\HoverRaceAI\Release\tracks\ClassicH.trk
+Track file verified to exist
+
+MR_TrackOpen: Opening track 'ClassicH'
+  Searching in: C:\originalhr2\HoverRaceAI\Release\tracks\
+  Full search path: C:\originalhr2\HoverRaceAI\Release\tracks\ClassicH.trk
+  Found in absolute path
+  Opening file: C:\originalhr2\HoverRaceAI\Release\tracks\ClassicH.trk
+  Successfully opened, reading entry
+
+    ReadTrackEntry: Starting to read track
+    Magic number read: 0x142B9 (expected: 0x142B9)
+    Version read: 1
+    Description: 'Level: Easy
+Length: 0.6 km
+Short and fast track
+Lots of curve and no jumps
+
+', Minor ID: 0, Major ID: 0
+    Skipping ID validation (lMajorID=0, pFileName=ClassicH)
+    Sorting index: 30, Registration: 1
+    Final magic number for FREE_TRACK: 0x142B9
+    SUCCESS: Track entry validated
+  Successfully read entry, checking permissions
+MR_TrackOpen returning: 05E90F18
+MR_TrackOpen returned: 05E90F18
+About to call LoadNew()
+
+--- MR_ClientSession::LoadNew START ---
+  pTitle='ClassicH'
+  pMazeFile=05E90F18
+  pNbLap=1, pAllowWeapons=0
+  pVideo=00F1D0E0
+  About to call mSession.LoadNew()
+
+--- MR_GameSession::LoadNew START ---
+  pTitle='ClassicH'
+  pMazeFile=05E90F18
+  About to call Clean()
+  Clean() succeeded
+  About to call LoadLevel(1)
+
+--- MR_GameSession::LoadLevel START (pLevel=1) ---
+  Deleting old level
+  File has 4 records
+  About to create new MR_Level
+  MR_Level created successfully at 00F2A658
+  Selecting record 1
+  Record selected
+  About to create CArchive for deserialization
+  CArchive created
+  About to deserialize level
+  Level deserialized successfully
+--- MR_GameSession::LoadLevel END, returning: TRUE ---
+  LoadLevel(1) returned: TRUE
+--- MR_GameSession::LoadNew END, returning: TRUE ---
+  mSession.LoadNew() returned: TRUE
+  About to call ReadLevelAttrib()
+  ReadLevelAttrib() completed
+--- MR_ClientSession::LoadNew END, returning: TRUE ---
+LoadNew returned: SUCCESS
+About to call SetSimulationTime(-6000)
+SetSimulationTime(-6000) succeeded
+About to call CreateMainCharacter()
+
+--- MR_ClientSession::CreateMainCharacter START ---
+  Creating MR_MainCharacter with mNbLap=1, mAllowWeapons=0
+  MR_MainCharacter created
+  Got current level: 00F2A658
+  About to set mRoom, mPosition, Orientation
+  Properties set successfully
+  About to InsertElement (starting room=0)
+    Starting room value: 0
+  InsertElement succeeded
+--- MR_ClientSession::CreateMainCharacter END, returning TRUE ---
+CreateMainCharacter() returned: TRUE
+=== ROOM COUNT QUERY START ===
+lCurrentSession = 05E95170
+GetCurrentLevel() returned: 00F2A658
+*** TRACK ROOM COUNT: 22 rooms ***
+=== ROOM COUNT QUERY END ===
+About to close logFile
+InitGame returned: 1
+Calling MainLoop...
+MainLoop returned: 0
+=== WinMain END, returning 0 ===
+
+=== WinMain START ===
+Creating MR_GameApp...
+MR_GameApp created successfully
+Testing graphics system...
+Calling TestGraphicsSystem...
+TestGraphicsSystem completed
+Checking first instance...
+IsFirstInstance returned: 1
+Skipping DisplayLoginWindow entirely, going straight to game init
+Checking first instance (2nd time)...
+IsFirstInstance (2nd) returned: 1
+Calling InitApplication...
+InitApplication returned: 49892
+Calling InitGame...
+
+=== NewLocalSession Start ===
+Auto-loading ClassicH track (bypassing dialog)
+Track auto-selected: lCurrentTrack='ClassicH', lNbLap=1, lAllowWeapons=0, lSuccess=1
+1. About to call DeleteMovieWnd()
+2. DeleteMovieWnd() succeeded
+3. About to call MR_SoundServer::Init()
+4. MR_SoundServer::Init() succeeded
+4b. About to call MR_DllObjectFactory::Init()
+4c. MR_DllObjectFactory::Init() succeeded
+5. About to call MR_Observer::New()
+6. MR_Observer::New() succeeded, pointer: 00A5D0F0
+7. About to create new MR_ClientSession
+8. MR_ClientSession created successfully
+8. MR_ClientSession pointer: 05BCCF50
+About to call MR_TrackOpen for 'ClassicH'
+Checking track file at: C:\originalhr2\HoverRaceAI\Release\tracks\ClassicH.trk
+Track file verified to exist
+
+MR_TrackOpen: Opening track 'ClassicH'
+  Searching in: C:\originalhr2\HoverRaceAI\Release\tracks\
+  Full search path: C:\originalhr2\HoverRaceAI\Release\tracks\ClassicH.trk
+  Found in absolute path
+  Opening file: C:\originalhr2\HoverRaceAI\Release\tracks\ClassicH.trk
+  Successfully opened, reading entry
+
+    ReadTrackEntry: Starting to read track
+    Magic number read: 0x142B9 (expected: 0x142B9)
+    Version read: 1
+    Description: 'Level: Easy
+Length: 0.6 km
+Short and fast track
+Lots of curve and no jumps
+
+', Minor ID: 0, Major ID: 0
+    Skipping ID validation (lMajorID=0, pFileName=ClassicH)
+    Sorting index: 30, Registration: 1
+    Final magic number for FREE_TRACK: 0x142B9
+    SUCCESS: Track entry validated
+  Successfully read entry, checking permissions
+MR_TrackOpen returning: 05BC6958
+MR_TrackOpen returned: 05BC6958
+About to call LoadNew()
+
+--- MR_ClientSession::LoadNew START ---
+  pTitle='ClassicH'
+  pMazeFile=05BC6958
+  pNbLap=1, pAllowWeapons=0
+  pVideo=009F1028
+  About to call mSession.LoadNew()
+
+--- MR_GameSession::LoadNew START ---
+  pTitle='ClassicH'
+  pMazeFile=05BC6958
+  About to call Clean()
+  Clean() succeeded
+  About to call LoadLevel(1)
+
+--- MR_GameSession::LoadLevel START (pLevel=1) ---
+  Deleting old level
+  File has 4 records
+  About to create new MR_Level
+  MR_Level created successfully at 00A053F0
+  Selecting record 1
+  Record selected
+  About to create CArchive for deserialization
+  CArchive created
+  About to deserialize level
+  Level deserialized successfully
+--- MR_GameSession::LoadLevel END, returning: TRUE ---
+  LoadLevel(1) returned: TRUE
+--- MR_GameSession::LoadNew END, returning: TRUE ---
+  mSession.LoadNew() returned: TRUE
+  About to call ReadLevelAttrib()
+  ReadLevelAttrib() completed
+--- MR_ClientSession::LoadNew END, returning: TRUE ---
+LoadNew returned: SUCCESS
+About to call SetSimulationTime(-6000)
+SetSimulationTime(-6000) succeeded
+About to call CreateMainCharacter()
+
+--- MR_ClientSession::CreateMainCharacter START ---
+  Creating MR_MainCharacter with mNbLap=1, mAllowWeapons=0
+  MR_MainCharacter created
+  Got current level: 00A053F0
+  About to set mRoom, mPosition, Orientation
+  Properties set successfully
+  About to InsertElement (starting room=0)
+    Starting room value: 0
+  InsertElement succeeded
+--- MR_ClientSession::CreateMainCharacter END, returning TRUE ---
+CreateMainCharacter() returned: TRUE
+=== ROOM COUNT QUERY START ===
+lCurrentSession = 05BCCF50
+GetCurrentLevel() returned: 00A053F0
+*** TRACK ROOM COUNT: 22 rooms ***
+=== ROOM COUNT QUERY END ===
+About to close logFile
+InitGame returned: 1
+Calling MainLoop...
+MainLoop returned: 0
+=== WinMain END, returning 0 ===

@@ -187,6 +187,7 @@ BOOL MR_SoundBuffer::Init(const char* pData, int pNbCopy)
          }
 
          alSourcei(mALSources[i], AL_BUFFER, mALBuffers[0]);
+         alSourcei(mALSources[i], AL_LOOPING, AL_TRUE);  // Enable looping for continuous sounds
          alSourcef(mALSources[i], AL_PITCH, 1.0f);
          alSourcef(mALSources[i], AL_GAIN, 1.0f);
          alSource3f(mALSources[i], AL_POSITION, 0, 0, 0);
@@ -410,27 +411,42 @@ namespace MR_SoundServer
    {
       try
       {
+         FILE* f = fopen("C:\\temp\\audio_debug.log", "a");
+         if(f) fprintf(f, "MR_SoundServer::Init called\n"), fflush(f), fclose(f);
+         
          // Get default audio device
          gOpenALDevice = alcOpenDevice(NULL);
-         if (gOpenALDevice == NULL)
+         
+         f = fopen("C:\\temp\\audio_debug.log", "a");
+         if(f) fprintf(f, "alcOpenDevice returned: %p\n", gOpenALDevice), fflush(f);
+         
+         if (gOpenALDevice == NULL) {
+            if(f) fprintf(f, "ERROR: alcOpenDevice returned NULL\n"), fflush(f), fclose(f);
             return FALSE;
+         }
 
          // Create audio context
          gOpenALContext = alcCreateContext(gOpenALDevice, NULL);
+         if(f) fprintf(f, "alcCreateContext returned: %p\n", gOpenALContext), fflush(f);
+         
          if (gOpenALContext == NULL)
          {
+            if(f) fprintf(f, "ERROR: alcCreateContext returned NULL\n"), fflush(f);
             alcCloseDevice(gOpenALDevice);
             gOpenALDevice = NULL;
+            if(f) fclose(f);
             return FALSE;
          }
 
          // Make context current
          if (!alcMakeContextCurrent(gOpenALContext))
          {
+            if(f) fprintf(f, "ERROR: alcMakeContextCurrent failed\n"), fflush(f);
             alcDestroyContext(gOpenALContext);
             alcCloseDevice(gOpenALDevice);
             gOpenALContext = NULL;
             gOpenALDevice = NULL;
+            if(f) fclose(f);
             return FALSE;
          }
 
@@ -440,10 +456,13 @@ namespace MR_SoundServer
          ALfloat lOrient[] = {0, 0, -1, 0, 1, 0};
          alListenerfv(AL_ORIENTATION, lOrient);
 
+         if(f) fprintf(f, "MR_SoundServer::Init SUCCESS\n"), fflush(f), fclose(f);
          return TRUE;
       }
       catch (...)
       {
+         FILE* f = fopen("C:\\temp\\audio_debug.log", "a");
+         if(f) fprintf(f, "ERROR: Exception in Init\n"), fflush(f), fclose(f);
          return FALSE;
       }
    }

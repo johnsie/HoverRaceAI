@@ -1754,6 +1754,8 @@ void MR_GameApp::RefreshView(BOOL pShouldPresent)
          if( pLevel != NULL )
          {
             mObserver1->PlaySoundsSafe( pLevel, pCharacter );
+            // Apply any queued continuous sound commands (motor, wind, etc.)
+            MR_SoundServer::ApplyContinuousPlay();
          }
       }
    }
