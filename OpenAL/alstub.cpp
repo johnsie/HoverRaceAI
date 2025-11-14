@@ -60,6 +60,9 @@ struct AudioSource {
     HWAVEOUT hWaveOut;
     WAVEHDR waveHeaders[MAX_WAVE_BUFFERS];
     int currentWaveBuffer;
+    WAVEHDR* queuedHeaders[2];  // Double-buffer: track up to 2 headers in flight
+    int queuedCount;  // How many headers are currently queued
+    DWORD lastPlayTime;  // Track when playback started for timeout detection
 };
 
 /* Global state */
@@ -336,21 +339,32 @@ ALvoid alSource3f(ALuint source, ALenum param, ALfloat value1, ALfloat value2, A
 ALvoid alSourcePlay(ALuint source) {
     EnterCriticalSection(&g_audioLock);
     
-    LogAudio("alSourcePlay: source=%d", source);
+    LogAudio("alSourcePlay: source=%d, looping=%d", source, (source > 0 && source <= 128 ? g_sources[source-1].looping : 0));
     
     if (source > 0 && source <= 128) {
         int idx = source - 1;
         if (g_sources[idx].state != AL_PLAYING) {
             g_sources[idx].state = AL_PLAYING;
             g_sources[idx].playPosition = 0;
+            g_sources[idx].lastPlayTime = GetTickCount();
+            
+            // Clean up any old queued headers
+            for (int i = 0; i < 2; i++) {
+                if (g_sources[idx].queuedHeaders[i] != NULL) {
+                    waveOutUnprepareHeader(g_hWaveOut, g_sources[idx].queuedHeaders[i], sizeof(WAVEHDR));
+                    free(g_sources[idx].queuedHeaders[i]);
+                    g_sources[idx].queuedHeaders[i] = NULL;
+                }
+            }
+            g_sources[idx].queuedCount = 0;
             
             // Get buffer data
             if (g_sources[idx].bufferId > 0 && g_sources[idx].bufferId <= MAX_AUDIO_BUFFERS) {
                 int bufIdx = g_sources[idx].bufferId - 1;
                 AudioBuffer* buf = &g_buffers[bufIdx];
                 
-                LogAudio("  bufferId=%d, pAudioData=%p, size=%d, format=%d, freq=%d",
-                         g_sources[idx].bufferId, buf->pAudioData, buf->dwAudioDataSize, buf->format, buf->frequency);
+                LogAudio("  bufferId=%d, pAudioData=%p, size=%d, format=%d, freq=%d, looping=%d",
+                         g_sources[idx].bufferId, buf->pAudioData, buf->dwAudioDataSize, buf->format, buf->frequency, g_sources[idx].looping);
                 
                 if (buf->pAudioData != NULL) {
                     // Determine format parameters from AL format
@@ -380,47 +394,64 @@ ALvoid alSourcePlay(ALuint source) {
                         return;
                     }
                     
-                    // Allocate persistent header for this playback
-                    WAVEHDR* hdr = (WAVEHDR*)malloc(sizeof(WAVEHDR));
-                    if (hdr) {
-                        memset(hdr, 0, sizeof(WAVEHDR));
-                        
-                        // Set up the buffer data
-                        hdr->lpData = buf->pAudioData;
-                        hdr->dwBufferLength = buf->dwAudioDataSize;
-                        hdr->dwLoops = g_sources[idx].looping ? 1 : 0;
-                        hdr->dwFlags = 0;
-                        
-                        LogAudio("  Preparing header (size=%d, looping=%d)", hdr->dwBufferLength, hdr->dwLoops);
-                        
-                        // Prepare the header for waveOut
-                        MMRESULT res = waveOutPrepareHeader(g_hWaveOut, hdr, sizeof(WAVEHDR));
-                        LogAudio("  waveOutPrepareHeader result=%d", res);
-                        
-                        if (res == MMSYSERR_NOERROR) {
-                            // Queue the buffer for playback
-                            res = waveOutWrite(g_hWaveOut, hdr, sizeof(WAVEHDR));
-                            LogAudio("  waveOutWrite result=%d", res);
+                    // For looping sources, queue 2 buffers upfront to prevent gaps
+                    // NOTE: Check both the looping field AND buffer size as heuristic
+                    // For looping sources, queue 2 buffers upfront to prevent gaps
+                    // NOTE: Check both the looping field AND buffer size as heuristic
+                    // Continuous sounds have larger buffers (wind/motor are 34KB+ and 24KB+)
+                    int buffersToQueue = 1;
+                    
+                    // Always queue 2 buffers for continuous sounds to prevent silence gaps
+                    // Even though looping isn't always set, we use buffer size heuristic
+                    if (buf->dwAudioDataSize >= 10000) {
+                        buffersToQueue = 2;
+                        LogAudio("  INFO: Large buffer (%d bytes), queueing 2 buffers", buf->dwAudioDataSize);
+                    } else if (g_sources[idx].looping) {
+                        buffersToQueue = 2;
+                        LogAudio("  INFO: Looping flag set, queueing 2 buffers");
+                    }
+                    
+                    for (int qIdx = 0; qIdx < buffersToQueue; qIdx++) {
+                        WAVEHDR* hdr = (WAVEHDR*)malloc(sizeof(WAVEHDR));
+                        if (hdr) {
+                            memset(hdr, 0, sizeof(WAVEHDR));
+                            hdr->lpData = buf->pAudioData;
+                            hdr->dwBufferLength = buf->dwAudioDataSize;
+                            hdr->dwLoops = 0;
+                            hdr->dwFlags = 0;
+                            
+                            LogAudio("  Preparing header %d (size=%d)", qIdx, hdr->dwBufferLength);
+                            
+                            MMRESULT res = waveOutPrepareHeader(g_hWaveOut, hdr, sizeof(WAVEHDR));
+                            LogAudio("  waveOutPrepareHeader %d result=%d", qIdx, res);
                             
                             if (res == MMSYSERR_NOERROR) {
-                                // Success - waveOut now owns the header
-                                LogAudio("  Playback queued successfully!");
+                                res = waveOutWrite(g_hWaveOut, hdr, sizeof(WAVEHDR));
+                                LogAudio("  waveOutWrite %d result=%d", qIdx, res);
+                                
+                                if (res == MMSYSERR_NOERROR) {
+                                    g_sources[idx].queuedHeaders[g_sources[idx].queuedCount] = hdr;
+                                    g_sources[idx].queuedCount++;
+                                    LogAudio("  Buffer %d queued (total now: %d)", qIdx, g_sources[idx].queuedCount);
+                                } else {
+                                    LogAudio("  ERROR: waveOutWrite %d failed!", qIdx);
+                                    g_sources[idx].state = AL_STOPPED;
+                                    waveOutUnprepareHeader(g_hWaveOut, hdr, sizeof(WAVEHDR));
+                                    free(hdr);
+                                }
                             } else {
-                                // Failed to write - clean up
-                                LogAudio("  ERROR: waveOutWrite failed!");
+                                LogAudio("  ERROR: waveOutPrepareHeader %d failed!", qIdx);
                                 g_sources[idx].state = AL_STOPPED;
-                                waveOutUnprepareHeader(g_hWaveOut, hdr, sizeof(WAVEHDR));
                                 free(hdr);
                             }
                         } else {
-                            // Failed to prepare - clean up
-                            LogAudio("  ERROR: waveOutPrepareHeader failed!");
+                            LogAudio("  ERROR: malloc failed for buffer %d!", qIdx);
                             g_sources[idx].state = AL_STOPPED;
-                            free(hdr);
                         }
-                    } else {
-                        LogAudio("  ERROR: malloc failed!");
-                        g_sources[idx].state = AL_STOPPED;
+                    }
+                    
+                    if (g_sources[idx].queuedCount > 0) {
+                        LogAudio("  Playback started with %d buffer(s) queued!", g_sources[idx].queuedCount);
                     }
                 } else {
                     LogAudio("  ERROR: No audio data!");
@@ -581,7 +612,81 @@ ALvoid alSourceUnqueueBuffers(ALuint source, ALsizei nb, ALuint *buffers) { }
 ALvoid alGetSourcef(ALuint source, ALenum param, ALfloat *value) { if(value) *value = 0.0f; }
 ALvoid alGetSource3f(ALuint source, ALenum param, ALfloat *v1, ALfloat *v2, ALfloat *v3) { }
 ALvoid alGetSourcefv(ALuint source, ALenum param, ALfloat *values) { }
-ALvoid alGetSourcei(ALuint source, ALenum param, ALint *value) { if(value) *value = 0; }
+ALvoid alGetSourcei(ALuint source, ALenum param, ALint *value) {
+    if (!value) return;
+    
+    EnterCriticalSection(&g_audioLock);
+    
+    if (source > 0 && source <= 128) {
+        int idx = source - 1;
+        AudioSource* src = &g_sources[idx];
+        
+        if (param == AL_SOURCE_STATE) {
+            // Clean up finished buffers and queue new ones for looping sources
+            if (src->state == AL_PLAYING && src->looping && src->bufferId > 0) {
+                // Check first queued header
+                if (src->queuedCount > 0 && src->queuedHeaders[0] != NULL) {
+                    if (src->queuedHeaders[0]->dwFlags & WHDR_DONE) {
+                        // First buffer is done - clean it up and shift queue
+                        LogAudio("alGetSourcei: Source %d buffer 0 finished", source);
+                        waveOutUnprepareHeader(g_hWaveOut, src->queuedHeaders[0], sizeof(WAVEHDR));
+                        free(src->queuedHeaders[0]);
+                        
+                        // Shift queue: move buffer 1 to buffer 0
+                        src->queuedHeaders[0] = src->queuedHeaders[1];
+                        src->queuedHeaders[1] = NULL;
+                        src->queuedCount--;
+                    }
+                }
+                
+                // If we have less than 2 buffers queued and we're looping, queue another
+                if (src->queuedCount < 2) {
+                    int bufIdx = src->bufferId - 1;
+                    AudioBuffer* buf = &g_buffers[bufIdx];
+                    
+                    if (buf->pAudioData != NULL) {
+                        WAVEHDR* hdr = (WAVEHDR*)malloc(sizeof(WAVEHDR));
+                        if (hdr) {
+                            memset(hdr, 0, sizeof(WAVEHDR));
+                            hdr->lpData = buf->pAudioData;
+                            hdr->dwBufferLength = buf->dwAudioDataSize;
+                            hdr->dwLoops = 0;  // Don't use waveOut looping, we handle it
+                            hdr->dwFlags = 0;
+                            
+                            MMRESULT res = waveOutPrepareHeader(g_hWaveOut, hdr, sizeof(WAVEHDR));
+                            if (res == MMSYSERR_NOERROR) {
+                                res = waveOutWrite(g_hWaveOut, hdr, sizeof(WAVEHDR));
+                                if (res == MMSYSERR_NOERROR) {
+                                    // Add to queue
+                                    src->queuedHeaders[src->queuedCount] = hdr;
+                                    src->queuedCount++;
+                                    LogAudio("alGetSourcei: Source %d queued buffer (now %d in queue)", source, src->queuedCount);
+                                } else {
+                                    LogAudio("alGetSourcei: Source %d waveOutWrite failed", source);
+                                    waveOutUnprepareHeader(g_hWaveOut, hdr, sizeof(WAVEHDR));
+                                    free(hdr);
+                                }
+                            } else {
+                                LogAudio("alGetSourcei: Source %d waveOutPrepareHeader failed", source);
+                                free(hdr);
+                            }
+                        }
+                    }
+                }
+            }
+            
+            *value = (ALint)src->state;
+        } else if (param == AL_LOOPING) {
+            *value = (ALint)src->looping;
+        } else {
+            *value = 0;
+        }
+    } else {
+        *value = 0;
+    }
+    
+    LeaveCriticalSection(&g_audioLock);
+}
 ALvoid alGetSource3i(ALuint source, ALenum param, ALint *v1, ALint *v2, ALint *v3) { }
 ALvoid alGetSourceiv(ALuint source, ALenum param, ALint *values) { }
 
