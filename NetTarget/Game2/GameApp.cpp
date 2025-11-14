@@ -903,21 +903,27 @@ BOOL MR_GameApp::IsGameRunning()
 
    if( mCurrentSession != NULL )
    {
-      MR_MainCharacter* lPlayer = mCurrentSession->GetMainCharacter();
+      MR_MainCharacter* lPlayer1 = mCurrentSession->GetMainCharacter();
 
-      if( lPlayer != NULL )
+      if( lPlayer1 != NULL )
       {
-         if( !(lPlayer->GetTotalLap() <= lPlayer->GetLap()) )
+         int lLaps1 = lPlayer1->GetLap();
+         int lTotalLaps1 = lPlayer1->GetTotalLap();
+         
+         if( lLaps1 < lTotalLaps1 )
          {
-            lPlayer = mCurrentSession->GetMainCharacter2();
-
-            if( lPlayer == NULL )
+            lReturnValue = TRUE;
+         }
+         else
+         {
+            MR_MainCharacter* lPlayer2 = mCurrentSession->GetMainCharacter2();
+            
+            if( lPlayer2 != NULL )
             {
-               lReturnValue = TRUE;
-            }
-            else
-            {
-               if( lPlayer->GetTotalLap() <= lPlayer->GetLap() )
+               int lLaps2 = lPlayer2->GetLap();
+               int lTotalLaps2 = lPlayer2->GetTotalLap();
+               
+               if( lLaps2 < lTotalLaps2 )
                {
                   lReturnValue = TRUE;
                }
@@ -925,6 +931,7 @@ BOOL MR_GameApp::IsGameRunning()
          }
       }
    }
+   
    return lReturnValue;
 }
 
@@ -2622,65 +2629,78 @@ void MR_GameApp::NewInternetSession( )
 {
    BOOL               lSuccess = TRUE;
    MR_NetworkSession* lCurrentSession = NULL;
-   // MR_InternetRoom    lInternetRoom( gKeyFilled, gKeyFilled?mMajorID:-1, gKeyFilled?mMinorID:-1, gKeyFilled?gKey.mKeySumHard2:0, gKeyFilled?gKey.mKeySumHard3:0 );
-   MR_InternetRoom    lInternetRoom( gKeyFilled, gKeyFilled?mMajorID:-1, gKeyFilled?mMinorID:-1, gKeyFilled?gKey.mIDSum:0, 0 );
 
-   // Verify is user acknowledge
-   if( AskUserToAbortGame() != IDOK )
+   try
    {
-      return;
-   }
+      // MR_InternetRoom    lInternetRoom( gKeyFilled, gKeyFilled?mMajorID:-1, gKeyFilled?mMinorID:-1, gKeyFilled?gKey.mKeySumHard2:0, gKeyFilled?gKey.mKeySumHard3:0 );
+      MR_InternetRoom    lInternetRoom( gKeyFilled, gKeyFilled?mMajorID:-1, gKeyFilled?mMinorID:-1, gKeyFilled?gKey.mIDSum:0, 0 );
 
-   // Delete the current session
-   Clean();
-   DeleteMovieWnd();
-   MR_SoundServer::Init( mMainWindow );
-
-   lCurrentSession = new MR_NetworkSession( TRUE, gKeyFilled?mMajorID:-1, gKeyFilled?mMinorID:-1, mMainWindow );
-
-
-   if( lSuccess )
-   {
-      lCurrentSession->SetPlayerName( mNickName );
-
-      lSuccess = lInternetRoom.DisplayChatRoom( mMainWindow, lCurrentSession, mVideoBuffer );
-
-      if( mNickName != lCurrentSession->GetPlayerName() )
+      // Verify is user acknowledge
+      if( AskUserToAbortGame() != IDOK )
       {
-         mNickName = lCurrentSession->GetPlayerName();
-         SaveRegistry();
+         return;
       }
-   }
 
-   if( lSuccess )
-   {
-      lCurrentSession->SetSimulationTime( -20000 ); // start in 20 seconds (this time may be readjusted by the server)
-   }
-
-   if( lSuccess )
-   {
-      mObserver1 = MR_Observer::New();
-      lSuccess = lCurrentSession->CreateMainCharacter();
-   }
-
-   
-   if( !lSuccess )
-   {
-      // Clean everytings
+      // Delete the current session
       Clean();
-      delete lCurrentSession;
-   }
-   else
-   {
-      mCurrentSession = lCurrentSession;
-      mGameThread = MR_GameThread::New( this );
+      DeleteMovieWnd();
+      MR_SoundServer::Init( mMainWindow );
 
-      if( mGameThread == NULL )
+      lCurrentSession = new MR_NetworkSession( TRUE, gKeyFilled?mMajorID:-1, gKeyFilled?mMinorID:-1, mMainWindow );
+
+      if( lSuccess )
       {
-         mCurrentSession = NULL;
+         lCurrentSession->SetPlayerName( mNickName );
+
+         lSuccess = lInternetRoom.DisplayChatRoom( mMainWindow, lCurrentSession, mVideoBuffer );
+
+         if( mNickName != lCurrentSession->GetPlayerName() )
+         {
+            mNickName = lCurrentSession->GetPlayerName();
+            SaveRegistry();
+         }
+      }
+
+      if( lSuccess )
+      {
+         lCurrentSession->SetSimulationTime( -20000 ); // start in 20 seconds (this time may be readjusted by the server)
+      }
+
+      if( lSuccess )
+      {
+         mObserver1 = MR_Observer::New();
+         lSuccess = lCurrentSession->CreateMainCharacter();
+      }
+
+      
+      if( !lSuccess )
+      {
+         // Clean everytings
+         Clean();
          delete lCurrentSession;
       }
-   }   
+      else
+      {
+         mCurrentSession = lCurrentSession;
+         mGameThread = MR_GameThread::New( this );
+
+         if( mGameThread == NULL )
+         {
+            mCurrentSession = NULL;
+            delete lCurrentSession;
+         }
+      }
+   }
+   catch (...)
+   {
+      MessageBoxA( mMainWindow, "An error occurred while starting the Internet session.", "Error", MB_OK | MB_ICONERROR );
+      if( lCurrentSession != NULL )
+      {
+         delete lCurrentSession;
+      }
+      Clean();
+   }
+   
    AssignPalette();
  
 }
@@ -2952,18 +2972,24 @@ LRESULT CALLBACK MR_GameApp::DispatchFunc( HWND pWindow, UINT  pMsgId, WPARAM  p
                return 0;
 
             case ID_GAME_NETWORK_INTERNET:
-               This->SetVideoMode( 0, 0 );
-               if( gKeyFilled )
                {
-                  HardVerification( gNewInternetSessionPtr, &gKey );
+                  __try
+                  {
+                     This->SetVideoMode( 0, 0 );
+                     if( gKeyFilled )
+                     {
+                        This->NewInternetSession( );
+                     }
+                     else
+                     {
+                        This->NewInternetSession( );
+                     }
+                  }
+                  __except(EXCEPTION_EXECUTE_HANDLER)
+                  {
+                     MessageBoxA( This->mMainWindow, "Internet session failed - exception caught.", "Internet Session Error", MB_OK | MB_ICONERROR );
+                  }
                }
-               else
-               {
-                  This->NewInternetSession( );
-               }
-               // (((funcptr)(((unsigned int)(const char*)gNewInternetSessionPtr)+112)))();
-               // ((funcptr)gNewInternetSessionPtr)();
-               // This->NewInternetSession( );
                return 0;
          
             case ID_SETTING_REFRESHCOLORS:

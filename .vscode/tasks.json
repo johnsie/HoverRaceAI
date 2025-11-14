@@ -15,6 +15,22 @@
 			"problemMatcher": [
 				"$msCompile"
 			]
+		},
+		{
+			"label": "Build Game2 Only",
+			"type": "shell",
+			"command": "msbuild",
+			"args": [
+				"NetTarget/Game2/Game2.vcxproj",
+				"/t:Rebuild",
+				"/p:Configuration=Release",
+				"/p:Platform=Win32",
+				"/v:minimal"
+			],
+			"problemMatcher": [
+				"$msCompile"
+			],
+			"group": "build"
 		}
 	]
 }

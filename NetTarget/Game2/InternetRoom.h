@@ -39,7 +39,6 @@ class MR_InternetRequest
 
       SOCKET  mSocket;
       CString mRequest;
-      CString mBuffer;
 
       char*   mBinBuffer;
       int     mBinIndex;
@@ -48,6 +47,8 @@ class MR_InternetRequest
       BOOL Working()const;
 
    public:
+      CString mBuffer;  // Made public for HTTPS fetch support
+
       MR_InternetRequest();
       ~MR_InternetRequest();
 

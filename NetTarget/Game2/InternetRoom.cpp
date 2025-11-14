@@ -25,6 +25,8 @@
 #include "MatchReport.h"
 #include "resource.h"
 #include "../Util/StrRes.h"
+#include <wininet.h>
+#pragma comment(lib, "wininet.lib")
 
 
 #define MRM_DNS_ANSWER        (WM_USER+1)
@@ -52,9 +54,9 @@
 #define LOAD_BANNER_TIMEOUT_EVENT     8
 #define ANIM_BANNER_TIMEOUT_EVENT     9
 
-#define MR_IR_LIST "www.grokksoft.com/roomlist2.txt"
+#define MR_IR_LIST "steeky.com/hover/roomlist2.txt"
 
-#define MR_IR_LIST_PORT 80
+#define MR_IR_LIST_PORT 443
 
 // #endif
 
@@ -175,6 +177,112 @@ void MR_InternetRequest::Clear()
 
 }
 
+// HTTPS helper function using WinInet
+static BOOL FetchHTTPSContent(const char* pHost, const char* pPath, CString& pBuffer)
+{
+   HINTERNET hInternet = NULL;
+   HINTERNET hConnection = NULL;
+   HINTERNET hRequest = NULL;
+   BOOL lReturnValue = FALSE;
+
+   // Validate inputs
+   if (!pHost || !pPath || !pHost[0] || !pPath[0]) {
+      OutputDebugString("FetchHTTPSContent: NULL or empty host/path!");
+      return FALSE;
+   }
+
+   try {
+      hInternet = InternetOpen("HoverRace/1.0", INTERNET_OPEN_TYPE_PRECONFIG, NULL, NULL, 0);
+      if (!hInternet) {
+         OutputDebugString("FetchHTTPSContent: InternetOpen failed");
+         return FALSE;
+      }
+
+      hConnection = InternetConnect(
+         hInternet,
+         pHost,
+         INTERNET_DEFAULT_HTTPS_PORT,
+         NULL,
+         NULL,
+         INTERNET_SERVICE_HTTP,
+         0,
+         0
+      );
+
+      if (!hConnection) {
+         OutputDebugString("FetchHTTPSContent: InternetConnect failed");
+         InternetCloseHandle(hInternet);
+         return FALSE;
+      }
+
+      DWORD dwFlags = INTERNET_FLAG_SECURE | INTERNET_FLAG_NO_CACHE_WRITE;
+      hRequest = HttpOpenRequest(
+         hConnection,
+         "GET",
+         pPath,
+         NULL,
+         NULL,
+         NULL,
+         dwFlags,
+         0
+      );
+
+      if (!hRequest) {
+         OutputDebugString("FetchHTTPSContent: HttpOpenRequest failed");
+         InternetCloseHandle(hConnection);
+         InternetCloseHandle(hInternet);
+         return FALSE;
+      }
+
+      // Ignore SSL certificate errors for self-signed certs
+      DWORD dwFlags2 = SECURITY_FLAG_IGNORE_UNKNOWN_CA | 
+                       SECURITY_FLAG_IGNORE_CERT_CN_INVALID |
+                       SECURITY_FLAG_IGNORE_CERT_DATE_INVALID;
+      InternetSetOption(hRequest, INTERNET_OPTION_SECURITY_FLAGS, &dwFlags2, sizeof(dwFlags2));
+
+      if (!HttpSendRequest(hRequest, NULL, 0, NULL, 0)) {
+         OutputDebugString("FetchHTTPSContent: HttpSendRequest failed");
+         InternetCloseHandle(hRequest);
+         InternetCloseHandle(hConnection);
+         InternetCloseHandle(hInternet);
+         return FALSE;
+      }
+
+      // Query the response status
+      DWORD dwStatus = 0;
+      DWORD dwStatusLen = sizeof(dwStatus);
+      if (HttpQueryInfo(hRequest, HTTP_QUERY_STATUS_CODE | HTTP_QUERY_FLAG_NUMBER, 
+                       &dwStatus, &dwStatusLen, NULL)) {
+         OutputDebugString("FetchHTTPSContent: HTTP Status OK");
+      }
+
+      pBuffer.Empty();
+      DWORD dwSize = 0;
+      BYTE szBuffer[4096];
+
+      while (InternetReadFile(hRequest, szBuffer, sizeof(szBuffer), &dwSize)) {
+         if (dwSize == 0) break;
+         pBuffer.Append((const char*)szBuffer, dwSize);
+      }
+
+      if (!pBuffer.IsEmpty()) {
+         OutputDebugString("FetchHTTPSContent: SUCCESS");
+         lReturnValue = TRUE;
+      } else {
+         OutputDebugString("FetchHTTPSContent: Buffer is empty");
+      }
+   }
+   catch (...) {
+      OutputDebugString("FetchHTTPSContent: Exception caught");
+      lReturnValue = FALSE;
+   }
+
+   if (hRequest) InternetCloseHandle(hRequest);
+   if (hConnection) InternetCloseHandle(hConnection);
+   if (hInternet) InternetCloseHandle(hInternet);
+
+   return lReturnValue;
+}
 
 BOOL MR_InternetRequest::Send( HWND pWindow, unsigned long pIP, unsigned pPort, const char* pURL, const char* pCookie )
 {
@@ -579,9 +687,100 @@ BOOL MR_InternetRoom::LocateServers( HWND pParentWindow )
    }
    else
    {
-
-      if( DialogBox( GetModuleHandle( NULL ), MAKEINTRESOURCE( IDD_NET_PROGRESS ), pParentWindow, GetAddrCallBack )==IDOK )
+      // Extract hostname and path from gMainServer
+      CString lHost = gMainServer;
+      CString lPath = "/";
+      
+      int lSlashPos = lHost.Find( '/' );
+      if( lSlashPos > 0 )
       {
+         lPath = lHost.Mid( lSlashPos );
+         lHost = lHost.Left( lSlashPos );
+      }
+
+      // Create a temporary CString to hold the buffer
+      CString lBuffer;
+
+      // Fetch using HTTPS synchronously (DIRECTLY, no dialog)
+      BOOL lFetchSuccess = FetchHTTPSContent( lHost, lPath, lBuffer );
+      
+      if( lFetchSuccess && !lBuffer.IsEmpty() )
+      {
+         // Parse the server list from the buffer
+         const char* lLinePtr = (const char*)lBuffer;
+         gNbServerEntries = 0;
+         
+         while( (lLinePtr != NULL) && (gNbServerEntries < MR_MAX_SERVER_ENTRIES) )
+         {
+            // Skip empty lines
+            if( *lLinePtr == 0 )
+               break;
+               
+            // Parse line: [priority] [name] [ip] [port] [path] [optional_banner_size] [optional_banner_url]
+            int lPriority;
+            char lName[200];
+            char lIPStr[50];
+            unsigned short lPort;
+            char lPath[200];
+            
+            int nScanned = sscanf(lLinePtr, "%d %s %s %hu %s", 
+                                  &lPriority, lName, lIPStr, &lPort, lPath);
+            
+            if( nScanned >= 5 )
+            {
+               // Valid entry found
+               gServerList[gNbServerEntries].mName = lName;
+               gServerList[gNbServerEntries].mPort = lPort;
+               gServerList[gNbServerEntries].mURL = lPath;
+               gServerList[gNbServerEntries].mType = 0;  // Default type
+               gServerList[gNbServerEntries].mLadderIP = 0;
+               gServerList[gNbServerEntries].mLadderPort = 0;
+               
+               // Convert IP address string to unsigned long
+               unsigned int a, b, c, d;
+               if( sscanf(lIPStr, "%u.%u.%u.%u", &a, &b, &c, &d) == 4 )
+               {
+                  gServerList[gNbServerEntries].mAddress = (a << 24) | (b << 16) | (c << 8) | d;
+               }
+               else
+               {
+                  gServerList[gNbServerEntries].mAddress = inet_addr(lIPStr);
+               }
+               
+               gNbServerEntries++;
+            }
+            
+            // Move to next line
+            lLinePtr = GetNextLine(lLinePtr);
+         }
+         
+         if( gNbServerEntries > 0 )
+         {
+            lReturnValue = TRUE;
+            // Store the buffer for later use if needed
+            if (mThis) {
+               mThis->mOpRequest.Clear();
+               mThis->mOpRequest.mBuffer = lBuffer;
+            }
+         }
+      }
+      
+      // If fetch failed or returned no servers, create fallback test servers
+      if( gNbServerEntries == 0 )
+      {
+         OutputDebugString("LocateServers: Remote server unavailable, creating fallback entries");
+         
+         // Add a test/demo server entry
+         gServerList[0].mName = "[DEMO] Local Test Server (Offline)";
+         gServerList[0].mPort = 80;
+         gServerList[0].mURL = "/";
+         gServerList[0].mType = MR_HTTP_ROOM_SERVER;
+         gServerList[0].mLadderIP = 0;
+         gServerList[0].mLadderPort = 0;
+         gServerList[0].mAddress = inet_addr("127.0.0.1");
+         
+         gNbServerEntries = 1;
+         gCurrentServerEntry = 0;
          lReturnValue = TRUE;
       }
    }
@@ -807,7 +1006,6 @@ BOOL MR_InternetRoom::AskRoomParams( HWND pParentWindow )
 
    lReturnValue = mThis->LocateServers( pParentWindow );
 
-
    if( lReturnValue )
    {
       lReturnValue = DialogBox( GetModuleHandle( NULL ), MAKEINTRESOURCE( IDD_INTERNET_PARAMS ), pParentWindow, AskParamsCallBack )==IDOK;
@@ -818,6 +1016,11 @@ BOOL MR_InternetRoom::AskRoomParams( HWND pParentWindow )
 
 BOOL MR_InternetRoom::DisplayChatRoom( HWND pParentWindow, MR_NetworkSession* pSession, MR_VideoBuffer* pVideoBuffer )
 {
+   // Check for NULL pointers
+   if (!pSession || !pVideoBuffer) {
+      return FALSE;
+   }
+   
    mUser = pSession->GetPlayerName();
 
    BOOL lReturnValue = AskRoomParams( pParentWindow );
@@ -841,6 +1044,9 @@ BOOL MR_InternetRoom::DisplayChatRoom( HWND pParentWindow, MR_NetworkSession* pS
       }
 
    }
+   
+   OutputDebugString("DisplayChatRoom: EXITING");
+
    return lReturnValue;
 }
 
@@ -1387,7 +1593,7 @@ BOOL CALLBACK MR_InternetRoom::AskPasswordCallBack( HWND pWindow, UINT  pMsgId, 
 
                   mThis->mNetOpRequest.Format( "%s,%s,hover", lBuffer, lPassword );
 
-                  int lCode = DialogBox( GetModuleHandle( NULL ), MAKEINTRESOURCE( IDD_NET_PROGRESS ), pWindow, NULL )==IDOK;
+                  int lCode = DialogBox( GetModuleHandle( NULL ), MAKEINTRESOURCE( IDD_NET_PROGRESS ), pWindow, NetOpCallBack )==IDOK;
 
                   mThis->mOpRequest.Clear();
 
@@ -2123,324 +2329,115 @@ BOOL CALLBACK MR_InternetRoom::GetAddrCallBack( HWND pWindow, UINT  pMsgId, WPAR
 {
    BOOL lReturnValue = FALSE;
 
-   static unsigned long gServerIP;
-
    switch( pMsgId )
    {
-      // Catch environment modification events
       case WM_INITDIALOG:
          {
-            gServerIP = 0;
-
+            OutputDebugString("GetAddrCallBack: WM_INITDIALOG");
+            
             // Setup message
             SetDlgItemText( pWindow, IDC_TEXT, MR_LoadString( IDS_LOC_MSERVER ) );
 
-            // Try to find the IP addr of the Internet Room
-            char lServer[40];
-
-            int lLen = gMainServer.Find( '/' );
-
-            if( lLen < 0 )
-            {
-               lLen = gMainServer.GetLength();
-            }
-            else if( lLen > (sizeof( lServer )-1) )
-            {
-               lLen = sizeof( lServer )-1;
-            }
-
-            memcpy( lServer, gMainServer, lLen );
-            lServer[ lLen ] = 0;
-
-            mThis->mCurrentLocateRequest = WSAAsyncGetHostByName
-                                           ( 
-                                              pWindow,	
-                                              MRM_DNS_ANSWER,
-                                              lServer,
-                                              mThis->mHostEnt,
-                                              MAXGETHOSTSTRUCT
-                                           );
-            gServerIP = 0;
-
-            // start a timeout timer
-            SetTimer( pWindow, 1, 20000+OP_TIMEOUT, NULL );            
+            // Don't fetch here - use a timer to fetch after dialog is ready
+            SetTimer( pWindow, 100, 100, NULL );
+            
+            lReturnValue = TRUE;
          }
          break;
 
       case WM_TIMER:
          {
-            KillTimer( pWindow, pWParam );
-            lReturnValue = TRUE;
-
-            switch( pWParam )
+            if( pWParam == 100 )
             {
-               case 1:
-
-                  if( gServerIP == 0 )
-                  {
-                     MessageBox( pWindow, MR_LoadString( IDS_CANT_FIND_SERVER ),
-                                          MR_LoadString( IDS_IMR ), MB_ICONSTOP|MB_OK|MB_APPLMODAL );
-
-                     EndDialog( pWindow, IDCANCEL );
-
-                     WSACancelAsyncRequest( mThis->mCurrentLocateRequest );
-                  }
-                  break;
-
-               case 2:
-
-                  MessageBox( pWindow, MR_LoadString( IDS_TO ),
-                                       MR_LoadString( IDS_IMR ), MB_ICONSTOP|MB_OK|MB_APPLMODAL );
-
-                  EndDialog( pWindow, IDCANCEL );
-
-                  mThis->mOpRequest.Clear();
-                  break;
-
-            }
-            break;
-         }
-
-         break;
-
-      case MRM_DNS_ANSWER:
-         {
-            const struct hostent* lData = (struct hostent*)&(mThis->mHostEnt);
-
-            KillTimer( pWindow, 1 );
-
-            if( (WSAGETASYNCERROR(pLParam)==0)&&(lData->h_addr_list[0] != NULL) )
-            {
-               gServerIP = *(unsigned long*)(lData->h_addr_list[0]);
-
-               // Now fetch the server list file
-
-               // Fill the request
-               mThis->mNetOpRequest = gMainServer;
-               
-
-               // Initiate the request
-               mThis->mOpRequest.Send( pWindow, gServerIP, MR_IR_LIST_PORT, mThis->mNetOpRequest );
-
-               // start a timeout timer
-               SetTimer( pWindow, 2, 10000+OP_TIMEOUT, NULL );            
-
-
-               // Return a success
-               //EndDialog( pWindow, IDOK );
-            }
-            else
-            {
+               KillTimer( pWindow, 100 );
                lReturnValue = TRUE;
-               SetTimer( pWindow, 1, IMMEDIATE, NULL ); // Generate a time-out
+
+               OutputDebugString("GetAddrCallBack: Timer 100 - Starting HTTPS fetch");
+               
+               try {
+                  // Extract hostname and path from gMainServer
+                  CString lHost = gMainServer;
+                  CString lPath = "/";
+                  
+                  int lSlashPos = lHost.Find( '/' );
+                  if( lSlashPos > 0 )
+                  {
+                     lPath = lHost.Mid( lSlashPos );
+                     lHost = lHost.Left( lSlashPos );
+                  }
+                  
+                  char lDebugMsg[256];
+                  sprintf(lDebugMsg, "HTTPS Fetch: Host=%s, Path=%s", (const char*)lHost, (const char*)lPath);
+                  OutputDebugString(lDebugMsg);
+
+                  // Create a temporary CString to hold the buffer
+                  CString lBuffer;
+
+                  // Fetch using HTTPS synchronously
+                  BOOL lFetchSuccess = FetchHTTPSContent( lHost, lPath, lBuffer );
+                  
+                  sprintf(lDebugMsg, "HTTPS Fetch Result: Success=%d, BufferLen=%d", lFetchSuccess, lBuffer.GetLength());
+                  OutputDebugString(lDebugMsg);
+                  
+                  if( lFetchSuccess && !lBuffer.IsEmpty() )
+                  {
+                     OutputDebugString("GetAddrCallBack: HTTPS fetch succeeded, storing buffer");
+                     
+                     // Store result in mOpRequest - but only if mThis is valid
+                     if (mThis) {
+                        mThis->mOpRequest.Clear();
+                        mThis->mOpRequest.mBuffer = lBuffer;
+                        OutputDebugString("Buffer stored in mOpRequest");
+                     } else {
+                        OutputDebugString("ERROR: mThis is NULL!");
+                     }
+
+                     // Success - process immediately
+                     EndDialog( pWindow, IDOK );
+                  }
+                  else
+                  {
+                     // Failed - show error
+                     char lErrorMsg[512];
+                     DWORD dwError = GetLastError();
+                     sprintf(lErrorMsg, "Server error.\nFetch Success: %d\nBuffer Empty: %d\nGetLastError: %lu", 
+                            lFetchSuccess, lBuffer.IsEmpty(), dwError);
+                     OutputDebugString("GetAddrCallBack: HTTPS Fetch FAILED");
+                     OutputDebugString(lErrorMsg);
+                     MessageBox( pWindow, lErrorMsg,
+                                          MR_LoadString( IDS_IMR ), MB_ICONSTOP|MB_OK|MB_APPLMODAL );
+                     EndDialog( pWindow, IDCANCEL );
+                  }
+               }
+               catch (...) {
+                  OutputDebugString("GetAddrCallBack: EXCEPTION caught!");
+                  MessageBox( pWindow, "Exception occurred during HTTPS fetch",
+                                       MR_LoadString( IDS_IMR ), MB_ICONSTOP|MB_OK|MB_APPLMODAL );
+                  EndDialog( pWindow, IDCANCEL );
+               }
             }
          }
          break;
 
       case WM_COMMAND:
-         switch(LOWORD( pWParam))
          {
-            case IDCANCEL:
-               EndDialog( pWindow, IDCANCEL );
-               WSACancelAsyncRequest( mThis->mCurrentLocateRequest );
-               KillTimer( pWindow, 1 );
-               KillTimer( pWindow, 2 );
-               mThis->mOpRequest.Clear();
-
-               lReturnValue = TRUE;
-               break;
+            switch(LOWORD( pWParam))
+            {
+               case IDCANCEL:
+                  EndDialog( pWindow, IDCANCEL );
+                  lReturnValue = TRUE;
+                  break;
+            }
          }
          break;
-
-      case MRM_NET_EVENT:
-         mThis->mOpRequest.ProcessEvent( pWParam, pLParam );
-
-         if( mThis->mOpRequest.IsReady() )
-         {
-            KillTimer( pWindow, 2 );
-
-            // Parse the result here
-            const char* lData = mThis->mOpRequest.GetBuffer();
-
-            while( (lData != NULL)&&strncmp( lData, "SERVER LIST", 11 ) )
-            {
-               lData = GetNextLine( lData );
-            }
-
-            if( lData == NULL )
-            {
-               // Server down or fine not found :(
-               MessageBox( pWindow, MR_LoadString( IDS_SERVER_ERROR ),
-                                    MR_LoadString( IDS_IMR ), MB_ICONSTOP|MB_OK|MB_APPLMODAL );
-
-               EndDialog( pWindow, IDCANCEL );
-            }
-            else
-            {
-
-               lData = GetNextLine( lData );
-
-               while( lData != NULL )
-               {
-                  char     lNameBuffer[40];
-                  char     lURLBuffer[120];
-                  char     lURLLadderReport[120];
-                  char     lClickURLBuffer[220];
-                  unsigned lNibble[4];
-                  unsigned lNibble2[4];
-                  int      lServerType = -1;
-
-                  sscanf( lData, "%d", &lServerType );
-
-                  switch( lServerType )
-                  {
-                     case 0:
-                        {
-                           if( sscanf( lData, "%d %40s %u.%u.%u.%u %u %120s",
-                                       &gScoreServer.mType,
-                                       lNameBuffer,
-                                       &lNibble[0],
-                                       &lNibble[1],
-                                       &lNibble[2],
-                                       &lNibble[3],
-                                       &gScoreServer.mPort,
-                                       lURLBuffer ) == 8                        )
-                           {
-                              gScoreServer.mName    = lNameBuffer;
-                              gScoreServer.mURL     = lURLBuffer;
-                              gScoreServer.mAddress =   lNibble[0] 
-                                                      +(lNibble[1]<<8)
-                                                      +(lNibble[2]<<16)
-                                                      +(lNibble[3]<<24);
-
-                           }
-                        }
-                        break;
-
-                     case 1:
-                        if( gNbServerEntries < MR_MAX_SERVER_ENTRIES )
-                        {
-                           if( sscanf( lData, "%d %40s %u.%u.%u.%u %u %120s",
-                                       &gServerList[ gNbServerEntries ].mType,
-                                       lNameBuffer,
-                                       &lNibble[0],
-                                       &lNibble[1],
-                                       &lNibble[2],
-                                       &lNibble[3],
-                                       &gServerList[ gNbServerEntries ].mPort,
-                                       lURLBuffer ) == 8                        )
-                           {
-                              gServerList[ gNbServerEntries ].mName    = lNameBuffer;
-                              gServerList[ gNbServerEntries ].mURL     = lURLBuffer;
-                              gServerList[ gNbServerEntries ].mAddress =   lNibble[0] 
-                                                                         +(lNibble[1]<<8)
-                                                                         +(lNibble[2]<<16)
-                                                                         +(lNibble[3]<<24);
-
-                              gNbServerEntries++;
-                           }
-                        }
-                        break;
-
-
-                     case 2:
-                        /*
-                        if( gNbServerEntries < MR_MAX_SERVER_ENTRIES )
-                        {
-                           if( sscanf( lData, "%d %40s %u.%u.%u.%u %u %120s %u.%u.%u.%u %u %120s",
-                                       &gServerList[ gNbServerEntries ].mType,
-                                       lNameBuffer,
-                                       &lNibble[0],
-                                       &lNibble[1],
-                                       &lNibble[2],
-                                       &lNibble[3],
-                                       &gServerList[ gNbServerEntries ].mPort,
-                                       lURLBuffer,
-                                       &lNibble2[0],
-                                       &lNibble2[1],
-                                       &lNibble2[2],
-                                       &lNibble2[3],
-                                       &gServerList[ gNbServerEntries ].mLadderPort,
-                                       lURLLadderReport ) == 14                        )
-                           {
-                              gServerList[ gNbServerEntries ].mName            = lNameBuffer;
-                              gServerList[ gNbServerEntries ].mURL             = lURLBuffer;
-                              gServerList[ gNbServerEntries ].mLadderReportURL = lURLLadderReport;
-                              gServerList[ gNbServerEntries ].mAddress =   lNibble[0] 
-                                                                         +(lNibble[1]<<8)
-                                                                         +(lNibble[2]<<16)
-                                                                         +(lNibble[3]<<24);
-
-                              gServerList[ gNbServerEntries ].mLadderIP =   lNibble2[0] 
-                                                                          +(lNibble2[1]<<8)
-                                                                          +(lNibble2[2]<<16)
-                                                                          +(lNibble2[3]<<24);
-
-
-                              gNbServerEntries++;
-                           }
-                        }
-                        */
-                        break;
-
-                     case 8:
-                     case 9:
-                        if( (lServerType == 8)&&(mThis->mMajorID>=0) )
-                        {
-                           break;
-                        }
-                        if( (lServerType == 9)&&(mThis->mMajorID<0) )
-                        {
-                           break;
-                        }
-
-                        if( gNbBannerEntries < MR_MAX_BANNER_ENTRIES )
-                        {
-                           if( sscanf( lData, "%d %40s %u.%u.%u.%u %u %120s %d %220s",
-                                       &gBannerList[ gNbServerEntries ].mType,
-                                       lNameBuffer,
-                                       &lNibble[0],
-                                       &lNibble[1],
-                                       &lNibble[2],
-                                       &lNibble[3],
-                                       &gBannerList[ gNbBannerEntries ].mPort,
-                                       lURLBuffer,
-                                       &gBannerList[ gNbBannerEntries ].mDelay,
-                                       lClickURLBuffer
-                                       ) == 10                        )
-                           {
-                              gBannerList[ gNbBannerEntries ].mName    = lNameBuffer;
-                              gBannerList[ gNbBannerEntries ].mURL     = lURLBuffer;
-                              gBannerList[ gNbBannerEntries ].mClickURL = lClickURLBuffer;
-                              gBannerList[ gNbBannerEntries ].mAddress =   lNibble[0] 
-                                                                         +(lNibble[1]<<8)
-                                                                         +(lNibble[2]<<16)
-                                                                         +(lNibble[3]<<24);
-
-                              gBannerList[ gNbBannerEntries ].mLastCookie    = "";
-                              gBannerList[ gNbBannerEntries ].mIndirectClick = (strstr( lClickURLBuffer, "//")==NULL);
-                              gNbBannerEntries++;
-                           }
-                        }
-
-
-                        break;
-                  }
-
-                  lData = GetNextLine( lData );
-               }
-
-               EndDialog( pWindow, IDOK );
-            }
-         }
-         lReturnValue = TRUE;
+         
+      default:
          break;
+   }   
 
-   }
    return lReturnValue;
+
 }
-
-
 
 
 BOOL CALLBACK MR_InternetRoom::NetOpCallBack( HWND pWindow, UINT  pMsgId, WPARAM  pWParam, LPARAM  pLParam )
@@ -2454,6 +2451,28 @@ BOOL CALLBACK MR_InternetRoom::NetOpCallBack( HWND pWindow, UINT  pMsgId, WPARAM
          {
             // Setup message
             SetDlgItemText( pWindow, IDC_TEXT, mThis->mNetOpString );
+
+            // Check if trying to connect to offline demo server
+            if( gCurrentServerEntry >= 0 && gCurrentServerEntry < gNbServerEntries )
+            {
+               const char* lServerName = (const char*)gServerList[gCurrentServerEntry].mName;
+               
+               // If this is a demo/offline server, show immediate error
+               if( lServerName && strstr(lServerName, "DEMO") && strstr(lServerName, "Offline") )
+               {
+                  CString lMessage;
+                  lMessage = "This is a demo server entry that is currently offline.\n\n"
+                            "The main HoverRace Internet Room server at steeky.com is not available.\n\n"
+                            "Internet multiplayer rooms require an active server to function.\n\n"
+                            "For single-player or local network play, use the other game modes.";
+                  
+                  MessageBox( pWindow, lMessage,
+                             MR_LoadString( IDS_IMR ), MB_ICONSTOP|MB_OK|MB_APPLMODAL );
+                  
+                  EndDialog( pWindow, IDCANCEL );
+                  break;
+               }
+            }
 
             // Initiate the request
             mThis->mOpRequest.Send( pWindow, gServerList[gCurrentServerEntry].mAddress, gServerList[gCurrentServerEntry].mPort, mThis->mNetOpRequest );
@@ -2746,7 +2765,7 @@ CString MR_Pad( const char* pStr )
          switch( *(const unsigned char*)pStr )
          {
             case 187:
-               // Reserved character for prompt »
+               // Reserved character for prompt ï¿½
                break;
 
             case '$':
