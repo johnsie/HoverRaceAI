@@ -22,6 +22,8 @@
 #include "StdAfx.h"
 
 #include <Mmsystem.h>
+#include <afxwin.h>
+#include <afxext.h>
 
 #include "GameSession.h"
 #include "FreeElementMovingHelper.h"
@@ -126,13 +128,25 @@ BOOL MR_GameSession::LoadLevel( int pLevel )
             mCurrentLevelNumber = pLevel;
             // DON'T set lReturnValue = FALSE - try to proceed anyway
          }
+         catch(const CMemoryException&)
+         {
+            if(logFile) fprintf(logFile, "  CMemoryException during Serialize\n"), fflush(logFile);
+            lReturnValue = FALSE;
+         }
+         catch(const CArchiveException&)
+         {
+            if(logFile) fprintf(logFile, "  CArchiveException during Serialize\n"), fflush(logFile);
+            lReturnValue = FALSE;
+         }
+         catch(const CFileException&)
+         {
+            if(logFile) fprintf(logFile, "  CFileException during Serialize\n"), fflush(logFile);
+            lReturnValue = FALSE;
+         }
          catch(...)
          {
-            if(logFile) fprintf(logFile, "  UNKNOWN EXCEPTION during Serialize\n"), fflush(logFile);
-            // Try to continue anyway with minimal level data
-            if(logFile) fprintf(logFile, "  Attempting to continue with partial level data\n"), fflush(logFile);
-            mCurrentLevelNumber = pLevel;
-            // DON'T set lReturnValue = FALSE - try to proceed anyway
+            if(logFile) fprintf(logFile, "  UNKNOWN EXCEPTION during Serialize (could not determine type)\n"), fflush(logFile);
+            lReturnValue = FALSE;
          }
       }
    }
@@ -195,21 +209,56 @@ BOOL MR_GameSession::LoadNew( const char* pTitle, MR_RecordFile* pMazeFile )
       mCurrentMazeFile = pMazeFile;
       
       if(logFile) fprintf(logFile, "  About to call LoadLevel(1)\n"), fflush(logFile);
+      if(logFile) fflush(logFile);
+      
+      if(logFile) fprintf(logFile, "  [CREATING TRY BLOCK]\n"), fflush(logFile);
+      if(logFile) fflush(logFile);
+      
       try
       {
+         if(logFile) fprintf(logFile, "  [INSIDE TRY BLOCK]\n"), fflush(logFile);
+         if(logFile) fflush(logFile);
+         
+         if(logFile) fprintf(logFile, "  [ABOUT TO CALL LOADLEVEL]\n"), fflush(logFile);
+         if(logFile) fflush(logFile);
+         
          lReturnValue = LoadLevel( 1 );
-         if(logFile) fprintf(logFile, "  LoadLevel(1) returned: %s\n", lReturnValue ? "TRUE" : "FALSE"), fflush(logFile);
+         
+         if(logFile) fprintf(logFile, "  [LOADLEVEL RETURNED: %s]\n", lReturnValue ? "TRUE" : "FALSE"), fflush(logFile);
+         if(logFile) fflush(logFile);
+      }
+      catch(CMemoryException& e)
+      {
+         if(logFile) fprintf(logFile, "  [CAUGHT CMemoryException&]\n"), fflush(logFile);
+         lReturnValue = FALSE;
+      }
+      catch(CArchiveException& e)
+      {
+         if(logFile) fprintf(logFile, "  [CAUGHT CArchiveException&]\n"), fflush(logFile);
+         lReturnValue = FALSE;
+      }
+      catch(CFileException& e)
+      {
+         if(logFile) fprintf(logFile, "  [CAUGHT CFileException&]\n"), fflush(logFile);
+         lReturnValue = FALSE;
+      }
+      catch(CException& e)
+      {
+         if(logFile) fprintf(logFile, "  [CAUGHT CException&]\n"), fflush(logFile);
+         lReturnValue = FALSE;
       }
       catch(const std::exception& e)
       {
-         if(logFile) fprintf(logFile, "  EXCEPTION in LoadLevel(): %s\n", e.what()), fflush(logFile);
+         if(logFile) fprintf(logFile, "  [CAUGHT std::exception: %s]\n", e.what()), fflush(logFile);
          lReturnValue = FALSE;
       }
       catch(...)
       {
-         if(logFile) fprintf(logFile, "  UNKNOWN EXCEPTION in LoadLevel()\n"), fflush(logFile);
+         if(logFile) fprintf(logFile, "  [CAUGHT UNKNOWN]\n"), fflush(logFile);
          lReturnValue = FALSE;
       }
+      if(logFile) fprintf(logFile, "  [AFTER ALL CATCH BLOCKS]\n"), fflush(logFile);
+      if(logFile) fflush(logFile);
 
       if( !lReturnValue )
       {

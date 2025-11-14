@@ -8,7 +8,7 @@
       <FullPath>c:\originalhr\HoverRace\Release\ColorTools.dll</FullPath>
     </ProjectOutput>
     <ProjectOutput>
-      <FullPath>c:\originalhr\HoverRace\Release\VideoServices.dll</FullPath>
+      <FullPath>C:\originalhr2\HoverRaceAI\Release\VideoServices.dll</FullPath>
     </ProjectOutput>
     <ProjectOutput>
       <FullPath>c:\originalhr\HoverRace\Release\Model.dll</FullPath>
@@ -20,7 +20,7 @@
       <FullPath>c:\originalhr\HoverRace\Release\ObjFacTools.dll</FullPath>
     </ProjectOutput>
     <ProjectOutput>
-      <FullPath>C:\originalhr\HoverRace\Release\MazeCompiler.exe</FullPath>
+      <FullPath>c:\originalhr2\HoverRaceAI\Release\MazeCompiler.exe</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />

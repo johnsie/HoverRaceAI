@@ -44,9 +44,23 @@ bool SDL2GraphicsBackend::Initialize(void* windowHandle, int width, int height)
     if (!m_window) { log << "ERROR: SDL_CreateWindowFrom failed: " << SDL_GetError() << std::endl; log.close(); SDL_QuitSubSystem(SDL_INIT_VIDEO); return false; }
     log << "SDL_CreateWindowFrom OK" << std::endl; log.flush();
     
-    m_renderer = SDL_CreateRenderer(m_window, -1, SDL_RENDERER_SOFTWARE);
-    if (!m_renderer) { log << "ERROR: SDL_CreateRenderer failed: " << SDL_GetError() << std::endl; log.close(); SDL_DestroyWindow(m_window); SDL_QuitSubSystem(SDL_INIT_VIDEO); return false; }
-    log << "SDL_CreateRenderer OK (software)" << std::endl; log.flush();
+    // Create renderer with VSYNC enabled to synchronize with monitor refresh rate
+    // This prevents flickering by ensuring Present() waits for the next vertical blank
+    m_renderer = SDL_CreateRenderer(m_window, -1, SDL_RENDERER_SOFTWARE | SDL_RENDERER_PRESENTVSYNC);
+    if (!m_renderer) { 
+        log << "ERROR: SDL_CreateRenderer with VSYNC failed, trying without VSYNC: " << SDL_GetError() << std::endl; 
+        log.flush();
+        // Fallback: try without VSYNC
+        m_renderer = SDL_CreateRenderer(m_window, -1, SDL_RENDERER_SOFTWARE);
+        if (!m_renderer) { 
+            log << "ERROR: SDL_CreateRenderer also failed without VSYNC: " << SDL_GetError() << std::endl; 
+            log.close(); 
+            SDL_DestroyWindow(m_window); 
+            SDL_QuitSubSystem(SDL_INIT_VIDEO); 
+            return false; 
+        }
+    }
+    log << "SDL_CreateRenderer OK (software, VSYNC enabled)" << std::endl; log.flush();
     
     SDL_RenderSetLogicalSize(m_renderer, width, height);
     // Use RGB24 (3 bytes per pixel, no padding) instead of RGB888 to ensure correct pitch handling
@@ -185,9 +199,85 @@ bool SDL2GraphicsBackend::Present(const uint8_t* buffer, int width, int height)
     
     // IMPORTANT: buffer is assumed to have stride == width (linear)
     // This must match mLineLen from VideoBuffer!
+    
+    // Diagnostic: Check buffer for actual rendering data
+    static int frame_diag_count = 0;
+    bool should_log_buffer = (frame_diag_count < 5) || (frame_count % 500 == 0);
+    
+    int non_zero_count = 0;
+    int max_index = 0;
+    int bad_index_count = 0;
+    for (int i = 0; i < width * height; i++) {
+        if (buffer[i] != 0) non_zero_count++;
+        if (buffer[i] > max_index) max_index = buffer[i];
+        if (buffer[i] >= 256) bad_index_count++;
+    }
+    
+    FILE* bufferLog = nullptr;
+    if (should_log_buffer || bad_index_count > 0) {
+        bufferLog = fopen("C:\\originalhr\\HoverRace\\Release\\sdl2_buffer_analysis.log", "a");
+        if (bufferLog) {
+            fprintf(bufferLog, "Frame %d: Buffer analysis: width=%d, height=%d\n", frame_count, width, height);
+            fprintf(bufferLog, "  Non-zero pixels: %d/%d (%.1f%%)\n", non_zero_count, width*height, 100.0*non_zero_count/(width*height));
+            fprintf(bufferLog, "  Max palette index found: %d\n", max_index);
+            if (bad_index_count > 0) {
+                fprintf(bufferLog, "  WARNING: Found %d pixels with INVALID palette indices (>= 256)!\n", bad_index_count);
+                // Find and log locations of bad indices
+                int logged = 0;
+                for (int i = 0; i < width * height && logged < 10; i++) {
+                    if (buffer[i] >= 256) {
+                        int x = i % width;
+                        int y = i / width;
+                        fprintf(bufferLog, "    Invalid index %d at pixel (%d, %d)\n", buffer[i], x, y);
+                        logged++;
+                    }
+                }
+            }
+            frame_diag_count++;
+        }
+    }
+    
     for (int y = 0; y < height; y++) {
         for (int x = 0; x < width; x++) {
             uint8_t index = buffer[y * width + x];  // Linear stride = width
+            
+            // SAFETY: Check palette index is valid and clamp to valid range
+            if (index >= 256) {
+                index = 0;  // Default to black for invalid indices
+                if (bufferLog && should_log_buffer) {
+                    fprintf(bufferLog, "  Clamped invalid index to 0 at (x=%d, y=%d)\n", x, y);
+                }
+            }
+            
+            // EXTRA FIX: Detect isolated corruption artifacts (single pixels surrounded by different colors)
+            // These are typically from ObjFac1 bitmap rendering buffer overruns
+            // Pattern: if a pixel is very different from neighbors AND appears sporadically, it's likely an artifact
+            BOOL is_isolated_artifact = FALSE;
+            if (x > 0 && x < width-1 && y > 0 && y < height-1) {
+                int left = buffer[y * width + (x-1)];
+                int right = buffer[y * width + (x+1)];
+                int up = buffer[y * width - width + x];
+                int down = buffer[y * width + width + x];
+                
+                // If all 4 neighbors are the same color but this pixel is very different, it's likely an artifact
+                if (left == right && up == down && left == up && left != 0 && left < 256) {
+                    int diff_left = (index >= left) ? (index - left) : (left - index);
+                    int diff_right = (index >= right) ? (index - right) : (right - index);
+                    int diff_up = (index >= up) ? (index - up) : (up - index);
+                    int diff_down = (index >= down) ? (index - down) : (down - index);
+                    
+                    // If differences are extreme (> 40 palette entries away), likely corruption
+                    if (diff_left > 40 && diff_right > 40 && diff_up > 40 && diff_down > 40) {
+                        is_isolated_artifact = TRUE;
+                    }
+                }
+            }
+            
+            // Replace artifact with neighbor color to smooth out corruption
+            if (is_isolated_artifact) {
+                if (x > 0) index = buffer[y * width + (x-1)];  // Use left neighbor
+            }
+            
             int offset = y * pitch + x * 3;
             rgb_buffer[offset + 0] = m_paletteRGB[index*3 + 0];  // R
             rgb_buffer[offset + 1] = m_paletteRGB[index*3 + 1];  // G
@@ -195,24 +285,31 @@ bool SDL2GraphicsBackend::Present(const uint8_t* buffer, int width, int height)
         }
     }
     
-    // Diagnostic: log last row indices on first successful call
+    if (bufferLog && should_log_buffer) {
+        fprintf(bufferLog, "\n");
+        fflush(bufferLog);
+        fclose(bufferLog);
+    }
+    
+    // Diagnostic: log first few frames' buffer content
     static bool diagLogged = false;
-    if (!diagLogged) {
+    if (!diagLogged && frame_count == 1) {
         diagLogged = true;
         FILE* diagLog = fopen("C:\\originalhr\\HoverRace\\Release\\sdl2_present_diag.log", "w");
         if (diagLog) {
-            fprintf(diagLog, "Diagnostic buffer check (first Present call):\n");
+            fprintf(diagLog, "Diagnostic buffer check (first Present call, Frame %d):\n", frame_count);
             fprintf(diagLog, "width=%d, height=%d, pitch=%d\n", width, height, pitch);
             fprintf(diagLog, "Buffer total size: %d bytes\n", width * height);
             fprintf(diagLog, "RGB buffer total size: %d bytes\n", pitch * height);
-            fprintf(diagLog, "\nSample from near bottom (y=%d):\n", height - 2);
-            int y = height - 2;
-            fprintf(diagLog, "Row %d first 40 indices: ", y);
-            for (int x = 0; x < 40 && x < width; x++) {
-                uint8_t idx = buffer[y * width + x];
-                fprintf(diagLog, "%3d ", idx);
+            fprintf(diagLog, "\nSample from center (x=%d, y=%d to y=%d):\n", width/2, height/2-2, height/2+2);
+            for (int y = height/2-2; y <= height/2+2 && y < height; y++) {
+                fprintf(diagLog, "Row %d (x=0-40): ", y);
+                for (int x = 0; x < 40 && x < width; x++) {
+                    uint8_t idx = buffer[y * width + x];
+                    fprintf(diagLog, "%3d ", idx);
+                }
+                fprintf(diagLog, "\n");
             }
-            fprintf(diagLog, "\n");
             fflush(diagLog);
             fclose(diagLog);
         }

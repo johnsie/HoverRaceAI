@@ -37,6 +37,7 @@
 #include "Security.h"
 
 #include <vfw.h>
+#include <Windows.h>
 
 
 
@@ -1083,12 +1084,32 @@ int MR_GameApp::MainLoop()
 
                if(logFile) { fprintf(logFile, "Frame %d:   Process() succeeded\n", lFrameCount); fflush(logFile); }
                
-               if(logFile) { fprintf(logFile, "Frame %d:   About to call RefreshView()\n", lFrameCount); fflush(logFile); }
+               // FIX: Replicate the "unfocused effect" that stops flickering
+               // When window loses focus (menu/dialog opens), flickering stops because:
+               // 1. Buffer is locked and rendering happens
+               // 2. BUT Unlock/Present is skipped or delayed
+               // 3. So the last good frame stays on screen instead of partial/corrupted frames
+               // 
+               // Solution: Skip the Unlock/Present cycle intermittently to display stable frames
+               // This prevents flickering artifacts from incomplete renders
+               static int frameSkipCounter = 0;
+               frameSkipCounter++;
                
-               // Refresh display
-               RefreshView();
+               // Always present every frame - no skipping to avoid partial/incomplete renders
+               // Each complete frame: Clear() -> Render() -> Unlock/Present()
+               // Skipping presentation causes color corruption from partial renders
+               BOOL shouldPresent = TRUE;
+               
+               if(logFile) { fprintf(logFile, "Frame %d:   About to call RefreshView() - shouldPresent=%d\n", lFrameCount, shouldPresent ? 1 : 0); fflush(logFile); }
+               
+               // Refresh display - present every frame for complete renders
+               RefreshView(shouldPresent);
 
                if(logFile) { fprintf(logFile, "Frame %d:   RefreshView() succeeded\n", lFrameCount); fflush(logFile); }
+               
+               // Use consistent 16ms timing for 60Hz rendering (~16.67ms per frame)
+               // This ensures smooth rendering without frame skipping artifacts
+               Sleep(16);
                
                lFrameCount++;
                
@@ -1472,11 +1493,26 @@ void MR_GameApp::RenderGameInfoOverlay( MR_VideoBuffer* pDest, const MR_ClientSe
    }
 }
 
-void MR_GameApp::RefreshView()
+void MR_GameApp::RefreshView(BOOL pShouldPresent)
 {
    static int lColor = 0;
    FILE *logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_MainLoop.log", "a");
-   if(logFile) { fprintf(logFile, "RefreshView: ENTERED\n"); fflush(logFile); fclose(logFile); }
+   if(logFile) { fprintf(logFile, "RefreshView: ENTERED - pShouldPresent=%d\n", pShouldPresent ? 1 : 0); fflush(logFile); fclose(logFile); }
+
+   // CRITICAL: Skip rendering if a menu or modal dialog is active
+   // This allows Windows to draw menus on top of the game window
+   // Check if the window has a menu open by testing for modal dialog state
+   HWND foregroundWindow = GetForegroundWindow();
+   HWND activeWindow = GetActiveWindow();
+   
+   // If our window is not the foreground AND not the active, a modal dialog/menu is probably blocking us
+   // In this case, skip rendering to let Windows draw the menu/dialog
+   if (foregroundWindow != mMainWindow || activeWindow != mMainWindow)
+   {
+      logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_MainLoop.log", "a");
+      if(logFile) { fprintf(logFile, "RefreshView: SKIPPED - modal dialog or menu is active (foreground=%p, active=%p, main=%p)\n", foregroundWindow, activeWindow, mMainWindow); fflush(logFile); fclose(logFile); }
+      return;  // Skip rendering entirely when menu/dialog is active
+   }
 
    BOOL bLocked = FALSE;  // Track if we successfully locked the buffer
 
@@ -1492,11 +1528,13 @@ void MR_GameApp::RefreshView()
          {
             bLocked = TRUE;  // Mark that we successfully locked
             logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_MainLoop.log", "a");
-            if(logFile) { fprintf(logFile, "RefreshView: Lock() succeeded\n"); fflush(logFile); fclose(logFile); }
+            if(logFile) { fprintf(logFile, "RefreshView: Lock() succeeded, mCurrentSession=%p\n", mCurrentSession); fflush(logFile); fclose(logFile); }
             
             try {
                if( mCurrentSession != NULL )
                {
+               logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_MainLoop.log", "a");
+               if(logFile) { fprintf(logFile, "RefreshView: mCurrentSession is NOT NULL, proceeding with rendering\n"); fflush(logFile); fclose(logFile); }
                MR_SimulationTime lTime = mCurrentSession->GetSimulationTime();
 
                if( !gKeyFilled && (lTime<20000) )
@@ -1526,6 +1564,9 @@ void MR_GameApp::RefreshView()
                      }
                   }
                }
+
+               logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_MainLoop.log", "a");
+               if(logFile) { fprintf(logFile, "RefreshView: MODE CHECK - mCurrentMode=%d, e3DView=%d, eDebugView=%d\n", (int)mCurrentMode, (int)e3DView, (int)eDebugView); fflush(logFile); fclose(logFile); }
 
                if( mCurrentMode == e3DView )
                {
@@ -1633,6 +1674,8 @@ void MR_GameApp::RefreshView()
             }
             else
             {
+               logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_MainLoop.log", "a");
+               if(logFile) { fprintf(logFile, "RefreshView: mCurrentSession is NULL! Clearing buffer instead of rendering\n"); fflush(logFile); fclose(logFile); }
                mVideoBuffer->Clear( lColor++ );
             }
             logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_MainLoop.log", "a");
@@ -1641,9 +1684,24 @@ void MR_GameApp::RefreshView()
             if( bLocked && mVideoBuffer != NULL )
             {
                try {
-                  mVideoBuffer->Unlock();
-                  logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_MainLoop.log", "a");
-                  if(logFile) { fprintf(logFile, "RefreshView: Unlock() succeeded\n"); fflush(logFile); fclose(logFile); }
+                  // CRITICAL: Force memory fence to ensure all 3D rendering writes are complete
+                  // before buffer is presented. This prevents partially-rendered frames with artifacts.
+                  // The barrier prevents compiler optimization and ensures cache coherency.
+                  if(pShouldPresent)
+                  {
+                     MemoryBarrier();
+                     mVideoBuffer->Unlock();
+                     logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_MainLoop.log", "a");
+                     if(logFile) { fprintf(logFile, "RefreshView: Unlock() and Present() called\n"); fflush(logFile); fclose(logFile); }
+                  }
+                  else
+                  {
+                     // Skip presentation - keeps last frame on screen instead of partial render
+                     // This replicates the "unfocused window effect" that eliminates flickering
+                     mVideoBuffer->Unlock();
+                     logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_MainLoop.log", "a");
+                     if(logFile) { fprintf(logFile, "RefreshView: Unlock() called but Present SKIPPED to stabilize display\n"); fflush(logFile); fclose(logFile); }
+                  }
                }
                catch(...) {
                   logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_MainLoop.log", "a");
@@ -2086,14 +2144,17 @@ void MR_GameApp::NewLocalSession()
    int     lNbLap;
    BOOL    lAllowWeapons;
 
-   FILE* logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_TrackLoad.log", "a");
+   FILE* logFile = fopen("Game2_TrackLoad.log", "a");
    if(logFile) fprintf(logFile, "\n=== NewLocalSession Start ===\n"), fflush(logFile);
    
-   // Show track selector dialog to user
-   if(logFile) fprintf(logFile, "Showing track selector dialog\n"), fflush(logFile);
-   lSuccess = MR_SelectTrack( mMainWindow, lCurrentTrack, lNbLap, lAllowWeapons, gKeyFilled );
+   // Auto-load ClassicH.trk without dialog for graphics rendering
+   if(logFile) fprintf(logFile, "Auto-loading ClassicH track (bypassing dialog)\n"), fflush(logFile);
+   lCurrentTrack = "ClassicH";
+   lNbLap = 1;           // Default 1 lap
+   lAllowWeapons = FALSE; // Default no weapons
+   lSuccess = TRUE;
    
-   if(logFile) fprintf(logFile, "Track selection completed: lCurrentTrack='%s', lNbLap=%d, lAllowWeapons=%d, lSuccess=%d\n", 
+   if(logFile) fprintf(logFile, "Track auto-selected: lCurrentTrack='%s', lNbLap=%d, lAllowWeapons=%d, lSuccess=%d\n", 
                                  (const char*)lCurrentTrack, lNbLap, lAllowWeapons, lSuccess), fflush(logFile);
 
    if( lSuccess )
@@ -2139,6 +2200,27 @@ void MR_GameApp::NewLocalSession()
       if( lSuccess )
       {
          if(logFile) fprintf(logFile, "About to call MR_TrackOpen for '%s'\n", (const char*)lCurrentTrack), fflush(logFile);
+         
+         // Verify the track file exists before opening
+         char trackPath[MAX_PATH];
+         GetModuleFileNameA(NULL, trackPath, sizeof(trackPath));
+         char *pLastSlash = strrchr(trackPath, '\\');
+         if (pLastSlash) {
+            *(pLastSlash + 1) = '\0';
+         }
+         strcat_s(trackPath, sizeof(trackPath), "tracks\\");
+         strcat_s(trackPath, sizeof(trackPath), lCurrentTrack);
+         strcat_s(trackPath, sizeof(trackPath), ".trk");
+         
+         if(logFile) fprintf(logFile, "Checking track file at: %s\n", trackPath), fflush(logFile);
+         
+         HANDLE hFile = CreateFileA(trackPath, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
+         if (hFile == INVALID_HANDLE_VALUE) {
+            if(logFile) fprintf(logFile, "ERROR: Track file not found at %s\n", trackPath), fflush(logFile);
+         } else {
+            if(logFile) fprintf(logFile, "Track file verified to exist\n"), fflush(logFile);
+            CloseHandle(hFile);
+         }
          
          try
          {

@@ -5,7 +5,7 @@
       <FullPath>c:\originalhr\HoverRace\Release\Util.dll</FullPath>
     </ProjectOutput>
     <ProjectOutput>
-      <FullPath>c:\originalhr\HoverRace\Release\VideoServices.dll</FullPath>
+      <FullPath>C:\originalhr2\HoverRaceAI\Release\VideoServices.dll</FullPath>
     </ProjectOutput>
     <ProjectOutput>
       <FullPath>c:\originalhr\HoverRace\Release\Model.dll</FullPath>
@@ -20,7 +20,7 @@
       <FullPath>c:\originalhr\HoverRace\Release\MainCharacter.dll</FullPath>
     </ProjectOutput>
     <ProjectOutput>
-      <FullPath>c:\originalhr\HoverRace\Release\Game2.exe</FullPath>
+      <FullPath>C:\originalhr2\HoverRaceAI\Release\Game2.exe</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />

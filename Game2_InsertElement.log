@@ -270,3 +270,19 @@ InsertElement START: pElement=05B63A28, pRoom=0, mAllowRendering=1
   About to call MoveElement()
   MoveElement() succeeded
 InsertElement END: returning 05B62848
+InsertElement START: pElement=009A5FD8, pRoom=0, mAllowRendering=1
+  Created new FreeElement: 0099FB90
+  About to call AddRenderer()
+  AddRenderer() succeeded
+  Set mElement pointer
+  About to call MoveElement()
+  MoveElement() succeeded
+InsertElement END: returning 0099FB90
+InsertElement START: pElement=00A0B1D8, pRoom=0, mAllowRendering=1
+  Created new FreeElement: 05B0A498
+  About to call AddRenderer()
+  AddRenderer() succeeded
+  Set mElement pointer
+  About to call MoveElement()
+  MoveElement() succeeded
+InsertElement END: returning 05B0A498

@@ -89,6 +89,7 @@ void MR_Level::Serialize( CArchive& pArchive )
    int lCounter;
    int lPlayerNo;
 
+   // Try to deserialize, but don't throw exceptions
    try
    {
       // Serialize the starting position

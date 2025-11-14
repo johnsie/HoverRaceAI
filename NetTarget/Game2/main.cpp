@@ -43,6 +43,33 @@ int WINAPI WinMain( HINSTANCE pInstance, HINSTANCE pPrevInstance, LPSTR /*pCmdLi
         fprintf(debugLog, "MR_GameApp created successfully\n");
         fflush(debugLog);
 
+        // Test graphics rendering system
+        fprintf(debugLog, "Testing graphics system...\n");
+        fflush(debugLog);
+        try {
+            // Wait a moment for the window to be fully created
+            Sleep(1000);
+            
+            // Dynamically load and call TestGraphicsSystem from VideoServices.dll
+            HMODULE hVideoServices = LoadLibraryA("VideoServices.dll");
+            if (hVideoServices) {
+                typedef void (*TestGraphicsFunc)();
+                TestGraphicsFunc TestGraphicsSystem = (TestGraphicsFunc)GetProcAddress(hVideoServices, "TestGraphicsSystem");
+                if (TestGraphicsSystem) {
+                    fprintf(debugLog, "Calling TestGraphicsSystem...\n");
+                    fflush(debugLog);
+                    TestGraphicsSystem();
+                    fprintf(debugLog, "TestGraphicsSystem completed\n");
+                    fflush(debugLog);
+                }
+                FreeLibrary(hVideoServices);
+            }
+        }
+        catch (...) {
+            fprintf(debugLog, "Graphics test failed (non-critical)\n");
+            fflush(debugLog);
+        }
+
         // Allow only one instance of HoverRace; press CAPS_LOCK to bypass
         GetAsyncKeyState( VK_CAPITAL ); // Reset the function
         if( !GetAsyncKeyState( VK_CAPITAL ) )

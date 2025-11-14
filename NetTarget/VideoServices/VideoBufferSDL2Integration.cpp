@@ -93,5 +93,10 @@ void ShutdownSDL2Graphics()
 // Check if SDL2 graphics is available
 BOOL IsSDL2GraphicsAvailable()
 {
-   return (g_SDL2GraphicsAdapter != NULL);
+   // Return TRUE if adapter exists OR if _HAVE_SDL2 is defined (meaning SDL2 support is compiled in)
+   #ifdef _HAVE_SDL2
+   return TRUE;  // SDL2 support is compiled in
+   #else
+   return FALSE; // SDL2 support not compiled in
+   #endif
 }

@@ -677,11 +677,7 @@ BOOL MR_VideoBuffer::SetVideoMode()
 
    mModeSettingInProgress = TRUE;
 
-   // Try to initialize SDL2 graphics (modern graphics backend)
-   // Uses SDL_CreateWindowFrom() to wrap the existing MFC window
-   PRINT_LOG( "Attempting SDL2Graphics initialization with existing window" );
-   
-   // Retrieve window dimensions first
+   // Retrieve window dimensions
    if( !GetClientRect( mWindow, &lRect ) )
    {
       PRINT_LOG( "GetClientRect failed" );
@@ -694,273 +690,98 @@ BOOL MR_VideoBuffer::SetVideoMode()
       mYRes = lRect.bottom;
    }
    
-   // Try SDL2 graphics backend with existing MFC window
-   {
-      FILE* dbgFile = fopen("c:\\originalhr\\HoverRace\\Release\\Debug_SetVideoMode_Flow.log", "a");
-      if(dbgFile) { fprintf(dbgFile, "Before InitializeSDL2Graphics call\n"); fflush(dbgFile); fclose(dbgFile); }
-   }
-   if( InitializeSDL2Graphics( mWindow, mXRes, mYRes ) )
-   {
-      FILE* dbgFile = fopen("c:\\originalhr\\HoverRace\\Release\\Debug_SetVideoMode_Flow.log", "a");
-      if(dbgFile) { fprintf(dbgFile, "InitializeSDL2Graphics returned TRUE - entering SDL2 mode\n"); fflush(dbgFile); fclose(dbgFile); }
-      PRINT_LOG( "SDL2Graphics initialized successfully" );
-      
-      // Configure SDL2 adapter for rendering
-      mLineLen = mXRes;
-      
-      // CRITICAL: In SDL2 mode, let the adapter manage the buffer
-      // DO NOT allocate a separate buffer here - the adapter provides the buffer via Lock()
-      // mBuffer will be assigned when rendering calls Lock(), which will get the adapter's buffer
-      PRINT_LOG( "SDL2Graphics mode: mBuffer will be provided by adapter during Lock()" );
-      
-      // Verify mBuffer is NULL so Lock() will call the adapter
-      if( mBuffer != NULL )
-      {
-         delete[] mBuffer;
-         mBuffer = NULL;
-         PRINT_LOG( "Cleared pre-existing mBuffer to use adapter's buffer" );
-      }
-      
-      FILE* debugLog = fopen("c:\\originalhr\\HoverRace\\Release\\Debug_VideoBuffer.log", "a");
-      if(debugLog) {
-         fprintf(debugLog, "SetVideoMode: SDL2Graphics init - mXRes=%d, mYRes=%d, mLineLen=%d, mBuffer=%p\n",
-                 mXRes, mYRes, mLineLen, mBuffer);
-         fflush(debugLog);
-         fclose(debugLog);
-      }
-      
-      // Get window position
-      POINT lPoint = {0,0};
-      ClientToScreen( mWindow, &lPoint );
-      mX0 = lPoint.x;
-      mY0 = lPoint.y;
-      
-      // Create Z-buffer
-      mZBuffer = new MR_UInt16[ mXRes * mYRes ];
-      
-      // CRITICAL: Create palette now that SDL2 is initialized
-      // The palette is necessary to convert 8-bit game graphics to actual colors
-      CreatePalette( mGamma, mContrast, mBrightness );
-      PRINT_LOG( "SetVideoMode: Palette created for SDL2Graphics" );
-      
-      mModeSettingInProgress = FALSE;
-      
-      PRINT_LOG( "SetVideoMode returning TRUE (SDL2Graphics active, mXRes=%d, mYRes=%d)", mXRes, mYRes );
-      return TRUE;
-   }
+   FILE* dbgFile = fopen("c:\\originalhr\\HoverRace\\Release\\Debug_SetVideoMode_Flow.log", "a");
+   if(dbgFile) { fprintf(dbgFile, "SetVideoMode: Window dimensions: %dx%d\n", mXRes, mYRes); fflush(dbgFile); }
    
-   {
-      FILE* dbgFile = fopen("c:\\originalhr\\HoverRace\\Release\\Debug_SetVideoMode_Flow.log", "a");
-      if(dbgFile) { fprintf(dbgFile, "InitializeSDL2Graphics returned FALSE - falling back to DirectDraw\n"); fflush(dbgFile); fclose(dbgFile); }
-   }
+   // Always try SDL2Graphics when available for consistent rendering
+   BOOL used_sdl2 = FALSE;
+   BOOL sdl2_available = IsSDL2GraphicsAvailable();
+   if(dbgFile) { fprintf(dbgFile, "SetVideoMode: IsSDL2GraphicsAvailable() returned: %s\n", sdl2_available ? "TRUE" : "FALSE"); fflush(dbgFile); }
    
-   PRINT_LOG( "SDL2Graphics initialization failed, falling back to DirectDraw" );
-
-   // Try to initialize DirectDraw
-   lReturnValue = InitDirectDraw();
-   
-   // For GDI fallback support, we continue even if DirectDraw fails
-   BOOL lUsingGDI = !lReturnValue;
-
-   if( lReturnValue )
+   if( sdl2_available )
    {
-      ReturnToWindowsResolution();      
-   }
-
-   // Retrieve the window size (needed for both DirectDraw and GDI modes)
-   if( TRUE )  // Always get window size, even if DirectDraw failed
-   {
-      if( !GetClientRect( mWindow, &lRect ) )
+      if(dbgFile) { fprintf(dbgFile, "SetVideoMode: SDL2Graphics available, calling InitializeSDL2Graphics...\n"); fflush(dbgFile); }
+      
+      BOOL init_result = InitializeSDL2Graphics( mWindow, mXRes, mYRes );
+      if(dbgFile) { fprintf(dbgFile, "SetVideoMode: InitializeSDL2Graphics returned %s, adapter=%p\n", init_result ? "TRUE" : "FALSE", g_SDL2GraphicsAdapter); fflush(dbgFile); }
+      
+      if( init_result && g_SDL2GraphicsAdapter != NULL )
       {
-         PRINT_LOG( "GetClientRect failed" );
-         lReturnValue = FALSE;
-      }
-      else
-      {
-         mXRes = lRect.right;
-         mYRes = lRect.bottom;
-         mLineLen = mXRes;
+         if(dbgFile) { fprintf(dbgFile, "SetVideoMode: SDL2Graphics initialized successfully, using SDL2 mode!\n"); fflush(dbgFile); }
          
-         PRINT_LOG( "Window size: %dx%d", mXRes, mYRes );
-      }
-   }
-
-   if( TRUE )  // Always get window position
-   {
-      POINT lPoint = {0,0};
-
-      if( !ClientToScreen( mWindow, &lPoint ) )
-      {
-         PRINT_LOG( "ClientToScreen failed" );
-         lReturnValue = FALSE;
-      }
-      else
-      {
-         mX0 = lPoint.x;
-         mY0 = lPoint.y;
+         used_sdl2 = TRUE;
+         mLineLen = mXRes;  // Linear stride for SDL2 buffer
          
-         PRINT_LOG( "Window position: %d,%d", mX0, mY0 );
-      }
-   }
-
-   // Only attempt DirectDraw surface creation if DirectDraw was initialized
-   if( lReturnValue && !lUsingGDI )
-   {
-      // Ask specificcly for a 8 bit per pixel mode
-      memset( &lSurfaceDesc, 0, sizeof( lSurfaceDesc ) );
-      lSurfaceDesc.dwSize = sizeof( lSurfaceDesc );
-      lSurfaceDesc.dwFlags = DDSD_CAPS /*|DDSD_PIXELFORMAT*/;
-
-      lSurfaceDesc.ddsCaps.dwCaps         = DDSCAPS_PRIMARYSURFACE;
-
-      /*
-      lSurfaceDesc.ddpfPixelFormat.dwSize  = sizeof( lSurfaceDesc.ddpfPixelFormat );
-      lSurfaceDesc.ddpfPixelFormat.dwFlags = DDPF_PALETTEINDEXED8|DDPF_RGB;
-      lSurfaceDesc.ddpfPixelFormat.dwRGBBitCount = 8;      
-      */
-
-
-      if( DD_CALL( mDirectDraw->CreateSurface( &lSurfaceDesc, &mFrontBuffer, NULL )) != DD_OK )
-      {
-         // ASSERT( FALSE );
-         lReturnValue =FALSE;
-      }
-      else
-      {
-         // Verify that the surface is a 8 bit surface
-         DDPIXELFORMAT lFormat;
-
-         memset( &lFormat, 0, sizeof( lFormat ) );
-
-         lFormat.dwSize = sizeof( lFormat );
-
-         if( DD_CALL( mFrontBuffer->GetPixelFormat( &lFormat )) != DD_OK )
+         // Create Z-buffer
+         if( mZBuffer != NULL )
          {
-            lReturnValue = FALSE;
+            delete[] mZBuffer;
+            mZBuffer = NULL;
          }
-         else if( !( lFormat.dwFlags&DDPF_PALETTEINDEXED8) )
-         {
-            PRINT_LOG( "BadPixelFormat %d", (int)lFormat.dwFlags );
-            lReturnValue = FALSE;
-         }
-      }
-   }
-
-   if( lReturnValue )
-   {
-      // Create the working surface
-      memset( &lSurfaceDesc, 0, sizeof( lSurfaceDesc ) );
-      lSurfaceDesc.dwSize = sizeof( lSurfaceDesc );
-      lSurfaceDesc.dwFlags = DDSD_CAPS | DDSD_HEIGHT |DDSD_WIDTH/*|DDSD_PIXELFORMAT*/;
-      
-      lSurfaceDesc.ddsCaps.dwCaps = DDSCAPS_OFFSCREENPLAIN | DDSCAPS_SYSTEMMEMORY;
-      lSurfaceDesc.dwHeight = mYRes;
-      lSurfaceDesc.dwWidth  = mXRes;
-
-      /*
-      lSurfaceDesc.ddpfPixelFormat.dwSize  = sizeof( lSurfaceDesc.ddpfPixelFormat );
-      lSurfaceDesc.ddpfPixelFormat.dwFlags = DDPF_PALETTEINDEXED8|DDPF_RGB;
-      lSurfaceDesc.ddpfPixelFormat.dwRGBBitCount = 8;      
-      */
-
-      if( DD_CALL( mDirectDraw->CreateSurface( &lSurfaceDesc, &mBackBuffer, NULL )) != DD_OK )
-      {
-         // ASSERT( FALSE ); // Probably a bad video mode (not 8bit/pixel)
-         // Retry but not is system memory this time
-
-         lSurfaceDesc.ddsCaps.dwCaps = DDSCAPS_OFFSCREENPLAIN /*| DDSCAPS_SYSTEMMEMORY*/;
-
-         if( DD_CALL( mDirectDraw->CreateSurface( &lSurfaceDesc, &mBackBuffer, NULL )) != DD_OK )
-         {
-            // ASSERT( FALSE ); // Probably a bad video mode (not 8bit/pixel)
-            lReturnValue =FALSE;
-         }
-      }
-   }
-
-   if( lReturnValue )
-   {
-      // Create a clipper
-      if( DD_CALL( mDirectDraw->CreateClipper( 0, &mClipper, NULL )) != DD_OK )
-      {
-         ASSERT( FALSE );
-         lReturnValue = FALSE;
-      }
-   }   
-   
-   if( lReturnValue )
-   {
-      // Attatch it to the current window
-      if( DD_CALL( mClipper->SetHWnd( 0, mWindow )) != DD_OK )
-      {
-         ASSERT( FALSE );
-         lReturnValue = FALSE;
-      }
-   }
-   
-   if( lReturnValue )
-   {
-      // Attatch it to the current window
-      if( DD_CALL( mFrontBuffer->SetClipper( mClipper )) != DD_OK )
-      {
-         ASSERT( FALSE );
-         lReturnValue = FALSE;
-      }
-   }
-
-
-
-   if( lReturnValue )
-   {
-      // Create a local memory ZBuffer
-      // We do not use DirectDrawZBuffer for now
-
-      mZBuffer = new MR_UInt16[ mXRes*mYRes ];
-
-   }
-
-   if( !lReturnValue )
-   {
-      DeleteInternalSurfaces();
-      
-      // GDI FALLBACK: If DirectDraw fails, allocate system memory buffer for GDI rendering
-      PRINT_LOG( "DirectDraw initialization failed, using GDI software rendering fallback" );
-      
-      try
-      {
-         // Allocate buffer for GDI rendering (8-bit paletted)
-         mBuffer = new MR_UInt8[ mXRes * mYRes ];
-         mLineLen = mXRes;
-         
-         // Allocate Z-buffer for rendering
          mZBuffer = new MR_UInt16[ mXRes * mYRes ];
          
-         // Mark as window mode with fallback surfaces
-         mFullScreen = FALSE;
+         // Create palette
+         CreatePalette( mGamma, mContrast, mBrightness );
          
-         // Get window position for blitting
-         POINT lPoint = {0,0};
-         ClientToScreen( mWindow, &lPoint );
-         mX0 = lPoint.x;
-         mY0 = lPoint.y;
+         mModeSettingInProgress = FALSE;
+         if(dbgFile) { fprintf(dbgFile, "SetVideoMode complete (SDL2 mode)\n"); fflush(dbgFile); fclose(dbgFile); }
          
-         // Success with GDI fallback
-         lReturnValue = TRUE;
-         PRINT_LOG( "GDI software rendering fallback activated successfully" );
+         PRINT_LOG( "SetVideoMode: SDL2Graphics active, %dx%d", mXRes, mYRes );
+         return TRUE;
       }
-      catch(...)
+      else
       {
-         PRINT_LOG( "GDI fallback allocation failed" );
-         lReturnValue = FALSE;
+         if(dbgFile) { fprintf(dbgFile, "SetVideoMode: SDL2Graphics init FAILED!\n"); fflush(dbgFile); }
       }
    }
-
-   // AssignPalette();
-
+   else
+   {
+      if(dbgFile) { fprintf(dbgFile, "SetVideoMode: SDL2Graphics NOT AVAILABLE\n"); fflush(dbgFile); }
+   }
+   
+   // GDI fallback mode
+   if(dbgFile) { fprintf(dbgFile, "Using GDI fallback mode\n"); fflush(dbgFile); }
+   PRINT_LOG( "SetVideoMode: Using GDI fallback" );
+   
+   mLineLen = mXRes;
+   
+   // Allocate system memory buffer for GDI rendering
+   if( mBuffer != NULL )
+   {
+      delete[] mBuffer;
+      mBuffer = NULL;
+   }
+   
+   mBuffer = new MR_UInt8[ mXRes * mYRes ];
+   
+   PRINT_LOG( "Allocated GDI buffer: %dx%d = %d bytes at %p", mXRes, mYRes, mXRes * mYRes, mBuffer );
+   
+   // Get window position
+   {
+      POINT lPoint = {0,0};
+      if( ClientToScreen( mWindow, &lPoint ) )
+      {
+         mX0 = lPoint.x;
+         mY0 = lPoint.y;
+      }
+   }
+   
+   // Create Z-buffer
+   if( mZBuffer != NULL )
+   {
+      delete[] mZBuffer;
+      mZBuffer = NULL;
+   }
+   mZBuffer = new MR_UInt16[ mXRes * mYRes ];
+   
+   // Create palette
+   CreatePalette( mGamma, mContrast, mBrightness );
+   
    mModeSettingInProgress = FALSE;
-
-   PRINT_LOG( "SetVideoMode returning %d (mBuffer=%p, mXRes=%d, mYRes=%d, mZBuffer=%p)", (int)lReturnValue, mBuffer, mXRes, mYRes, mZBuffer );
-   return lReturnValue;
+   
+   if(dbgFile) { fprintf(dbgFile, "SetVideoMode complete (GDI mode)\n"); fflush(dbgFile); fclose(dbgFile); }
+   PRINT_LOG( "SetVideoMode: GDI mode, %dx%d", mXRes, mYRes );
+   return TRUE;
 }
 
 
@@ -1178,6 +999,9 @@ BOOL MR_VideoBuffer::Lock()
 
    HRESULT lErrorCode;
    BOOL lReturnValue = TRUE;
+   
+   static int frame_count = 0;
+   frame_count++;
 
    // Check if we're in SDL2Graphics mode (modern graphics backend)
    if( IsSDL2GraphicsAvailable() && g_SDL2GraphicsAdapter != NULL )
@@ -1186,8 +1010,8 @@ BOOL MR_VideoBuffer::Lock()
       PRINT_LOG( "Lock: SDL2Graphics mode - requesting buffer" );
       FILE *logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_VideoBuffer_Lock.log", "a");
       if(logFile) { 
-         fprintf(logFile, "Lock: Before Lock() - mXRes=%d, mYRes=%d, mLineLen=%d, mBuffer=%p\n", mXRes, mYRes, mLineLen, mBuffer);
-         fprintf(logFile, "Lock: About to call g_SDL2GraphicsAdapter->Lock(), adapter=%p\n", g_SDL2GraphicsAdapter); 
+         fprintf(logFile, "[Frame %d] Lock: Before Lock() - mXRes=%d, mYRes=%d, mLineLen=%d, mBuffer=%p\n", frame_count, mXRes, mYRes, mLineLen, mBuffer);
+         fprintf(logFile, "[Frame %d] Lock: About to call g_SDL2GraphicsAdapter->Lock(), adapter=%p\n", frame_count, g_SDL2GraphicsAdapter); 
          fflush(logFile); fclose(logFile); 
       }
       
@@ -1199,8 +1023,8 @@ BOOL MR_VideoBuffer::Lock()
          {
             logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_VideoBuffer_Lock.log", "a");
             if(logFile) { 
-               fprintf(logFile, "Lock: Lock() succeeded, buffer=%p (mXRes=%d, mYRes=%d, expected size=%d)\n", 
-                       lBuffer, mXRes, mYRes, mXRes * mYRes);
+               fprintf(logFile, "[Frame %d] Lock: Lock() succeeded, buffer=%p (mXRes=%d, mYRes=%d, expected size=%d)\n", 
+                       frame_count, lBuffer, mXRes, mYRes, mXRes * mYRes);
                fflush(logFile); fclose(logFile); 
             }
             
@@ -1211,7 +1035,7 @@ BOOL MR_VideoBuffer::Lock()
          else
          {
             logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_VideoBuffer_Lock.log", "a");
-            if(logFile) { fprintf(logFile, "Lock: Lock() returned FALSE (already locked)\n"); fflush(logFile); fclose(logFile); }
+            if(logFile) { fprintf(logFile, "[Frame %d] Lock: Lock() returned FALSE (already locked)\n", frame_count); fflush(logFile); fclose(logFile); }
             
             PRINT_LOG( "Lock: SDL2Graphics buffer acquisition failed" );
             return FALSE;
@@ -1219,7 +1043,7 @@ BOOL MR_VideoBuffer::Lock()
       }
       catch(...) {
          logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_VideoBuffer_Lock.log", "a");
-         if(logFile) { fprintf(logFile, "Lock: EXCEPTION caught in Lock()\n"); fflush(logFile); fclose(logFile); }
+         if(logFile) { fprintf(logFile, "[Frame %d] Lock: EXCEPTION caught in Lock()\n", frame_count); fflush(logFile); fclose(logFile); }
          return FALSE;
       }
    }

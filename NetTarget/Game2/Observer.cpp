@@ -539,6 +539,13 @@ void MR_Observer::Render3DView( const MR_ClientSession* pSession, const MR_MainC
    }
 
    m3DView.ClearZ();
+   
+   // MEMORY SYNC: Force write completion of clear operation before rendering begins
+   // This ensures stale or corrupted buffer data is completely overwritten
+   // Critical to prevent artifacts from partial/stale renders showing through
+   volatile int* pSyncPoint = (volatile int*)&m3DView;
+   int syncDummy = *pSyncPoint;
+   (void)syncDummy;
 
    // STAGE 3: Floor and ceiling rendering
    __try {
@@ -875,33 +882,11 @@ void MR_Observer::Render3DView( const MR_ClientSession* pSession, const MR_MainC
 
    MR_SAMPLE_END( WallRendering );
 
-   // Draw all the elements of the visibles room
-   MR_SAMPLE_START( ActorRendering, "Actor Rendering" );
-
-   for( lCounter = -1; lCounter < lRoomCount; lCounter++ )
-   {
-      int      lRoomId;
-      
-      if( lCounter == -1 )
-      {
-         lRoomId = lRoom;
-      }
-      else
-      {
-         lRoomId = lRoomList[ lCounter ];
-      }
-
-      MR_FreeElementHandle lHandle = lLevel->GetFirstFreeElement( lRoomId );
-
-      while( lHandle != NULL )
-      {
-         MR_FreeElement* lElement = MR_Level::GetFreeElement( lHandle );
-
-         lElement->Render( &m3DView, pTime );
-
-         lHandle = MR_Level::GetNextFreeElement( lHandle );
-      }
-   }
+   // NOTE: Actor rendering has been consolidated into a single pass above (STAGE 5)
+   // The duplicate actor rendering loop that was here has been removed to prevent:
+   // 1. Double-rendering of actors causing flashing artifacts
+   // 2. Use of stale room list variables
+   // 3. Lack of exception handling and bounds checking on second pass
 
    // Display cockpit
    int lXRes = m3DView.GetXRes();
@@ -1524,6 +1509,15 @@ void MR_Observer::CallRender3DViewSafe( const MR_ClientSession* pSession, const 
 
 void MR_Observer::RenderNormalDisplay( MR_VideoBuffer* pDest, const MR_ClientSession* pSession, const MR_MainCharacter* pViewingCharacter, MR_SimulationTime pTime, const MR_UInt8* pBackImage )
 {
+   static int render_frame_count = 0;
+   render_frame_count++;
+   
+   FILE *logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_Render_Trace.log", "a");
+   if(logFile) { 
+      fprintf(logFile, "[Render Frame %d] RenderNormalDisplay called\n", render_frame_count);
+      fflush(logFile); fclose(logFile); 
+   }
+   
    MR_SAMPLE_CONTEXT( "RenderNormalDisplay" );
 
    int lXRes = pDest->GetXRes();
@@ -1561,8 +1555,24 @@ void MR_Observer::RenderNormalDisplay( MR_VideoBuffer* pDest, const MR_ClientSes
    // Wrap Setup in try-catch to prevent crashes
    try {
       m3DView.Setup( pDest, lXMargin, lYOffset+lYMargin, lXRes-2*lXMargin, lYRes-2*lYMargin, mApperture );
+      
+      // CRITICAL FIX: Force memory synchronization after Setup to ensure buffer pointers are fresh
+      // This prevents stale pointer issues when rendering resumes after menu interactions
+      // Add a volatile barrier to prevent compiler optimization of the pointer refresh
+      volatile MR_UInt8* ptrCheck = pDest->GetBuffer();
+      if (ptrCheck != NULL) {
+         // Access first byte to ensure pointer is valid and data is initialized
+         // This forces cache coherency and prevents buffer corruption artifacts
+         volatile int dummy = ptrCheck[0];
+         (void)dummy;  // Prevent unused variable warning
+      }
    }
    catch(...) {
+      logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_Render_Trace.log", "a");
+      if(logFile) { 
+         fprintf(logFile, "[Render Frame %d] Setup FAILED - returning early\n", render_frame_count);
+         fflush(logFile); fclose(logFile); 
+      }
       // Setup failed, return early
       return;
    }
@@ -1580,7 +1590,26 @@ void MR_Observer::RenderNormalDisplay( MR_VideoBuffer* pDest, const MR_ClientSes
    if( pViewingCharacter->mRoom != -1 )
    {
       // Call helper function that uses SEH for exception handling
+      logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_Render_Trace.log", "a");
+      if(logFile) { 
+         fprintf(logFile, "[Render Frame %d] Room check PASSED (room=%d), calling CallRender3DViewSafe\n", render_frame_count, pViewingCharacter->mRoom);
+         fflush(logFile); fclose(logFile); 
+      }
       CallRender3DViewSafe( pSession, pViewingCharacter, pTime, pBackImage );
+      
+      logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_Render_Trace.log", "a");
+      if(logFile) { 
+         fprintf(logFile, "[Render Frame %d] CallRender3DViewSafe returned\n", render_frame_count);
+         fflush(logFile); fclose(logFile); 
+      }
+   }
+   else
+   {
+      logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_Render_Trace.log", "a");
+      if(logFile) { 
+         fprintf(logFile, "[Render Frame %d] Room check FAILED (room=%d) - no rendering\n", render_frame_count, pViewingCharacter->mRoom);
+         fflush(logFile); fclose(logFile); 
+      }
    }
 }
 

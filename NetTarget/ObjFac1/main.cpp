@@ -102,12 +102,14 @@ void MR_InitModule( HMODULE pModule )
    
    if (logFile) fprintf(logFile, "Attempting to load resource file: %s\n", lResourcePath);
    
+   DWORD resourceLoadStart = GetTickCount();
    try
    {
       gObjectFactoryData = new MR_ObjectFactoryData( pModule, lResourcePath );
+      DWORD resourceLoadEnd = GetTickCount();
       if (logFile)
       {
-         fprintf(logFile, "SUCCESS: ObjFac1 resources loaded successfully\n");
+         fprintf(logFile, "SUCCESS: ObjFac1 resources loaded successfully in %u ms\n", resourceLoadEnd - resourceLoadStart);
          fprintf(logFile, "gObjectFactoryData: 0x%p\n", gObjectFactoryData);
       }
    }

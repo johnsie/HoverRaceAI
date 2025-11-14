@@ -270,3 +270,20 @@ Attempting to load resource file: C:\originalhr\HoverRace\Release\ObjFac1.dat
 SUCCESS: ObjFac1 resources loaded successfully
 gObjectFactoryData: 0x00AB1750
 ========== MR_InitModule Complete ==========
+
+========== MR_InitModule Called ==========
+Module handle: 0x05950000
+Module path: C:\originalhr2\HoverRaceAI\Release\ObjFac1.dll
+Attempting to load resource file: C:\originalhr2\HoverRaceAI\Release\ObjFac1.dat
+EXCEPTION: CArchiveException caught
+CRITICAL: ObjFac1.dat is corrupted or invalid format at: C:\originalhr2\HoverRaceAI\Release\ObjFac1.dat
+Error: 7
+========== MR_InitModule Complete ==========
+
+========== MR_InitModule Called ==========
+Module handle: 0x05940000
+Module path: C:\originalhr2\HoverRaceAI\Release\ObjFac1.dll
+Attempting to load resource file: C:\originalhr2\HoverRaceAI\Release\ObjFac1.dat
+SUCCESS: ObjFac1 resources loaded successfully
+gObjectFactoryData: 0x00A24CD0
+========== MR_InitModule Complete ==========

@@ -70,6 +70,9 @@ void VideoBufferSDL2Adapter::Shutdown()
 
 bool VideoBufferSDL2Adapter::Lock(uint8_t*& outBuffer)
 {
+    static int frame_lock_count = 0;
+    frame_lock_count++;
+    
     // If buffer is already locked, return immediately without clearing
     // This handles legitimate cases where Lock() is called multiple times
     // before Unlock() (e.g., during viewport setup or exception handling)
@@ -80,6 +83,11 @@ bool VideoBufferSDL2Adapter::Lock(uint8_t*& outBuffer)
         if (!m_buffer)
             return false;
         outBuffer = m_buffer;
+        
+        std::ofstream log("C:\\originalhr\\HoverRace\\Release\\sdl2_adapter_lock_trace.log", std::ios::app);
+        log << "[Frame " << frame_lock_count << "] Lock: ALREADY LOCKED - returning existing buffer" << std::endl;
+        log.flush();
+        
         return true;
     }
     
@@ -111,6 +119,10 @@ bool VideoBufferSDL2Adapter::Lock(uint8_t*& outBuffer)
     // while keeping the same buffer pointer for rendering consistency
     try {
         memset(m_buffer, 0, (size_t)totalSize);
+        
+        std::ofstream log("C:\\originalhr\\HoverRace\\Release\\sdl2_adapter_lock_trace.log", std::ios::app);
+        log << "[Frame " << frame_lock_count << "] Lock: CLEARED buffer to black (" << (size_t)totalSize << " bytes)" << std::endl;
+        log.flush();
     }
     catch(...) {
         std::ofstream log("C:\\originalhr\\HoverRace\\Release\\sdl2_adapter_lock_error.log", std::ios::app);
@@ -126,6 +138,9 @@ bool VideoBufferSDL2Adapter::Lock(uint8_t*& outBuffer)
 
 bool VideoBufferSDL2Adapter::Unlock(uint8_t* pBuffer)
 {
+    static int frame_unlock_count = 0;
+    frame_unlock_count++;
+    
     if (!m_locked)
         return false;
 
@@ -139,12 +154,12 @@ bool VideoBufferSDL2Adapter::Unlock(uint8_t* pBuffer)
 
     // Present the buffer
     std::ofstream log("C:\\originalhr\\HoverRace\\Release\\sdl2_adapter_present.log", std::ios::app);
-    log << "Calling Present() with buffer=" << (void*)bufferToPresent << ", size=" << (m_width * m_height) << std::endl;
+    log << "[Frame " << frame_unlock_count << "] Calling Present() with buffer=" << (void*)bufferToPresent << ", size=" << (m_width * m_height) << std::endl;
     log.flush();
     
     bool result = m_backend.Present(bufferToPresent, m_width, m_height);
     
-    log << "Present() returned: " << (result ? "TRUE" : "FALSE") << std::endl;
+    log << "[Frame " << frame_unlock_count << "] Present() returned: " << (result ? "TRUE" : "FALSE") << std::endl;
     log.flush();
     
     return result;

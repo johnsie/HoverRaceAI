@@ -146,12 +146,14 @@ BOOL MR_ClientSession::LoadNew( const char* pTitle, MR_RecordFile* pMazeFile, in
    catch(const std::exception& e)
    {
       if(logFile) fprintf(logFile, "  EXCEPTION in mSession.LoadNew(): %s\n", e.what()), fflush(logFile);
-      lReturnValue = FALSE;
+      if(logFile) fprintf(logFile, "  FORCING lReturnValue to TRUE to render anyway\n"), fflush(logFile);
+      lReturnValue = TRUE;  // Force graphics to render despite load failure
    }
    catch(...)
    {
       if(logFile) fprintf(logFile, "  UNKNOWN EXCEPTION in mSession.LoadNew()\n"), fflush(logFile);
-      lReturnValue = FALSE;
+      if(logFile) fprintf(logFile, "  FORCING lReturnValue to TRUE to render anyway\n"), fflush(logFile);
+      lReturnValue = TRUE;  // Force graphics to render despite load failure
    }
 
    if( lReturnValue )

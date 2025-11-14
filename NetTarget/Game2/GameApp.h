@@ -134,7 +134,7 @@ class MR_GameApp
 
       BOOL CreateMainWindow( );
 
-      void RefreshView();
+      void RefreshView(BOOL pShouldPresent = TRUE);
       void SetVideoMode( int pX, int pY );
       void RefreshTitleBar();
 
