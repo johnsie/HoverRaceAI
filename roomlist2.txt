@@ -1,0 +1,14 @@
+SERVER LIST
+0 Score_Server 82.5.169.114 80 /hover/scores.php
+1 Stoeky 31.125.225.86 80 /hover/imr.php
+1 Newlayout https://steeky.com/hover/imr.php
+1 LocalHost_Test http://localhost:8020
+1 VIP_Room 82.5.169.114 80 /hover/imr2.php
+1 HoverRace.com's_PHP_Room 160.153.128.42 80 /~austinbrock/imr/imr.php
+5 default 82.5.169.114 80 /hover/sb1.php
+5 default 82.5.169.114 80 /hover/sb3.php
+5 default 82.5.169.114 80 /hover/sb4.php
+5 default 82.5.169.114 80 /hover/champ.php
+8 default 82.5.169.114 80 /hover/wm3.php
+8 default 82.5.169.114 80 /hover/wm2.php
+9 default 160.153.128.42 80 /~austinbrock/imr/banners/banner.gif

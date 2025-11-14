@@ -288,6 +288,18 @@ BOOL MR_InternetRequest::Send( HWND pWindow, unsigned long pIP, unsigned pPort, 
 {
    BOOL lReturnValue = FALSE;
 
+   // DEBUG: Log connection details
+   {
+      char lDebugBuf[512];
+      sprintf(lDebugBuf, "DEBUG MR_InternetRequest::Send: IP=%u.%u.%u.%u, Port=%u, URL=%s",
+              (pIP >> 24) & 0xFF,
+              (pIP >> 16) & 0xFF,
+              (pIP >> 8) & 0xFF,
+              (pIP) & 0xFF,
+              pPort,
+              pURL);
+      OutputDebugString(lDebugBuf);
+   }
 
    if( !Working() )
    {
@@ -716,38 +728,150 @@ BOOL MR_InternetRoom::LocateServers( HWND pParentWindow )
             if( *lLinePtr == 0 )
                break;
                
-            // Parse line: [priority] [name] [ip] [port] [path] [optional_banner_size] [optional_banner_url]
+            // Parse line: Can be either:
+            // Format 1: [priority] [name] [ip] [port] [path] [optional_banner_size] [optional_banner_url]
+            // Format 2: [priority] [name] [full_url] [optional_banner_size] [optional_banner_url]
+            // Full URL format: http://hostname:port/path or https://hostname:port/path
+            
             int lPriority;
             char lName[200];
-            char lIPStr[50];
-            unsigned short lPort;
-            char lPath[200];
+            char lIPStr[256];  // Larger buffer for full URLs
+            char lPathOrUrl[256];
+            unsigned short lPort = 0;
+            char lPath[256];
             
-            int nScanned = sscanf(lLinePtr, "%d %s %s %hu %s", 
-                                  &lPriority, lName, lIPStr, &lPort, lPath);
+            // Try to parse as full URL first
+            int nScanned = sscanf(lLinePtr, "%d %s %255s", 
+                                  &lPriority, lName, lIPStr);
             
-            if( nScanned >= 5 )
+            if( nScanned >= 3 )
             {
-               // Valid entry found
-               gServerList[gNbServerEntries].mName = lName;
-               gServerList[gNbServerEntries].mPort = lPort;
-               gServerList[gNbServerEntries].mURL = lPath;
-               gServerList[gNbServerEntries].mType = 0;  // Default type
-               gServerList[gNbServerEntries].mLadderIP = 0;
-               gServerList[gNbServerEntries].mLadderPort = 0;
+               BOOL lIsFullURL = FALSE;
                
-               // Convert IP address string to unsigned long
-               unsigned int a, b, c, d;
-               if( sscanf(lIPStr, "%u.%u.%u.%u", &a, &b, &c, &d) == 4 )
+               // Check if this looks like a full URL (contains :// or http/https)
+               if( strstr(lIPStr, "://") != NULL )
                {
-                  gServerList[gNbServerEntries].mAddress = (a << 24) | (b << 16) | (c << 8) | d;
-               }
-               else
-               {
-                  gServerList[gNbServerEntries].mAddress = inet_addr(lIPStr);
+                  lIsFullURL = TRUE;
+                  
+                  // Parse full URL: http[s]://hostname[:port][/path]
+                  const char* lProtoEnd = strstr(lIPStr, "://");
+                  if( lProtoEnd != NULL )
+                  {
+                     const char* lHostStart = lProtoEnd + 3;
+                     const char* lPortStart = strchr(lHostStart, ':');
+                     const char* lPathStart = strchr(lHostStart, '/');
+                     
+                     // Determine the default port based on protocol
+                     if( strstr(lIPStr, "https://") != NULL )
+                     {
+                        lPort = 443;
+                     }
+                     else
+                     {
+                        lPort = 80;
+                     }
+                     
+                     // Extract hostname
+                     char lHostname[256] = {0};
+                     int lHostLen = 256;
+                     
+                     if( lPortStart != NULL && (lPathStart == NULL || lPortStart < lPathStart) )
+                     {
+                        // Port is specified
+                        lHostLen = lPortStart - lHostStart;
+                        if( sscanf(lPortStart, ":%hu", &lPort) != 1 )
+                        {
+                           lPort = (strstr(lIPStr, "https://") != NULL) ? 443 : 80;
+                        }
+                     }
+                     else if( lPathStart != NULL )
+                     {
+                        // No port, path comes next
+                        lHostLen = lPathStart - lHostStart;
+                     }
+                     else
+                     {
+                        // Just hostname
+                        lHostLen = strlen(lHostStart);
+                     }
+                     
+                     if( lHostLen > 0 && lHostLen < 256 )
+                     {
+                        strncpy(lHostname, lHostStart, lHostLen);
+                        lHostname[lHostLen] = 0;
+                        
+                        // Extract path if present
+                        strcpy(lPath, "/");
+                        if( lPathStart != NULL )
+                        {
+                           strncpy(lPath, lPathStart, 255);
+                           lPath[255] = 0;
+                        }
+                        
+                        // Resolve hostname to IP
+                        gServerList[gNbServerEntries].mAddress = inet_addr(lHostname);
+                        
+                        // If inet_addr fails (not an IP), try DNS resolution
+                        if( gServerList[gNbServerEntries].mAddress == INADDR_NONE )
+                        {
+                           struct hostent* pHost = gethostbyname(lHostname);
+                           if( pHost != NULL && pHost->h_addr != NULL )
+                           {
+                              gServerList[gNbServerEntries].mAddress = *(unsigned long*)pHost->h_addr;
+                           }
+                           else
+                           {
+                              // DNS resolution failed, skip this entry
+                              lIsFullURL = FALSE;
+                           }
+                        }
+                     }
+                  }
+                  
+                  if( lIsFullURL )
+                  {
+                     gServerList[gNbServerEntries].mName = lName;
+                     gServerList[gNbServerEntries].mPort = lPort;
+                     gServerList[gNbServerEntries].mURL = lPath;
+                     gServerList[gNbServerEntries].mType = 0;
+                     gServerList[gNbServerEntries].mLadderIP = 0;
+                     gServerList[gNbServerEntries].mLadderPort = 0;
+                     
+                     gNbServerEntries++;
+                  }
                }
                
-               gNbServerEntries++;
+               // If not a URL, try original format: [priority] [name] [ip] [port] [path]
+               if( !lIsFullURL )
+               {
+                  unsigned short lPortNum;
+                  int nScannedOrig = sscanf(lLinePtr, "%d %s %s %hu %255s", 
+                                           &lPriority, lName, lIPStr, &lPortNum, lPath);
+                  
+                  if( nScannedOrig >= 5 )
+                  {
+                     // Valid entry found in original format
+                     gServerList[gNbServerEntries].mName = lName;
+                     gServerList[gNbServerEntries].mPort = lPortNum;
+                     gServerList[gNbServerEntries].mURL = lPath;
+                     gServerList[gNbServerEntries].mType = 0;  // Default type
+                     gServerList[gNbServerEntries].mLadderIP = 0;
+                     gServerList[gNbServerEntries].mLadderPort = 0;
+                     
+                     // Convert IP address string to unsigned long
+                     unsigned int a, b, c, d;
+                     if( sscanf(lIPStr, "%u.%u.%u.%u", &a, &b, &c, &d) == 4 )
+                     {
+                        gServerList[gNbServerEntries].mAddress = (a << 24) | (b << 16) | (c << 8) | d;
+                     }
+                     else
+                     {
+                        gServerList[gNbServerEntries].mAddress = inet_addr(lIPStr);
+                     }
+                     
+                     gNbServerEntries++;
+                  }
+               }
             }
             
             // Move to next line
@@ -804,6 +928,22 @@ BOOL MR_InternetRoom::AddUserOp( HWND pParentWindow )
                          mKey3,
                          (const char*)MR_Pad( mUser ) );
 
+   // DEBUG: Log connection details
+   {
+      char lDebugBuf[512];
+      sprintf(lDebugBuf, "DEBUG AddUserOp: ServerEntry=%d, Name=%s, URL=%s, Address=%u.%u.%u.%u, Port=%u",
+              gCurrentServerEntry,
+              (const char*)gServerList[gCurrentServerEntry].mName,
+              (const char*)gServerList[gCurrentServerEntry].mURL,
+              (gServerList[gCurrentServerEntry].mAddress >> 24) & 0xFF,
+              (gServerList[gCurrentServerEntry].mAddress >> 16) & 0xFF,
+              (gServerList[gCurrentServerEntry].mAddress >> 8) & 0xFF,
+              (gServerList[gCurrentServerEntry].mAddress) & 0xFF,
+              gServerList[gCurrentServerEntry].mPort);
+      OutputDebugString(lDebugBuf);
+      sprintf(lDebugBuf, "DEBUG AddUserOp: Full request=%s", (const char*)mNetOpRequest);
+      OutputDebugString(lDebugBuf);
+   }
 
    lReturnValue = DialogBox( GetModuleHandle( NULL ), MAKEINTRESOURCE( IDD_NET_PROGRESS ), pParentWindow, NetOpCallBack )==IDOK;
 
@@ -2476,6 +2616,20 @@ BOOL CALLBACK MR_InternetRoom::NetOpCallBack( HWND pWindow, UINT  pMsgId, WPARAM
 
             // Initiate the request
             mThis->mOpRequest.Send( pWindow, gServerList[gCurrentServerEntry].mAddress, gServerList[gCurrentServerEntry].mPort, mThis->mNetOpRequest );
+
+            // DEBUG: Log the actual send call
+            {
+               char lDebugBuf[512];
+               sprintf(lDebugBuf, "DEBUG NetOpCallBack: Calling Send with ServerEntry=%d, Name=%s, IP=%u.%u.%u.%u, Port=%u",
+                       gCurrentServerEntry,
+                       (const char*)gServerList[gCurrentServerEntry].mName,
+                       (gServerList[gCurrentServerEntry].mAddress >> 24) & 0xFF,
+                       (gServerList[gCurrentServerEntry].mAddress >> 16) & 0xFF,
+                       (gServerList[gCurrentServerEntry].mAddress >> 8) & 0xFF,
+                       (gServerList[gCurrentServerEntry].mAddress) & 0xFF,
+                       gServerList[gCurrentServerEntry].mPort);
+               OutputDebugString(lDebugBuf);
+            }
 
             // start a timeout timer
             SetTimer( pWindow, OP_TIMEOUT_EVENT, OP_TIMEOUT, NULL );            

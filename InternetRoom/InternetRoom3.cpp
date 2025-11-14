@@ -1317,7 +1317,7 @@ void IRState::AddChatMessage( int pUserIndex, int pUserId, const char* pMessage 
                lLen += StrMaxCopy( mChatFifo[ mChatTail ].mData+lLen, "<private>" , IR_CHAT_MESSAGE_LEN/2 );
 
 
-               mChatFifo[ mChatTail ].mData[ lLen++ ] = '»';
+               mChatFifo[ mChatTail ].mData[ lLen++ ] = 'ï¿½';
                mChatFifo[ mChatTail ].mData[ lLen++ ] = ' ';
 
                StrMaxCopy( mChatFifo[ mChatTail ].mData+lLen, pMessage+6+lDestUserNameLen, IR_CHAT_MESSAGE_LEN-lLen );
@@ -1335,7 +1335,7 @@ void IRState::AddChatMessage( int pUserIndex, int pUserId, const char* pMessage 
          {
             BOOL lOK = FALSE;
             int  lBanDuration = 2; // Defauls; ban for 2 minutes
-            const char* lUser;
+            const char* lUser = NULL;
 
             BOOL lKick = FALSE;
 
@@ -1525,7 +1525,7 @@ void IRState::AddChatMessage( int pUserIndex, int pUserId, const char* pMessage 
             mChatFifo[ mChatTail ].mData[ lLen++ ] = ')';
          }
    
-         mChatFifo[ mChatTail ].mData[ lLen++ ] = '»';
+         mChatFifo[ mChatTail ].mData[ lLen++ ] = 'ï¿½';
          mChatFifo[ mChatTail ].mData[ lLen++ ] = ' ';
 
          StrMaxCopy( mChatFifo[ mChatTail ].mData+lLen, pMessage, IR_CHAT_MESSAGE_LEN-lLen );
@@ -1545,8 +1545,8 @@ void IRState::AddMessage( const char* pMessage )
    mChatFifo[ mChatTail ].mUserSrc   = -1;
    mChatFifo[ mChatTail ].mUserDest  = -1;
 
-   mChatFifo[ mChatTail ].mData[0] = '»';
-   mChatFifo[ mChatTail ].mData[1] = '»';
+   mChatFifo[ mChatTail ].mData[0] = 'ï¿½';
+   mChatFifo[ mChatTail ].mData[1] = 'ï¿½';
    StrMaxCopy( mChatFifo[ mChatTail ].mData+2, pMessage , IR_CHAT_MESSAGE_LEN-2 );
 
    mChatTail = (mChatTail+1)%IR_MAX_CHAT_MESSAGE;
@@ -1609,7 +1609,7 @@ void IRState::WWWAddMessage( const char* pMessage, const char* pIP )
       lLen += StrMaxCopy( mChatFifo[ mChatTail ].mData+lLen, pIP , IR_CHAT_MESSAGE_LEN/4 );
       mChatFifo[ mChatTail ].mData[ lLen++ ] = ')';
    
-      mChatFifo[ mChatTail ].mData[ lLen++ ] = '»';
+      mChatFifo[ mChatTail ].mData[ lLen++ ] = 'ï¿½';
       mChatFifo[ mChatTail ].mData[ lLen++ ] = ' ';
 
       lLen += StrMaxCopy( mChatFifo[ mChatTail ].mData+lLen, pMessage, IR_CHAT_MESSAGE_LEN-lLen );   
@@ -3614,7 +3614,7 @@ void ChatFilter( char* pSrc )
    while( *pSrc != 0 )
    {
       
-      if( *pSrc == '»' )
+      if( *pSrc == 'ï¿½' )
       {
          *pSrc = ' ';
       }
