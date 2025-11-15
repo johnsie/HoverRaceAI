@@ -2943,6 +2943,9 @@ int main( int pArgc, const char** pArgs )
             gCurrentPort = &(lConnection[ lSocket ]);
          }
 
+         // Set gCurrentPort for processing even if we didn't read new data
+         gCurrentPort = &(lConnection[ lSocket ]);
+
          if( TRUE )  // Changed from: if( lQueryPtr != NULL ) - Process all connections in daemon mode
          #endif
 
@@ -2979,9 +2982,29 @@ int main( int pArgc, const char** pArgs )
                fprintf( gLogFile, "DEBUG: About to send HTTP header\n" );
                fflush( gLogFile );
             }
+            if( InitLogFile() )
+            {
+               fprintf( gLogFile, "DEBUG: gCurrentPort = %p, mPort = %d\n", gCurrentPort, gCurrentPort ? gCurrentPort->mPort : -1 );
+               fflush( gLogFile );
+            }
             Print( "HTTP/1.0 200 OK\r\n" );
+            if( InitLogFile() )
+            {
+               fprintf( gLogFile, "DEBUG: Sent first HTTP line\n" );
+               fflush( gLogFile );
+            }
             Print( "Content-Type: text/plain\r\n" );
+            if( InitLogFile() )
+            {
+               fprintf( gLogFile, "DEBUG: Sent Content-Type header\n" );
+               fflush( gLogFile );
+            }
             Print( "\r\n" );
+            if( InitLogFile() )
+            {
+               fprintf( gLogFile, "DEBUG: Sent blank line\n" );
+               fflush( gLogFile );
+            }
             #endif
 
             if( InitLogFile() )
