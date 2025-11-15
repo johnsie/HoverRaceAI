@@ -2495,6 +2495,7 @@ class IR_Port
       void Close();
       void Read();
       const char* GetCmd();
+      void Flush();  // Flush/shutdown write side of socket
 
 };
 
@@ -2568,6 +2569,19 @@ void IR_Port::Close()
    mBuffer[0] = 0;
    mBufferIndex = 0;
    mIP[0] = 0;
+}
+
+void IR_Port::Flush()
+{
+   // Shutdown write side of socket to force all pending data to be sent
+   if( mPort != INVALID_SOCKET )
+   {
+      #ifdef WIN32
+      shutdown( mPort, 1 );  // SD_SEND = 1 on Windows
+      #else
+      shutdown( mPort, SHUT_WR );  // Shutdown write side only
+      #endif
+   }
 }
 
 void IR_Port::Read()
@@ -3651,6 +3665,14 @@ int main( int pArgc, const char** pArgs )
             {
                Print( "Internet Meeting Room (c)1996,97 GrokkSoft inc.\n" );
             }
+
+            // Flush the socket to ensure all response data is sent to client
+            #ifdef _DAEMON_
+            if( gCurrentPort != NULL && gCurrentPort->IsValid() )
+            {
+               gCurrentPort->Flush();
+            }
+            #endif
 
             // fprintf( stderr, "end query\n" );
 
