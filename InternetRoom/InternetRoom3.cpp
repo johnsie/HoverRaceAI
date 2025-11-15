@@ -2605,6 +2605,13 @@ const char* IR_Port::GetCmd()
 
    if( mPort != INVALID_SOCKET )
    {
+      // Log the raw buffer for debugging
+      if( InitLogFile() )
+      {
+         fprintf( gLogFile, "DEBUG: Raw buffer (%d bytes): %s\n", mBufferIndex, mBuffer );
+         fflush( gLogFile );
+      }
+
       char* lReturnValue = strchr( mBuffer, '?' );
 
       if( lReturnValue != NULL )
@@ -2621,6 +2628,15 @@ const char* IR_Port::GetCmd()
                return lReturnValue;
             }
             lEnd++;
+         }
+      }
+      else
+      {
+         // No query string found - log this for debugging
+         if( InitLogFile() )
+         {
+            fprintf( gLogFile, "DEBUG: No query string (?) found in buffer\n" );
+            fflush( gLogFile );
          }
       }
    }
@@ -2938,7 +2954,7 @@ int main( int pArgc, const char** pArgs )
 
             if( InitLogFile() )
             {
-               fprintf( gLogFile, "DEBUG: Processing query\n" );
+               fprintf( gLogFile, "DEBUG: Processing query: %s\n", lQueryPtr ? lQueryPtr : "(empty)" );
                fflush( gLogFile );
             }
 
@@ -2946,9 +2962,20 @@ int main( int pArgc, const char** pArgs )
 
             // Send the header required by the server
             #ifdef _DAEMON_
-            Print( "HTTP/1.0 200 OK%d", 10 );
+            Print( "HTTP/1.0 200 OK\r\n" );
+            Print( "Content-Type: text/plain\r\n" );
+            Print( "\r\n" );
             #endif
-            Print( "Content-type: text/html%c%c", 10, 10);
+
+            // If no query string, send a default response
+            if( lQueryPtr == NULL || *lQueryPtr == 0 )
+            {
+               Print( "ERROR 999\nNo query string provided\n" );
+               lPrintTitle = FALSE;
+            }
+            else
+            {
+               Print( "Content-type: text/html%c%c", 10, 10);
 
             #ifndef _DAEMON_
             const char* lQueryPtr = getenv( "QUERY_STRING" );
@@ -2959,6 +2986,7 @@ int main( int pArgc, const char** pArgs )
                Print( "No parameters\n" );
             }
             else
+            if( lQueryPtr != NULL )
             {
                char lQuery[4096];
                char lOp[20];  // Increased from 12 to accommodate ADD_GAME_HOSTED (15 chars)
@@ -3486,6 +3514,7 @@ int main( int pArgc, const char** pArgs )
                   }
                }
             }
+            }  // End of else block for valid query string
 
             #ifdef _DAEMON_
             FlushLogFile();
