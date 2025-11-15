@@ -2943,7 +2943,7 @@ int main( int pArgc, const char** pArgs )
             gCurrentPort = &(lConnection[ lSocket ]);
          }
 
-         if( lQueryPtr != NULL )
+         if( TRUE )  // Changed from: if( lQueryPtr != NULL ) - Process all connections in daemon mode
          #endif
 
          #ifdef _FAST_CGI_
