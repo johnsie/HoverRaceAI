@@ -3598,19 +3598,9 @@ int main( int pArgc, const char** pArgs )
 
 
             #ifdef _DAEMON_
-            if( InitLogFile() )
-            {
-               fprintf( gLogFile, "DEBUG: Closing socket %d\n", lSocket );
-               fflush( gLogFile );
-            }
-
-            lConnection[ lSocket ].Close();
-
-            if( InitLogFile() )
-            {
-               fprintf( gLogFile, "DEBUG: Socket %d closed, accepting new connections\n", lSocket );
-               fflush( gLogFile );
-            }
+            // Don't close the socket here - let the client close it when done
+            // The next Read() call will detect the closed connection and call Close()
+            // This allows the client to read the full response before disconnecting
 
             AcceptSockets();
 
