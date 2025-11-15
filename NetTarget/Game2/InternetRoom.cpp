@@ -1085,6 +1085,10 @@ BOOL MR_InternetRoom::AddGameHostedOp( HWND pParentWindow, const char* pGameName
    if( lReturnValue )
    {
       const char* lData = mOpRequest.GetBuffer();
+      
+      // DEBUG: Log the full response
+      CString lDebugResponse = lData ? lData : "(null)";
+      MessageBox( pParentWindow, "ADD_GAME_HOSTED Response:\n" + lDebugResponse, "DEBUG: ADD_GAME_HOSTED", MB_OK );
 
       while( (lData != NULL)&&strncmp( lData, "SUCCESS", 7 ) )
       {
@@ -1094,6 +1098,7 @@ BOOL MR_InternetRoom::AddGameHostedOp( HWND pParentWindow, const char* pGameName
       {
          ASSERT( FALSE );
          lReturnValue = FALSE;
+         MessageBox( pParentWindow, "SUCCESS not found in response!", "DEBUG: ERROR", MB_ICONERROR|MB_OK );
       }
       else
       {
@@ -1101,6 +1106,10 @@ BOOL MR_InternetRoom::AddGameHostedOp( HWND pParentWindow, const char* pGameName
 
          sscanf( lData, "GAME_ID %d-%u", &mCurrentGameIndex, &mCurrentGameId );
       }      
+   }
+   else
+   {
+      MessageBox( pParentWindow, "FastNetOpCallBack dialog failed", "DEBUG: ERROR", MB_ICONERROR|MB_OK );
    }
 
    mOpRequest.Clear();
@@ -2476,17 +2485,39 @@ BOOL CALLBACK MR_InternetRoom::RoomCallBack( HWND pWindow, UINT  pMsgId, WPARAM 
 
                   if( lSuccess )
                   {
+                     // Load the track
+                     MR_RecordFile* lTrackFile = MR_TrackOpen( pWindow, lCurrentTrack, mThis->mAllowRegistred );
+                     lSuccess = mThis->mSession->LoadNew( lCurrentTrack, lTrackFile, lNbLap, lAllowWeapons, mThis->mVideoBuffer );
+                  }
+
+                  if( lSuccess )
+                  {
                      // Register to the RaceServer (server-hosted race)
                      // Send ADD_GAME_HOSTED command to InternetRoom
                      lSuccess = mThis->AddGameHostedOp( pWindow, lCurrentTrack, lCurrentTrack, lNbLap, lAllowWeapons );
 
+                     MessageBox( pWindow, lSuccess ? "AddGameHostedOp succeeded" : "AddGameHostedOp FAILED", "DEBUG", MB_OK );
+
                      if( lSuccess )
                      {
-                        // Game registered on server - tell user to start the game through the game list
-                        MessageBox( pWindow, 
-                                   "Race hosted on server.\n\nSelect it from the game list and click 'Join Game' to start.",
-                                   "Server-Hosted Race Created",
-                                   MB_OK | MB_ICONINFORMATION );
+                        // For server-hosted races, connect to the central RaceServer
+                     // The host joins as a player on the RaceServer (outiva.com:9600)
+                     CString lTrackName;
+
+                        lTrackName.Format( "%s  %d laps %s", (const char*)lCurrentTrack, lNbLap, lAllowWeapons?"with weapons":"no weapons" );
+
+                        // Set connection mode to server-hosted before connecting
+                        mThis->mSession->SetConnectionMode( MR_CONNECTION_SERVER_HOSTED, "outiva.com", 9600 );
+
+                        // DEBUG: Confirm we're attempting server-hosted connection
+                        MessageBox( pWindow, "Attempting to connect to RaceServer on outiva.com:9600...", "Server-Hosted Race", MB_ICONINFORMATION|MB_OK|MB_APPLMODAL );
+
+                        // Connect to RaceServer as a client (not as a peer master)
+                        lSuccess = mThis->mSession->ConnectToServer( pWindow, "outiva.com", 9600, (const char*)lTrackName, &mThis->mModelessDlg, MRM_DLG_END_ADD );                        if( !lSuccess )
+                        {
+                           // Unregister Game
+                           mThis->DelGameOp( pWindow );
+                        }
                      }
                   }
                }

@@ -209,6 +209,7 @@ void MR_NetworkInterface::Disconnect()
  
    }
    mServerMode       = FALSE;
+   mConnectionMode   = MR_CONNECTION_PEER_TO_PEER;  // Reset to default mode
    mId               = 0;
    mServerPort       = 0;
    mServerAddr       = "";
@@ -541,8 +542,18 @@ BOOL MR_NetworkInterface::SlaveConnect( HWND pWindow, const char* pServerIP, uns
 
    if( pServerIP != NULL )
    {
+      // Preserve connection mode before disconnecting
+      MR_ConnectionMode lSavedMode = mConnectionMode;
+      CString lSavedServerAddr = mRaceServerAddr;
+      unsigned lSavedServerPort = mRaceServerPort;
+      
       Disconnect();
       ASSERT( !mServerMode );
+
+      // Restore connection mode after disconnect
+      mConnectionMode = lSavedMode;
+      mRaceServerAddr = lSavedServerAddr;
+      mRaceServerPort = lSavedServerPort;
 
       // Phase 4: Check if this is server-hosted race
       if( mConnectionMode == MR_CONNECTION_SERVER_HOSTED )
@@ -596,7 +607,11 @@ BOOL MR_NetworkInterface::SlaveConnect( HWND pWindow, const char* pServerIP, uns
          mReturnMessage = 0;
 
          // Normal mode ( Modal )
-         if( DialogBox( lModuleHandle, MAKEINTRESOURCE( IDD_TCP_CLIENT ), pWindow, ListCallBack ) != IDOK )
+         // For server-hosted races, use TCP_SERVER dialog (which has Start Game button)
+         // For P2P races, use TCP_CLIENT dialog
+         int lDialogId = (mConnectionMode == MR_CONNECTION_SERVER_HOSTED) ? IDD_TCP_SERVER : IDD_TCP_CLIENT;
+         
+         if( DialogBox( lModuleHandle, MAKEINTRESOURCE( lDialogId ), pWindow, ListCallBack ) != IDOK )
          {
             lReturnValue = FALSE;
          }
@@ -608,7 +623,11 @@ BOOL MR_NetworkInterface::SlaveConnect( HWND pWindow, const char* pServerIP, uns
          mReturnMessage = pReturnMessage;
 
          // Modaless mode ( Modal )
-         *pModalessDlg = CreateDialog( lModuleHandle, MAKEINTRESOURCE( IDD_TCP_CLIENT ), pWindow, ListCallBack );
+         // For server-hosted races, use TCP_SERVER dialog (which has Start Game button)
+         // For P2P races, use TCP_CLIENT dialog
+         int lDialogId = (mConnectionMode == MR_CONNECTION_SERVER_HOSTED) ? IDD_TCP_SERVER : IDD_TCP_CLIENT;
+         
+         *pModalessDlg = CreateDialog( lModuleHandle, MAKEINTRESOURCE( lDialogId ), pWindow, ListCallBack );
 
          if( *pModalessDlg == NULL )
          {
@@ -853,12 +872,23 @@ BOOL CALLBACK MR_NetworkInterface::WaitGameNameCallBack( HWND pWindow, UINT  pMs
                
                getsockname( mActiveInterface->mRegistrySocket, (struct sockaddr*)&lAddr, &lSize ); 
 
-               lOutputBuffer.mMessageType = MRNM_GET_GAME_NAME;
-               lOutputBuffer.mDataLen  = 8;
-               *(int*)&(lOutputBuffer.mData[0]) = lAddr.sin_addr.s_addr;
-               *(int*)&(lOutputBuffer.mData[4]) = lAddr.sin_port;
-               
-               mActiveInterface->mClient[0].Send( &lOutputBuffer, MR_NET_REQUIRED );
+               // For server-hosted races, skip the game name message and proceed directly
+               if( mActiveInterface->GetConnectionMode() == MR_CONNECTION_SERVER_HOSTED )
+               {
+                  // Server-hosted: synthesize game name response and proceed to race
+                  mActiveInterface->mGameName = MR_LoadString( IDS_GAME_NAME );
+                  EndDialog( pWindow, IDOK );
+               }
+               else
+               {
+                  // P2P mode: request game name from peer
+                  lOutputBuffer.mMessageType = MRNM_GET_GAME_NAME;
+                  lOutputBuffer.mDataLen  = 8;
+                  *(int*)&(lOutputBuffer.mData[0]) = lAddr.sin_addr.s_addr;
+                  *(int*)&(lOutputBuffer.mData[4]) = lAddr.sin_port;
+                  
+                  mActiveInterface->mClient[0].Send( &lOutputBuffer, MR_NET_REQUIRED );
+               }
                
             }
             else
@@ -1051,45 +1081,55 @@ BOOL CALLBACK MR_NetworkInterface::ListCallBack( HWND pWindow, UINT  pMsgId, WPA
 
             case IDOK:
                {
-                  ASSERT( mActiveInterface->mServerMode );
-
+                  // Handle both server-hosted (client to RaceServer) and P2P host modes
                   int  lCounter;
                   BOOL lOk = TRUE;
-                  // Verify that lag have been computed for all connections
-                  for( lCounter = 0; lCounter<eMaxClient; lCounter++ )
+
+                  // For server-hosted mode, we're a client - no need to verify all clients connected
+                  // For P2P host mode, verify that lag has been computed for all connections
+                  if( mActiveInterface->mServerMode )
                   {
-                     if( mActiveInterface->mClient[ lCounter ].IsConnected() && !mActiveInterface->mConnected[ lCounter ] )
+                     // P2P Host mode: Verify that lag have been computed for all connections
+                     for( lCounter = 0; lCounter<eMaxClient; lCounter++ )
                      {
-                        lOk = FALSE;
+                        if( mActiveInterface->mClient[ lCounter ].IsConnected() && !mActiveInterface->mConnected[ lCounter ] )
+                        {
+                           lOk = FALSE;
+                        }
                      }
-                  }
 
-                  if( !lOk )
-                  {
-                     HMODULE lModuleHandle = GetModuleHandle( NULL /*"util.dll"*/ );
-
-                     if( DialogBox( lModuleHandle, MAKEINTRESOURCE( IDD_WAIT_ALL ), pWindow, DialogProc ) == IDOK )
+                     if( !lOk )
                      {
-                        lOk = TRUE;
+                        HMODULE lModuleHandle = GetModuleHandle( NULL /*"util.dll"*/ );
+
+                        if( DialogBox( lModuleHandle, MAKEINTRESOURCE( IDD_WAIT_ALL ), pWindow, DialogProc ) == IDOK )
+                        {
+                           lOk = TRUE;
+                        }
                      }
                   }
 
                   if( lOk )
                   {
-                     MR_NetMessageBuffer lMessage;
-
-                     lMessage.mMessageType = MRNM_READY;
-                     lMessage.mDataLen     = 1;
-
-                     // Send a READY message to all the clients
-                     for( lCounter = 0; lCounter < eMaxClient; lCounter++ )
+                     // For server-hosted mode (client mode), just proceed to game
+                     // For P2P host mode, send MRNM_READY to all clients
+                     if( mActiveInterface->mServerMode )
                      {
-                        lMessage.mData[0] = lCounter+1;
+                        // P2P Host: Send READY message to all clients
+                        MR_NetMessageBuffer lMessage;
 
-                        mActiveInterface->mClient[ lCounter ].Send( &lMessage, MR_NET_REQUIRED );
+                        lMessage.mMessageType = MRNM_READY;
+                        lMessage.mDataLen     = 1;
+
+                        // Send a READY message to all the clients
+                        for( lCounter = 0; lCounter < eMaxClient; lCounter++ )
+                        {
+                           lMessage.mData[0] = lCounter+1;
+
+                           mActiveInterface->mClient[ lCounter ].Send( &lMessage, MR_NET_REQUIRED );
+                        }
                      }
                      
-
                      // Disable all callbacks
 
                      for( lCounter = 0; lCounter < eMaxClient; lCounter++ )

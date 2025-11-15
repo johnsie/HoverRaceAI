@@ -436,6 +436,9 @@ class IRState
          char      mAddr[16];
          unsigned  mPort;
          int       mWeapon;
+         BOOL      mServerHosted;      // TRUE if hosted on RaceServer
+         char      mServerAddr[256];   // RaceServer address
+         unsigned  mServerPort;        // RaceServer port
       };
 
       class ChatMessage
@@ -1050,6 +1053,12 @@ void IRState::PrintState()
             Print( "%d ", mGame[ lCounter ].mPlayers[ lPlayer ] );
          }
          Print( "\n" );
+
+         // Output server address for server-hosted races
+         if( mGame[ lCounter ].mServerHosted )
+         {
+            Print( "SERVER_ADDR %s:%u\n", mGame[ lCounter ].mServerAddr, mGame[ lCounter ].mServerPort );
+         }
       }
    }
 
@@ -2252,15 +2261,32 @@ void IRState::AddGame(  const char* pGameName, const char* pTrackName, int pNbLa
          mGame[ lCounter ].mPlayers[0] = pPlayerIndex;
          mGame[ lCounter ].mWeapon     = pWeapon;
          mGame[ lCounter ].mPort       = pPort;
+         mGame[ lCounter ].mServerHosted = FALSE;  // Initialize
+         mGame[ lCounter ].mServerPort   = 0;
 
          StrMaxCopy( mGame[ lCounter ].mName, pGameName, IR_GAME_NAME_LEN );
          StrMaxCopy( mGame[ lCounter ].mTrack, pTrackName, IR_TRACK_NAME_LEN );
          StrMaxCopy( mGame[ lCounter ].mAddr, pRemoteAddr, sizeof( mGame[ lCounter ].mAddr ) );
 
+         // Detect if this is a server-hosted race (server address != client address)
+         if( strcmp( pRemoteAddr, "127.0.0.1" ) == 0 && pPort == 9600 )
+         {
+            mGame[ lCounter ].mServerHosted = TRUE;
+            StrMaxCopy( mGame[ lCounter ].mServerAddr, pRemoteAddr, sizeof( mGame[ lCounter ].mServerAddr ) );
+            mGame[ lCounter ].mServerPort = pPort;
+         }
+
          Print( "SUCCESS\nGAME_ID %d-%u\n", lCounter, mGame[ lCounter ].mId );
          mTimeStamp++;
 
          mUser[ pPlayerIndex ].mGameCode   = 1;
+
+         // Log race creation
+         fprintf( gLogFile, "RACE_CREATED: game_id=%d-%u, name=%s, track=%s, laps=%d, weapons=%s, player=%d-%u, host=%s:%u\n",
+                  lCounter, mGame[ lCounter ].mId, pGameName, pTrackName, pNbLap,
+                  (pWeapon ? "yes" : "no"), pPlayerIndex, mUser[ pPlayerIndex ].mKeyID.mMinor,
+                  pRemoteAddr, pPort );
+         fflush( gLogFile );
 
       }
    }
@@ -2935,13 +2961,13 @@ int main( int pArgc, const char** pArgs )
             else
             {
                char lQuery[4096];
-               char lOp[12];
+               char lOp[20];  // Increased from 12 to accommodate ADD_GAME_HOSTED (15 chars)
 
                StrMaxCopy( lQuery, lQueryPtr, 4096 );
 
                UnpadQuery( lQuery );
 
-               if( sscanf( lQuery, "=%11s", lOp ) == 1 )
+               if( sscanf( lQuery, "=%19s", lOp ) == 1 )  // Changed from %11s to %19s
                {
                   #ifndef _DAEMON_
                   #ifndef _FAST_CGI_
@@ -3234,6 +3260,61 @@ int main( int pArgc, const char** pArgs )
                                  Unpad( lGameName );
                                  lState->AddGame( lGameName, lTrackName, lNbLap, lUserIndex, lUserId, lRemoteAddr, lPort, lWeapon  );
                               }
+                           }
+                        }
+                        // URL?=ADD_GAME_HOSTED USER_ID GAME_NAME TRACK_NAME NBLAP WEAPON
+                        // This creates a server-hosted race (no peer IP/port needed)
+                        else if( !strcmp( lOp, "ADD_GAME_HOSTED" ) )
+                        {
+                           int       lUserIndex;
+                           int       lUserId;
+                           int       lNbLap;
+                           char      lGameName[40];
+                           char      lTrackName[40];
+                           int       lWeapon;
+               
+                           if( InitLogFile() )
+                           {
+                              fprintf( gLogFile, "DEBUG: ADD_GAME_HOSTED handler called, query=%s\n", lQuery );
+                              fflush( gLogFile );
+                           }
+                           
+                           int lParsed = sscanf( lQuery, "%*s %d-%u %40s %40s %d %d", &lUserIndex, &lUserId, lGameName, lTrackName, &lNbLap, &lWeapon );
+                           
+                           if( InitLogFile() )
+                           {
+                              fprintf( gLogFile, "DEBUG: ADD_GAME_HOSTED sscanf returned %d (expected 6)\n", lParsed );
+                              fflush( gLogFile );
+                           }
+                           
+                           if( lParsed == 6 )
+                           {
+                              Unpad( lTrackName );
+                              Unpad( lGameName );
+                              
+                              // For hosted games, we use the RaceServer (localhost or configured server)
+                              // Port 9600 is the standard RaceServer port
+                              const char* lServerAddr = "127.0.0.1";  // TODO: Configure from INI/XML
+                              unsigned lRaceServerPort = 9600;
+                              
+                              if( InitLogFile() )
+                              {
+                                 fprintf( gLogFile, "DEBUG: ADD_GAME_HOSTED - user=%d-%u, game=%s, track=%s, laps=%d, weapons=%d, server=%s:%u\n",
+                                         lUserIndex, lUserId, lGameName, lTrackName, lNbLap, lWeapon, lServerAddr, lRaceServerPort );
+                                 fflush( gLogFile );
+                              }
+                              
+                              // Add as P2P game but mark it as server-hosted by using special server address
+                              lState->AddGame( lGameName, lTrackName, lNbLap, lUserIndex, lUserId, lServerAddr, lRaceServerPort, lWeapon );
+                           }
+                           else
+                           {
+                              if( InitLogFile() )
+                              {
+                                 fprintf( gLogFile, "ERROR: ADD_GAME_HOSTED parse failed, expected 6 params but got %d\n", lParsed );
+                                 fflush( gLogFile );
+                              }
+                              Print( "ERROR 403\n" );
                            }
                         }
                         else if( !strcmp( lOp, "JOIN_GAME" ) )

@@ -186,7 +186,7 @@ MR_RecordFile* MR_TrackOpen( HWND pWindow, const char* pFileName, BOOL pAllowReg
 
 BOOL MR_SelectTrack( HWND pParentWindow, CString& pTrackFile, int& pNbLap, BOOL& pAllowWeapons, BOOL pAllowRegistred )
 {
-   BOOL lReturnValue = TRUE;
+   BOOL lReturnValue = FALSE;
    gsSelectedEntry = -1;
 
    FILE* logFile = fopen("Game2_TrackLoad.log", "a");
@@ -207,18 +207,31 @@ BOOL MR_SelectTrack( HWND pParentWindow, CString& pTrackFile, int& pNbLap, BOOL&
    
    gAllowRegistred = pAllowRegistred;
 
-   // OPTIMIZED: Auto-select first track to avoid blocking dialog freeze
-   // This eliminates the modal dialog freeze that occurred during track selection
+   // Show the track selection dialog to let user choose
    if( gsNbTrack > 0 )
    {
-      gsSelectedEntry = 0;  // Auto-select first available track
-      pTrackFile = gsSortedTrackList[ gsSelectedEntry ]->mFileName;
-      pNbLap = gsNbLaps;
-      pAllowWeapons = gsAllowWeapons;
-      lReturnValue = TRUE;
-      fprintf(logFile, "MR_SelectTrack: Auto-selected first track='%s', laps=%d, weapons=%d (no dialog)\n", 
-                        (const char*)pTrackFile, pNbLap, pAllowWeapons);
+      fprintf(logFile, "MR_SelectTrack: Showing track selection dialog\n");
       fflush(logFile);
+      
+      if( DialogBox( GetModuleHandle( NULL ), MAKEINTRESOURCE( IDD_TRACK_SELECT ), pParentWindow, TrackSelectCallBack ) == IDOK )
+      {
+         if( gsSelectedEntry != -1 )
+         {
+            pTrackFile = gsSortedTrackList[ gsSelectedEntry ]->mFileName;
+            pNbLap = gsNbLaps;
+            pAllowWeapons = gsAllowWeapons;
+            lReturnValue = TRUE;
+            fprintf(logFile, "MR_SelectTrack: User selected track='%s', laps=%d, weapons=%d\n", 
+                              (const char*)pTrackFile, pNbLap, pAllowWeapons);
+            fflush(logFile);
+         }
+      }
+      else
+      {
+         fprintf(logFile, "MR_SelectTrack: User cancelled dialog\n");
+         fflush(logFile);
+         lReturnValue = FALSE;
+      }
    }
    else
    {
