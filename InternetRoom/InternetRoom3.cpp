@@ -2974,14 +2974,30 @@ int main( int pArgc, const char** pArgs )
 
             // Send the header required by the server
             #ifdef _DAEMON_
+            if( InitLogFile() )
+            {
+               fprintf( gLogFile, "DEBUG: About to send HTTP header\n" );
+               fflush( gLogFile );
+            }
             Print( "HTTP/1.0 200 OK\r\n" );
             Print( "Content-Type: text/plain\r\n" );
             Print( "\r\n" );
             #endif
 
+            if( InitLogFile() )
+            {
+               fprintf( gLogFile, "DEBUG: Checking if query is NULL\n" );
+               fflush( gLogFile );
+            }
+
             // If no query string, send a default response and skip processing
             if( lQueryPtr == NULL || *lQueryPtr == 0 )
             {
+               if( InitLogFile() )
+               {
+                  fprintf( gLogFile, "DEBUG: No query string, sending error response\n" );
+                  fflush( gLogFile );
+               }
                Print( "ERROR 999\nNo query string provided\n" );
                lPrintTitle = FALSE;
             }
