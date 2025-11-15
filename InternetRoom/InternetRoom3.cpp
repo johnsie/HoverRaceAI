@@ -3066,6 +3066,12 @@ int main( int pArgc, const char** pArgs )
 
                if( sscanf( lQuery, "=%19s", lOp ) == 1 )  // Changed from %11s to %19s
                {
+                  if( InitLogFile() )
+                  {
+                     fprintf( gLogFile, "DEBUG: Extracted lOp = '%s' from lQuery = '%s'\n", lOp, lQuery );
+                     fflush( gLogFile );
+                  }
+
                   #ifndef _DAEMON_
                   #ifndef _FAST_CGI_
                      // Change the local directory
