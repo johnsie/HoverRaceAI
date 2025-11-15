@@ -12911,3 +12911,109 @@ DEBUG: Closing socket 0
 DEBUG: Socket 0 closed, accepting new connections
 DEBUG: AcceptSockets complete
 DEBUG: Loop iteration starting
+DEBUG: Accepting new connections
+DEBUG: Loop iteration starting
+DEBUG: Socket 0 has data, reading...
+DEBUG: Socket 0 read complete
+DEBUG: Socket 0 query: 0
+DEBUG: Processing query
+DEBUG: Closing socket 0
+DEBUG: Socket 0 closed, accepting new connections
+DEBUG: AcceptSockets complete
+DEBUG: Loop iteration starting
+DEBUG: Socket 1 has data, reading...
+DEBUG: Socket 1 read complete
+DEBUG: Socket 1 query: =ADD_USER%.John
+DEBUG: Processing query
+DEBUG: Calling VerifyExpirations
+DEBUG: VerifyExpirations complete
+DEBUG: Closing socket 1
+DEBUG: Socket 1 closed, accepting new connections
+DEBUG: AcceptSockets complete
+DEBUG: Loop iteration starting
+DEBUG: Accepting new connections
+DEBUG: Loop iteration starting
+DEBUG: Socket 0 has data, reading...
+DEBUG: Socket 0 read complete
+DEBUG: Socket 0 query: 0
+DEBUG: Processing query
+DEBUG: Closing socket 0
+DEBUG: Socket 0 closed, accepting new connections
+DEBUG: AcceptSockets complete
+DEBUG: Loop iteration starting
+DEBUG: Accepting new connections
+DEBUG: Loop iteration starting
+DEBUG: Accepting new connections
+DEBUG: Loop iteration starting
+DEBUG: Socket 0 has data, reading...
+DEBUG: Socket 0 read complete
+DEBUG: Socket 0 query: 0
+DEBUG: Processing query
+DEBUG: Closing socket 0
+DEBUG: Socket 0 closed, accepting new connections
+DEBUG: AcceptSockets complete
+DEBUG: Loop iteration starting
+DEBUG: Socket 1 has data, reading...
+DEBUG: Socket 1 read complete
+DEBUG: Socket 1 query: 0
+DEBUG: Processing query
+DEBUG: Closing socket 1
+DEBUG: Socket 1 closed, accepting new connections
+DEBUG: AcceptSockets complete
+DEBUG: Loop iteration starting
+DEBUG: Accepting new connections
+DEBUG: Loop iteration starting
+DEBUG: Socket 0 has data, reading...
+DEBUG: Socket 0 read complete
+DEBUG: Socket 0 query: 0
+DEBUG: Processing query
+DEBUG: Closing socket 0
+DEBUG: Socket 0 closed, accepting new connections
+DEBUG: AcceptSockets complete
+DEBUG: Loop iteration starting
+DEBUG: Accepting new connections
+DEBUG: Loop iteration starting
+DEBUG: Socket 0 has data, reading...
+DEBUG: Socket 0 read complete
+DEBUG: Socket 0 query: 0
+DEBUG: Processing query
+DEBUG: Closing socket 0
+DEBUG: Socket 0 closed, accepting new connections
+DEBUG: AcceptSockets complete
+DEBUG: Loop iteration starting
+DEBUG: Accepting new connections
+DEBUG: Loop iteration starting
+DEBUG: Accepting new connections
+DEBUG: Loop iteration starting
+DEBUG: Socket 0 has data, reading...
+DEBUG: Socket 0 read complete
+DEBUG: Socket 0 query: 0
+DEBUG: Processing query
+DEBUG: Closing socket 0
+DEBUG: Socket 0 closed, accepting new connections
+DEBUG: AcceptSockets complete
+DEBUG: Loop iteration starting
+DEBUG: Socket 1 has data, reading...
+DEBUG: Socket 1 read complete
+DEBUG: Socket 1 query: 0
+DEBUG: Processing query
+DEBUG: Closing socket 1
+DEBUG: Socket 1 closed, accepting new connections
+DEBUG: AcceptSockets complete
+DEBUG: Loop iteration starting
+DEBUG: Accepting new connections
+DEBUG: Loop iteration starting
+DEBUG: Socket 0 has data, reading...
+DEBUG: Socket 0 read complete
+DEBUG: Socket 0 query: 0
+DEBUG: Processing query
+DEBUG: Closing socket 0
+DEBUG: Socket 0 closed, accepting new connections
+DEBUG: AcceptSockets complete
+DEBUG: Loop iteration starting
+DEBUG: Accepting new connections
+DEBUG: Loop iteration starting
+DEBUG: Socket 0 has data, reading...
+DEBUG: Socket 0 read complete
+DEBUG: Socket 0 query: (null)
+DEBUG: Loop iteration starting
