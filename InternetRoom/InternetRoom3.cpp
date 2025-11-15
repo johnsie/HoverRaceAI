@@ -3271,6 +3271,7 @@ int main( int pArgc, const char** pArgs )
                      {
 
                         lPrintTitle = FALSE;
+                        BOOL lResponseSent = FALSE;  // Track if we've sent a response
 
                         try
                         {
@@ -3298,6 +3299,7 @@ int main( int pArgc, const char** pArgs )
                            if( sscanf( lQuery, "%*s %d-%u %d", &lUserIndex, &lUserId, &lTimeStamp )==3 )
                            {
                               lState->PrintStateChange( lUserIndex, lUserId, lTimeStamp );
+                              lResponseSent = TRUE;
                            }
                         }
                         else if( !strcmp( lOp, "ADD_CHAT" ) )
@@ -3545,6 +3547,18 @@ int main( int pArgc, const char** pArgs )
                         else
                         {
                            lPrintTitle = TRUE;
+                        }
+
+                        // If no response was sent yet, send a default SUCCESS response
+                        if( !lResponseSent && !lPrintTitle )
+                        {
+                           if( InitLogFile() )
+                           {
+                              fprintf( gLogFile, "DEBUG: No explicit response sent, sending default SUCCESS\n" );
+                              fflush( gLogFile );
+                           }
+                           Print( "SUCCESS\n" );
+                           lResponseSent = TRUE;
                         }
 
                         }  // End of try block for state operations
