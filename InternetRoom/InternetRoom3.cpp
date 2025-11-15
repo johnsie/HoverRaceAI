@@ -112,6 +112,7 @@
 // #define _EXPIRED_WARNING_
 // #define _EXPIRED_
 // #define _REG_ONLY_
+// #define _DEBUG_DETAILED_   // Enable detailed request/response logging
 
 
 #ifdef _FAST_CGI_
@@ -2850,8 +2851,10 @@ int main( int pArgc, const char** pArgs )
 
    if( InitLogFile() )
    {
+      #ifdef _DEBUG_DETAILED_
       fprintf( gLogFile, "DEBUG: About to enter while(1) loop\n" );
       fflush( gLogFile );
+      #endif
    }
 
    while( 1 )
@@ -2859,11 +2862,13 @@ int main( int pArgc, const char** pArgs )
 
       #ifdef _DAEMON_
 
+      #ifdef _DEBUG_DETAILED_
       if( InitLogFile() )
       {
          fprintf( gLogFile, "DEBUG: Loop iteration starting\n" );
          fflush( gLogFile );
       }
+      #endif
 
       int    lSocket;
       fd_set lReadSet;
@@ -3337,12 +3342,41 @@ int main( int pArgc, const char** pArgs )
                            #ifdef _EXPIRED_ 
                               lState->AddUser(  "User", 1,-1, -1, 0, 0  );
                            #else
-                              if( sscanf( lQuery, "%*s %d-%d %d %d %d %40s", &lMajorID, &lMinorID, &lVersion, &lKey2, &lKey3, lUserName )==6 )
+                              int lParsed = sscanf( lQuery, "%*s %d-%d %d %d %d %40s", &lMajorID, &lMinorID, &lVersion, &lKey2, &lKey3, lUserName );
+                              if( InitLogFile() )
                               {
+                                 fprintf( gLogFile, "DEBUG: ADD_USER sscanf parsed %d values from: %s\n", lParsed, lQuery );
+                                 fflush( gLogFile );
+                              }
+                              if( lParsed == 6 )
+                              {
+                                 if( InitLogFile() )
+                                 {
+                                    fprintf( gLogFile, "DEBUG: ADD_USER calling AddUser with name=%s\n", lUserName );
+                                    fflush( gLogFile );
+                                 }
                                  Unpad( lUserName );
                                  ChatFilter( lUserName );
+                                 if( InitLogFile() )
+                                 {
+                                    fprintf( gLogFile, "DEBUG: ADD_USER about to call AddUser\n" );
+                                    fflush( gLogFile );
+                                 }
                                  lState->AddUser(  lUserName, lVersion,lMajorID, lMinorID, lKey2, lKey3  );
+                                 if( InitLogFile() )
+                                 {
+                                    fprintf( gLogFile, "DEBUG: ADD_USER returned from AddUser\n" );
+                                    fflush( gLogFile );
+                                 }
                                  lResponseSent = TRUE;  // AddUser prints its own response
+                              }
+                              else
+                              {
+                                 if( InitLogFile() )
+                                 {
+                                    fprintf( gLogFile, "DEBUG: ADD_USER sscanf failed, expected 6 got %d\n", lParsed );
+                                    fflush( gLogFile );
+                                 }
                               }
                            #endif
                         }
