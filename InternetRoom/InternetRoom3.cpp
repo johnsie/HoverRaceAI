@@ -2950,6 +2950,18 @@ int main( int pArgc, const char** pArgs )
          while( FCGI_Accept() >= 0 )
          #endif
          {
+            // Safety check: only process if socket is still valid
+            if( !lConnection[ lSocket ].IsValid() )
+            {
+               if( InitLogFile() )
+               {
+                  fprintf( gLogFile, "DEBUG: Socket %d became invalid, closing\n", lSocket );
+                  fflush( gLogFile );
+               }
+               lConnection[ lSocket ].Close();
+               continue;
+            }
+
             // fprintf( stderr, "query %s\n", lQueryPtr );
 
             if( InitLogFile() )
@@ -2967,7 +2979,7 @@ int main( int pArgc, const char** pArgs )
             Print( "\r\n" );
             #endif
 
-            // If no query string, send a default response
+            // If no query string, send a default response and skip processing
             if( lQueryPtr == NULL || *lQueryPtr == 0 )
             {
                Print( "ERROR 999\nNo query string provided\n" );
