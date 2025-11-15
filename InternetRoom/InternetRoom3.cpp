@@ -2969,11 +2969,12 @@ int main( int pArgc, const char** pArgs )
             // Safety check: only process if socket is still valid
             if( !lConnection[ lSocket ].IsValid() )
             {
-               if( InitLogFile() )
-               {
-                  fprintf( gLogFile, "DEBUG: Socket %d became invalid, closing\n", lSocket );
-                  fflush( gLogFile );
-               }
+               // Debug: Socket became invalid (commented out to reduce log noise)
+               // if( InitLogFile() )
+               // {
+               //    fprintf( gLogFile, "DEBUG: Socket %d became invalid, closing\n", lSocket );
+               //    fflush( gLogFile );
+               // }
                lConnection[ lSocket ].Close();
                continue;
             }
@@ -4055,11 +4056,12 @@ static void Print( const char* pFormat, ... )
    if( gCurrentPort != NULL && gCurrentPort->mPort != INVALID_SOCKET )
    {
       int lSendResult = send( gCurrentPort->mPort, lBuffer, lLen, 0 );
-      if( InitLogFile() )
-      {
-         fprintf( gLogFile, "DEBUG: Print() sending %d bytes, send() returned %d: %s", lLen, lSendResult, lBuffer );
-         fflush( gLogFile );
-      }
+      // Uncomment for debugging: 
+      // if( InitLogFile() )
+      // {
+      //    fprintf( gLogFile, "DEBUG: Print() sending %d bytes, send() returned %d: %s", lLen, lSendResult, lBuffer );
+      //    fflush( gLogFile );
+      // }
    }
    else
    {
