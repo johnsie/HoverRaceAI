@@ -4043,7 +4043,23 @@ static void Print( const char* pFormat, ... )
    va_end( lArgPtr );
 
    #ifdef _DAEMON_
-   send( gCurrentPort->mPort, lBuffer, lLen, 0 );
+   if( gCurrentPort != NULL && gCurrentPort->mPort != INVALID_SOCKET )
+   {
+      int lSendResult = send( gCurrentPort->mPort, lBuffer, lLen, 0 );
+      if( InitLogFile() )
+      {
+         fprintf( gLogFile, "DEBUG: Print() sending %d bytes, send() returned %d: %s", lLen, lSendResult, lBuffer );
+         fflush( gLogFile );
+      }
+   }
+   else
+   {
+      if( InitLogFile() )
+      {
+         fprintf( gLogFile, "ERROR: Print() called but gCurrentPort is invalid\n" );
+         fflush( gLogFile );
+      }
+   }
    #else
    printf( "%s", lBuffer );
    #endif
