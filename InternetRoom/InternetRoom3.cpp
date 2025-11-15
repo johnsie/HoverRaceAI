@@ -3018,10 +3018,13 @@ int main( int pArgc, const char** pArgs )
             {
                if( InitLogFile() )
                {
-                  fprintf( gLogFile, "DEBUG: No query string, sending error response\n" );
+                  fprintf( gLogFile, "DEBUG: No query string, this might be a server list request\n" );
                   fflush( gLogFile );
                }
-               Print( "ERROR 999\nNo query string provided\n" );
+               // Return a simple server list response for requests without query string
+               // This allows Game2 to discover available servers
+               Print( "SUCCESS\n" );
+               Print( "0 Test Server 127.0.0.1 8065 / 0 /\n" );
                lPrintTitle = FALSE;
             }
             else
