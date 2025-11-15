@@ -3341,6 +3341,7 @@ int main( int pArgc, const char** pArgs )
                                  Unpad( lUserName );
                                  ChatFilter( lUserName );
                                  lState->AddUser(  lUserName, lVersion,lMajorID, lMinorID, lKey2, lKey3  );
+                                 lResponseSent = TRUE;  // AddUser prints its own response
                               }
                            #endif
                         }
