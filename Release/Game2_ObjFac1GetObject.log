@@ -82498,3 +82498,486 @@ MR_GetObject called with pClassId=1101
 
 MR_GetObject called with pClassId=100
   SUCCESS: Object created at 0x00AE4C18
+
+MR_GetObject called with pClassId=1000
+  SUCCESS: Object created at 0x0502CB60
+
+MR_GetObject called with pClassId=1100
+  SUCCESS: Object created at 0x0502CE60
+
+MR_GetObject called with pClassId=1102
+  SUCCESS: Object created at 0x0502CE90
+
+MR_GetObject called with pClassId=1103
+  SUCCESS: Object created at 0x0502CF50
+
+MR_GetObject called with pClassId=1101
+  SUCCESS: Object created at 0x0502CEA8
+
+MR_GetObject called with pClassId=51
+  SUCCESS: Object created at 0x05073508
+
+MR_GetObject called with pClassId=50
+  SUCCESS: Object created at 0x05073528
+
+MR_GetObject called with pClassId=52
+  SUCCESS: Object created at 0x050607C0
+
+MR_GetObject called with pClassId=69
+  SUCCESS: Object created at 0x05073688
+
+MR_GetObject called with pClassId=53
+  SUCCESS: Object created at 0x05060810
+
+MR_GetObject called with pClassId=52
+  SUCCESS: Object created at 0x050608D8
+
+MR_GetObject called with pClassId=51
+  SUCCESS: Object created at 0x05073568
+
+MR_GetObject called with pClassId=50
+  SUCCESS: Object created at 0x05073588
+
+MR_GetObject called with pClassId=52
+  SUCCESS: Object created at 0x05060428
+
+MR_GetObject called with pClassId=52
+  SUCCESS: Object created at 0x05060248
+
+MR_GetObject called with pClassId=53
+  SUCCESS: Object created at 0x05060298
+
+MR_GetObject called with pClassId=61
+  SUCCESS: Object created at 0x050735C8
+
+MR_GetObject called with pClassId=51
+  SUCCESS: Object created at 0x05073B08
+
+MR_GetObject called with pClassId=50
+  SUCCESS: Object created at 0x05073948
+
+MR_GetObject called with pClassId=52
+  SUCCESS: Object created at 0x050604A0
+
+MR_GetObject called with pClassId=54
+  SUCCESS: Object created at 0x05060590
+
+MR_GetObject called with pClassId=52
+  SUCCESS: Object created at 0x050603B0
+
+MR_GetObject called with pClassId=60
+  SUCCESS: Object created at 0x050739A8
+
+MR_GetObject called with pClassId=52
+  SUCCESS: Object created at 0x05060518
+
+MR_GetObject called with pClassId=51
+  SUCCESS: Object created at 0x05073A68
+
+MR_GetObject called with pClassId=50
+  SUCCESS: Object created at 0x05073AC8
+
+MR_GetObject called with pClassId=52
+  SUCCESS: Object created at 0x05060360
+
+MR_GetObject called with pClassId=54
+  SUCCESS: Object created at 0x05060310
+
+MR_GetObject called with pClassId=52
+  SUCCESS: Object created at 0x05060270
+
+MR_GetObject called with pClassId=60
+  SUCCESS: Object created at 0x05073908
+
+MR_GetObject called with pClassId=52
+  SUCCESS: Object created at 0x05060540
+
+MR_GetObject called with pClassId=51
+  SUCCESS: Object created at 0x05073968
+
+MR_GetObject called with pClassId=50
+  SUCCESS: Object created at 0x05073988
+
+MR_GetObject called with pClassId=52
+  SUCCESS: Object created at 0x05060568
+
+MR_GetObject called with pClassId=59
+  SUCCESS: Object created at 0x050737C8
+
+MR_GetObject called with pClassId=52
+  SUCCESS: Object created at 0x05060450
+
+MR_GetObject called with pClassId=55
+  SUCCESS: Object created at 0x050602C0
+
+MR_GetObject called with pClassId=53
+  SUCCESS: Object created at 0x050601A8
+
+MR_GetObject called with pClassId=51
+  SUCCESS: Object created at 0x05073828
+
+MR_GetObject called with pClassId=50
+  SUCCESS: Object created at 0x05073A08
+
+MR_GetObject called with pClassId=52
+  SUCCESS: Object created at 0x05060180
+
+MR_GetObject called with pClassId=52
+  SUCCESS: Object created at 0x05060130
+
+MR_GetObject called with pClassId=53
+  SUCCESS: Object created at 0x05060478
+
+MR_GetObject called with pClassId=52
+  SUCCESS: Object created at 0x05060338
+
+MR_GetObject called with pClassId=51
+  SUCCESS: Object created at 0x05073928
+
+MR_GetObject called with pClassId=50
+  SUCCESS: Object created at 0x05073808
+
+MR_GetObject called with pClassId=59
+  SUCCESS: Object created at 0x05073848
+
+MR_GetObject called with pClassId=52
+  SUCCESS: Object created at 0x050605E0
+
+MR_GetObject called with pClassId=55
+  SUCCESS: Object created at 0x05060400
+
+MR_GetObject called with pClassId=53
+  SUCCESS: Object created at 0x05060158
+
+MR_GetObject called with pClassId=52
+  SUCCESS: Object created at 0x05060608
+
+MR_GetObject called with pClassId=51
+  SUCCESS: Object created at 0x050738C8
+
+MR_GetObject called with pClassId=50
+  SUCCESS: Object created at 0x05073788
+
+MR_GetObject called with pClassId=60
+  SUCCESS: Object created at 0x05073748
+
+MR_GetObject called with pClassId=52
+  SUCCESS: Object created at 0x050601F8
+
+MR_GetObject called with pClassId=52
+  SUCCESS: Object created at 0x05060220
+
+MR_GetObject called with pClassId=54
+  SUCCESS: Object created at 0x050601D0
+
+MR_GetObject called with pClassId=52
+  SUCCESS: Object created at 0x05110760
+
+MR_GetObject called with pClassId=51
+  SUCCESS: Object created at 0x05073B68
+
+MR_GetObject called with pClassId=50
+  SUCCESS: Object created at 0x05073D68
+
+MR_GetObject called with pClassId=52
+  SUCCESS: Object created at 0x051105D0
+
+MR_GetObject called with pClassId=54
+  SUCCESS: Object created at 0x051103A0
+
+MR_GetObject called with pClassId=68
+  SUCCESS: Object created at 0x05073DA8
+
+MR_GetObject called with pClassId=52
+  SUCCESS: Object created at 0x051106C0
+
+MR_GetObject called with pClassId=60
+  SUCCESS: Object created at 0x05073DC8
+
+MR_GetObject called with pClassId=52
+  SUCCESS: Object created at 0x05110788
+
+MR_GetObject called with pClassId=51
+  SUCCESS: Object created at 0x05073CC8
+
+MR_GetObject called with pClassId=50
+  SUCCESS: Object created at 0x05073F08
+
+MR_GetObject called with pClassId=52
+  SUCCESS: Object created at 0x05110620
+
+MR_GetObject called with pClassId=52
+  SUCCESS: Object created at 0x05110648
+
+MR_GetObject called with pClassId=53
+  SUCCESS: Object created at 0x05110418
+
+MR_GetObject called with pClassId=52
+  SUCCESS: Object created at 0x051107B0
+
+MR_GetObject called with pClassId=51
+  SUCCESS: Object created at 0x05073B88
+
+MR_GetObject called with pClassId=50
+  SUCCESS: Object created at 0x05073D08
+
+MR_GetObject called with pClassId=52
+  SUCCESS: Object created at 0x051105F8
+
+MR_GetObject called with pClassId=52
+  SUCCESS: Object created at 0x051104E0
+
+MR_GetObject called with pClassId=53
+  SUCCESS: Object created at 0x05110558
+
+MR_GetObject called with pClassId=52
+  SUCCESS: Object created at 0x051106E8
+
+MR_GetObject called with pClassId=51
+  SUCCESS: Object created at 0x05073BA8
+
+MR_GetObject called with pClassId=50
+  SUCCESS: Object created at 0x05073BC8
+
+MR_GetObject called with pClassId=60
+  SUCCESS: Object created at 0x05073C08
+
+MR_GetObject called with pClassId=52
+  SUCCESS: Object created at 0x05110300
+
+MR_GetObject called with pClassId=61
+  SUCCESS: Object created at 0x05073C28
+
+MR_GetObject called with pClassId=56
+  SUCCESS: Object created at 0x05110328
+
+MR_GetObject called with pClassId=54
+  SUCCESS: Object created at 0x05110698
+
+MR_GetObject called with pClassId=52
+  SUCCESS: Object created at 0x051105A8
+
+MR_GetObject called with pClassId=51
+  SUCCESS: Object created at 0x05073E48
+
+MR_GetObject called with pClassId=50
+  SUCCESS: Object created at 0x05073E68
+
+MR_GetObject called with pClassId=52
+  SUCCESS: Object created at 0x05110710
+
+MR_GetObject called with pClassId=54
+  SUCCESS: Object created at 0x051103C8
+
+MR_GetObject called with pClassId=52
+  SUCCESS: Object created at 0x05110580
+
+MR_GetObject called with pClassId=60
+  SUCCESS: Object created at 0x05073E88
+
+MR_GetObject called with pClassId=52
+  SUCCESS: Object created at 0x05110530
+
+MR_GetObject called with pClassId=51
+  SUCCESS: Object created at 0x05073EC8
+
+MR_GetObject called with pClassId=50
+  SUCCESS: Object created at 0x05073EA8
+
+MR_GetObject called with pClassId=59
+  SUCCESS: Object created at 0x05073C88
+
+MR_GetObject called with pClassId=52
+  SUCCESS: Object created at 0x05110738
+
+MR_GetObject called with pClassId=55
+  SUCCESS: Object created at 0x051107D8
+
+MR_GetObject called with pClassId=53
+  SUCCESS: Object created at 0x051103F0
+
+MR_GetObject called with pClassId=52
+  SUCCESS: Object created at 0x05110350
+
+MR_GetObject called with pClassId=51
+  SUCCESS: Object created at 0x05111FB0
+
+MR_GetObject called with pClassId=50
+  SUCCESS: Object created at 0x05112190
+
+MR_GetObject called with pClassId=53
+  SUCCESS: Object created at 0x05110468
+
+MR_GetObject called with pClassId=52
+  SUCCESS: Object created at 0x051109E0
+
+MR_GetObject called with pClassId=52
+  SUCCESS: Object created at 0x05110940
+
+MR_GetObject called with pClassId=52
+  SUCCESS: Object created at 0x05110C88
+
+MR_GetObject called with pClassId=51
+  SUCCESS: Object created at 0x051121B0
+
+MR_GetObject called with pClassId=50
+  SUCCESS: Object created at 0x05111E10
+
+MR_GetObject called with pClassId=53
+  SUCCESS: Object created at 0x05110A30
+
+MR_GetObject called with pClassId=52
+  SUCCESS: Object created at 0x05110CB0
+
+MR_GetObject called with pClassId=59
+  SUCCESS: Object created at 0x05111F90
+
+MR_GetObject called with pClassId=52
+  SUCCESS: Object created at 0x05110B70
+
+MR_GetObject called with pClassId=55
+  SUCCESS: Object created at 0x05110968
+
+MR_GetObject called with pClassId=51
+  SUCCESS: Object created at 0x05111E50
+
+MR_GetObject called with pClassId=50
+  SUCCESS: Object created at 0x05112030
+
+MR_GetObject called with pClassId=52
+  SUCCESS: Object created at 0x05110AD0
+
+MR_GetObject called with pClassId=54
+  SUCCESS: Object created at 0x051108A0
+
+MR_GetObject called with pClassId=52
+  SUCCESS: Object created at 0x05110AF8
+
+MR_GetObject called with pClassId=60
+  SUCCESS: Object created at 0x05112110
+
+MR_GetObject called with pClassId=52
+  SUCCESS: Object created at 0x05110AA8
+
+MR_GetObject called with pClassId=51
+  SUCCESS: Object created at 0x05111EB0
+
+MR_GetObject called with pClassId=50
+  SUCCESS: Object created at 0x05111FD0
+
+MR_GetObject called with pClassId=60
+  SUCCESS: Object created at 0x05111E90
+
+MR_GetObject called with pClassId=52
+  SUCCESS: Object created at 0x05110B20
+
+MR_GetObject called with pClassId=52
+  SUCCESS: Object created at 0x05110B48
+
+MR_GetObject called with pClassId=52
+  SUCCESS: Object created at 0x05110918
+
+MR_GetObject called with pClassId=52
+  SUCCESS: Object created at 0x05110CD8
+
+MR_GetObject called with pClassId=67
+  SUCCESS: Object created at 0x05111ED0
+
+MR_GetObject called with pClassId=67
+  SUCCESS: Object created at 0x05111F30
+
+MR_GetObject called with pClassId=67
+  SUCCESS: Object created at 0x05112010
+
+MR_GetObject called with pClassId=67
+  SUCCESS: Object created at 0x05111EF0
+
+MR_GetObject called with pClassId=67
+  SUCCESS: Object created at 0x05112090
+
+MR_GetObject called with pClassId=67
+  SUCCESS: Object created at 0x05111F10
+
+MR_GetObject called with pClassId=51
+  SUCCESS: Object created at 0x05112050
+
+MR_GetObject called with pClassId=51
+  SUCCESS: Object created at 0x051120B0
+
+MR_GetObject called with pClassId=70
+  SUCCESS: Object created at 0x05112150
+
+MR_GetObject called with pClassId=50
+  SUCCESS: Object created at 0x05112390
+
+MR_GetObject called with pClassId=71
+  SUCCESS: Object created at 0x051122B0
+
+MR_GetObject called with pClassId=68
+  SUCCESS: Object created at 0x051124F0
+
+MR_GetObject called with pClassId=51
+  SUCCESS: Object created at 0x05112410
+
+MR_GetObject called with pClassId=51
+  SUCCESS: Object created at 0x05112430
+
+MR_GetObject called with pClassId=50
+  SUCCESS: Object created at 0x051122D0
+
+MR_GetObject called with pClassId=70
+  SUCCESS: Object created at 0x05112450
+
+MR_GetObject called with pClassId=50
+  SUCCESS: Object created at 0x05112470
+
+MR_GetObject called with pClassId=71
+  SUCCESS: Object created at 0x05112590
+
+MR_GetObject called with pClassId=65
+  SUCCESS: Object created at 0x05112490
+
+MR_GetObject called with pClassId=65
+  SUCCESS: Object created at 0x05112510
+
+MR_GetObject called with pClassId=65
+  SUCCESS: Object created at 0x051123D0
+
+MR_GetObject called with pClassId=65
+  SUCCESS: Object created at 0x051124B0
+
+MR_GetObject called with pClassId=65
+  SUCCESS: Object created at 0x05112330
+
+MR_GetObject called with pClassId=65
+  SUCCESS: Object created at 0x05112570
+
+MR_GetObject called with pClassId=65
+  SUCCESS: Object created at 0x05112310
+
+MR_GetObject called with pClassId=65
+  SUCCESS: Object created at 0x05112550
+
+MR_GetObject called with pClassId=65
+  SUCCESS: Object created at 0x051123B0
+
+MR_GetObject called with pClassId=65
+  SUCCESS: Object created at 0x051124D0
+
+MR_GetObject called with pClassId=203
+  SUCCESS: Object created at 0x00801030
+
+MR_GetObject called with pClassId=204
+  SUCCESS: Object created at 0x00801420
+
+MR_GetObject called with pClassId=152
+  SUCCESS: Object created at 0x00838E60
+
+MR_GetObject called with pClassId=202
+  SUCCESS: Object created at 0x00801468
+
+MR_GetObject called with pClassId=200
+  SUCCESS: Object created at 0x008387D8
+
+MR_GetObject called with pClassId=100
+  SUCCESS: Object created at 0x007A4078
