@@ -3042,7 +3042,9 @@ int main( int pArgc, const char** pArgs )
             }
             else
             {
+               #ifndef _DAEMON_
                Print( "Content-type: text/html%c%c", 10, 10);
+               #endif
 
             #ifndef _DAEMON_
             const char* lQueryPtr = getenv( "QUERY_STRING" );
