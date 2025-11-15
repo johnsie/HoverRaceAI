@@ -2608,7 +2608,20 @@ const char* IR_Port::GetCmd()
       // Log the raw buffer for debugging
       if( InitLogFile() )
       {
-         fprintf( gLogFile, "DEBUG: Raw buffer (%d bytes): %s\n", mBufferIndex, mBuffer );
+         fprintf( gLogFile, "DEBUG: GetCmd() - Raw buffer (%d bytes, first 200 chars):\n", mBufferIndex );
+         // Print first 200 characters, escaping newlines
+         for( int i = 0; i < mBufferIndex && i < 200; i++ )
+         {
+            if( mBuffer[i] == '\n' )
+               fprintf( gLogFile, "\\n" );
+            else if( mBuffer[i] == '\r' )
+               fprintf( gLogFile, "\\r" );
+            else if( mBuffer[i] >= 32 && mBuffer[i] < 127 )
+               fprintf( gLogFile, "%c", mBuffer[i] );
+            else
+               fprintf( gLogFile, "[%02x]", (unsigned char)mBuffer[i] );
+         }
+         fprintf( gLogFile, "\n" );
          fflush( gLogFile );
       }
 
@@ -2632,7 +2645,7 @@ const char* IR_Port::GetCmd()
       }
       else
       {
-         // No query string found - log this for debugging
+         // No query string found
          if( InitLogFile() )
          {
             fprintf( gLogFile, "DEBUG: No query string (?) found in buffer\n" );
