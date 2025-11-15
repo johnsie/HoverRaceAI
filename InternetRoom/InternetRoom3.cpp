@@ -1117,7 +1117,6 @@ void IRState::PrintState()
 #endif
 
    // Send the chat messages
-   /* Old messages are not sended
    for( lCounter = 0; lCounter < IR_MAX_CHAT_MESSAGE; lCounter++ )
    {
       int lIndex = (lCounter+mChatTail)%IR_MAX_CHAT_MESSAGE;
@@ -1127,7 +1126,6 @@ void IRState::PrintState()
          Print( "CHAT\n%s\n", mChatFifo[ lIndex ].mData );
       }
    }
-   */
 
 }
 
@@ -3324,10 +3322,29 @@ int main( int pArgc, const char** pArgs )
                            int lUserId;
                            int lTimeStamp;
 
-                           if( sscanf( lQuery, "%*s %d-%u %d", &lUserIndex, &lUserId, &lTimeStamp )==3 )
+                           int lParsed = sscanf( lQuery, "%*s %d-%u %d", &lUserIndex, &lUserId, &lTimeStamp );
+                           if( InitLogFile() )
                            {
+                              fprintf( gLogFile, "DEBUG: REFRESH sscanf parsed %d values from: %s\n", lParsed, lQuery );
+                              fflush( gLogFile );
+                           }
+                           if( lParsed == 3 )
+                           {
+                              if( InitLogFile() )
+                              {
+                                 fprintf( gLogFile, "DEBUG: REFRESH calling PrintStateChange with user=%d-%u ts=%d\n", lUserIndex, lUserId, lTimeStamp );
+                                 fflush( gLogFile );
+                              }
                               lState->PrintStateChange( lUserIndex, lUserId, lTimeStamp );
                               lResponseSent = TRUE;
+                           }
+                           else
+                           {
+                              if( InitLogFile() )
+                              {
+                                 fprintf( gLogFile, "DEBUG: REFRESH sscanf failed, expected 3 got %d\n", lParsed );
+                                 fflush( gLogFile );
+                              }
                            }
                         }
                         else if( !strcmp( lOp, "ADD_CHAT" ) )
