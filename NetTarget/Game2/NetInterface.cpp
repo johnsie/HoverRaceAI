@@ -88,6 +88,10 @@ MR_NetworkInterface::MR_NetworkInterface()
    mRegistrySocket   = INVALID_SOCKET;
    mServerPort       = 0;
 
+   // Phase 4: Initialize connection mode
+   mConnectionMode   = MR_CONNECTION_PEER_TO_PEER;
+   mRaceServerPort   = 0;
+
    mAllPreLoguedRecv = FALSE;
 
    for( int lCounter = 0; lCounter < eMaxClient; lCounter++ )
@@ -373,6 +377,23 @@ const char* MR_NetworkInterface::GetPlayerName( )const
    return mPlayer;
 }
 
+// Phase 4: Set connection mode for server-hosted races
+void MR_NetworkInterface::SetConnectionMode( MR_ConnectionMode pMode, const char* pServerAddr, unsigned pServerPort )
+{
+   mConnectionMode = pMode;
+   
+   if( pMode == MR_CONNECTION_SERVER_HOSTED && pServerAddr != NULL )
+   {
+      mRaceServerAddr = pServerAddr;
+      mRaceServerPort = pServerPort;
+   }
+}
+
+MR_ConnectionMode MR_NetworkInterface::GetConnectionMode()const
+{
+   return mConnectionMode;
+}
+
 BOOL MR_NetworkInterface::MasterConnect( HWND pWindow, const char* pGameName, BOOL pPromptForPort, unsigned pDefaultPort, HWND* pModalessDlg, int pReturnMessage )
 {
    BOOL lReturnValue = FALSE;
@@ -523,22 +544,45 @@ BOOL MR_NetworkInterface::SlaveConnect( HWND pWindow, const char* pServerIP, uns
       Disconnect();
       ASSERT( !mServerMode );
 
-      mRegistrySocket = socket( PF_INET, SOCK_STREAM, 0 );
-
-      if( mRegistrySocket == INVALID_SOCKET )
+      // Phase 4: Check if this is server-hosted race
+      if( mConnectionMode == MR_CONNECTION_SERVER_HOSTED )
       {
-         MessageBox( pWindow, MR_LoadString( IDS_CANT_CREATE_SOCK ), MR_LoadString( IDS_TCP_SERVER ), MB_ICONERROR|MB_OK|MB_APPLMODAL );
-         lReturnValue = FALSE;
+         // Connect directly to RaceServer instead of peer
+         mRegistrySocket = socket( PF_INET, SOCK_STREAM, 0 );
+
+         if( mRegistrySocket == INVALID_SOCKET )
+         {
+            MessageBox( pWindow, MR_LoadString( IDS_CANT_CREATE_SOCK ), MR_LoadString( IDS_TCP_SERVER ), MB_ICONERROR|MB_OK|MB_APPLMODAL );
+            lReturnValue = FALSE;
+         }
+         else
+         {
+            mServerAddr = mRaceServerAddr;  // Use RaceServer address from SetConnectionMode
+            mServerPort = mRaceServerPort;  // Use RaceServer port from SetConnectionMode
+            mActiveInterface = this;
+
+            lReturnValue = (DialogBox( lModuleHandle, MAKEINTRESOURCE( IDD_NET_PROGRESS ), pWindow, WaitGameNameCallBack ) == IDOK );
+         }
       }
       else
       {
+         // Traditional P2P: Connect to peer
+         mRegistrySocket = socket( PF_INET, SOCK_STREAM, 0 );
 
-         // There was no pre-connect phase, do the preconnection now
-         mServerAddr = pServerIP;
-         mServerPort = pDefaultPort;
-         mActiveInterface = this;
+         if( mRegistrySocket == INVALID_SOCKET )
+         {
+            MessageBox( pWindow, MR_LoadString( IDS_CANT_CREATE_SOCK ), MR_LoadString( IDS_TCP_SERVER ), MB_ICONERROR|MB_OK|MB_APPLMODAL );
+            lReturnValue = FALSE;
+         }
+         else
+         {
+            // There was no pre-connect phase, do the preconnection now
+            mServerAddr = pServerIP;
+            mServerPort = pDefaultPort;
+            mActiveInterface = this;
 
-         lReturnValue = (DialogBox( lModuleHandle, MAKEINTRESOURCE( IDD_NET_PROGRESS ), pWindow, WaitGameNameCallBack ) == IDOK );
+            lReturnValue = (DialogBox( lModuleHandle, MAKEINTRESOURCE( IDD_NET_PROGRESS ), pWindow, WaitGameNameCallBack ) == IDOK );
+         }
       }
    }
 

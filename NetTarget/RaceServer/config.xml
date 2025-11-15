@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<raceserver>
+    <!-- Network Configuration -->
+    <network>
+        <port>9600</port>
+        <max_connections>100</max_connections>
+        <tcp_nodelay>true</tcp_nodelay>
+        <send_buffer_size>8192</send_buffer_size>
+        <receive_buffer_size>8192</receive_buffer_size>
+    </network>
+
+    <!-- Race Management -->
+    <races>
+        <max_concurrent>50</max_concurrent>
+        <max_players_per_race>8</max_players_per_race>
+        <idle_race_timeout_sec>300</idle_race_timeout_sec>
+        <player_disconnect_timeout_sec>30</player_disconnect_timeout_sec>
+    </races>
+
+    <!-- Logging Configuration -->
+    <logging>
+        <level>INFO</level>
+        <file>raceserver.log</file>
+        <max_file_size_mb>100</max_file_size_mb>
+        <backup_count>10</backup_count>
+    </logging>
+
+    <!-- InternetRoom Server Connection (for future integration) -->
+    <internetroom>
+        <host>localhost</host>
+        <port>80</port>
+    </internetroom>
+</raceserver>

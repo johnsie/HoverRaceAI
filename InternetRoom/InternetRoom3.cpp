@@ -883,30 +883,58 @@ void IRState::BanIP( const char* pIP, int pDuration /*in minutes*/ )
 
 void IRState::RemoveUser( int pUser, BOOL pExpired )
 {
+   // Defensive bounds checking
+   if( pUser < 0 || pUser >= IR_MAX_CLIENT )
+   {
+      if( InitLogFile() )
+      {
+         fprintf( gLogFile, "ERROR: RemoveUser - invalid pUser index: %d (max: %d)\n", pUser, IR_MAX_CLIENT );
+         fflush( gLogFile );
+      }
+      return;
+   }
+
+   if( InitLogFile() )
+   {
+      fprintf( gLogFile, "DEBUG: RemoveUser starting for user %d\n", pUser );
+      fflush( gLogFile );
+   }
+
+   // Set expiration safely
+   if( InitLogFile() )
+   {
+      fprintf( gLogFile, "DEBUG: RemoveUser - setting expiration\n" );
+      fflush( gLogFile );
+   }
+
    mUser[pUser].mExpiration = 0;
    mUser[pUser].mTimeStamp  = mTimeStamp;
 
-   // Log this user entry
    if( InitLogFile() )
    {
-      fprintf( gLogFile, "%s %d %c %d %d %d ^%s^(%d-%d) %s %s\n",
-               GetTime( mUser[pUser].mLogingTime ),
-               time( NULL )-mUser[pUser].mLogingTime,
-               pExpired? 'o':'t',
-               mUser[pUser].mGameCode,
-               mUser[pUser].mNbRefresh,
-               mUser[pUser].mNbChat,
-               mUser[pUser].mName,
-               mUser[pUser].mKeyID.mMajor,
-               mUser[pUser].mKeyID.mMinor,
-               mUser[pUser].mIP,
-               mUser[pUser].mDomain                     );
+      fprintf( gLogFile, "DEBUG: RemoveUser - expiration set\n" );
+      fflush( gLogFile );
    }
 
+   // Log this user entry - do this safely without accessing potentially corrupted fields
+   if( InitLogFile() )
+   {
+      fprintf( gLogFile, "DEBUG: RemoveUser - user %d removed\n", pUser );
+      fflush( gLogFile );
+   }
+
+   if( InitLogFile() )
+   {
+      fprintf( gLogFile, "DEBUG: RemoveUser - cleaning up games\n" );
+      fflush( gLogFile );
+   }
 
    // Verify the games that the user take parts to
    for( int lGame = 0; lGame < IR_MAX_GAME; lGame++ )
    {
+      if( lGame < 0 || lGame >= IR_MAX_GAME )
+         break;
+
       if( mGame[ lGame ].mUsed )
       {
          if( mGame[ lGame ].mPlayers[0] == pUser )
@@ -916,18 +944,34 @@ void IRState::RemoveUser( int pUser, BOOL pExpired )
          }
          else
          {
+            // Defensive check on mNbPlayer
+            if( mGame[ lGame ].mNbPlayer <= 0 || mGame[ lGame ].mNbPlayer > IR_MAX_PLAYER_GAME )
+            {
+               if( InitLogFile() )
+               {
+                  fprintf( gLogFile, "ERROR: RemoveUser - game %d has invalid mNbPlayer: %d\n", lGame, mGame[ lGame ].mNbPlayer );
+                  fflush( gLogFile );
+               }
+               continue;
+            }
+
             for( int lPlayer = 1; lPlayer < mGame[ lGame ].mNbPlayer; lPlayer++ )
             {
                if( mGame[ lGame ].mPlayers[lPlayer] == pUser )
                {
+                  int lOriginalNbPlayer = mGame[ lGame ].mNbPlayer;
                   mGame[ lGame ].mNbPlayer--;
                   mGame[ lGame ].mTimeStamp = mTimeStamp;
 
-                  int lNbLeft = lPlayer-mGame[ lGame ].mNbPlayer;
+                  // Calculate how many players are AFTER the one being removed
+                  int lNbLeft = lOriginalNbPlayer - lPlayer - 1;
 
-                  if( lNbLeft > 0 )
+                  if( lNbLeft > 0 && lNbLeft <= IR_MAX_PLAYER_GAME )
                   {
-                     memmove( &(mGame[ lGame ].mPlayers[lPlayer]), &(mGame[ lGame ].mPlayers[lPlayer+1]), sizeof( (mGame[ lGame ].mPlayers[lPlayer]) )*lNbLeft );
+                     // Move the remaining players down one slot
+                     memmove( &(mGame[ lGame ].mPlayers[lPlayer]), 
+                              &(mGame[ lGame ].mPlayers[lPlayer+1]), 
+                              sizeof(int) * lNbLeft );
                   }
                }
             }
@@ -935,7 +979,19 @@ void IRState::RemoveUser( int pUser, BOOL pExpired )
       }
    }
 
+   if( InitLogFile() )
+   {
+      fprintf( gLogFile, "DEBUG: RemoveUser - games cleaned\n" );
+      fflush( gLogFile );
+   }
+
    mTimeStamp++;
+
+   if( InitLogFile() )
+   {
+      fprintf( gLogFile, "DEBUG: RemoveUser complete for user %d\n", pUser );
+      fflush( gLogFile );
+   }
 }
 
 
@@ -2737,14 +2793,29 @@ int main( int pArgc, const char** pArgs )
    // daemon( 1, 0 );
    #endif
 
+   if( InitLogFile() )
+   {
+      fprintf( gLogFile, "DEBUG: About to enter while(1) loop\n" );
+      fflush( gLogFile );
+   }
+
    while( 1 )
-   #endif
    {
 
       #ifdef _DAEMON_
 
+      if( InitLogFile() )
+      {
+         fprintf( gLogFile, "DEBUG: Loop iteration starting\n" );
+         fflush( gLogFile );
+      }
+
       int    lSocket;
       fd_set lReadSet;
+
+      // Error handling wrapper - catch any issues in this iteration
+      try
+      {
 
       FD_ZERO( &lReadSet );
 
@@ -2763,24 +2834,33 @@ int main( int pArgc, const char** pArgs )
 
       // fprintf( stderr, "select\n" );
       
-      if( select( sizeof(lReadSet)*8, &lReadSet, NULL, NULL, NULL ) == INVALID_SOCKET )
+      int lSelectResult = select( sizeof(lReadSet)*8, &lReadSet, NULL, NULL, NULL );
+      
+      if( lSelectResult == INVALID_SOCKET )
       {
          // fprintf( stderr, "select error\n" );
-
-         // Stop for no reason
-         continue; //very ugly code.. but this is only the server
+         if( InitLogFile() )
+         {
+            fprintf( gLogFile, "WARNING: select() returned INVALID_SOCKET, continuing\n" );
+            fflush( gLogFile );
+         }
+         // Continue to next iteration instead of exiting
+         continue;
       }
       // fprintf( stderr, "end select\n" );
 
       // Verify if we have no new connection
       if( FD_ISSET( lMasterSocket, &lReadSet ) )
       {
+         if( InitLogFile() )
+         {
+            fprintf( gLogFile, "DEBUG: Accepting new connections\n" );
+            fflush( gLogFile );
+         }
          AcceptSockets();
       }
 
       for( lSocket = 0; lSocket<MAX_CONNECT; lSocket++ )
-
-      #endif
       {
 
          #ifdef _DAEMON_
@@ -2792,11 +2872,29 @@ int main( int pArgc, const char** pArgs )
          {
             // fprintf( stderr, "read %d\n", lSocket );
 
+            if( InitLogFile() )
+            {
+               fprintf( gLogFile, "DEBUG: Socket %d has data, reading...\n", lSocket );
+               fflush( gLogFile );
+            }
+
             lConnection[ lSocket ].Read();
+
+            if( InitLogFile() )
+            {
+               fprintf( gLogFile, "DEBUG: Socket %d read complete\n", lSocket );
+               fflush( gLogFile );
+            }
 
             // fprintf( stderr, "end read %d\n", lSocket );
             
             lQueryPtr = lConnection[ lSocket ].GetCmd();
+
+            if( InitLogFile() )
+            {
+               fprintf( gLogFile, "DEBUG: Socket %d query: %s\n", lSocket, lQueryPtr ? lQueryPtr : "(null)" );
+               fflush( gLogFile );
+            }
 
             // fprintf( stderr, "end getcmd %s\n", chk( lQueryPtr ) );
 
@@ -2811,6 +2909,12 @@ int main( int pArgc, const char** pArgs )
          #endif
          {
             // fprintf( stderr, "query %s\n", lQueryPtr );
+
+            if( InitLogFile() )
+            {
+               fprintf( gLogFile, "DEBUG: Processing query\n" );
+               fflush( gLogFile );
+            }
 
             BOOL    lPrintTitle = TRUE;
 
@@ -3047,7 +3151,22 @@ int main( int pArgc, const char** pArgs )
 
                         lPrintTitle = FALSE;
 
+                        try
+                        {
+
+                        if( InitLogFile() )
+                        {
+                           fprintf( gLogFile, "DEBUG: Calling VerifyExpirations\n" );
+                           fflush( gLogFile );
+                        }
+
                         lState->VerifyExpirations();
+
+                        if( InitLogFile() )
+                        {
+                           fprintf( gLogFile, "DEBUG: VerifyExpirations complete\n" );
+                           fflush( gLogFile );
+                        }
 
                         if( !strcmp( lOp, "REFRESH" ) )
                         {
@@ -3160,7 +3279,19 @@ int main( int pArgc, const char** pArgs )
                
                            if( sscanf( lQuery, "%*s %d-%u", &lUserIndex, &lUserId )==2 )
                            {
+                              if( InitLogFile() )
+                              {
+                                 fprintf( gLogFile, "DEBUG: DEL_USER - index=%d, id=%u, calling DeleteUser\n", lUserIndex, lUserId );
+                                 fflush( gLogFile );
+                              }
+                              
                               lState->DeleteUser( lUserIndex, lUserId );
+                              
+                              if( InitLogFile() )
+                              {
+                                 fprintf( gLogFile, "DEBUG: DEL_USER complete\n" );
+                                 fflush( gLogFile );
+                              }
                            }
                         }
                         else if( !strcmp( lOp, "START_GAME" ) )
@@ -3239,6 +3370,17 @@ int main( int pArgc, const char** pArgs )
                         {
                            lPrintTitle = TRUE;
                         }
+
+                        }  // End of try block for state operations
+                        catch( ... )
+                        {
+                           if( InitLogFile() )
+                           {
+                              fprintf( gLogFile, "ERROR: Exception in state operations\n" );
+                              fflush( gLogFile );
+                           }
+                           lPrintTitle = TRUE;
+                        }
                      }
 
                      #ifdef _NO_IPC_
@@ -3279,13 +3421,53 @@ int main( int pArgc, const char** pArgs )
 
 
             #ifdef _DAEMON_
+            if( InitLogFile() )
+            {
+               fprintf( gLogFile, "DEBUG: Closing socket %d\n", lSocket );
+               fflush( gLogFile );
+            }
+
             lConnection[ lSocket ].Close();
 
+            if( InitLogFile() )
+            {
+               fprintf( gLogFile, "DEBUG: Socket %d closed, accepting new connections\n", lSocket );
+               fflush( gLogFile );
+            }
+
             AcceptSockets();
+
+            if( InitLogFile() )
+            {
+               fprintf( gLogFile, "DEBUG: AcceptSockets complete\n" );
+               fflush( gLogFile );
+            }
             #endif
 
          }
       }
+
+      }  // End of try block
+      catch( ... )
+      {
+         // Catch any exception to prevent daemon from crashing
+         if( InitLogFile() )
+         {
+            fprintf( gLogFile, "ERROR: Caught exception in loop iteration, continuing\n" );
+            fflush( gLogFile );
+         }
+         // Continue to next iteration instead of exiting
+      }
+
+      #endif  // _DAEMON_ - ends the main socket processing loop in daemon mode
+   }
+
+   #endif  // _DAEMON_ - ends the while(1) loop
+
+   if( InitLogFile() )
+   {
+      fprintf( gLogFile, "DEBUG: Exited while(1) loop - UNEXPECTED!\n" );
+      fflush( gLogFile );
    }
 
    #ifdef WIN32

@@ -40,6 +40,13 @@
 #define MR_NOT_REQUIRED         0
 #define MR_NET_DATAGRAM        -1
 
+// Phase 4: Connection mode support
+enum MR_ConnectionMode
+{
+   MR_CONNECTION_PEER_TO_PEER,    // Traditional P2P hosting
+   MR_CONNECTION_SERVER_HOSTED    // Centralized RaceServer
+};
+
 class MR_NetMessageBuffer
 {
    public:
@@ -139,6 +146,11 @@ class MR_NetworkInterface
       CString  mServerAddr;
       CString  mGameName;
 
+      // Phase 4: Connection mode tracking
+      MR_ConnectionMode mConnectionMode;
+      CString          mRaceServerAddr;
+      unsigned         mRaceServerPort;
+
       // UDP port
       SOCKET   mUDPOutShortPort;
       SOCKET   mUDPOutLongPort;
@@ -172,6 +184,10 @@ class MR_NetworkInterface
 
       void  SetPlayerName( const char* pPlayerName );
       const char* GetPlayerName()const;
+
+      // Phase 4: Set connection mode for server-hosted races
+      void  SetConnectionMode( MR_ConnectionMode pMode, const char* pServerAddr = NULL, unsigned pServerPort = 0 );
+      MR_ConnectionMode GetConnectionMode()const;
 
       BOOL MasterConnect( HWND pWindow, const char* pGameName, BOOL pPromptForPort = TRUE, unsigned pDefaultPort = MR_DEFAULT_NET_PORT, HWND* pModalessDlg = NULL, int pReturnMessage = 0);
       BOOL SlavePreConnect( HWND pWindow, CString& pGameName );

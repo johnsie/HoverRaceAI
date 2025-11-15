@@ -114,6 +114,11 @@ class MR_InternetRoom
          CString         mIPAddr;
          unsigned        mPort;
 
+         // Phase 4: Server-hosted race fields
+         BOOL            mServerHosted;
+         CString         mServerAddr;
+         unsigned        mServerPort;
+
       };
 
       static MR_InternetRoom* mThis;
@@ -173,6 +178,7 @@ class MR_InternetRoom
       BOOL AddUserOp( HWND pParentWindow );
       BOOL DelUserOp( HWND pParentWindow, BOOL pFastMode = FALSE );      
       BOOL AddGameOp( HWND pParentWindow, const char* pGameName, const char* pTrackName, int pNbLap, BOOL pAlllowWeapons, unsigned pPort );
+      BOOL AddGameHostedOp( HWND pParentWindow, const char* pGameName, const char* pTrackName, int pNbLap, BOOL pAlllowWeapons );
       BOOL DelGameOp( HWND pParentWindow );
       BOOL JoinGameOp( HWND pParentWindow, int pGameIndex );
       BOOL LeaveGameOp( HWND pParentWindow );

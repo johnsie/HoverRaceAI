@@ -8,6 +8,7 @@
 #define IDC_CLEAR                       3
 #define IDC_JOIN                        4
 #define IDC_TRACK_DESC                  5
+#define IDC_TRACK_DESC                  5
 #define IDI_HOVER_ICON                  101
 #define IDD_TCP_SERVER                  101
 #define IDD_SERVER_PORT                 102
@@ -113,6 +114,7 @@
 #define IDC_COMPANY                     1054
 #define IDC_DEMO                        1055
 #define IDC_WEAPONS                     1057
+#define IDC_ADD_SERVER                  1058
 #define IDC_ROOMLIST                    1059
 #define IDC_PUB                         1062
 #define IDC_PASSWORD                    1065

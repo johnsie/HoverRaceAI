@@ -1472,3 +1472,16 @@ void MR_NetworkSession::AddChatMessage( int pPlayerIndex, const char* pMessage, 
    mMessageStack[0].mBuffer += Ascii2Simple( '>' );
    mMessageStack[0].mBuffer += CString( pMessage, pMessageLen );
 }
+
+
+// Phase 4: Dual-mode networking support
+void MR_NetworkSession::SetConnectionMode( MR_ConnectionMode pMode, const char* pServerAddr, unsigned pServerPort )
+{
+   mNetInterface.SetConnectionMode( pMode, pServerAddr, pServerPort );
+}
+
+MR_ConnectionMode MR_NetworkSession::GetConnectionMode()const
+{
+   return mNetInterface.GetConnectionMode();
+}
+

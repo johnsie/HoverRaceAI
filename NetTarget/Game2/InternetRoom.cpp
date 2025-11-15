@@ -605,6 +605,7 @@ int MR_InternetRoom::ParseState( const char* pAnswer )
                      mGameList[ lEntry ].mNbLap    = 1;
                      mGameList[ lEntry ].mAllowWeapons = FALSE;
                      mGameList[ lEntry ].mPort         = (unsigned)-1;
+                     mGameList[ lEntry ].mServerHosted = FALSE;  // Phase 4: Initialize
                      mGameList[ lEntry ].mName         = GetLine( lLinePtr );
 
                      lLinePtr = GetNextLine( lLinePtr );
@@ -656,6 +657,20 @@ int MR_InternetRoom::ParseState( const char* pAnswer )
                                     }
                                  }
                               }
+                           }
+                        }
+
+                        // Phase 4: Check for SERVER_ADDR line (server-hosted race)
+                        lLinePtr = GetNextLine( lLinePtr );
+                        if( lLinePtr != NULL && !strncmp( lLinePtr, "SERVER_ADDR", 11 ) )
+                        {
+                           mGameList[ lEntry ].mServerHosted = TRUE;
+                           char lServerAddr[256];
+                           unsigned lServerPort;
+                           if( sscanf( GetLine( lLinePtr ), "SERVER_ADDR %255s:%u", lServerAddr, &lServerPort ) == 2 )
+                           {
+                              mGameList[ lEntry ].mServerAddr = lServerAddr;
+                              mGameList[ lEntry ].mServerPort = lServerPort;
                            }
                         }
                      }
@@ -1022,6 +1037,53 @@ BOOL MR_InternetRoom::AddGameOp( HWND pParentWindow, const char* pGameName, cons
 
    if( lReturnValue )
    { 
+      const char* lData = mOpRequest.GetBuffer();
+
+      while( (lData != NULL)&&strncmp( lData, "SUCCESS", 7 ) )
+      {
+         lData = GetNextLine( lData );
+      }
+      if( lData == NULL )
+      {
+         ASSERT( FALSE );
+         lReturnValue = FALSE;
+      }
+      else
+      {
+         lData = GetNextLine( lData );
+
+         sscanf( lData, "GAME_ID %d-%u", &mCurrentGameIndex, &mCurrentGameId );
+      }      
+   }
+
+   mOpRequest.Clear();
+
+   return lReturnValue;
+}
+
+// Phase 4: Server-hosted races
+BOOL MR_InternetRoom::AddGameHostedOp( HWND pParentWindow, const char* pGameName, const char* pTrackName, int pNbLap, BOOL pWeapons )
+{
+   BOOL lReturnValue = FALSE;
+
+   mThis = this;
+
+   mNetOpString.LoadString( IDS_IMR_ADD_GAME );
+
+   // Send ADD_GAME_HOSTED command to InternetRoom
+   mNetOpRequest.Format( "%s?=ADD_GAME_HOSTED%%%%%d-%u%%%%%s%%%%%s%%%%%d%%%%%d",
+                         (const char*)gServerList[gCurrentServerEntry].mURL,
+                         mCurrentUserIndex,
+                         mCurrentUserId,
+                         (const char*)MR_Pad( pGameName ),
+                         (const char*)MR_Pad( pTrackName ),
+                         pNbLap,
+                         pWeapons?1:0 );
+
+   lReturnValue = DialogBox( GetModuleHandle( NULL ), MAKEINTRESOURCE( IDD_NET_PROGRESS ), pParentWindow, FastNetOpCallBack )==IDOK;
+
+   if( lReturnValue )
+   {
       const char* lData = mOpRequest.GetBuffer();
 
       while( (lData != NULL)&&strncmp( lData, "SUCCESS", 7 ) )
@@ -2329,6 +2391,16 @@ BOOL CALLBACK MR_InternetRoom::RoomCallBack( HWND pWindow, UINT  pMsgId, WPARAM 
 
                            lCurrentTrack.Format( "%s  %d laps %s", (const char*)mThis->mGameList[lFocus].mTrack, mThis->mGameList[lFocus].mNbLap );
 
+                           // Phase 4: Check if this is a server-hosted race and set connection mode
+                           if( mThis->mGameList[lFocus].mServerHosted )
+                           {
+                              mThis->mSession->SetConnectionMode( MR_CONNECTION_SERVER_HOSTED, mThis->mGameList[lFocus].mServerAddr, mThis->mGameList[lFocus].mServerPort );
+                           }
+                           else
+                           {
+                              mThis->mSession->SetConnectionMode( MR_CONNECTION_PEER_TO_PEER );
+                           }
+
                            lSuccess = mThis->mSession->ConnectToServer( pWindow, mThis->mGameList[lFocus].mIPAddr, mThis->mGameList[lFocus].mPort, lCurrentTrack, &mThis->mModelessDlg, MRM_DLG_END_JOIN );
                         }
 
@@ -2385,6 +2457,38 @@ BOOL CALLBACK MR_InternetRoom::RoomCallBack( HWND pWindow, UINT  pMsgId, WPARAM 
                         }                        
                      }
                   }                                                                          
+               }
+               break;
+
+            case IDC_ADD_SERVER:
+               lReturnValue = TRUE;
+
+               if( mThis->mModelessDlg == NULL )
+               {
+                  BOOL lSuccess = FALSE;
+
+                  // Ask the user to select a track
+                  CString lCurrentTrack;
+                  int     lNbLap;
+                  BOOL    lAllowWeapons;
+
+                  lSuccess = MR_SelectTrack( pWindow, lCurrentTrack, lNbLap, lAllowWeapons, mThis->mAllowRegistred );
+
+                  if( lSuccess )
+                  {
+                     // Register to the RaceServer (server-hosted race)
+                     // Send ADD_GAME_HOSTED command to InternetRoom
+                     lSuccess = mThis->AddGameHostedOp( pWindow, lCurrentTrack, lCurrentTrack, lNbLap, lAllowWeapons );
+
+                     if( lSuccess )
+                     {
+                        // Game registered on server - tell user to start the game through the game list
+                        MessageBox( pWindow, 
+                                   "Race hosted on server.\n\nSelect it from the game list and click 'Join Game' to start.",
+                                   "Server-Hosted Race Created",
+                                   MB_OK | MB_ICONINFORMATION );
+                     }
+                  }
                }
                break;
 

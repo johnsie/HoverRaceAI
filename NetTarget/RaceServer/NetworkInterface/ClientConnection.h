@@ -1,0 +1,62 @@
+// ClientConnection.h : Per-player connection state
+
+#pragma once
+
+#define MR_MAX_PLAYER_NAME 20
+#define MR_CONNECTION_TIMEOUT 30000  // 30 seconds in milliseconds
+
+class ClientConnection
+{
+public:
+    ClientConnection();
+    ~ClientConnection();
+
+    // Connection identifiers
+    int mClientId;
+    char mPlayerName[MR_MAX_PLAYER_NAME + 1];
+    
+    // Network state
+    SOCKET mTcpSocket;
+    struct sockaddr_in mUdpAddr;
+    
+    // Race participation
+    int mRaceId;
+    
+    // Lag statistics
+    int mAvgLag;                      // Average latency in ms
+    int mMinLag;                      // Minimum latency in ms
+    int mNbLagTests;                  // Number of ping tests performed
+    int mTotalLag;                    // Sum for averaging
+
+    // Connection timestamps
+    time_t mConnectTime;
+    time_t mLastMessageTime;
+    
+    // State
+    BOOL mConnected;
+    BOOL mAuthenticated;
+
+    // Helper methods
+    BOOL IsAlive() const 
+    { 
+        return mConnected && (time(NULL) - mLastMessageTime < MR_CONNECTION_TIMEOUT / 1000); 
+    }
+
+    void UpdateLagStats(int pingMs)
+    {
+        mTotalLag += pingMs;
+        mNbLagTests++;
+        if (mMinLag == 0 || pingMs < mMinLag) {
+            mMinLag = pingMs;
+        }
+        mAvgLag = mTotalLag / mNbLagTests;
+    }
+
+    void ResetLagStats()
+    {
+        mAvgLag = 0;
+        mMinLag = 0;
+        mNbLagTests = 0;
+        mTotalLag = 0;
+    }
+};

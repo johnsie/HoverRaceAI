@@ -1,0 +1,53 @@
+// ServerSocket.h : TCP/UDP server socket for handling connections
+
+#pragma once
+
+#include "ClientConnection.h"
+
+class MR_RaceManager;  // Forward declaration
+
+class MR_ServerSocket
+{
+public:
+    MR_ServerSocket();
+    ~MR_ServerSocket();
+
+    // Initialize server on specified port
+    BOOL Initialize(unsigned port, int maxConnections = 40);
+
+    // Process incoming connections and messages
+    void ProcessEvents(MR_RaceManager* pRaceManager);
+
+    // Broadcast message to all players in a race
+    void BroadcastToRace(
+        int raceId,
+        const void* pMessageData,
+        int messageLength,
+        int excludeClientId = -1);
+
+    // Send message to specific player
+    void SendToPlayer(
+        int clientId,
+        const void* pMessageData,
+        int messageLength);
+
+    // Close a player connection
+    void CloseConnection(int clientId);
+
+    // Shutdown server
+    void Shutdown();
+
+private:
+    SOCKET mListenSocket;
+    SOCKET mDatagramSocket;
+    std::map<int, ClientConnection*> mConnections;
+    int mNextClientId;
+    int mMaxConnections;
+    unsigned mPort;
+
+    // Helper methods
+    void AcceptNewConnection();
+    void ReceiveFromClient(ClientConnection* pConn);
+    void ReceiveDatagram();
+    BOOL SetSocketOptions(SOCKET sock);
+};

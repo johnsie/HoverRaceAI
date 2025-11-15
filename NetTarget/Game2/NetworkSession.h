@@ -136,6 +136,10 @@ class MR_NetworkSession: public MR_ClientSession
 
       const MR_MainCharacter* GetPlayer( int pPlayerIndex )const;
 
+      // Phase 4: Dual-mode networking
+      void SetConnectionMode( MR_ConnectionMode pMode, const char* pServerAddr = NULL, unsigned pServerPort = 0 );
+      MR_ConnectionMode GetConnectionMode()const;
+
 };
 
 #endif
