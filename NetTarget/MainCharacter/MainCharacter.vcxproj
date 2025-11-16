@@ -34,11 +34,11 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <OutDir>c:\originalhr\HoverRace\Debug\</OutDir>
+    <OutDir>C:\originalhr2\HoverRaceAI\Debug\</OutDir>
     <IntDir>$(ProjectDir)Debug\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <OutDir>c:\originalhr\HoverRace\Release\</OutDir>
+    <OutDir>C:\originalhr2\HoverRaceAI\Release\</OutDir>
     <IntDir>$(ProjectDir)Release\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">

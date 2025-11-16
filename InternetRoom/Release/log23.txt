@@ -1,0 +1,474 @@
+IMR Init version 1.7.24 25-11-15_23:05:23
+DEBUG: Accepting new connections
+DEBUG: Processing query: (empty)
+DEBUG: About to send HTTP header
+DEBUG: gCurrentPort = 01001140, mPort = 340
+DEBUG: Sent first HTTP line
+DEBUG: Sent Content-Type header
+DEBUG: Sent blank line
+DEBUG: Checking if query is NULL
+DEBUG: No query string, this might be a server list request
+DEBUG: AcceptSockets complete
+DEBUG: Socket 0 has data, reading...
+DEBUG: Socket 0 read complete
+DEBUG: GetCmd() - Raw buffer (100 bytes, first 200 chars):
+GET /?=ADD_USER%%-1--2%%1%%0%%0%%john.mccourt HTTP/1.0\n\rAccept: */*\n\rUser-Agent: HoverRace/0.1\n\r\n\r\n\r
+DEBUG: Socket 0 query: =ADD_USER%%-1--2%%1%%0%%0%%john.mccourt
+DEBUG: Processing query: =ADD_USER%%-1--2%%1%%0%%0%%john.mccourt
+DEBUG: About to send HTTP header
+DEBUG: gCurrentPort = 01001140, mPort = 340
+DEBUG: Sent first HTTP line
+DEBUG: Sent Content-Type header
+DEBUG: Sent blank line
+DEBUG: Checking if query is NULL
+DEBUG: Extracted lOp = 'ADD_USER' from lQuery = '=ADD_USER -1--2 1 0 0 john.mccourt'
+DEBUG: Calling VerifyExpirations
+DEBUG: VerifyExpirations complete
+DEBUG: ADD_USER sscanf parsed 6 values from: =ADD_USER -1--2 1 0 0 john.mccourt
+DEBUG: ADD_USER calling AddUser with name=john.mccourt
+DEBUG: ADD_USER about to call AddUser
+DEBUG: ADD_USER returned from AddUser
+DEBUG: AcceptSockets complete
+DEBUG: Socket 0 has data, reading...
+DEBUG: Socket 0 read complete
+DEBUG: Socket 0 query: (null)
+DEBUG: Accepting new connections
+DEBUG: Processing query: (empty)
+DEBUG: About to send HTTP header
+DEBUG: gCurrentPort = 01001140, mPort = 320
+DEBUG: Sent first HTTP line
+DEBUG: Sent Content-Type header
+DEBUG: Sent blank line
+DEBUG: Checking if query is NULL
+DEBUG: No query string, this might be a server list request
+DEBUG: AcceptSockets complete
+DEBUG: Socket 0 has data, reading...
+DEBUG: Socket 0 read complete
+DEBUG: GetCmd() - Raw buffer (86 bytes, first 200 chars):
+GET /?=REFRESH%%0-0%%2000822686 HTTP/1.0\n\rAccept: */*\n\rUser-Agent: HoverRace/0.1\n\r\n\r\n\r
+DEBUG: Socket 0 query: =REFRESH%%0-0%%2000822686
+DEBUG: Processing query: =REFRESH%%0-0%%2000822686
+DEBUG: About to send HTTP header
+DEBUG: gCurrentPort = 01001140, mPort = 320
+DEBUG: Sent first HTTP line
+DEBUG: Sent Content-Type header
+DEBUG: Sent blank line
+DEBUG: Checking if query is NULL
+DEBUG: Extracted lOp = 'REFRESH' from lQuery = '=REFRESH 0-0 2000822686'
+DEBUG: Calling VerifyExpirations
+DEBUG: VerifyExpirations complete
+DEBUG: AcceptSockets complete
+DEBUG: Socket 0 has data, reading...
+DEBUG: Socket 0 read complete
+DEBUG: Socket 0 query: (null)
+DEBUG: Accepting new connections
+DEBUG: Processing query: (empty)
+DEBUG: About to send HTTP header
+DEBUG: gCurrentPort = 01001140, mPort = 344
+DEBUG: Sent first HTTP line
+DEBUG: Sent Content-Type header
+DEBUG: Sent blank line
+DEBUG: Checking if query is NULL
+DEBUG: No query string, this might be a server list request
+DEBUG: AcceptSockets complete
+DEBUG: Socket 0 has data, reading...
+DEBUG: Socket 0 read complete
+DEBUG: GetCmd() - Raw buffer (86 bytes, first 200 chars):
+GET /?=REFRESH%%0-0%%2000822686 HTTP/1.0\n\rAccept: */*\n\rUser-Agent: HoverRace/0.1\n\r\n\r\n\r
+DEBUG: Socket 0 query: =REFRESH%%0-0%%2000822686
+DEBUG: Processing query: =REFRESH%%0-0%%2000822686
+DEBUG: About to send HTTP header
+DEBUG: gCurrentPort = 01001140, mPort = 344
+DEBUG: Sent first HTTP line
+DEBUG: Sent Content-Type header
+DEBUG: Sent blank line
+DEBUG: Checking if query is NULL
+DEBUG: Extracted lOp = 'REFRESH' from lQuery = '=REFRESH 0-0 2000822686'
+DEBUG: Calling VerifyExpirations
+DEBUG: VerifyExpirations complete
+DEBUG: AcceptSockets complete
+DEBUG: Socket 0 has data, reading...
+DEBUG: Socket 0 read complete
+DEBUG: Socket 0 query: (null)
+DEBUG: Accepting new connections
+DEBUG: Processing query: (empty)
+DEBUG: About to send HTTP header
+DEBUG: gCurrentPort = 01001140, mPort = 332
+DEBUG: Sent first HTTP line
+DEBUG: Sent Content-Type header
+DEBUG: Sent blank line
+DEBUG: Checking if query is NULL
+DEBUG: No query string, this might be a server list request
+DEBUG: AcceptSockets complete
+DEBUG: Socket 0 has data, reading...
+DEBUG: Socket 0 read complete
+DEBUG: GetCmd() - Raw buffer (86 bytes, first 200 chars):
+GET /?=REFRESH%%0-0%%2000822686 HTTP/1.0\n\rAccept: */*\n\rUser-Agent: HoverRace/0.1\n\r\n\r\n\r
+DEBUG: Socket 0 query: =REFRESH%%0-0%%2000822686
+DEBUG: Processing query: =REFRESH%%0-0%%2000822686
+DEBUG: About to send HTTP header
+DEBUG: gCurrentPort = 01001140, mPort = 332
+DEBUG: Sent first HTTP line
+DEBUG: Sent Content-Type header
+DEBUG: Sent blank line
+DEBUG: Checking if query is NULL
+DEBUG: Extracted lOp = 'REFRESH' from lQuery = '=REFRESH 0-0 2000822686'
+DEBUG: Calling VerifyExpirations
+DEBUG: VerifyExpirations complete
+DEBUG: AcceptSockets complete
+DEBUG: Socket 0 has data, reading...
+DEBUG: Socket 0 read complete
+DEBUG: Socket 0 query: (null)
+DEBUG: Accepting new connections
+DEBUG: Processing query: (empty)
+DEBUG: About to send HTTP header
+DEBUG: gCurrentPort = 01001140, mPort = 348
+DEBUG: Sent first HTTP line
+DEBUG: Sent Content-Type header
+DEBUG: Sent blank line
+DEBUG: Checking if query is NULL
+DEBUG: No query string, this might be a server list request
+DEBUG: AcceptSockets complete
+DEBUG: Socket 0 has data, reading...
+DEBUG: Socket 0 read complete
+DEBUG: GetCmd() - Raw buffer (79 bytes, first 200 chars):
+GET /?=ADD_CHAT%%0-0%%Hi HTTP/1.0\n\rAccept: */*\n\rUser-Agent: HoverRace/0.1\n\r\n\r\n\r
+DEBUG: Socket 0 query: =ADD_CHAT%%0-0%%Hi
+DEBUG: Processing query: =ADD_CHAT%%0-0%%Hi
+DEBUG: About to send HTTP header
+DEBUG: gCurrentPort = 01001140, mPort = 348
+DEBUG: Sent first HTTP line
+DEBUG: Sent Content-Type header
+DEBUG: Sent blank line
+DEBUG: Checking if query is NULL
+DEBUG: Extracted lOp = 'ADD_CHAT' from lQuery = '=ADD_CHAT 0-0 Hi'
+DEBUG: Calling VerifyExpirations
+DEBUG: VerifyExpirations complete
+DEBUG: No explicit response sent, sending default SUCCESS
+DEBUG: AcceptSockets complete
+DEBUG: Socket 0 has data, reading...
+DEBUG: Socket 0 read complete
+DEBUG: Socket 0 query: (null)
+DEBUG: Accepting new connections
+DEBUG: Processing query: (empty)
+DEBUG: About to send HTTP header
+DEBUG: gCurrentPort = 01001140, mPort = 320
+DEBUG: Sent first HTTP line
+DEBUG: Sent Content-Type header
+DEBUG: Sent blank line
+DEBUG: Checking if query is NULL
+DEBUG: No query string, this might be a server list request
+DEBUG: AcceptSockets complete
+DEBUG: Socket 0 has data, reading...
+DEBUG: Socket 0 read complete
+DEBUG: GetCmd() - Raw buffer (86 bytes, first 200 chars):
+GET /?=REFRESH%%0-0%%2000822686 HTTP/1.0\n\rAccept: */*\n\rUser-Agent: HoverRace/0.1\n\r\n\r\n\r
+DEBUG: Socket 0 query: =REFRESH%%0-0%%2000822686
+DEBUG: Processing query: =REFRESH%%0-0%%2000822686
+DEBUG: About to send HTTP header
+DEBUG: gCurrentPort = 01001140, mPort = 320
+DEBUG: Sent first HTTP line
+DEBUG: Sent Content-Type header
+DEBUG: Sent blank line
+DEBUG: Checking if query is NULL
+DEBUG: Extracted lOp = 'REFRESH' from lQuery = '=REFRESH 0-0 2000822686'
+DEBUG: Calling VerifyExpirations
+DEBUG: VerifyExpirations complete
+DEBUG: AcceptSockets complete
+DEBUG: Socket 0 has data, reading...
+DEBUG: Socket 0 read complete
+DEBUG: Socket 0 query: (null)
+DEBUG: Accepting new connections
+DEBUG: Processing query: (empty)
+DEBUG: About to send HTTP header
+DEBUG: gCurrentPort = 01001140, mPort = 332
+DEBUG: Sent first HTTP line
+DEBUG: Sent Content-Type header
+DEBUG: Sent blank line
+DEBUG: Checking if query is NULL
+DEBUG: No query string, this might be a server list request
+DEBUG: AcceptSockets complete
+DEBUG: Socket 0 has data, reading...
+DEBUG: Socket 0 read complete
+DEBUG: GetCmd() - Raw buffer (86 bytes, first 200 chars):
+GET /?=REFRESH%%0-0%%2000822686 HTTP/1.0\n\rAccept: */*\n\rUser-Agent: HoverRace/0.1\n\r\n\r\n\r
+DEBUG: Socket 0 query: =REFRESH%%0-0%%2000822686
+DEBUG: Processing query: =REFRESH%%0-0%%2000822686
+DEBUG: About to send HTTP header
+DEBUG: gCurrentPort = 01001140, mPort = 332
+DEBUG: Sent first HTTP line
+DEBUG: Sent Content-Type header
+DEBUG: Sent blank line
+DEBUG: Checking if query is NULL
+DEBUG: Extracted lOp = 'REFRESH' from lQuery = '=REFRESH 0-0 2000822686'
+DEBUG: Calling VerifyExpirations
+DEBUG: VerifyExpirations complete
+DEBUG: AcceptSockets complete
+DEBUG: Socket 0 has data, reading...
+DEBUG: Socket 0 read complete
+DEBUG: Socket 0 query: (null)
+DEBUG: Accepting new connections
+DEBUG: Processing query: (empty)
+DEBUG: About to send HTTP header
+DEBUG: gCurrentPort = 01001140, mPort = 340
+DEBUG: Sent first HTTP line
+DEBUG: Sent Content-Type header
+DEBUG: Sent blank line
+DEBUG: Checking if query is NULL
+DEBUG: No query string, this might be a server list request
+DEBUG: AcceptSockets complete
+DEBUG: Socket 0 has data, reading...
+DEBUG: Socket 0 read complete
+DEBUG: GetCmd() - Raw buffer (86 bytes, first 200 chars):
+GET /?=REFRESH%%0-0%%2000822686 HTTP/1.0\n\rAccept: */*\n\rUser-Agent: HoverRace/0.1\n\r\n\r\n\r
+DEBUG: Socket 0 query: =REFRESH%%0-0%%2000822686
+DEBUG: Processing query: =REFRESH%%0-0%%2000822686
+DEBUG: About to send HTTP header
+DEBUG: gCurrentPort = 01001140, mPort = 340
+DEBUG: Sent first HTTP line
+DEBUG: Sent Content-Type header
+DEBUG: Sent blank line
+DEBUG: Checking if query is NULL
+DEBUG: Extracted lOp = 'REFRESH' from lQuery = '=REFRESH 0-0 2000822686'
+DEBUG: Calling VerifyExpirations
+DEBUG: VerifyExpirations complete
+DEBUG: AcceptSockets complete
+DEBUG: Socket 0 has data, reading...
+DEBUG: Socket 0 read complete
+DEBUG: Socket 0 query: (null)
+DEBUG: Accepting new connections
+DEBUG: Processing query: (empty)
+DEBUG: About to send HTTP header
+DEBUG: gCurrentPort = 01001140, mPort = 340
+DEBUG: Sent first HTTP line
+DEBUG: Sent Content-Type header
+DEBUG: Sent blank line
+DEBUG: Checking if query is NULL
+DEBUG: No query string, this might be a server list request
+DEBUG: AcceptSockets complete
+DEBUG: Socket 0 has data, reading...
+DEBUG: Socket 0 read complete
+DEBUG: GetCmd() - Raw buffer (86 bytes, first 200 chars):
+GET /?=REFRESH%%0-0%%2000822686 HTTP/1.0\n\rAccept: */*\n\rUser-Agent: HoverRace/0.1\n\r\n\r\n\r
+DEBUG: Socket 0 query: =REFRESH%%0-0%%2000822686
+DEBUG: Processing query: =REFRESH%%0-0%%2000822686
+DEBUG: About to send HTTP header
+DEBUG: gCurrentPort = 01001140, mPort = 340
+DEBUG: Sent first HTTP line
+DEBUG: Sent Content-Type header
+DEBUG: Sent blank line
+DEBUG: Checking if query is NULL
+DEBUG: Extracted lOp = 'REFRESH' from lQuery = '=REFRESH 0-0 2000822686'
+DEBUG: Calling VerifyExpirations
+DEBUG: VerifyExpirations complete
+DEBUG: AcceptSockets complete
+DEBUG: Socket 0 has data, reading...
+DEBUG: Socket 0 read complete
+DEBUG: Socket 0 query: (null)
+DEBUG: Accepting new connections
+DEBUG: Processing query: (empty)
+DEBUG: About to send HTTP header
+DEBUG: gCurrentPort = 01001140, mPort = 352
+DEBUG: Sent first HTTP line
+DEBUG: Sent Content-Type header
+DEBUG: Sent blank line
+DEBUG: Checking if query is NULL
+DEBUG: No query string, this might be a server list request
+DEBUG: AcceptSockets complete
+DEBUG: Socket 0 has data, reading...
+DEBUG: Socket 0 read complete
+DEBUG: GetCmd() - Raw buffer (79 bytes, first 200 chars):
+GET /?=ADD_CHAT%%0-0%%hi HTTP/1.0\n\rAccept: */*\n\rUser-Agent: HoverRace/0.1\n\r\n\r\n\r
+DEBUG: Socket 0 query: =ADD_CHAT%%0-0%%hi
+DEBUG: Processing query: =ADD_CHAT%%0-0%%hi
+DEBUG: About to send HTTP header
+DEBUG: gCurrentPort = 01001140, mPort = 352
+DEBUG: Sent first HTTP line
+DEBUG: Sent Content-Type header
+DEBUG: Sent blank line
+DEBUG: Checking if query is NULL
+DEBUG: Extracted lOp = 'ADD_CHAT' from lQuery = '=ADD_CHAT 0-0 hi'
+DEBUG: Calling VerifyExpirations
+DEBUG: VerifyExpirations complete
+DEBUG: No explicit response sent, sending default SUCCESS
+DEBUG: AcceptSockets complete
+DEBUG: Socket 0 has data, reading...
+DEBUG: Socket 0 read complete
+DEBUG: Socket 0 query: (null)
+DEBUG: Accepting new connections
+DEBUG: Processing query: (empty)
+DEBUG: About to send HTTP header
+DEBUG: gCurrentPort = 01001140, mPort = 340
+DEBUG: Sent first HTTP line
+DEBUG: Sent Content-Type header
+DEBUG: Sent blank line
+DEBUG: Checking if query is NULL
+DEBUG: No query string, this might be a server list request
+DEBUG: AcceptSockets complete
+DEBUG: Socket 0 has data, reading...
+DEBUG: Socket 0 read complete
+DEBUG: GetCmd() - Raw buffer (86 bytes, first 200 chars):
+GET /?=REFRESH%%0-0%%2000822686 HTTP/1.0\n\rAccept: */*\n\rUser-Agent: HoverRace/0.1\n\r\n\r\n\r
+DEBUG: Socket 0 query: =REFRESH%%0-0%%2000822686
+DEBUG: Processing query: =REFRESH%%0-0%%2000822686
+DEBUG: About to send HTTP header
+DEBUG: gCurrentPort = 01001140, mPort = 340
+DEBUG: Sent first HTTP line
+DEBUG: Sent Content-Type header
+DEBUG: Sent blank line
+DEBUG: Checking if query is NULL
+DEBUG: Extracted lOp = 'REFRESH' from lQuery = '=REFRESH 0-0 2000822686'
+DEBUG: Calling VerifyExpirations
+DEBUG: VerifyExpirations complete
+DEBUG: AcceptSockets complete
+DEBUG: Socket 0 has data, reading...
+DEBUG: Socket 0 read complete
+DEBUG: Socket 0 query: (null)
+DEBUG: Accepting new connections
+DEBUG: Processing query: (empty)
+DEBUG: About to send HTTP header
+DEBUG: gCurrentPort = 01001140, mPort = 356
+DEBUG: Sent first HTTP line
+DEBUG: Sent Content-Type header
+DEBUG: Sent blank line
+DEBUG: Checking if query is NULL
+DEBUG: No query string, this might be a server list request
+DEBUG: AcceptSockets complete
+DEBUG: Socket 0 has data, reading...
+DEBUG: Socket 0 read complete
+DEBUG: GetCmd() - Raw buffer (86 bytes, first 200 chars):
+GET /?=REFRESH%%0-0%%2000822686 HTTP/1.0\n\rAccept: */*\n\rUser-Agent: HoverRace/0.1\n\r\n\r\n\r
+DEBUG: Socket 0 query: =REFRESH%%0-0%%2000822686
+DEBUG: Processing query: =REFRESH%%0-0%%2000822686
+DEBUG: About to send HTTP header
+DEBUG: gCurrentPort = 01001140, mPort = 356
+DEBUG: Sent first HTTP line
+DEBUG: Sent Content-Type header
+DEBUG: Sent blank line
+DEBUG: Checking if query is NULL
+DEBUG: Extracted lOp = 'REFRESH' from lQuery = '=REFRESH 0-0 2000822686'
+DEBUG: Calling VerifyExpirations
+DEBUG: VerifyExpirations complete
+DEBUG: AcceptSockets complete
+DEBUG: Socket 0 has data, reading...
+DEBUG: Socket 0 read complete
+DEBUG: Socket 0 query: (null)
+DEBUG: Accepting new connections
+DEBUG: Processing query: (empty)
+DEBUG: About to send HTTP header
+DEBUG: gCurrentPort = 01001140, mPort = 344
+DEBUG: Sent first HTTP line
+DEBUG: Sent Content-Type header
+DEBUG: Sent blank line
+DEBUG: Checking if query is NULL
+DEBUG: No query string, this might be a server list request
+DEBUG: AcceptSockets complete
+DEBUG: Socket 0 has data, reading...
+DEBUG: Socket 0 read complete
+DEBUG: GetCmd() - Raw buffer (86 bytes, first 200 chars):
+GET /?=REFRESH%%0-0%%2000822686 HTTP/1.0\n\rAccept: */*\n\rUser-Agent: HoverRace/0.1\n\r\n\r\n\r
+DEBUG: Socket 0 query: =REFRESH%%0-0%%2000822686
+DEBUG: Processing query: =REFRESH%%0-0%%2000822686
+DEBUG: About to send HTTP header
+DEBUG: gCurrentPort = 01001140, mPort = 344
+DEBUG: Sent first HTTP line
+DEBUG: Sent Content-Type header
+DEBUG: Sent blank line
+DEBUG: Checking if query is NULL
+DEBUG: Extracted lOp = 'REFRESH' from lQuery = '=REFRESH 0-0 2000822686'
+DEBUG: Calling VerifyExpirations
+DEBUG: VerifyExpirations complete
+DEBUG: AcceptSockets complete
+DEBUG: Socket 0 has data, reading...
+DEBUG: Socket 0 read complete
+DEBUG: Socket 0 query: (null)
+DEBUG: Accepting new connections
+DEBUG: Processing query: (empty)
+DEBUG: About to send HTTP header
+DEBUG: gCurrentPort = 01001140, mPort = 332
+DEBUG: Sent first HTTP line
+DEBUG: Sent Content-Type header
+DEBUG: Sent blank line
+DEBUG: Checking if query is NULL
+DEBUG: No query string, this might be a server list request
+DEBUG: AcceptSockets complete
+DEBUG: Socket 0 has data, reading...
+DEBUG: Socket 0 read complete
+DEBUG: GetCmd() - Raw buffer (75 bytes, first 200 chars):
+GET /?=DEL_USER%%0-0 HTTP/1.0\n\rAccept: */*\n\rUser-Agent: HoverRace/0.1\n\r\n\r\n\r
+DEBUG: Socket 0 query: =DEL_USER%%0-0
+DEBUG: Processing query: =DEL_USER%%0-0
+DEBUG: About to send HTTP header
+DEBUG: gCurrentPort = 01001140, mPort = 332
+DEBUG: Sent first HTTP line
+DEBUG: Sent Content-Type header
+DEBUG: Sent blank line
+DEBUG: Checking if query is NULL
+DEBUG: Extracted lOp = 'DEL_USER' from lQuery = '=DEL_USER 0-0'
+DEBUG: Calling VerifyExpirations
+DEBUG: VerifyExpirations complete
+DEBUG: DEL_USER - index=0, id=0, calling DeleteUser
+DEBUG: DEL_USER complete
+DEBUG: No explicit response sent, sending default SUCCESS
+DEBUG: AcceptSockets complete
+DEBUG: Socket 0 has data, reading...
+DEBUG: Socket 0 read complete
+DEBUG: Socket 0 query: (null)
+IMR Init version 1.7.24 25-11-15_23:07:30
+DEBUG: Accepting new connections
+DEBUG: Processing query: (empty)
+DEBUG: About to send HTTP header
+DEBUG: gCurrentPort = 01001140, mPort = 260
+DEBUG: Sent first HTTP line
+DEBUG: Sent Content-Type header
+DEBUG: Sent blank line
+DEBUG: Checking if query is NULL
+DEBUG: No query string, this might be a server list request
+DEBUG: AcceptSockets complete
+DEBUG: Socket 0 has data, reading...
+DEBUG: Socket 0 read complete
+DEBUG: GetCmd() - Raw buffer (49 bytes, first 200 chars):
+GET /?=ADD_USER%-1--2%1%0%0%testuser HTTP/1.0\r\n\r\n
+DEBUG: Socket 0 query: =ADD_USER%-1--2%1%0%0%testuser
+DEBUG: Processing query: =ADD_USER%-1--2%1%0%0%testuser
+DEBUG: About to send HTTP header
+DEBUG: gCurrentPort = 01001140, mPort = 260
+DEBUG: Sent first HTTP line
+DEBUG: Sent Content-Type header
+DEBUG: Sent blank line
+DEBUG: Checking if query is NULL
+DEBUG: Extracted lOp = 'ADD_USER%-1--2%1%0%' from lQuery = '=ADD_USER%-1--2%1%0%0%testuser'
+DEBUG: Calling VerifyExpirations
+DEBUG: VerifyExpirations complete
+DEBUG: AcceptSockets complete
+DEBUG: Socket 0 has data, reading...
+DEBUG: Socket 0 read complete
+DEBUG: GetCmd() - Raw buffer (87 bytes, first 200 chars):
+GET /?=ADD_USER%-1--2%1%0%0%testuser[00]HTTP/1.0\r\n\r\nGET /?=ADD_CHAT%0-0%Hello HTTP/1.0\r\n\r\n
+DEBUG: Socket 0 query: (null)
+DEBUG: Processing query: (empty)
+DEBUG: About to send HTTP header
+DEBUG: gCurrentPort = 01001140, mPort = 260
+DEBUG: Sent first HTTP line
+DEBUG: Sent Content-Type header
+DEBUG: Sent blank line
+DEBUG: Checking if query is NULL
+DEBUG: No query string, this might be a server list request
+DEBUG: AcceptSockets complete
+DEBUG: Socket 0 has data, reading...
+DEBUG: Socket 0 read complete
+DEBUG: GetCmd() - Raw buffer (120 bytes, first 200 chars):
+GET /?=ADD_USER%-1--2%1%0%0%testuser[00]HTTP/1.0\r\n\r\nGET /?=ADD_CHAT%0-0%Hello HTTP/1.0\r\n\r\nGET /?=REFRESH%0-0%0 HTTP/1.0\r\n\r\n
+DEBUG: Socket 0 query: (null)
+DEBUG: Processing query: (empty)
+DEBUG: About to send HTTP header
+DEBUG: gCurrentPort = 01001140, mPort = 260
+DEBUG: Sent first HTTP line
+DEBUG: Sent Content-Type header
+DEBUG: Sent blank line
+DEBUG: Checking if query is NULL
+DEBUG: No query string, this might be a server list request
+DEBUG: AcceptSockets complete
+DEBUG: Socket 0 has data, reading...
+DEBUG: Socket 0 read complete
+DEBUG: Socket 0 query: (null)

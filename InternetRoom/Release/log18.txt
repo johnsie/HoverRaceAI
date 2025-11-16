@@ -1,0 +1,30 @@
+IMR Init version 1.7.24 25-11-15_22:43:19
+DEBUG: Accepting new connections
+DEBUG: Processing query: (empty)
+DEBUG: About to send HTTP header
+DEBUG: gCurrentPort = 00A61140, mPort = 328
+DEBUG: Sent first HTTP line
+DEBUG: Sent Content-Type header
+DEBUG: Sent blank line
+DEBUG: Checking if query is NULL
+DEBUG: No query string, this might be a server list request
+DEBUG: AcceptSockets complete
+DEBUG: Socket 0 has data, reading...
+DEBUG: Socket 0 read complete
+DEBUG: GetCmd() - Raw buffer (100 bytes, first 200 chars):
+GET /?=ADD_USER%%-1--2%%1%%0%%0%%john.mccourt HTTP/1.0\n\rAccept: */*\n\rUser-Agent: HoverRace/0.1\n\r\n\r\n\r
+DEBUG: Socket 0 query: =ADD_USER%%-1--2%%1%%0%%0%%john.mccourt
+DEBUG: Processing query: =ADD_USER%%-1--2%%1%%0%%0%%john.mccourt
+DEBUG: About to send HTTP header
+DEBUG: gCurrentPort = 00A61140, mPort = 328
+DEBUG: Sent first HTTP line
+DEBUG: Sent Content-Type header
+DEBUG: Sent blank line
+DEBUG: Checking if query is NULL
+DEBUG: Extracted lOp = 'ADD_USER' from lQuery = '=ADD_USER -1--2 1 0 0 john.mccourt'
+DEBUG: Calling VerifyExpirations
+DEBUG: VerifyExpirations complete
+DEBUG: AcceptSockets complete
+DEBUG: Socket 0 has data, reading...
+DEBUG: Socket 0 read complete
+DEBUG: Socket 0 query: (null)

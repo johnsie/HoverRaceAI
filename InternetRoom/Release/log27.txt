@@ -1,0 +1,439 @@
+IMR Init version 1.7.24 25-11-16_00:03:32
+DEBUG: About to enter while(1) loop
+DEBUG: Loop iteration starting
+DEBUG: Accepting new connections
+DEBUG: Loop iteration starting
+DEBUG: Socket 0 has data, reading...
+DEBUG: Socket 0 read complete
+DEBUG: Socket 0 query: =ADD_USER%%-1--2%%1%%0%%0%%john.mccourt
+DEBUG: Processing query
+DEBUG: Calling VerifyExpirations
+DEBUG: VerifyExpirations complete
+DEBUG: Closing socket 0
+DEBUG: Socket 0 closed, accepting new connections
+DEBUG: AcceptSockets complete
+DEBUG: Loop iteration starting
+DEBUG: Accepting new connections
+DEBUG: Loop iteration starting
+DEBUG: Socket 0 has data, reading...
+DEBUG: Socket 0 read complete
+DEBUG: Socket 0 query: =REFRESH%%0-1%%2
+DEBUG: Processing query
+DEBUG: Calling VerifyExpirations
+DEBUG: VerifyExpirations complete
+DEBUG: Closing socket 0
+DEBUG: Socket 0 closed, accepting new connections
+DEBUG: AcceptSockets complete
+DEBUG: Loop iteration starting
+DEBUG: Accepting new connections
+DEBUG: Loop iteration starting
+DEBUG: Socket 0 has data, reading...
+DEBUG: Socket 0 read complete
+DEBUG: Socket 0 query: =ADD_CHAT%%0-1%%test
+DEBUG: Processing query
+DEBUG: Calling VerifyExpirations
+DEBUG: VerifyExpirations complete
+DEBUG: Closing socket 0
+DEBUG: Socket 0 closed, accepting new connections
+DEBUG: AcceptSockets complete
+DEBUG: Loop iteration starting
+DEBUG: Accepting new connections
+DEBUG: Loop iteration starting
+DEBUG: Socket 0 has data, reading...
+DEBUG: Socket 0 read complete
+DEBUG: Socket 0 query: =REFRESH%%0-1%%2
+DEBUG: Processing query
+DEBUG: Calling VerifyExpirations
+DEBUG: VerifyExpirations complete
+DEBUG: Closing socket 0
+DEBUG: Socket 0 closed, accepting new connections
+DEBUG: AcceptSockets complete
+DEBUG: Loop iteration starting
+DEBUG: Accepting new connections
+DEBUG: Loop iteration starting
+DEBUG: Socket 0 has data, reading...
+DEBUG: Socket 0 read complete
+DEBUG: Socket 0 query: =REFRESH%%0-1%%3
+DEBUG: Processing query
+DEBUG: Calling VerifyExpirations
+DEBUG: VerifyExpirations complete
+DEBUG: Closing socket 0
+DEBUG: Socket 0 closed, accepting new connections
+DEBUG: AcceptSockets complete
+DEBUG: Loop iteration starting
+DEBUG: Accepting new connections
+DEBUG: Loop iteration starting
+DEBUG: Socket 0 has data, reading...
+DEBUG: Socket 0 read complete
+DEBUG: Socket 0 query: =REFRESH%%0-1%%3
+DEBUG: Processing query
+DEBUG: Calling VerifyExpirations
+DEBUG: VerifyExpirations complete
+DEBUG: Closing socket 0
+DEBUG: Socket 0 closed, accepting new connections
+DEBUG: AcceptSockets complete
+DEBUG: Loop iteration starting
+DEBUG: Accepting new connections
+DEBUG: Loop iteration starting
+DEBUG: Socket 0 has data, reading...
+DEBUG: Socket 0 read complete
+DEBUG: Socket 0 query: =REFRESH%%0-1%%3
+DEBUG: Processing query
+DEBUG: Calling VerifyExpirations
+DEBUG: VerifyExpirations complete
+DEBUG: Closing socket 0
+DEBUG: Socket 0 closed, accepting new connections
+DEBUG: AcceptSockets complete
+DEBUG: Loop iteration starting
+DEBUG: Accepting new connections
+DEBUG: Loop iteration starting
+DEBUG: Socket 0 has data, reading...
+DEBUG: Socket 0 read complete
+DEBUG: Socket 0 query: =REFRESH%%0-1%%3
+DEBUG: Processing query
+DEBUG: Calling VerifyExpirations
+DEBUG: VerifyExpirations complete
+DEBUG: Closing socket 0
+DEBUG: Socket 0 closed, accepting new connections
+DEBUG: AcceptSockets complete
+DEBUG: Loop iteration starting
+DEBUG: Accepting new connections
+DEBUG: Loop iteration starting
+DEBUG: Socket 0 has data, reading...
+DEBUG: Socket 0 read complete
+DEBUG: Socket 0 query: =REFRESH%%0-1%%3
+DEBUG: Processing query
+DEBUG: Calling VerifyExpirations
+DEBUG: VerifyExpirations complete
+DEBUG: Closing socket 0
+DEBUG: Socket 0 closed, accepting new connections
+DEBUG: AcceptSockets complete
+DEBUG: Loop iteration starting
+DEBUG: Accepting new connections
+DEBUG: Loop iteration starting
+DEBUG: Socket 0 has data, reading...
+DEBUG: Socket 0 read complete
+DEBUG: Socket 0 query: =REFRESH%%0-1%%3
+DEBUG: Processing query
+DEBUG: Calling VerifyExpirations
+DEBUG: VerifyExpirations complete
+DEBUG: Closing socket 0
+DEBUG: Socket 0 closed, accepting new connections
+DEBUG: AcceptSockets complete
+DEBUG: Loop iteration starting
+DEBUG: Accepting new connections
+DEBUG: Loop iteration starting
+DEBUG: Socket 0 has data, reading...
+DEBUG: Socket 0 read complete
+DEBUG: Socket 0 query: =REFRESH%%0-1%%3
+DEBUG: Processing query
+DEBUG: Calling VerifyExpirations
+DEBUG: VerifyExpirations complete
+DEBUG: Closing socket 0
+DEBUG: Socket 0 closed, accepting new connections
+DEBUG: AcceptSockets complete
+DEBUG: Loop iteration starting
+DEBUG: Accepting new connections
+DEBUG: Loop iteration starting
+DEBUG: Socket 0 has data, reading...
+DEBUG: Socket 0 read complete
+DEBUG: Socket 0 query: =REFRESH%%0-1%%3
+DEBUG: Processing query
+DEBUG: Calling VerifyExpirations
+DEBUG: VerifyExpirations complete
+DEBUG: Closing socket 0
+DEBUG: Socket 0 closed, accepting new connections
+DEBUG: AcceptSockets complete
+DEBUG: Loop iteration starting
+DEBUG: Accepting new connections
+DEBUG: Loop iteration starting
+DEBUG: Socket 0 has data, reading...
+DEBUG: Socket 0 read complete
+DEBUG: Socket 0 query: =REFRESH%%0-1%%3
+DEBUG: Processing query
+DEBUG: Calling VerifyExpirations
+DEBUG: VerifyExpirations complete
+DEBUG: Closing socket 0
+DEBUG: Socket 0 closed, accepting new connections
+DEBUG: AcceptSockets complete
+DEBUG: Loop iteration starting
+DEBUG: Accepting new connections
+DEBUG: Loop iteration starting
+DEBUG: Socket 0 has data, reading...
+DEBUG: Socket 0 read complete
+DEBUG: Socket 0 query: =DEL_USER%%0-1
+DEBUG: Processing query
+DEBUG: Calling VerifyExpirations
+DEBUG: VerifyExpirations complete
+DEBUG: DEL_USER - index=0, id=1, calling DeleteUser
+DEBUG: RemoveUser starting for user 0
+DEBUG: RemoveUser - setting expiration
+DEBUG: RemoveUser - expiration set
+DEBUG: RemoveUser - user 0 removed
+DEBUG: RemoveUser - cleaning up games
+DEBUG: RemoveUser - games cleaned
+DEBUG: RemoveUser complete for user 0
+DEBUG: DEL_USER complete
+DEBUG: Closing socket 0
+DEBUG: Socket 0 closed, accepting new connections
+DEBUG: AcceptSockets complete
+DEBUG: Loop iteration starting
+IMR Init version 1.7.24 25-11-16_00:12:45
+DEBUG: About to enter while(1) loop
+DEBUG: Loop iteration starting
+DEBUG: Accepting new connections
+DEBUG: Loop iteration starting
+DEBUG: Socket 0 has data, reading...
+DEBUG: Socket 0 read complete
+DEBUG: Socket 0 query: =ADD_USER%%-1--2%%1%%0%%0%%john.mccourt
+DEBUG: Processing query
+DEBUG: Calling VerifyExpirations
+DEBUG: VerifyExpirations complete
+DEBUG: Closing socket 0
+DEBUG: Socket 0 closed, accepting new connections
+DEBUG: AcceptSockets complete
+DEBUG: Loop iteration starting
+DEBUG: Accepting new connections
+DEBUG: Loop iteration starting
+DEBUG: Socket 0 has data, reading...
+DEBUG: Socket 0 read complete
+DEBUG: Socket 0 query: =REFRESH%%0-1%%2
+DEBUG: Processing query
+DEBUG: Calling VerifyExpirations
+DEBUG: VerifyExpirations complete
+DEBUG: Closing socket 0
+DEBUG: Socket 0 closed, accepting new connections
+DEBUG: AcceptSockets complete
+DEBUG: Loop iteration starting
+DEBUG: Accepting new connections
+DEBUG: Loop iteration starting
+DEBUG: Socket 0 has data, reading...
+DEBUG: Socket 0 read complete
+DEBUG: Socket 0 query: =ADD_CHAT%%0-1%%hi
+DEBUG: Processing query
+DEBUG: Calling VerifyExpirations
+DEBUG: VerifyExpirations complete
+DEBUG: Closing socket 0
+DEBUG: Socket 0 closed, accepting new connections
+DEBUG: AcceptSockets complete
+DEBUG: Loop iteration starting
+DEBUG: Accepting new connections
+DEBUG: Loop iteration starting
+DEBUG: Socket 0 has data, reading...
+DEBUG: Socket 0 read complete
+DEBUG: Socket 0 query: =REFRESH%%0-1%%2
+DEBUG: Processing query
+DEBUG: Calling VerifyExpirations
+DEBUG: VerifyExpirations complete
+DEBUG: Closing socket 0
+DEBUG: Socket 0 closed, accepting new connections
+DEBUG: AcceptSockets complete
+DEBUG: Loop iteration starting
+DEBUG: Accepting new connections
+DEBUG: Loop iteration starting
+DEBUG: Socket 0 has data, reading...
+DEBUG: Socket 0 read complete
+DEBUG: Socket 0 query: =REFRESH%%0-1%%3
+DEBUG: Processing query
+DEBUG: Calling VerifyExpirations
+DEBUG: VerifyExpirations complete
+DEBUG: Closing socket 0
+DEBUG: Socket 0 closed, accepting new connections
+DEBUG: AcceptSockets complete
+DEBUG: Loop iteration starting
+DEBUG: Accepting new connections
+DEBUG: Loop iteration starting
+DEBUG: Socket 0 has data, reading...
+DEBUG: Socket 0 read complete
+DEBUG: Socket 0 query: =REFRESH%%0-1%%3
+DEBUG: Processing query
+DEBUG: Calling VerifyExpirations
+DEBUG: VerifyExpirations complete
+DEBUG: Closing socket 0
+DEBUG: Socket 0 closed, accepting new connections
+DEBUG: AcceptSockets complete
+DEBUG: Loop iteration starting
+DEBUG: Accepting new connections
+DEBUG: Loop iteration starting
+DEBUG: Socket 0 has data, reading...
+DEBUG: Socket 0 read complete
+DEBUG: Socket 0 query: =REFRESH%%0-1%%3
+DEBUG: Processing query
+DEBUG: Calling VerifyExpirations
+DEBUG: VerifyExpirations complete
+DEBUG: Closing socket 0
+DEBUG: Socket 0 closed, accepting new connections
+DEBUG: AcceptSockets complete
+DEBUG: Loop iteration starting
+DEBUG: Accepting new connections
+DEBUG: Loop iteration starting
+DEBUG: Socket 0 has data, reading...
+DEBUG: Socket 0 read complete
+DEBUG: Socket 0 query: =REFRESH%%0-1%%3
+DEBUG: Processing query
+DEBUG: Calling VerifyExpirations
+DEBUG: VerifyExpirations complete
+DEBUG: Closing socket 0
+DEBUG: Socket 0 closed, accepting new connections
+DEBUG: AcceptSockets complete
+DEBUG: Loop iteration starting
+DEBUG: Accepting new connections
+DEBUG: Loop iteration starting
+DEBUG: Socket 0 has data, reading...
+DEBUG: Socket 0 read complete
+DEBUG: Socket 0 query: =REFRESH%%0-1%%3
+DEBUG: Processing query
+DEBUG: Calling VerifyExpirations
+DEBUG: VerifyExpirations complete
+DEBUG: Closing socket 0
+DEBUG: Socket 0 closed, accepting new connections
+DEBUG: AcceptSockets complete
+DEBUG: Loop iteration starting
+DEBUG: Accepting new connections
+DEBUG: Loop iteration starting
+DEBUG: Socket 0 has data, reading...
+DEBUG: Socket 0 read complete
+DEBUG: Socket 0 query: =DEL_USER%%0-1
+DEBUG: Processing query
+DEBUG: Calling VerifyExpirations
+DEBUG: VerifyExpirations complete
+DEBUG: DEL_USER - index=0, id=1, calling DeleteUser
+DEBUG: RemoveUser starting for user 0
+DEBUG: RemoveUser - setting expiration
+DEBUG: RemoveUser - expiration set
+DEBUG: RemoveUser - user 0 removed
+DEBUG: RemoveUser - cleaning up games
+DEBUG: RemoveUser - games cleaned
+DEBUG: RemoveUser complete for user 0
+DEBUG: DEL_USER complete
+DEBUG: Closing socket 0
+DEBUG: Socket 0 closed, accepting new connections
+DEBUG: AcceptSockets complete
+DEBUG: Loop iteration starting
+DEBUG: Socket 0 has data, reading...
+DEBUG: Socket 0 read complete
+DEBUG: Socket 0 query: =REFRESH%%0-1%%3
+DEBUG: Processing query
+DEBUG: Calling VerifyExpirations
+DEBUG: VerifyExpirations complete
+DEBUG: Closing socket 0
+DEBUG: Socket 0 closed, accepting new connections
+DEBUG: AcceptSockets complete
+DEBUG: Loop iteration starting
+DEBUG: Accepting new connections
+DEBUG: Loop iteration starting
+DEBUG: Socket 0 has data, reading...
+DEBUG: Socket 0 read complete
+DEBUG: Socket 0 query: =ADD_USER%%-1--2%%1%%0%%0%%john.mccourt
+DEBUG: Processing query
+DEBUG: Calling VerifyExpirations
+DEBUG: VerifyExpirations complete
+DEBUG: Closing socket 0
+DEBUG: Socket 0 closed, accepting new connections
+DEBUG: AcceptSockets complete
+DEBUG: Loop iteration starting
+DEBUG: Accepting new connections
+DEBUG: Loop iteration starting
+DEBUG: Socket 0 has data, reading...
+DEBUG: Socket 0 read complete
+DEBUG: Socket 0 query: =REFRESH%%0-2%%5
+DEBUG: Processing query
+DEBUG: Calling VerifyExpirations
+DEBUG: VerifyExpirations complete
+DEBUG: Closing socket 0
+DEBUG: Socket 0 closed, accepting new connections
+DEBUG: AcceptSockets complete
+DEBUG: Loop iteration starting
+DEBUG: Accepting new connections
+DEBUG: Loop iteration starting
+DEBUG: Socket 0 has data, reading...
+DEBUG: Socket 0 read complete
+DEBUG: Socket 0 query: =REFRESH%%0-2%%5
+DEBUG: Processing query
+DEBUG: Calling VerifyExpirations
+DEBUG: VerifyExpirations complete
+DEBUG: Closing socket 0
+DEBUG: Socket 0 closed, accepting new connections
+DEBUG: AcceptSockets complete
+DEBUG: Loop iteration starting
+DEBUG: Accepting new connections
+DEBUG: Loop iteration starting
+DEBUG: Socket 0 has data, reading...
+DEBUG: Socket 0 read complete
+DEBUG: Socket 0 query: =ADD_CHAT%%0-2%%dsdsadsa
+DEBUG: Processing query
+DEBUG: Calling VerifyExpirations
+DEBUG: VerifyExpirations complete
+DEBUG: Closing socket 0
+DEBUG: Socket 0 closed, accepting new connections
+DEBUG: AcceptSockets complete
+DEBUG: Loop iteration starting
+DEBUG: Accepting new connections
+DEBUG: Loop iteration starting
+DEBUG: Socket 0 has data, reading...
+DEBUG: Socket 0 read complete
+DEBUG: Socket 0 query: =REFRESH%%0-2%%5
+DEBUG: Processing query
+DEBUG: Calling VerifyExpirations
+DEBUG: VerifyExpirations complete
+DEBUG: Closing socket 0
+DEBUG: Socket 0 closed, accepting new connections
+DEBUG: AcceptSockets complete
+DEBUG: Loop iteration starting
+DEBUG: Accepting new connections
+DEBUG: Loop iteration starting
+DEBUG: Socket 0 has data, reading...
+DEBUG: Socket 0 read complete
+DEBUG: Socket 0 query: =REFRESH%%0-2%%6
+DEBUG: Processing query
+DEBUG: Calling VerifyExpirations
+DEBUG: VerifyExpirations complete
+DEBUG: Closing socket 0
+DEBUG: Socket 0 closed, accepting new connections
+DEBUG: AcceptSockets complete
+DEBUG: Loop iteration starting
+DEBUG: Accepting new connections
+DEBUG: Loop iteration starting
+DEBUG: Socket 0 has data, reading...
+DEBUG: Socket 0 read complete
+DEBUG: Socket 0 query: =REFRESH%%0-2%%6
+DEBUG: Processing query
+DEBUG: Calling VerifyExpirations
+DEBUG: VerifyExpirations complete
+DEBUG: Closing socket 0
+DEBUG: Socket 0 closed, accepting new connections
+DEBUG: AcceptSockets complete
+DEBUG: Loop iteration starting
+DEBUG: Accepting new connections
+DEBUG: Loop iteration starting
+DEBUG: Socket 0 has data, reading...
+DEBUG: Socket 0 read complete
+DEBUG: Socket 0 query: =REFRESH%%0-2%%6
+DEBUG: Processing query
+DEBUG: Calling VerifyExpirations
+DEBUG: VerifyExpirations complete
+DEBUG: Closing socket 0
+DEBUG: Socket 0 closed, accepting new connections
+DEBUG: AcceptSockets complete
+DEBUG: Loop iteration starting
+DEBUG: Accepting new connections
+DEBUG: Loop iteration starting
+DEBUG: Socket 0 has data, reading...
+DEBUG: Socket 0 read complete
+DEBUG: Socket 0 query: =DEL_USER%%0-2
+DEBUG: Processing query
+DEBUG: Calling VerifyExpirations
+DEBUG: VerifyExpirations complete
+DEBUG: DEL_USER - index=0, id=2, calling DeleteUser
+DEBUG: RemoveUser starting for user 0
+DEBUG: RemoveUser - setting expiration
+DEBUG: RemoveUser - expiration set
+DEBUG: RemoveUser - user 0 removed
+DEBUG: RemoveUser - cleaning up games
+DEBUG: RemoveUser - games cleaned
+DEBUG: RemoveUser complete for user 0
+DEBUG: DEL_USER complete
+DEBUG: Closing socket 0
+DEBUG: Socket 0 closed, accepting new connections
+DEBUG: AcceptSockets complete
+DEBUG: Loop iteration starting

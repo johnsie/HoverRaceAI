@@ -1,0 +1,152 @@
+IMR Init version 1.7.24 25-11-15_22:08:16
+DEBUG: About to enter while(1) loop
+DEBUG: Loop iteration starting
+DEBUG: Accepting new connections
+DEBUG: Processing query: (empty)
+DEBUG: About to send HTTP header
+DEBUG: gCurrentPort = 00DE1140, mPort = 336
+DEBUG: Sent first HTTP line
+DEBUG: Sent Content-Type header
+DEBUG: Sent blank line
+DEBUG: Checking if query is NULL
+DEBUG: No query string, this might be a server list request
+DEBUG: AcceptSockets complete
+DEBUG: Socket 1 became invalid, closing
+DEBUG: Socket 2 became invalid, closing
+DEBUG: Socket 3 became invalid, closing
+DEBUG: Socket 4 became invalid, closing
+DEBUG: Socket 5 became invalid, closing
+DEBUG: Socket 6 became invalid, closing
+DEBUG: Socket 7 became invalid, closing
+DEBUG: Socket 8 became invalid, closing
+DEBUG: Socket 9 became invalid, closing
+DEBUG: Socket 10 became invalid, closing
+DEBUG: Socket 11 became invalid, closing
+DEBUG: Socket 12 became invalid, closing
+DEBUG: Socket 13 became invalid, closing
+DEBUG: Socket 14 became invalid, closing
+DEBUG: Socket 15 became invalid, closing
+DEBUG: Socket 16 became invalid, closing
+DEBUG: Socket 17 became invalid, closing
+DEBUG: Socket 18 became invalid, closing
+DEBUG: Socket 19 became invalid, closing
+DEBUG: Socket 20 became invalid, closing
+DEBUG: Socket 21 became invalid, closing
+DEBUG: Socket 22 became invalid, closing
+DEBUG: Socket 23 became invalid, closing
+DEBUG: Socket 24 became invalid, closing
+DEBUG: Socket 25 became invalid, closing
+DEBUG: Socket 26 became invalid, closing
+DEBUG: Socket 27 became invalid, closing
+DEBUG: Socket 28 became invalid, closing
+DEBUG: Socket 29 became invalid, closing
+DEBUG: Socket 30 became invalid, closing
+DEBUG: Socket 31 became invalid, closing
+DEBUG: Socket 32 became invalid, closing
+DEBUG: Socket 33 became invalid, closing
+DEBUG: Socket 34 became invalid, closing
+DEBUG: Socket 35 became invalid, closing
+DEBUG: Socket 36 became invalid, closing
+DEBUG: Socket 37 became invalid, closing
+DEBUG: Socket 38 became invalid, closing
+DEBUG: Socket 39 became invalid, closing
+DEBUG: Loop iteration starting
+DEBUG: Socket 0 has data, reading...
+DEBUG: Socket 0 read complete
+DEBUG: GetCmd() - Raw buffer (100 bytes, first 200 chars):
+GET /?=ADD_USER%%-1--2%%1%%0%%0%%john.mccourt HTTP/1.0\n\rAccept: */*\n\rUser-Agent: HoverRace/0.1\n\r\n\r\n\r
+DEBUG: Socket 0 query: =ADD_USER%%-1--2%%1%%0%%0%%john.mccourt
+DEBUG: Processing query: =ADD_USER%%-1--2%%1%%0%%0%%john.mccourt
+DEBUG: About to send HTTP header
+DEBUG: gCurrentPort = 00DE1140, mPort = 336
+DEBUG: Sent first HTTP line
+DEBUG: Sent Content-Type header
+DEBUG: Sent blank line
+DEBUG: Checking if query is NULL
+DEBUG: Calling VerifyExpirations
+DEBUG: VerifyExpirations complete
+DEBUG: AcceptSockets complete
+DEBUG: Socket 1 became invalid, closing
+DEBUG: Socket 2 became invalid, closing
+DEBUG: Socket 3 became invalid, closing
+DEBUG: Socket 4 became invalid, closing
+DEBUG: Socket 5 became invalid, closing
+DEBUG: Socket 6 became invalid, closing
+DEBUG: Socket 7 became invalid, closing
+DEBUG: Socket 8 became invalid, closing
+DEBUG: Socket 9 became invalid, closing
+DEBUG: Socket 10 became invalid, closing
+DEBUG: Socket 11 became invalid, closing
+DEBUG: Socket 12 became invalid, closing
+DEBUG: Socket 13 became invalid, closing
+DEBUG: Socket 14 became invalid, closing
+DEBUG: Socket 15 became invalid, closing
+DEBUG: Socket 16 became invalid, closing
+DEBUG: Socket 17 became invalid, closing
+DEBUG: Socket 18 became invalid, closing
+DEBUG: Socket 19 became invalid, closing
+DEBUG: Socket 20 became invalid, closing
+DEBUG: Socket 21 became invalid, closing
+DEBUG: Socket 22 became invalid, closing
+DEBUG: Socket 23 became invalid, closing
+DEBUG: Socket 24 became invalid, closing
+DEBUG: Socket 25 became invalid, closing
+DEBUG: Socket 26 became invalid, closing
+DEBUG: Socket 27 became invalid, closing
+DEBUG: Socket 28 became invalid, closing
+DEBUG: Socket 29 became invalid, closing
+DEBUG: Socket 30 became invalid, closing
+DEBUG: Socket 31 became invalid, closing
+DEBUG: Socket 32 became invalid, closing
+DEBUG: Socket 33 became invalid, closing
+DEBUG: Socket 34 became invalid, closing
+DEBUG: Socket 35 became invalid, closing
+DEBUG: Socket 36 became invalid, closing
+DEBUG: Socket 37 became invalid, closing
+DEBUG: Socket 38 became invalid, closing
+DEBUG: Socket 39 became invalid, closing
+DEBUG: Loop iteration starting
+DEBUG: Socket 0 has data, reading...
+DEBUG: Socket 0 read complete
+DEBUG: Socket 0 query: (null)
+DEBUG: Socket 0 became invalid, closing
+DEBUG: Socket 1 became invalid, closing
+DEBUG: Socket 2 became invalid, closing
+DEBUG: Socket 3 became invalid, closing
+DEBUG: Socket 4 became invalid, closing
+DEBUG: Socket 5 became invalid, closing
+DEBUG: Socket 6 became invalid, closing
+DEBUG: Socket 7 became invalid, closing
+DEBUG: Socket 8 became invalid, closing
+DEBUG: Socket 9 became invalid, closing
+DEBUG: Socket 10 became invalid, closing
+DEBUG: Socket 11 became invalid, closing
+DEBUG: Socket 12 became invalid, closing
+DEBUG: Socket 13 became invalid, closing
+DEBUG: Socket 14 became invalid, closing
+DEBUG: Socket 15 became invalid, closing
+DEBUG: Socket 16 became invalid, closing
+DEBUG: Socket 17 became invalid, closing
+DEBUG: Socket 18 became invalid, closing
+DEBUG: Socket 19 became invalid, closing
+DEBUG: Socket 20 became invalid, closing
+DEBUG: Socket 21 became invalid, closing
+DEBUG: Socket 22 became invalid, closing
+DEBUG: Socket 23 became invalid, closing
+DEBUG: Socket 24 became invalid, closing
+DEBUG: Socket 25 became invalid, closing
+DEBUG: Socket 26 became invalid, closing
+DEBUG: Socket 27 became invalid, closing
+DEBUG: Socket 28 became invalid, closing
+DEBUG: Socket 29 became invalid, closing
+DEBUG: Socket 30 became invalid, closing
+DEBUG: Socket 31 became invalid, closing
+DEBUG: Socket 32 became invalid, closing
+DEBUG: Socket 33 became invalid, closing
+DEBUG: Socket 34 became invalid, closing
+DEBUG: Socket 35 became invalid, closing
+DEBUG: Socket 36 became invalid, closing
+DEBUG: Socket 37 became invalid, closing
+DEBUG: Socket 38 became invalid, closing
+DEBUG: Socket 39 became invalid, closing
+DEBUG: Loop iteration starting

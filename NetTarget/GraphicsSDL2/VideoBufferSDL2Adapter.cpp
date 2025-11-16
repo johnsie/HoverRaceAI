@@ -19,7 +19,7 @@ VideoBufferSDL2Adapter::~VideoBufferSDL2Adapter()
 bool VideoBufferSDL2Adapter::Initialize(void* windowHandle, int width, int height)
 {
     // Log to file for debugging
-    std::ofstream log("C:\\originalhr\\HoverRace\\Release\\sdl2_adapter_debug.log", std::ios::app);
+    std::ofstream log("C:\\originalhr2\\HoverRaceAI\\Release\\sdl2_adapter_debug.log", std::ios::app);
     log << "=== VideoBufferSDL2Adapter::Initialize called ===" << std::endl;
     log << "Width: " << width << ", Height: " << height << ", windowHandle: " << windowHandle << std::endl;
     log.flush();

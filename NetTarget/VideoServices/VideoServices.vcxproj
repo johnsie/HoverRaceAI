@@ -43,7 +43,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\GLEW\include;C:\SDL2\include;C:\originalhr\HoverRace\OpenAL;C:\originalhr\HoverRace\NetTarget\GraphicsSDL2;C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\GLEW\include;C:\SDL2\include;C:\originalhr2\HoverRaceAI\OpenAL;C:\originalhr2\HoverRaceAI\NetTarget\GraphicsSDL2;C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;MR_VIDEO_SERVICES;_HAVE_SDL2;_AFXDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <WarningLevel>Level4</WarningLevel><AdditionalOptions>/FS %(AdditionalOptions)</AdditionalOptions><CompileAs>Default</CompileAs>
     </ClCompile>
@@ -53,7 +53,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\GLEW\include;C:\SDL2\include;C:\originalhr\HoverRace\OpenAL;C:\originalhr\HoverRace\NetTarget\GraphicsSDL2;C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\GLEW\include;C:\SDL2\include;C:\originalhr2\HoverRaceAI\OpenAL;C:\originalhr2\HoverRaceAI\NetTarget\GraphicsSDL2;C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;MR_VIDEO_SERVICES;_HAVE_SDL2;_AFXDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <WarningLevel>Level4</WarningLevel><AdditionalOptions>/FS %(AdditionalOptions)</AdditionalOptions><CompileAs>Default</CompileAs>
     </ClCompile>

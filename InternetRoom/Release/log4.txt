@@ -1,0 +1,8 @@
+IMR Init version 1.7.24 25-11-15_21:42:27
+DEBUG: About to enter while(1) loop
+DEBUG: Loop iteration starting
+DEBUG: Accepting new connections
+DEBUG: Processing query: (empty)
+IMR Init version 1.7.24 25-11-15_21:49:07
+DEBUG: About to enter while(1) loop
+DEBUG: Loop iteration starting

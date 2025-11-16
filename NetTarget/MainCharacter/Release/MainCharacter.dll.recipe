@@ -2,16 +2,16 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>c:\originalhr\HoverRace\Release\Util.dll</FullPath>
+      <FullPath>C:\originalhr2\HoverRaceAI\Release\Util.dll</FullPath>
     </ProjectOutput>
     <ProjectOutput>
       <FullPath>C:\originalhr2\HoverRaceAI\Release\VideoServices.dll</FullPath>
     </ProjectOutput>
     <ProjectOutput>
-      <FullPath>c:\originalhr\HoverRace\Release\Model.dll</FullPath>
+      <FullPath>C:\originalhr2\HoverRaceAI\Release\Model.dll</FullPath>
     </ProjectOutput>
     <ProjectOutput>
-      <FullPath>c:\originalhr\HoverRace\Release\MainCharacter.dll</FullPath>
+      <FullPath>C:\originalhr2\HoverRaceAI\Release\MainCharacter.dll</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />
