@@ -2501,19 +2501,19 @@ BOOL CALLBACK MR_InternetRoom::RoomCallBack( HWND pWindow, UINT  pMsgId, WPARAM 
                      if( lSuccess )
                      {
                         // For server-hosted races, connect to the central RaceServer
-                     // The host joins as a player on the RaceServer (outiva.com:9600)
+                     // The host joins as a player on the RaceServer (31.125.225.86:9600)
                      CString lTrackName;
 
                         lTrackName.Format( "%s  %d laps %s", (const char*)lCurrentTrack, lNbLap, lAllowWeapons?"with weapons":"no weapons" );
 
                         // Set connection mode to server-hosted before connecting
-                        mThis->mSession->SetConnectionMode( MR_CONNECTION_SERVER_HOSTED, "outiva.com", 9600 );
+                        mThis->mSession->SetConnectionMode( MR_CONNECTION_SERVER_HOSTED, "31.125.225.86", 9600 );
 
                         // DEBUG: Confirm we're attempting server-hosted connection
-                        MessageBox( pWindow, "Attempting to connect to RaceServer on outiva.com:9600...", "Server-Hosted Race", MB_ICONINFORMATION|MB_OK|MB_APPLMODAL );
+                        MessageBox( pWindow, "Attempting to connect to RaceServer on 31.125.225.86:9600...", "Server-Hosted Race", MB_ICONINFORMATION|MB_OK|MB_APPLMODAL );
 
                         // Connect to RaceServer as a client (not as a peer master)
-                        lSuccess = mThis->mSession->ConnectToServer( pWindow, "outiva.com", 9600, (const char*)lTrackName, &mThis->mModelessDlg, MRM_DLG_END_ADD );                        if( !lSuccess )
+                        lSuccess = mThis->mSession->ConnectToServer( pWindow, "31.125.225.86", 9600, (const char*)lTrackName, &mThis->mModelessDlg, MRM_DLG_END_ADD );                        if( !lSuccess )
                         {
                            // Unregister Game
                            mThis->DelGameOp( pWindow );
