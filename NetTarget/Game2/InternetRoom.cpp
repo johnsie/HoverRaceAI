@@ -194,7 +194,10 @@ static BOOL FetchHTTPSContent(const char* pHost, const char* pPath, CString& pBu
    try {
       hInternet = InternetOpen("HoverRace/1.0", INTERNET_OPEN_TYPE_PRECONFIG, NULL, NULL, 0);
       if (!hInternet) {
-         OutputDebugString("FetchHTTPSContent: InternetOpen failed");
+         DWORD dwError = GetLastError();
+         char szBuffer[256];
+         sprintf(szBuffer, "FetchHTTPSContent: InternetOpen failed, error=%d", dwError);
+         OutputDebugString(szBuffer);
          return FALSE;
       }
 
@@ -204,13 +207,16 @@ static BOOL FetchHTTPSContent(const char* pHost, const char* pPath, CString& pBu
          INTERNET_DEFAULT_HTTPS_PORT,
          NULL,
          NULL,
-         INTERNET_SERVICE_HTTP,
+         INTERNET_SERVICE_HTTPS,
          0,
          0
       );
 
       if (!hConnection) {
-         OutputDebugString("FetchHTTPSContent: InternetConnect failed");
+         DWORD dwError = GetLastError();
+         char szBuffer[256];
+         sprintf(szBuffer, "FetchHTTPSContent: InternetConnect failed to %s, error=%d", pHost, dwError);
+         OutputDebugString(szBuffer);
          InternetCloseHandle(hInternet);
          return FALSE;
       }
@@ -228,7 +234,10 @@ static BOOL FetchHTTPSContent(const char* pHost, const char* pPath, CString& pBu
       );
 
       if (!hRequest) {
-         OutputDebugString("FetchHTTPSContent: HttpOpenRequest failed");
+         DWORD dwError = GetLastError();
+         char szBuffer[256];
+         sprintf(szBuffer, "FetchHTTPSContent: HttpOpenRequest failed for %s, error=%d", pPath, dwError);
+         OutputDebugString(szBuffer);
          InternetCloseHandle(hConnection);
          InternetCloseHandle(hInternet);
          return FALSE;
@@ -241,7 +250,10 @@ static BOOL FetchHTTPSContent(const char* pHost, const char* pPath, CString& pBu
       InternetSetOption(hRequest, INTERNET_OPTION_SECURITY_FLAGS, &dwFlags2, sizeof(dwFlags2));
 
       if (!HttpSendRequest(hRequest, NULL, 0, NULL, 0)) {
-         OutputDebugString("FetchHTTPSContent: HttpSendRequest failed");
+         DWORD dwError = GetLastError();
+         char szBuffer[256];
+         sprintf(szBuffer, "FetchHTTPSContent: HttpSendRequest failed, error=%d", dwError);
+         OutputDebugString(szBuffer);
          InternetCloseHandle(hRequest);
          InternetCloseHandle(hConnection);
          InternetCloseHandle(hInternet);
@@ -253,7 +265,9 @@ static BOOL FetchHTTPSContent(const char* pHost, const char* pPath, CString& pBu
       DWORD dwStatusLen = sizeof(dwStatus);
       if (HttpQueryInfo(hRequest, HTTP_QUERY_STATUS_CODE | HTTP_QUERY_FLAG_NUMBER, 
                        &dwStatus, &dwStatusLen, NULL)) {
-         OutputDebugString("FetchHTTPSContent: HTTP Status OK");
+         char szBuffer[256];
+         sprintf(szBuffer, "FetchHTTPSContent: HTTP Status=%d", dwStatus);
+         OutputDebugString(szBuffer);
       }
 
       pBuffer.Empty();

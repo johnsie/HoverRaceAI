@@ -1254,3 +1254,27 @@ InsertElement START: pElement=011B40B0, pRoom=0, mAllowRendering=1
   About to call MoveElement()
   MoveElement() succeeded
 InsertElement END: returning 011B3DE0
+InsertElement START: pElement=00A4FBB0, pRoom=0, mAllowRendering=1
+  Created new FreeElement: 00A4FAD8
+  About to call AddRenderer()
+  AddRenderer() succeeded
+  Set mElement pointer
+  About to call MoveElement()
+  MoveElement() succeeded
+InsertElement END: returning 00A4FAD8
+InsertElement START: pElement=00DA44D8, pRoom=0, mAllowRendering=1
+  Created new FreeElement: 05EBE8C8
+  About to call AddRenderer()
+  AddRenderer() succeeded
+  Set mElement pointer
+  About to call MoveElement()
+  MoveElement() succeeded
+InsertElement END: returning 05EBE8C8
+InsertElement START: pElement=00AEDEF8, pRoom=0, mAllowRendering=1
+  Created new FreeElement: 00AE33B8
+  About to call AddRenderer()
+  AddRenderer() succeeded
+  Set mElement pointer
+  About to call MoveElement()
+  MoveElement() succeeded
+InsertElement END: returning 00AE33B8
