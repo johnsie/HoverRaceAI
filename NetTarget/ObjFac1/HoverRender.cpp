@@ -70,7 +70,7 @@ MR_HoverRender::MR_HoverRender( const MR_ObjectFromFactoryId& pId )
    mActor0 = gObjectFactoryData->mResourceLib.GetActor( MR_ELECTRO_CAR );
    mActor1 = gObjectFactoryData->mResourceLib.GetActor( MR_HITECH_CAR );
    mActor2 = gObjectFactoryData->mResourceLib.GetActor( MR_BITURBO_CAR );
-
+   mActor3 = gObjectFactoryData->mResourceLib.GetActor( 19 );
    // DEFENSIVE: Initialize sound pointers - check for null before calling GetSound()
    auto lSoundBuf = gObjectFactoryData->mResourceLib.GetShortSound( MR_SND_LINE_CROSSING );
    mLineCrossingSound = (lSoundBuf != NULL) ? lSoundBuf->GetSound() : NULL;
@@ -154,21 +154,38 @@ void MR_HoverRender::Render( MR_3DViewPort* pDest,
    // DEFENSIVE: Validate all input parameters
    if( pDest == NULL ) return;
    
-   // CRITICAL FIX: ALWAYS use SAFE defaults for parameters
-   // Don't trust the passed-in values even if they look valid
-   // The crafts in this game are Models 0-2 and IDs are typically 0-15
-   // But corrupted memory can pass ANYTHING
+   // CRITICAL FIX: pModel parameter is actually the ACTOR RESOURCE ID (10, 11, 12, 19)
+   // NOT a model index (0-2). We need to map actor IDs to model indices.
+   // MainCharacter.cpp passes: Actor 10 (Electro), 11 (HiTech), 12 (BiTurbo), 19 (Eon)
+   // But HoverRender expects: Model 0 (Electro), 1 (HiTech), 2 (BiTurbo)
    
    // DEFAULT SAFE VALUES
-   int lModel = 0;        // Default to model 0 (basic craft)
+   int lModel = 0;        // Default to model 0 (Electro Car - Actor 10)
    int lHoverId = 0;      // Default to ID 0 (default cockpit)
    
-   // ONLY use pModel if it's in the EXACT valid range
-   if( pModel >= 0 && pModel <= 2 )
+   // MAP ACTOR RESOURCE IDs TO MODEL INDICES
+   if( pModel == 10 )
    {
-      lModel = pModel;    // Valid model - use it
+      lModel = 0;        // Electro Car
    }
-   // else: stick with default model 0
+   else if( pModel == 11 )
+   {
+      lModel = 1;        // HiTech Car
+   }
+   else if( pModel == 12 )
+   {
+      lModel = 2;        // BiTurbo Car
+   }
+   else if( pModel == 19 )
+   {
+      lModel = 3;        // Eon Craft (if supported)
+   }
+   else if( pModel >= 0 && pModel <= 3 )
+   {
+      // Fallback: if pModel is already a model index, use it directly
+      lModel = pModel;
+   }
+   // else: stick with default model 0 for any other invalid value
    
    // ONLY use pHoverId if it's in the EXACT valid range  
    if( pHoverId >= 0 && pHoverId <= 15 )
@@ -291,9 +308,13 @@ void MR_HoverRender::Render( MR_3DViewPort* pDest,
       {
          lActor = mActor2;
       }
+      else if( lModel == 3 )
+      {
+         lActor = mActor3;  // Eon Craft
+      }
       else
       {
-         lActor = mActor0;
+         lActor = mActor0;  // Default to Electro Car
       }
 
       // DEBUG: Log render calls to diagnose coloring issue
@@ -320,7 +341,7 @@ void MR_HoverRender::Render( MR_3DViewPort* pDest,
       if( lActor != NULL )
       {
          const MR_Bitmap* lCockpitBitmap = NULL;
-         if( pModel == 1 )
+         if( lModel == 1 )
          {
             lCockpitBitmap = mCockpitBitmap2[ pHoverId%10 ];
          }

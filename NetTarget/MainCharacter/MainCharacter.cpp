@@ -35,6 +35,7 @@
 #define MR_ELECTRO_CAR  10
 #define MR_HITECH_CAR   11
 #define MR_BITURBO_CAR  12
+#define MR_EON_CRAFT  19
 
 // Helper class to access ResActor internals
 static class MR_ResActorFriend
@@ -388,10 +389,10 @@ void MR_MainCharacter::Render( MR_3DViewPort* pDest, MR_SimulationTime /*pTime*/
    // Even if corrupted, the 3D view will handle it with frustum culling
    // We don't try to "fix" the position here - just render it
    
-   // DEFENSIVE: Validate mHoverModel is in range (0-2)
+   // DEFENSIVE: Validate mHoverModel is in range (0-3)
    // If corrupted, use default model 0
    int lSafeModel = mHoverModel;
-   if( lSafeModel < 0 || lSafeModel > 2 )
+   if( lSafeModel < 0 || lSafeModel > 3 )
    {
       lSafeModel = 0;  // Use default model instead of garbage
    }
@@ -404,6 +405,17 @@ void MR_MainCharacter::Render( MR_3DViewPort* pDest, MR_SimulationTime /*pTime*/
       lSafeHoverId = 0;  // Use default hover ID instead of garbage
    }
    
+   // Map model index (0-3) to actor resource IDs (10, 11, 12, 19)
+   int lActorId;
+   switch( lSafeModel )
+   {
+      case 0: lActorId = MR_ELECTRO_CAR; break;   // Actor 10
+      case 1: lActorId = MR_HITECH_CAR; break;    // Actor 11
+      case 2: lActorId = MR_BITURBO_CAR; break;   // Actor 12
+      case 3: lActorId = MR_EON_CRAFT; break;     // Actor 19
+      default: lActorId = MR_ELECTRO_CAR; break;  // Default to Electro Car
+   }
+   
    // DEBUG: Log sanitized values before calling renderer
    static int render_call_count = 0;
    if( render_call_count % 30 == 0 )
@@ -411,8 +423,8 @@ void MR_MainCharacter::Render( MR_3DViewPort* pDest, MR_SimulationTime /*pTime*/
       FILE* dbgLog = fopen("C:\\originalhr2\\HoverRaceAI\\Release\\Game2_MainCharacter_Render.log", "a");
       if( dbgLog )
       {
-         fprintf(dbgLog, "[Render #%d] mHoverModel=%d (sanitized to %d), mHoverId=%d (sanitized to %d), Pos=(%.0f,%.0f,%.0f)\n",
-            render_call_count, mHoverModel, lSafeModel, mHoverId, lSafeHoverId, mPosition.mX, mPosition.mY, mPosition.mZ);
+         fprintf(dbgLog, "[Render #%d] mHoverModel=%d (sanitized to %d), mapped to Actor %d, mHoverId=%d (sanitized to %d), Pos=(%.0f,%.0f,%.0f)\n",
+            render_call_count, mHoverModel, lSafeModel, lActorId, mHoverId, lSafeHoverId, mPosition.mX, mPosition.mY, mPosition.mZ);
          fflush(dbgLog);
          fclose(dbgLog);
       }
@@ -423,7 +435,7 @@ void MR_MainCharacter::Render( MR_3DViewPort* pDest, MR_SimulationTime /*pTime*/
    // Use MFC TRY/CATCH to catch BOTH SEH and C++ exceptions
    TRY
    {
-      mRenderer->Render( pDest, mPosition, mCabinOrientation, mMotorDisplay > 0, lSafeHoverId, lSafeModel );
+      mRenderer->Render( pDest, mPosition, mCabinOrientation, mMotorDisplay > 0, lSafeHoverId, lActorId );
    }
    CATCH_ALL(e)
    {
@@ -630,23 +642,66 @@ void MR_MainCharacter::SetControlState( int pState, MR_SimulationTime pTime )
 {
    int lState = pState;
 
-   // Set HoverType if race not started
+   // DEBUG: Log time value to see when car selection window is open
+   static int debugCallCount = 0;
+   if( debugCallCount % 30 == 0 || pTime < 100 )
+   {
+      FILE* dbgLog = fopen("C:\\originalhr2\\HoverRaceAI\\Release\\Game2_ControlState.log", "a");
+      if( dbgLog )
+      {
+         fprintf(dbgLog, "[SetControlState #%d] pTime=%d, pState=%d, mControlState=%d, mHoverModel=%d, eRight=%d, eLeft=%d\n",
+            debugCallCount, pTime, pState, mControlState, mHoverModel, (pState & eRight), (pState & eLeft));
+         fflush(dbgLog);
+         fclose(dbgLog);
+      }
+   }
+   debugCallCount++;
+
+   // Set HoverType if race not started (pTime < 0 means pre-race initialization)
+   // Car selection only allowed before game allows movement
    if( pTime < 0 )
    {
-      if( !(mControlState&(eRight|eLeft)) )
+      // Detect key press transitions (from not-pressed to pressed)
+      // This allows changing cars when keys are initially pressed
+      BOOL bRightPressed = (pState & eRight) && !(mControlState & eRight);
+      BOOL bLeftPressed = (pState & eLeft) && !(mControlState & eLeft);
+
+      if( bRightPressed )
       {
-
-         if( pState&eRight )
-         {
-            mHoverModel++;
+         int oldModel = mHoverModel;
+         mHoverModel++;
+         // Wrap model index to 0-3 range immediately
+         mHoverModel = ((mHoverModel % 4) + 4) % 4;
+         FILE* dbgLog2 = fopen("C:\\originalhr2\\HoverRaceAI\\Release\\Game2_ModelChange.log", "a");
+         if( dbgLog2 ) {
+            fprintf(dbgLog2, "[RightPressed] Model changed from %d to %d at pTime=%d\n", oldModel, mHoverModel, pTime);
+            fflush(dbgLog2);
+            fclose(dbgLog2);
          }
-         
-         if( pState &eLeft )
-         {
-            mHoverModel--;
+      }
+      
+      if( bLeftPressed )
+      {
+         int oldModel = mHoverModel;
+         mHoverModel--;
+         // Wrap model index to 0-3 range immediately
+         mHoverModel = ((mHoverModel % 4) + 4) % 4;
+         FILE* dbgLog2 = fopen("C:\\originalhr2\\HoverRaceAI\\Release\\Game2_ModelChange.log", "a");
+         if( dbgLog2 ) {
+            fprintf(dbgLog2, "[LeftPressed] Model changed from %d to %d at pTime=%d\n", oldModel, mHoverModel, pTime);
+            fflush(dbgLog2);
+            fclose(dbgLog2);
          }
-
-         mHoverModel = (mHoverModel+3)%3;
+      }
+   }
+   else if( debugCallCount % 60 == 0 && pTime >= 0 )
+   {
+      // Log when we transition OUT of pre-race phase
+      FILE* dbgLog2 = fopen("C:\\originalhr2\\HoverRaceAI\\Release\\Game2_ModelChange.log", "a");
+      if( dbgLog2 ) {
+         fprintf(dbgLog2, "[RaceStarted] pTime=%d (>= 0), Current mHoverModel=%d\n", pTime, mHoverModel);
+         fflush(dbgLog2);
+         fclose(dbgLog2);
       }
    }
 

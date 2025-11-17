@@ -184,8 +184,44 @@ BOOL CheckKeyState( int pKeyIndex )
    switch( KeyChoice[ pKeyIndex ].mControler )
    {
       case MR_KDB:
-         lReturnValue = GetAsyncKeyState( KeyChoice[ pKeyIndex ].mKeyValue );
+      {
+         // CRITICAL FIX: GetAsyncKeyState returns SHORT with high bit (0x8000) set if key is pressed
+         // Must test for the bit, not just assign directly to BOOL
+         SHORT keyState = GetAsyncKeyState( KeyChoice[ pKeyIndex ].mKeyValue );
+         lReturnValue = (keyState & 0x8000) != 0;
+         
+         // DEBUG: Log key press attempts
+         static int debugCount = 0;
+         static int focusLogCount = 0;
+         if( debugCount % 30 == 0 || lReturnValue )
+         {
+            FILE* dbgLog = fopen("C:\\originalhr2\\HoverRaceAI\\Release\\Game2_KeyState.log", "a");
+            if( dbgLog )
+            {
+               fprintf(dbgLog, "[CheckKeyState] Index=%d, KeyValue=%d, Raw=%d (0x%04X), Masked=%d, Return=%d\n",
+                  pKeyIndex, KeyChoice[ pKeyIndex ].mKeyValue, keyState, (unsigned short)keyState, (keyState & 0x8000), lReturnValue);
+               fflush(dbgLog);
+               fclose(dbgLog);
+            }
+         }
+         
+         // Log focus every 60 calls
+         if( focusLogCount % 60 == 0 )
+         {
+            HWND foreground = GetForegroundWindow();
+            HWND gameWindow = GetActiveWindow();
+            FILE* focusLog = fopen("C:\\originalhr2\\HoverRaceAI\\Release\\Game2_FocusState.log", "a");
+            if( focusLog )
+            {
+               fprintf(focusLog, "[FocusCheck] Foreground=%p, ActiveWindow=%p\n", foreground, gameWindow);
+               fflush(focusLog);
+               fclose(focusLog);
+            }
+         }
+         focusLogCount++;
+         debugCount++;
          break;
+      }
 
       case MR_JOY1:
          if( gFirstKDBResetJoy1 )
@@ -1802,8 +1838,9 @@ void MR_GameApp::ReadAssyncInputControler()
       
       // Check controls regardless of window focus for gameplay
       {
-         static BOOL  lFirstCall = TRUE;
-
+         // NOTE: Removed lFirstCall check - we need to process control input on EVERY frame,
+         // including frame 1, so that pre-race car selection works properly
+         
          int lControlState1 = 0;
          int lControlState2 = 0;
 
@@ -1917,14 +1954,8 @@ void MR_GameApp::ReadAssyncInputControler()
 
          }
 
-         if( lFirstCall )
-         {
-            lFirstCall = FALSE;
-         }
-         else
-         {
-            mCurrentSession->SetControlState( lControlState1, lControlState2 );
-         }
+         // ALWAYS call SetControlState - don't skip the first frame!
+         mCurrentSession->SetControlState( lControlState1, lControlState2 );
       }
    }
 }
