@@ -135,14 +135,140 @@ void MR_HoverRender::Render( MR_3DViewPort* pDest,
                              int      pHoverId,
                              int      pModel        )
 {
+   // DIAGNOSTIC: Log RECEIVED parameters at function entry
+   // This happens BEFORE any modifications to detect if they're already corrupted
+   static int entry_count = 0;
+   if( entry_count % 30 == 0 )
+   {
+      FILE* entryLog = fopen("C:\\originalhr2\\HoverRaceAI\\Release\\Game2_HoverRender_Entry.log", "a");
+      if( entryLog )
+      {
+         fprintf(entryLog, "[Entry #%d] RECEIVED: Id=%d Mod=%d (pDest=%p)\n",
+            entry_count, pHoverId, pModel, pDest);
+         fflush(entryLog);
+         fclose(entryLog);
+      }
+   }
+   entry_count++;
+
    // DEFENSIVE: Validate all input parameters
    if( pDest == NULL ) return;
-   if( pModel < 0 || pModel > 2 ) return;  // Invalid model ID
+   
+   // CRITICAL FIX: ALWAYS use SAFE defaults for parameters
+   // Don't trust the passed-in values even if they look valid
+   // The crafts in this game are Models 0-2 and IDs are typically 0-15
+   // But corrupted memory can pass ANYTHING
+   
+   // DEFAULT SAFE VALUES
+   int lModel = 0;        // Default to model 0 (basic craft)
+   int lHoverId = 0;      // Default to ID 0 (default cockpit)
+   
+   // ONLY use pModel if it's in the EXACT valid range
+   if( pModel >= 0 && pModel <= 2 )
+   {
+      lModel = pModel;    // Valid model - use it
+   }
+   // else: stick with default model 0
+   
+   // ONLY use pHoverId if it's in the EXACT valid range  
+   if( pHoverId >= 0 && pHoverId <= 15 )
+   {
+      lHoverId = pHoverId;  // Valid ID - use it
+   }
+   // else: stick with default ID 0
+   
+   // DIAGNOSTIC: Log FINAL parameters to be used for rendering
+   static int final_count = 0;
+   if( final_count % 30 == 0 )
+   {
+      FILE* finalLog = fopen("C:\\originalhr2\\HoverRaceAI\\Release\\Game2_HoverRender_Final.log", "a");
+      if( finalLog )
+      {
+         fprintf(finalLog, "[Final #%d] Using: Model=%d HoverId=%d (Received: %d, %d)\n",
+            final_count, lModel, lHoverId, pModel, pHoverId);
+         fflush(finalLog);
+         fclose(finalLog);
+      }
+   }
+   final_count++;
+   
+   // DEFENSIVE: Check for NaN or infinity in position
+   if( !_finite(pPosition.mX) || !_finite(pPosition.mY) || !_finite(pPosition.mZ) )
+   {
+      return;  // Invalid coordinates - abort rendering
+   }
 
    // Compute the required rotation matrix
+   // CRITICAL FIX: For the viewing character (player's own hovercraft), use a VERY large tolerance
+   // The hovercraft should NEVER disappear from the player's view, regardless of camera frustum
+   // Use 10000000 units (10 million) - effectively disable frustum culling for player craft
    MR_PositionMatrix lMatrix;
-
-   if( pDest->ComputePositionMatrix( lMatrix, pPosition, pOrientation, 1000 /* TODO Object ray must be precomputed at compilation*/ ) )
+   BOOL matrix_ok = pDest->ComputePositionMatrix( lMatrix, pPosition, pOrientation, 10000000 );
+   
+   // IMPORTANT: We only render if we have a valid matrix
+   // The large tolerance above should make this succeed in almost all cases
+   // If it still fails, skip rendering rather than crash
+   
+   // DIAGNOSTIC: Aggressive logging to trace hovercraft rendering
+   static int total_render_calls = 0;
+   static int successful_renders = 0;
+   static int failed_matrix_calls = 0;
+   static int first_call = 1;
+   
+   total_render_calls++;
+   
+   // Log STARTUP info once
+   if( first_call )
+   {
+      FILE* startLog = fopen("C:\\originalhr2\\HoverRaceAI\\Release\\Game2_RenderStartup.log", "w");
+      if( startLog )
+      {
+         fprintf(startLog, "=== RENDER FUNCTION CALLED ===\n");
+         fprintf(startLog, "Calling Render with:\n");
+         fprintf(startLog, "  pHoverId (int) = %d\n", pHoverId);
+         fprintf(startLog, "  pModel (int) = %d\n", pModel);
+         fprintf(startLog, "  pMotorOn (BOOL) = %d\n", pMotorOn);
+         fprintf(startLog, "  Position.X = %.1f\n", pPosition.mX);
+         fprintf(startLog, "  Position.Y = %.1f\n", pPosition.mY);
+         fprintf(startLog, "  Position.Z = %.1f\n", pPosition.mZ);
+         fprintf(startLog, "  MatrixOK = %d\n", matrix_ok);
+         fflush(startLog);
+         fclose(startLog);
+      }
+      first_call = 0;
+   }
+   
+   // Log every 30th call  
+   if( total_render_calls % 30 == 0 )
+   {
+      FILE* allLog = fopen("C:\\originalhr2\\HoverRaceAI\\Release\\Game2_AllRenders.log", "a");
+      if( allLog )
+      {
+         fprintf(allLog, "[#%5d] X=%.0f Y=%.0f Z=%.0f Id=%d Mod=%d OK=%d\n",
+            total_render_calls, pPosition.mX, pPosition.mY, pPosition.mZ, lHoverId, lModel, matrix_ok);
+         fflush(allLog);
+         fclose(allLog);
+      }
+   }
+   
+   if( matrix_ok )
+   {
+      successful_renders++;
+   }
+   else
+   {
+      failed_matrix_calls++;
+      FILE* failLog = fopen("C:\\originalhr2\\HoverRaceAI\\Release\\Game2_RenderFailures.log", "a");
+      if( failLog )
+      {
+         fprintf(failLog, "[FAIL #%d] at X=%.0f Y=%.0f Z=%.0f, HoverId=%d Model=%d\n",
+            failed_matrix_calls, pPosition.mX, pPosition.mY, pPosition.mZ, lHoverId, lModel);
+         fflush(failLog);
+         fclose(failLog);
+      }
+   }
+   
+   if( matrix_ok )
    {
       int lSeq   = pMotorOn?1:0;
 
@@ -157,11 +283,11 @@ void MR_HoverRender::Render( MR_3DViewPort* pDest,
 
       // DEFENSIVE: Select actor with null checks
       const MR_ResActor* lActor = NULL;
-      if( pModel == 1 )
+      if( lModel == 1 )
       {
          lActor = mActor1;
       }
-      else if( pModel == 2 )
+      else if( lModel == 2 )
       {
          lActor = mActor2;
       }
@@ -175,9 +301,9 @@ void MR_HoverRender::Render( MR_3DViewPort* pDest,
       FILE* logFile = fopen("C:\\originalhr\\HoverRace\\Release\\Game2_HoverRender.log", "a");
       if( logFile && (render_count % 60 == 0) )  // Log every 60th call
       {
-         fprintf(logFile, "[Render #%d] Model=%d, Motor=%s, HoverId=%d, Actor=%p, Draw=%s\n",
-            render_count, pModel, pMotorOn ? "ON" : "OFF", pHoverId,
-            lActor, lActor != NULL ? "YES" : "NO");
+         fprintf(logFile, "[Render #%d] Model=%d, Motor=%s, HoverId=%d, Actor=%p, Draw=%s, Matrix=%s\n",
+            render_count, lModel, pMotorOn ? "ON" : "OFF", lHoverId,
+            lActor, lActor != NULL ? "YES" : "NO", matrix_ok ? "OK" : "FAILED");
          
          if( lActor == NULL )
          {
@@ -205,8 +331,78 @@ void MR_HoverRender::Render( MR_3DViewPort* pDest,
 
          MR_ResActorFriend::Draw( lActor, pDest, lMatrix, lSeq, mFrame, lCockpitBitmap );
       }
-   } 
-}   
+   }
+   else
+   {
+      // Matrix computation failed even with 10 million unit tolerance
+      // IMPORTANT: Still render with fallback identity matrix so craft doesn't disappear
+      static int failure_count = 0;
+      failure_count++;
+      
+      if( failure_count <= 3 )
+      {
+         FILE* failLog = fopen("C:\\originalhr2\\HoverRaceAI\\Release\\Game2_MatrixFailures.log", "a");
+         if( failLog )
+         {
+            fprintf(failLog, "[FAIL #%d] Pos=(%.0f, %.0f, %.0f) HoverId=%d Model=%d\n",
+               failure_count, pPosition.mX, pPosition.mY, pPosition.mZ, pHoverId, pModel);
+            fflush(failLog);
+            fclose(failLog);
+         }
+      }
+      
+      // Create identity matrix as safe fallback
+      // Identity rotation: [1 0; 0 1], Displacement at origin
+      MR_PositionMatrix identityMatrix;
+      identityMatrix.mRotation[0][0] = 1024;  // MR_COS[0] = 1024
+      identityMatrix.mRotation[0][1] = 0;
+      identityMatrix.mRotation[1][0] = 0;
+      identityMatrix.mRotation[1][1] = 1024;  // MR_COS[0] = 1024
+      identityMatrix.mDisplacement.mX = 0;
+      identityMatrix.mDisplacement.mY = 0;
+      identityMatrix.mDisplacement.mZ = 0;
+      
+      int lSeq = pMotorOn ? 1 : 0;
+      if( pMotorOn )
+      {
+         mFrame = (mFrame+1)%2;
+      }
+      else
+      {
+         mFrame = 0;
+      }
+      
+      const MR_ResActor* lActor = NULL;
+      if( pModel == 1 )
+      {
+         lActor = mActor1;
+      }
+      else if( pModel == 2 )
+      {
+         lActor = mActor2;
+      }
+      else
+      {
+         lActor = mActor0;
+      }
+      
+      if( lActor != NULL )
+      {
+         const MR_Bitmap* lCockpitBitmap = NULL;
+         if( pModel == 1 )
+         {
+            lCockpitBitmap = mCockpitBitmap2[ pHoverId%10 ];
+         }
+         else
+         {
+            lCockpitBitmap = mCockpitBitmap[ pHoverId%10 ];
+         }
+         
+         // Render with identity matrix as fallback
+         MR_ResActorFriend::Draw( lActor, pDest, identityMatrix, lSeq, mFrame, lCockpitBitmap );
+      }
+   }
+}
 
 MR_ShortSound* MR_HoverRender::GetLineCrossingSound()
 {

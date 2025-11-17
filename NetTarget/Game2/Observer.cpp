@@ -650,12 +650,48 @@ void MR_Observer::Render3DView( const MR_ClientSession* pSession, const MR_MainC
    // STAGE 5.5: Render the viewing character (player's hovercraft)
    
    __try {
+      // DIAGNOSTIC: Log that we're about to render the viewing character
+      static int observer_render_count = 0;
+      if( observer_render_count % 60 == 0 )
+      {
+         FILE* obsLog = fopen("C:\\originalhr2\\HoverRaceAI\\Release\\Game2_Observer_Render.log", "a");
+         if( obsLog )
+         {
+            fprintf(obsLog, "[Observer #%d] About to call pViewingCharacter->Render()\n", observer_render_count);
+            fprintf(obsLog, "  pViewingCharacter=%p\n", pViewingCharacter);
+            fflush(obsLog);
+            fclose(obsLog);
+         }
+      }
+      observer_render_count++;
+
       // Call the character's render method to draw the player's hovercraft
       // Cast away const since Render() is not const (not ideal, but necessary for rendering)
       const_cast<MR_MainCharacter*>(pViewingCharacter)->Render( &m3DView, pTime );
+      
+      // DIAGNOSTIC: Log that render completed
+      static int observer_render_complete = 0;
+      if( observer_render_complete % 60 == 0 )
+      {
+         FILE* obsLog = fopen("C:\\originalhr2\\HoverRaceAI\\Release\\Game2_Observer_Render.log", "a");
+         if( obsLog )
+         {
+            fprintf(obsLog, "[Observer Complete #%d] pViewingCharacter->Render() returned\n", observer_render_complete);
+            fflush(obsLog);
+            fclose(obsLog);
+         }
+      }
+      observer_render_complete++;
    }
    __except(EXCEPTION_EXECUTE_HANDLER) {
-      // Exception handled silently
+      // Exception handled silently - but log it
+      FILE* obsLog = fopen("C:\\originalhr2\\HoverRaceAI\\Release\\Game2_Observer_Render.log", "a");
+      if( obsLog )
+      {
+         fprintf(obsLog, "[Observer EXCEPTION] pViewingCharacter->Render() threw exception\n");
+         fflush(obsLog);
+         fclose(obsLog);
+      }
    }
 
    // STAGE 6: Cockpit UI rendering (speed/fuel meters, weapons, map, text)
@@ -747,6 +783,46 @@ void MR_Observer::Render3DView( const MR_ClientSession* pSession, const MR_MainC
    }
    __except(EXCEPTION_EXECUTE_HANDLER) {
       // Weapon rendering crashed - continue
+   }
+
+   // STAGE 8: Map rendering (minimap in top-left corner)
+   __try {
+      if( pSession != NULL && pSession->GetMap() != NULL )
+      {
+         const MR_Sprite* lHoverIcons = mHoverIcons->GetSprite();
+         const MR_Sprite* lMapSprite = pSession->GetMap();
+         
+         int lMapScaling   = 1+(3*lMapSprite->GetItemHeight()/m3DView.GetYRes());
+         int lIconsScaling = 1+(14*lHoverIcons->GetItemHeight()/m3DView.GetYRes());
+         int lMargin       = lHoverIcons->GetItemHeight()/lIconsScaling;
+
+         // Draw minimap in top-left corner
+         lMapSprite->Blt( lMargin, lMargin, &m3DView, MR_Sprite::eLeft, MR_Sprite::eTop, 0, lMapScaling );
+
+         // Display player icons on the map
+         int lNbPlayers = pSession->GetNbPlayers();
+         int lNbIcons   = lHoverIcons->GetNbItem();
+
+         for( int lCounter = 0; (lCounter<20)&&(lNbPlayers>0); lCounter++ )
+         {
+            const MR_MainCharacter* lPlayer = pSession->GetPlayer( lCounter );
+
+            if( lPlayer != NULL )
+            {
+               lNbPlayers--;
+
+               int lX = lPlayer->mPosition.mX;
+               int lY = lPlayer->mPosition.mY;
+      
+               pSession->ConvertMapCoordinate( lX, lY, lMapScaling );
+
+               lHoverIcons->Blt( lX+lMargin, lY+lMargin, &m3DView, MR_Sprite::eCenter, MR_Sprite::eCenter, ( lPlayer->GetHoverId() )%lNbIcons, lIconsScaling );
+            }
+         }
+      }
+   }
+   __except(EXCEPTION_EXECUTE_HANDLER) {
+      // Map rendering crashed - continue without map
    }
 
    return;
@@ -960,41 +1036,44 @@ void MR_Observer::Render3DView( const MR_ClientSession* pSession, const MR_MainC
       lWeaponSprite->GetSprite()->Blt( lXRes, lYRes/16, &m3DView, MR_Sprite::eRight, MR_Sprite::eTop, lWeaponSpriteIndex, lMissileScaling );
    }
 
-   // Map
-
-   if( pSession->GetMap() !=NULL )
+   // Map - Always try to render, even if GetMap is NULL (2D debug view should still show)
+   if( pSession != NULL )
    {
-      const MR_Sprite* lHoverIcons = mHoverIcons->GetSprite();
-
-      int lMapScaling   = 1+(3*pSession->GetMap()->GetItemHeight()/lYRes);
-      int lIconsScaling = 1+(14*lHoverIcons->GetItemHeight()/lYRes);
-      int lMargin       = lHoverIcons->GetItemHeight()/lIconsScaling;
-
-      pSession->GetMap()->Blt( lMargin, lMargin, &m3DView, MR_Sprite::eLeft, MR_Sprite::eTop, 0, lMapScaling );
-
-      // display all the car icons
-      int lNbPlayers = pSession->GetNbPlayers();
-      int lNbIcons   = lHoverIcons->GetNbItem();
-
-      for( int lCounter = 0; (lCounter<20)&&(lNbPlayers>0); lCounter++ )
+      // Try to render the minimap sprite if available
+      if( pSession->GetMap() !=NULL )
       {
-         int lX;
-         int lY;
-         
-         const MR_MainCharacter* lPlayer = pSession->GetPlayer( lCounter );
+         const MR_Sprite* lHoverIcons = mHoverIcons->GetSprite();
 
-         if( lPlayer != NULL )
+         int lMapScaling   = 1+(3*pSession->GetMap()->GetItemHeight()/lYRes);
+         int lIconsScaling = 1+(14*lHoverIcons->GetItemHeight()/lYRes);
+         int lMargin       = lHoverIcons->GetItemHeight()/lIconsScaling;
+
+         pSession->GetMap()->Blt( lMargin, lMargin, &m3DView, MR_Sprite::eLeft, MR_Sprite::eTop, 0, lMapScaling );
+
+         // display all the car icons
+         int lNbPlayers = pSession->GetNbPlayers();
+         int lNbIcons   = lHoverIcons->GetNbItem();
+
+         for( int lCounter = 0; (lCounter<20)&&(lNbPlayers>0); lCounter++ )
          {
-            lNbPlayers--;
+            int lX;
+            int lY;
+            
+            const MR_MainCharacter* lPlayer = pSession->GetPlayer( lCounter );
 
-            lX = lPlayer->mPosition.mX;
-            lY = lPlayer->mPosition.mY;
-   
-            pSession->ConvertMapCoordinate( lX, lY, lMapScaling );
+            if( lPlayer != NULL )
+            {
+               lNbPlayers--;
 
-            lHoverIcons->Blt( lX+lMargin, lY+lMargin, &m3DView, MR_Sprite::eCenter, MR_Sprite::eCenter, ( lPlayer->GetHoverId() )%lNbIcons, lIconsScaling );
-         }
-      }   
+               lX = lPlayer->mPosition.mX;
+               lY = lPlayer->mPosition.mY;
+      
+               pSession->ConvertMapCoordinate( lX, lY, lMapScaling );
+
+               lHoverIcons->Blt( lX+lMargin, lY+lMargin, &m3DView, MR_Sprite::eCenter, MR_Sprite::eCenter, ( lPlayer->GetHoverId() )%lNbIcons, lIconsScaling );
+            }
+         }   
+      }
    }
 
    // Print text
@@ -1442,6 +1521,9 @@ void MR_Observer::RenderFloorOrCeiling( const MR_Level* pLevel, const MR_Section
 
 void MR_Observer::RenderDebugDisplay( MR_VideoBuffer* pDest, const MR_ClientSession* pSession, const MR_MainCharacter* pViewingCharacter, MR_SimulationTime pTime, const MR_UInt8* pBackImage )
 {
+   // Debug view - displays wireframe and 2D debug information
+   // This is only called when mCurrentMode == eDebugView (not during normal gameplay)
+   
    int lXRes    = pDest->GetXRes();
    int lYRes    = pDest->GetYRes();
    int lYOffset = 0;
@@ -1458,41 +1540,19 @@ void MR_Observer::RenderDebugDisplay( MR_VideoBuffer* pDest, const MR_ClientSess
          break;
    }
 
-
-
-   // New layout: Main 3D view on left, mini-map on right
-   // 3D View takes up most of the screen
-   // TEMP: Give 3D view full width to test if rendering respects viewport boundaries
-   m3DView.Setup(        pDest, 0,         lYOffset,        lXRes, lYRes, mApperture );
+   // Setup viewports for debug display
+   mWireFrameView.Setup( pDest, 0, lYOffset, lXRes/2, lYRes, mApperture );
+   m2DDebugView.Setup(   pDest, lXRes/2, lYOffset, lXRes/2, lYRes, mApperture );
    
-   // Mini-map in the top-right corner (160x160 pixels)
-   // TEMP: Disabled minimap during testing
-   // m2DDebugView.Setup(   pDest, lXRes-160, lYOffset,        160, 160, mApperture );
-   
-   // DIAGNOSTIC: Draw test line at actual buffer width to verify clipping boundaries
-   // This should show us the actual usable width
-   pDest->DrawHorizontalLine(10, 0, lXRes-1, 255);  // White line at expected width (942px)
-   
-   // Wire-frame disabled for now to show full 3D view
-   // mWireFrameView.Setup( pDest, 0,       lYOffset        , lXRes/2, lYRes/2, mApperture );
-
-   // Always try to render if we have valid level data
    const MR_Level* lLevel = pSession->GetCurrentLevel();
    
    if( lLevel != NULL )
    {
-      // Always render the 2D minimap (shows track layout)
-      Render2DDebugView( pDest, lLevel, pViewingCharacter );
+      // Left side: wireframe view
+      RenderWireFrameView( lLevel, pViewingCharacter );
       
-      // Render 3D view (main display)
-      if( pViewingCharacter->mRoom != -1 || pViewingCharacter->mRoom >= -10 )
-      {
-         Render3DView( pSession, pViewingCharacter, pTime, pBackImage );
-      }
-      else
-      {
-         // If character is in truly invalid room, still try rendering
-      }
+      // Right side: 2D debug view  
+      Render2DDebugView( pDest, lLevel, pViewingCharacter );
    }
 
 }
@@ -1588,12 +1648,17 @@ void MR_Observer::RenderNormalDisplay( MR_VideoBuffer* pDest, const MR_ClientSes
    {
    }
 
-   if( pViewingCharacter->mRoom != -1 )
+   // CRITICAL FIX: Always render the viewing character, even if mRoom is invalid (-1)
+   // The player should ALWAYS see their own hovercraft, regardless of room state
+   // This prevents the craft from disappearing in certain track sections
    {
-      // Call helper function that uses SEH for exception handling
       logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_Render_Trace.log", "a");
       if(logFile) { 
-         fprintf(logFile, "[Render Frame %d] Room check PASSED (room=%d), calling CallRender3DViewSafe\n", render_frame_count, pViewingCharacter->mRoom);
+         if(pViewingCharacter->mRoom != -1) {
+            fprintf(logFile, "[Render Frame %d] Room check PASSED (room=%d), calling CallRender3DViewSafe\n", render_frame_count, pViewingCharacter->mRoom);
+         } else {
+            fprintf(logFile, "[Render Frame %d] Room is INVALID (-1), but still rendering viewing character\n", render_frame_count);
+         }
          fflush(logFile); fclose(logFile); 
       }
       CallRender3DViewSafe( pSession, pViewingCharacter, pTime, pBackImage );
@@ -1601,14 +1666,6 @@ void MR_Observer::RenderNormalDisplay( MR_VideoBuffer* pDest, const MR_ClientSes
       logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_Render_Trace.log", "a");
       if(logFile) { 
          fprintf(logFile, "[Render Frame %d] CallRender3DViewSafe returned\n", render_frame_count);
-         fflush(logFile); fclose(logFile); 
-      }
-   }
-   else
-   {
-      logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_Render_Trace.log", "a");
-      if(logFile) { 
-         fprintf(logFile, "[Render Frame %d] Room check FAILED (room=%d) - no rendering\n", render_frame_count, pViewingCharacter->mRoom);
          fflush(logFile); fclose(logFile); 
       }
    }

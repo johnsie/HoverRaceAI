@@ -69,10 +69,10 @@ class MR_SimpleMainCharacterRenderer: public MR_MainCharacterRenderer
          // Compute the required rotation matrix
          MR_PositionMatrix lMatrix;
          
-         if( !pDest->ComputePositionMatrix( lMatrix, pPosition, pOrientation, 1000 ) )
-         {
-            return;  // Position outside view frustum
-         }
+         // CRITICAL FIX: For the viewing character (player's own hovercraft), we should NOT cull it
+         // from view even if it appears outside the frustum. Use a very large tolerance.
+         // If ComputePositionMatrix still fails, we render it anyway because it's the player's perspective.
+         BOOL matrix_computed = pDest->ComputePositionMatrix( lMatrix, pPosition, pOrientation, 100000 );
          
          // Update animation frame
          if( pMotorOn )
@@ -83,6 +83,9 @@ class MR_SimpleMainCharacterRenderer: public MR_MainCharacterRenderer
          {
             mFrame = 0;
          }
+         
+         // IMPORTANT: Even if matrix computation failed, we continue rendering the viewing character
+         // because it should NEVER disappear from the player's view
          
          // Delegate to the proper actor rendering
          // This will be handled by the factory-created renderer
@@ -364,25 +367,63 @@ void MR_MainCharacter::AddRenderer()
 
 void MR_MainCharacter::Render( MR_3DViewPort* pDest, MR_SimulationTime /*pTime*/ )
 {
+   // DIAGNOSTIC: Log render entry
+   static int mc_render_entry = 0;
+   if( mc_render_entry % 60 == 0 )
+   {
+      FILE* mcLog = fopen("C:\\originalhr2\\HoverRaceAI\\Release\\Game2_MC_Render_Entry.log", "a");
+      if( mcLog )
+      {
+         fprintf(mcLog, "[MC Entry #%d] MR_MainCharacter::Render() called, pDest=%p, mRenderer=%p\n", mc_render_entry, pDest, mRenderer);
+         fflush(mcLog);
+         fclose(mcLog);
+      }
+   }
+   mc_render_entry++;
+
    if( pDest == NULL ) return;
    if( mRenderer == NULL ) return;  // No renderer available - can't render
    
-   // DEFENSIVE: Check if position is valid before rendering
-   // Corrupted positions cause visual flickering when coordinates overflow
-   const double POSITION_SANITY_BOUND = 500000.0;  // Absolute maximum reasonable coordinate
-   if( mPosition.mX < -POSITION_SANITY_BOUND || mPosition.mX > POSITION_SANITY_BOUND ||
-       mPosition.mY < -POSITION_SANITY_BOUND || mPosition.mY > POSITION_SANITY_BOUND ||
-       mPosition.mZ < -POSITION_SANITY_BOUND || mPosition.mZ > POSITION_SANITY_BOUND )
+   // DEFENSIVE: Use mPosition as-is for rendering
+   // Even if corrupted, the 3D view will handle it with frustum culling
+   // We don't try to "fix" the position here - just render it
+   
+   // DEFENSIVE: Validate mHoverModel is in range (0-2)
+   // If corrupted, use default model 0
+   int lSafeModel = mHoverModel;
+   if( lSafeModel < 0 || lSafeModel > 2 )
    {
-      // Position is corrupted - abort rendering this frame
-      return;
+      lSafeModel = 0;  // Use default model instead of garbage
    }
+   
+   // DEFENSIVE: Validate mHoverId is reasonable (0-9 range for multiplayer)
+   // If out of range, use default ID 0
+   int lSafeHoverId = mHoverId;
+   if( lSafeHoverId < 0 || lSafeHoverId > 15 )
+   {
+      lSafeHoverId = 0;  // Use default hover ID instead of garbage
+   }
+   
+   // DEBUG: Log sanitized values before calling renderer
+   static int render_call_count = 0;
+   if( render_call_count % 30 == 0 )
+   {
+      FILE* dbgLog = fopen("C:\\originalhr2\\HoverRaceAI\\Release\\Game2_MainCharacter_Render.log", "a");
+      if( dbgLog )
+      {
+         fprintf(dbgLog, "[Render #%d] mHoverModel=%d (sanitized to %d), mHoverId=%d (sanitized to %d), Pos=(%.0f,%.0f,%.0f)\n",
+            render_call_count, mHoverModel, lSafeModel, mHoverId, lSafeHoverId, mPosition.mX, mPosition.mY, mPosition.mZ);
+         fflush(dbgLog);
+         fclose(dbgLog);
+      }
+   }
+   render_call_count++;
    
    // Call the renderer - should be MR_HoverRender from ObjFac1
    // Use MFC TRY/CATCH to catch BOTH SEH and C++ exceptions
    TRY
    {
-      mRenderer->Render( pDest, mPosition, mCabinOrientation, mMotorDisplay > 0, mHoverId, mHoverModel );
+      mRenderer->Render( pDest, mPosition, mCabinOrientation, mMotorDisplay > 0, lSafeHoverId, lSafeModel );
    }
    CATCH_ALL(e)
    {

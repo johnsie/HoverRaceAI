@@ -31,6 +31,35 @@
 				"$msCompile"
 			],
 			"group": "build"
+		},
+		{
+			"label": "Rebuild ObjFac1",
+			"type": "shell",
+			"command": "msbuild",
+			"args": [
+				"NetTarget/ObjFac1/ObjFac1.vcxproj",
+				"/t:Rebuild",
+				"/p:Configuration=Release",
+				"/p:Platform=Win32",
+				"/v:minimal"
+			],
+			"group": "build"
+		},
+		{
+			"label": "Build Game2 Release",
+			"type": "shell",
+			"command": "msbuild",
+			"args": [
+				"NetTarget/Game2/Game2.vcxproj",
+				"/t:Rebuild",
+				"/p:Configuration=Release",
+				"/p:Platform=Win32",
+				"/v:minimal"
+			],
+			"problemMatcher": [
+				"$msCompile"
+			],
+			"group": "build"
 		}
 	]
 }

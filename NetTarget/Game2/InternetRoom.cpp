@@ -207,7 +207,7 @@ static BOOL FetchHTTPSContent(const char* pHost, const char* pPath, CString& pBu
          INTERNET_DEFAULT_HTTPS_PORT,
          NULL,
          NULL,
-         INTERNET_SERVICE_HTTPS,
+         3,  // INTERNET_SERVICE_HTTPS
          0,
          0
       );
