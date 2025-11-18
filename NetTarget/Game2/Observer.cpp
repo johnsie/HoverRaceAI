@@ -1669,6 +1669,75 @@ void MR_Observer::RenderNormalDisplay( MR_VideoBuffer* pDest, const MR_ClientSes
          fflush(logFile); fclose(logFile); 
       }
    }
+
+   // Display race timers at top and bottom of screen
+   if( mBaseFont != NULL )
+   {
+      char lMainLineBuffer[80];
+      char lLapLineBuffer[80];
+
+      lLapLineBuffer[0] = 0;
+
+      if( pTime< 0 )
+      {
+         pTime = -pTime;
+         sprintf( lMainLineBuffer, gCountdownStr, (pTime%60000)/1000, (pTime%1000)/10, pViewingCharacter->GetTotalLap() );
+      }
+      else if( pViewingCharacter->GetTotalLap()<=pViewingCharacter->GetLap() )
+      {
+         MR_SimulationTime lTotalTime = pViewingCharacter->GetTotalTime();
+         MR_SimulationTime lBestLap   = pViewingCharacter->GetBestLapDuration();
+         
+         // Race is finish
+         if( pSession->GetNbPlayers() > 1 )
+         {
+            sprintf( lMainLineBuffer,    gFinishStr, lTotalTime/60000, (lTotalTime%60000)/1000, (lTotalTime%1000)/10, pSession->GetRank( pViewingCharacter ),pSession->GetNbPlayers() );
+         }
+         else
+         {
+            sprintf( lMainLineBuffer,    gFinishStrSingle, lTotalTime/60000, (lTotalTime%60000)/1000, (lTotalTime%1000)/10 );
+         }
+         sprintf( lLapLineBuffer, gBestLapStr,  lBestLap/60000, (lBestLap%60000)/1000, (lBestLap%1000)/10 );
+
+
+      }
+      else if( pViewingCharacter->GetLap() == 0 )
+      {
+         // First lap
+         sprintf( lMainLineBuffer, gHeaderStr, pTime/60000, (pTime%60000)/1000, (pTime%1000)/10, 1, pViewingCharacter->GetTotalLap() );
+         // sprintf( lLapLineBuffer, "Current lap %d.%02d.%02d", pTime/60000, (pTime%60000)/1000, (pTime%1000)/10 );
+
+      }
+      else if( pViewingCharacter->GetLastLapCompletion() > (pTime-8000) )
+      {
+         // Lap terminated less than 8 sec ago
+         MR_SimulationTime lBestLap  = pViewingCharacter->GetBestLapDuration();
+         MR_SimulationTime lLastLap  = pViewingCharacter->GetLastLapDuration();
+
+         // More than one lap completed
+         sprintf( lMainLineBuffer,  gHeaderStr, pTime/60000, (pTime%60000)/1000, (pTime%1000)/10, pViewingCharacter->GetLap()+1, pViewingCharacter->GetTotalLap() );
+         sprintf( lLapLineBuffer, gLastLapStr,
+                  lLastLap/60000, (lLastLap%60000)/1000, (lLastLap%1000)/10,
+                  lBestLap/60000, (lBestLap%60000)/1000, (lBestLap%1000)/10);
+
+      }
+      else
+      {
+         MR_SimulationTime lBestLap     = pViewingCharacter->GetBestLapDuration();
+         MR_SimulationTime lCurrentLap  = pTime-pViewingCharacter->GetLastLapCompletion();
+
+         // More than one lap completed
+         sprintf( lMainLineBuffer,    gHeaderStr, pTime/60000, (pTime%60000)/1000, (pTime%1000)/10, pViewingCharacter->GetLap()+1, pViewingCharacter->GetTotalLap() );
+         sprintf( lLapLineBuffer, gCurLapStr,
+                  lCurrentLap/60000, (lCurrentLap%60000)/1000, (lCurrentLap%1000)/10,
+                  lBestLap/60000, (lBestLap%60000)/1000, (lBestLap%1000)/10);
+
+      }
+      
+      // Render timer text at top and bottom center of screen
+      mBaseFont->GetSprite()->StrBlt( lXRes/2, lYRes/16, Ascii2Simple( lMainLineBuffer ), &m3DView, MR_Sprite::eCenter, MR_Sprite::eTop, 0 );
+      mBaseFont->GetSprite()->StrBlt( lXRes/2, lYRes-1,  Ascii2Simple( lLapLineBuffer ), &m3DView, MR_Sprite::eCenter, MR_Sprite::eBottom, 0 );
+   }
 }
 
 void MR_Observer::PlaySounds( const MR_Level* pLevel, MR_MainCharacter* pViewingCharacter )

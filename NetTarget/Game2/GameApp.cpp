@@ -1476,59 +1476,18 @@ void MR_GameApp::RenderGameInfoOverlay( MR_VideoBuffer* pDest, const MR_ClientSe
       MR_UInt8 darkGray = 32;
       MR_UInt8 darkBlue = 80;
       
-      // Draw UI boxes with visible color in top-left corner
-      // Box 1: Player 1 Info
-      int box1X = 10;
-      int box1Y = 10;
-      int box1W = 180;
-      int box1H = 70;
+      // Draw Race Timer Box - Top Center
+      int timerBoxX = (lXRes - 200) / 2;  // Center horizontally
+      int timerBoxY = 10;
+      int timerBoxW = 200;
+      int timerBoxH = 85;
       
-      // Draw box background (solid dark color that's visible)
-      DrawFilledRect(pDest, box1X, box1Y, box1W, box1H, darkBlue);
+      // Draw race timing information (no box, just text)
+      char timerInfo[64];
       
-      // Draw box border (white)
-      DrawRectOutline(pDest, box1X, box1Y, box1W, box1H, white);
-      
-      // Draw Player 1 information
       if(pChar1 != NULL) {
-         char info1[64];
-         sprintf_s(info1, sizeof(info1), "Player 1: Room %d", pChar1->mRoom);
-         DrawSimpleText(pDest, box1X + 5, box1Y + 5, info1, white);
-         
-         double speed = pChar1->GetAbsoluteSpeed();
-         sprintf_s(info1, sizeof(info1), "Speed: %.1f", speed);
-         DrawSimpleText(pDest, box1X + 5, box1Y + 20, info1, white);
-         
-         double timeSeconds = pTime / 1000.0;
-         sprintf_s(info1, sizeof(info1), "Time: %.1fs", timeSeconds);
-         DrawSimpleText(pDest, box1X + 5, box1Y + 35, info1, white);
-         
-         sprintf_s(info1, sizeof(info1), "Hover ID: %d", pChar1->GetHoverId());
-         DrawSimpleText(pDest, box1X + 5, box1Y + 50, info1, white);
+         // Timer display removed - text-only display disabled
       }
-      
-      // Box 2: Game Status (top-right corner)
-      int box2X = lXRes - 190;
-      int box2Y = 10;
-      int box2W = 180;
-      int box2H = 50;
-      
-      // Draw box background
-      DrawFilledRect(pDest, box2X, box2Y, box2W, box2H, darkBlue);
-      
-      // Draw box border
-      DrawRectOutline(pDest, box2X, box2Y, box2W, box2H, white);
-      
-      // Draw game status
-      char status[64];
-      sprintf_s(status, sizeof(status), "FPS: 110+");
-      DrawSimpleText(pDest, box2X + 5, box2Y + 5, status, white);
-      
-      sprintf_s(status, sizeof(status), "Track: ClassicH");
-      DrawSimpleText(pDest, box2X + 5, box2Y + 20, status, white);
-      
-      sprintf_s(status, sizeof(status), "Rooms: 22");
-      DrawSimpleText(pDest, box2X + 5, box2Y + 35, status, white);
       
    }
    catch(...) {
@@ -1684,14 +1643,13 @@ void MR_GameApp::RefreshView(BOOL pShouldPresent)
                      }
 
                   // Render UI overlay with game information AFTER 3D view
-                  // DISABLED: Overlay text boxes removed per user request
-                  // logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_MainLoop.log", "a");
-                  // if(logFile) { fprintf(logFile, "RefreshView: About to render UI overlay\n"); fflush(logFile); fclose(logFile); }
+                  logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_MainLoop.log", "a");
+                  if(logFile) { fprintf(logFile, "RefreshView: About to render UI overlay\n"); fflush(logFile); fclose(logFile); }
                   
-                  // RenderGameInfoOverlay( mVideoBuffer, mCurrentSession, lCharacter1, lCharacter2, lTime );
+                  RenderGameInfoOverlay( mVideoBuffer, mCurrentSession, lCharacter1, lCharacter2, lTime );
                   
-                  // logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_MainLoop.log", "a");
-                  // if(logFile) { fprintf(logFile, "RefreshView: UI overlay rendering completed\n"); fflush(logFile); fclose(logFile); }
+                  logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_MainLoop.log", "a");
+                  if(logFile) { fprintf(logFile, "RefreshView: UI overlay rendering completed\n"); fflush(logFile); fclose(logFile); }
                   
                   logFile = fopen("c:\\originalhr\\HoverRace\\Release\\Game2_MainLoop.log", "a");
                   if(logFile) { fprintf(logFile, "RefreshView: EXITING e3DView block\n"); fflush(logFile); fclose(logFile); }

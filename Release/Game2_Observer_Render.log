@@ -154,3 +154,69 @@
 [Observer #240] About to call pViewingCharacter->Render()
   pViewingCharacter=0644DC70
 [Observer Complete #240] pViewingCharacter->Render() returned
+[Observer #0] About to call pViewingCharacter->Render()
+  pViewingCharacter=00B27550
+[Observer Complete #0] pViewingCharacter->Render() returned
+[Observer #60] About to call pViewingCharacter->Render()
+  pViewingCharacter=00B27550
+[Observer Complete #60] pViewingCharacter->Render() returned
+[Observer #0] About to call pViewingCharacter->Render()
+  pViewingCharacter=0670ED38
+[Observer Complete #0] pViewingCharacter->Render() returned
+[Observer #60] About to call pViewingCharacter->Render()
+  pViewingCharacter=0670ED38
+[Observer Complete #60] pViewingCharacter->Render() returned
+[Observer #120] About to call pViewingCharacter->Render()
+  pViewingCharacter=0670ED38
+[Observer Complete #120] pViewingCharacter->Render() returned
+[Observer #180] About to call pViewingCharacter->Render()
+  pViewingCharacter=0670ED38
+[Observer Complete #180] pViewingCharacter->Render() returned
+[Observer #240] About to call pViewingCharacter->Render()
+  pViewingCharacter=0670ED38
+[Observer Complete #240] pViewingCharacter->Render() returned
+[Observer #0] About to call pViewingCharacter->Render()
+  pViewingCharacter=061CEBE0
+[Observer Complete #0] pViewingCharacter->Render() returned
+[Observer #60] About to call pViewingCharacter->Render()
+  pViewingCharacter=061CEBE0
+[Observer Complete #60] pViewingCharacter->Render() returned
+[Observer #120] About to call pViewingCharacter->Render()
+  pViewingCharacter=061CEBE0
+[Observer Complete #120] pViewingCharacter->Render() returned
+[Observer #180] About to call pViewingCharacter->Render()
+  pViewingCharacter=061CEBE0
+[Observer Complete #180] pViewingCharacter->Render() returned
+[Observer #240] About to call pViewingCharacter->Render()
+  pViewingCharacter=061CEBE0
+[Observer Complete #240] pViewingCharacter->Render() returned
+[Observer #0] About to call pViewingCharacter->Render()
+  pViewingCharacter=01312C90
+[Observer Complete #0] pViewingCharacter->Render() returned
+[Observer #60] About to call pViewingCharacter->Render()
+  pViewingCharacter=01312C90
+[Observer Complete #60] pViewingCharacter->Render() returned
+[Observer #120] About to call pViewingCharacter->Render()
+  pViewingCharacter=01312C90
+[Observer Complete #120] pViewingCharacter->Render() returned
+[Observer #180] About to call pViewingCharacter->Render()
+  pViewingCharacter=01312C90
+[Observer Complete #180] pViewingCharacter->Render() returned
+[Observer #0] About to call pViewingCharacter->Render()
+  pViewingCharacter=05E3EDD8
+[Observer Complete #0] pViewingCharacter->Render() returned
+[Observer #0] About to call pViewingCharacter->Render()
+  pViewingCharacter=008B7BA0
+[Observer Complete #0] pViewingCharacter->Render() returned
+[Observer #60] About to call pViewingCharacter->Render()
+  pViewingCharacter=008B7BA0
+[Observer Complete #60] pViewingCharacter->Render() returned
+[Observer #120] About to call pViewingCharacter->Render()
+  pViewingCharacter=008B7BA0
+[Observer Complete #120] pViewingCharacter->Render() returned
+[Observer #180] About to call pViewingCharacter->Render()
+  pViewingCharacter=008B7BA0
+[Observer Complete #180] pViewingCharacter->Render() returned
+[Observer #240] About to call pViewingCharacter->Render()
+  pViewingCharacter=008B7BA0
+[Observer Complete #240] pViewingCharacter->Render() returned

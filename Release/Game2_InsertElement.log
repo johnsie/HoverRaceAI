@@ -222,3 +222,51 @@ InsertElement START: pElement=0644DC70, pRoom=0, mAllowRendering=1
   About to call MoveElement()
   MoveElement() succeeded
 InsertElement END: returning 063B3E10
+InsertElement START: pElement=00B27550, pRoom=0, mAllowRendering=1
+  Created new FreeElement: 00B35CC0
+  About to call AddRenderer()
+  AddRenderer() succeeded
+  Set mElement pointer
+  About to call MoveElement()
+  MoveElement() succeeded
+InsertElement END: returning 00B35CC0
+InsertElement START: pElement=0670ED38, pRoom=0, mAllowRendering=1
+  Created new FreeElement: 014984C8
+  About to call AddRenderer()
+  AddRenderer() succeeded
+  Set mElement pointer
+  About to call MoveElement()
+  MoveElement() succeeded
+InsertElement END: returning 014984C8
+InsertElement START: pElement=061CEBE0, pRoom=0, mAllowRendering=1
+  Created new FreeElement: 00FC0E18
+  About to call AddRenderer()
+  AddRenderer() succeeded
+  Set mElement pointer
+  About to call MoveElement()
+  MoveElement() succeeded
+InsertElement END: returning 00FC0E18
+InsertElement START: pElement=01312C90, pRoom=0, mAllowRendering=1
+  Created new FreeElement: 065E90A8
+  About to call AddRenderer()
+  AddRenderer() succeeded
+  Set mElement pointer
+  About to call MoveElement()
+  MoveElement() succeeded
+InsertElement END: returning 065E90A8
+InsertElement START: pElement=05E3EDD8, pRoom=0, mAllowRendering=1
+  Created new FreeElement: 00C7BC70
+  About to call AddRenderer()
+  AddRenderer() succeeded
+  Set mElement pointer
+  About to call MoveElement()
+  MoveElement() succeeded
+InsertElement END: returning 00C7BC70
+InsertElement START: pElement=008B7BA0, pRoom=0, mAllowRendering=1
+  Created new FreeElement: 058F5C18
+  About to call AddRenderer()
+  AddRenderer() succeeded
+  Set mElement pointer
+  About to call MoveElement()
+  MoveElement() succeeded
+InsertElement END: returning 058F5C18

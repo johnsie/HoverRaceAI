@@ -560,3 +560,29 @@ Checking SERVER_ADDR line, lLinePtr=012FED42
 Line content (text): 
 No SERVER_ADDR line - next line is: 
 Final values: ServerHosted=0, ServerAddr=31.125.225.86, ServerPort=9600
+
+=== NEW Game Entry 0 ===
+Line 1 (Name): ClassicH
+Line 2 (Track): ClassicH
+Line 3 (IP): 127.0.0.1
+Line 4 (Port/Laps): 9600 5 1 1
+Parsed: Port=9600, Laps=5, Weapons=1, NbClient=1
+Player list line: 0 
+Checking SERVER_ADDR line, lLinePtr=05C1F4C4
+Line content (text): SERVER_ADDR 127.0.0.1:9600
+Found SERVER_ADDR line
+Full line: 'SERVER_ADDR 127.0.0.1:9600'
+Ignoring received SERVER_ADDR, using hardcoded 31.125.225.86:9600
+Final values: ServerHosted=1, ServerAddr=31.125.225.86, ServerPort=9600
+
+=== NEW Game Entry 1 ===
+Line 1 (Name): ClassicH
+Line 2 (Track): ClassicH
+Line 3 (IP): 127.0.0.1
+Line 4 (Port/Laps): 9600 5 1 1
+Parsed: Port=9600, Laps=5, Weapons=1, NbClient=1
+Player list line: 1 
+Checking SERVER_ADDR line, lLinePtr=00B31558
+Line content (text): 
+No SERVER_ADDR line - next line is: 
+Final values: ServerHosted=0, ServerAddr=, ServerPort=0
