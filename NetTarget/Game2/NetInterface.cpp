@@ -872,11 +872,18 @@ BOOL CALLBACK MR_NetworkInterface::WaitGameNameCallBack( HWND pWindow, UINT  pMs
                
                getsockname( mActiveInterface->mRegistrySocket, (struct sockaddr*)&lAddr, &lSize ); 
 
-               // For server-hosted races, skip the game name message and proceed directly
+               // For server-hosted races, send GAME_NAME message to RaceServer
                if( mActiveInterface->GetConnectionMode() == MR_CONNECTION_SERVER_HOSTED )
                {
-                  // Server-hosted: synthesize game name response and proceed to race
-                  mActiveInterface->mGameName = MR_LoadString( IDS_GAME_NAME );
+                  // Server-hosted: send game name to RaceServer so it knows which race we're joining
+                  MR_NetMessageBuffer lGameNameMsg;
+                  lGameNameMsg.mMessageType = MRNM_GAME_NAME;
+                  lGameNameMsg.mDataLen = mActiveInterface->mGameName.GetLength();
+                  memcpy( lGameNameMsg.mData, (const char*)mActiveInterface->mGameName, lGameNameMsg.mDataLen );
+                  
+                  mActiveInterface->mClient[0].Send( &lGameNameMsg, MR_NET_REQUIRED );
+                  
+                  // Proceed to race after sending game name
                   EndDialog( pWindow, IDOK );
                }
                else

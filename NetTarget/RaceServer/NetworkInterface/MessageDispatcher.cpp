@@ -7,6 +7,7 @@
 extern MR_ServerLogger g_Logger;
 
 MessageDispatcher::MessageDispatcher()
+    : mpRaceManager(NULL)
 {
 }
 
@@ -19,6 +20,9 @@ void MessageDispatcher::Dispatch(
     if (!pMessageData || messageLength < 3) {
         return;  // Invalid message
     }
+
+    // Cache the race manager for use by handlers
+    mpRaceManager = pRaceManager;
 
     // Parse message header
     const unsigned char* pData = (const unsigned char*)pMessageData;
@@ -98,6 +102,20 @@ void MessageDispatcher::Handle_ChatMessage(int clientId, const void* pData, int 
 
 void MessageDispatcher::Handle_Ready(int clientId, const void* pData, int dataLen)
 {
-    g_Logger.Log(MR_LOG_DEBUG, "Client %d: MRNM_READY", clientId);
-    // TODO: Mark player as ready
+    g_Logger.Log(MR_LOG_INFO, "Client %d: MRNM_READY - Player ready for race", clientId);
+    
+    if (!mpRaceManager) {
+        g_Logger.Log(MR_LOG_WARN, "Handle_Ready: RaceManager is NULL");
+        return;
+    }
+    
+    // The ready message should be relayed to all other players in the same race
+    // The message format is: [byte0 byte1 messageType ...]
+    // We need to relay this exact message to all other players
+    
+    // Note: This relay happens at the socket level through ServerSocket::BroadcastToRace
+    // For now, we just log - the actual relay is handled by ServerSocket when ProcessEvents
+    // sees a message that needs to be broadcast
+    
+    g_Logger.Log(MR_LOG_INFO, "Client %d is ready - message should be relayed to all players in race", clientId);
 }

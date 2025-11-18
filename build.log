@@ -1,764 +1,669 @@
 MSBuild version 17.9.5+33de0b227 for .NET Framework
-Build started 14/11/2025 18:29:43.
 
-Project "C:\originalhr2\HoverRaceAI\NetTarget\Game2\Game2.vcxproj" on node 1 (Rebuild target(s)).
-_PrepareForClean:
-  Deleting file "Release\Game2.tlog\Game2.lastbuildstate".
-Project "C:\originalhr2\HoverRaceAI\NetTarget\Game2\Game2.vcxproj" (1) is building "C:\originalhr2\HoverRaceAI\NetTarget\Util\Util.vcxproj" (2) on node 1 (Clean target(s)).
-_PrepareForClean:
-  Deleting file "C:\originalhr2\HoverRaceAI\NetTarget\Util\Release\Util.tlog\Util.lastbuildstate".
-Done Building Project "C:\originalhr2\HoverRaceAI\NetTarget\Util\Util.vcxproj" (Clean target(s)).
-Project "C:\originalhr2\HoverRaceAI\NetTarget\Game2\Game2.vcxproj" (1) is building "C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj" (3) on node 1 (Clean target(s)).
-_PrepareForClean:
-  Deleting file "C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\Release\VideoServices.tlog\VideoServices.lastbuildstate".
-Done Building Project "C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj" (Clean target(s)).
-Project "C:\originalhr2\HoverRaceAI\NetTarget\Game2\Game2.vcxproj" (1) is building "C:\originalhr2\HoverRaceAI\NetTarget\Model\Model.vcxproj" (4) on node 1 (Clean target(s)).
-_PrepareForClean:
-  Deleting file "C:\originalhr2\HoverRaceAI\NetTarget\Model\Release\Model.tlog\Model.lastbuildstate".
-Done Building Project "C:\originalhr2\HoverRaceAI\NetTarget\Model\Model.vcxproj" (Clean target(s)).
-Project "C:\originalhr2\HoverRaceAI\NetTarget\Game2\Game2.vcxproj" (1) is building "C:\originalhr2\HoverRaceAI\NetTarget\ObjFacTools\ObjFacTools.vcxproj" (5) on node 1 (Clean target(s)).
-_PrepareForClean:
-  Deleting file "C:\originalhr2\HoverRaceAI\NetTarget\ObjFacTools\Release\ObjFacTools.tlog\ObjFacTools.lastbuildstate".
-Done Building Project "C:\originalhr2\HoverRaceAI\NetTarget\ObjFacTools\ObjFacTools.vcxproj" (Clean target(s)).
-Project "C:\originalhr2\HoverRaceAI\NetTarget\Game2\Game2.vcxproj" (1) is building "C:\originalhr2\HoverRaceAI\NetTarget\ColorTools\ColorTools.vcxproj" (6) on node 1 (Clean target(s)).
-_PrepareForClean:
-  Deleting file "C:\originalhr2\HoverRaceAI\NetTarget\ColorTools\Release\ColorTools.tlog\ColorTools.lastbuildstate".
-Done Building Project "C:\originalhr2\HoverRaceAI\NetTarget\ColorTools\ColorTools.vcxproj" (Clean target(s)).
-Project "C:\originalhr2\HoverRaceAI\NetTarget\Game2\Game2.vcxproj" (1) is building "C:\originalhr2\HoverRaceAI\NetTarget\MainCharacter\MainCharacter.vcxproj" (7) on node 1 (Clean target(s)).
-_PrepareForClean:
-  Deleting file "C:\originalhr2\HoverRaceAI\NetTarget\MainCharacter\Release\MainCharacter.tlog\MainCharacter.lastbuildstate".
-Done Building Project "C:\originalhr2\HoverRaceAI\NetTarget\MainCharacter\MainCharacter.vcxproj" (Clean target(s)).
-Project "C:\originalhr2\HoverRaceAI\NetTarget\Game2\Game2.vcxproj" (1) is building "C:\originalhr2\HoverRaceAI\NetTarget\Util\Util.vcxproj" (2:7) on node 1 (default targets).
-PrepareForBuild:
-  Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
-InitializeBuildStatus:
-  Creating "C:\originalhr2\HoverRaceAI\NetTarget\Util\Release\Util.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
-  Touching "C:\originalhr2\HoverRaceAI\NetTarget\Util\Release\Util.tlog\unsuccessfulbuild".
-ClCompile:
-  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\bin\HostX86\x86\CL.exe /c /I"C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include" /I"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include" /Zi /nologo /W4 /WX- /diagnostics:column /O2 /Oy- /D WIN32 /D NDEBUG /D _WINDOWS /D MR_UTIL /D _AFXDLL /D _WINDLL /D _MBCS /D _AFXDLL /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"C:\originalhr2\HoverRaceAI\NetTarget\Util\Release\\" /Fd"C:\originalhr2\HoverRaceAI\NetTarget\Util\Release\vc143.pdb" /external:W4 /Gd /TP /analyze- /FC /errorReport:queue /FS DllObjectFactory.cpp FuzzyLogic.cpp Profiler.cpp RecordFile.cpp StdAfx.cpp StrRes.cpp WorldCoordinates.cpp
-  DllObjectFactory.cpp
+  Util.vcxproj -> C:\originalhr2\HoverRaceAI\Release\Util.dll
+  VideoServices.vcxproj -> C:\originalhr2\HoverRaceAI\Release\VideoServices.dll
+  Model.vcxproj -> C:\originalhr2\HoverRaceAI\Release\Model.dll
+  ObjFacTools.vcxproj -> C:\originalhr2\HoverRaceAI\Release\ObjFacTools.dll
+  ColorTools.vcxproj -> C:\originalhr2\HoverRaceAI\Release\ColorTools.dll
+  MainCharacter.vcxproj -> C:\originalhr2\HoverRaceAI\Release\MainCharacter.dll
+cl : command line  warning D9025: overriding '/EHs' with '/EHa' [C:\originalhr2\HoverRaceAI\NetTarget\Game2\Game2.vcxproj]
+  InternetRoom.cpp
   _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(880,1): warning C4005: '_MSVC_STL_VERSION': macro redefinition [C:\originalhr2\HoverRaceAI\NetTarget\Util\Util.vcxproj]
-  (compiling source file 'DllObjectFactory.cpp')
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(880,1): warning C4005: '_MSVC_STL_VERSION': macro redefinition [C:\originalhr2\HoverRaceAI\NetTarget\Game2\Game2.vcxproj]
+  (compiling source file 'InternetRoom.cpp')
   C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(156,1):
   see previous definition of '_MSVC_STL_VERSION'
   
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(881,1): warning C4005: '_MSVC_STL_UPDATE': macro redefinition [C:\originalhr2\HoverRaceAI\NetTarget\Util\Util.vcxproj]
-  (compiling source file 'DllObjectFactory.cpp')
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(881,1): warning C4005: '_MSVC_STL_UPDATE': macro redefinition [C:\originalhr2\HoverRaceAI\NetTarget\Game2\Game2.vcxproj]
+  (compiling source file 'InternetRoom.cpp')
   C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(157,1):
   see previous definition of '_MSVC_STL_UPDATE'
   
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1000,1): warning C4005: '_DEPRECATE_TR1_NAMESPACE': macro redefinition [C:\originalhr2\HoverRaceAI\NetTarget\Util\Util.vcxproj]
-  (compiling source file 'DllObjectFactory.cpp')
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1000,1): warning C4005: '_DEPRECATE_TR1_NAMESPACE': macro redefinition [C:\originalhr2\HoverRaceAI\NetTarget\Game2\Game2.vcxproj]
+  (compiling source file 'InternetRoom.cpp')
   C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(247,1):
   see previous definition of '_DEPRECATE_TR1_NAMESPACE'
   
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1014,1): warning C4005: '_MISMATCHED_ALLOCATOR_MESSAGE': macro redefinition [C:\originalhr2\HoverRaceAI\NetTarget\Util\Util.vcxproj]
-  (compiling source file 'DllObjectFactory.cpp')
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1014,1): warning C4005: '_MISMATCHED_ALLOCATOR_MESSAGE': macro redefinition [C:\originalhr2\HoverRaceAI\NetTarget\Game2\Game2.vcxproj]
+  (compiling source file 'InternetRoom.cpp')
   C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(303,1):
   see previous definition of '_MISMATCHED_ALLOCATOR_MESSAGE'
   
-C:\originalhr2\HoverRaceAI\NetTarget\Util\DllObjectFactory.cpp(372,4): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr2\HoverRaceAI\NetTarget\Util\Util.vcxproj]
-  FuzzyLogic.cpp
-  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(880,1): warning C4005: '_MSVC_STL_VERSION': macro redefinition [C:\originalhr2\HoverRaceAI\NetTarget\Util\Util.vcxproj]
-  (compiling source file 'FuzzyLogic.cpp')
-  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(156,1):
-  see previous definition of '_MSVC_STL_VERSION'
-  
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(881,1): warning C4005: '_MSVC_STL_UPDATE': macro redefinition [C:\originalhr2\HoverRaceAI\NetTarget\Util\Util.vcxproj]
-  (compiling source file 'FuzzyLogic.cpp')
-  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(157,1):
-  see previous definition of '_MSVC_STL_UPDATE'
-  
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1000,1): warning C4005: '_DEPRECATE_TR1_NAMESPACE': macro redefinition [C:\originalhr2\HoverRaceAI\NetTarget\Util\Util.vcxproj]
-  (compiling source file 'FuzzyLogic.cpp')
-  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(247,1):
-  see previous definition of '_DEPRECATE_TR1_NAMESPACE'
-  
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1014,1): warning C4005: '_MISMATCHED_ALLOCATOR_MESSAGE': macro redefinition [C:\originalhr2\HoverRaceAI\NetTarget\Util\Util.vcxproj]
-  (compiling source file 'FuzzyLogic.cpp')
-  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(303,1):
-  see previous definition of '_MISMATCHED_ALLOCATOR_MESSAGE'
-  
-  Profiler.cpp
-  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(880,1): warning C4005: '_MSVC_STL_VERSION': macro redefinition [C:\originalhr2\HoverRaceAI\NetTarget\Util\Util.vcxproj]
-  (compiling source file 'Profiler.cpp')
-  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(156,1):
-  see previous definition of '_MSVC_STL_VERSION'
-  
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(881,1): warning C4005: '_MSVC_STL_UPDATE': macro redefinition [C:\originalhr2\HoverRaceAI\NetTarget\Util\Util.vcxproj]
-  (compiling source file 'Profiler.cpp')
-  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(157,1):
-  see previous definition of '_MSVC_STL_UPDATE'
-  
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1000,1): warning C4005: '_DEPRECATE_TR1_NAMESPACE': macro redefinition [C:\originalhr2\HoverRaceAI\NetTarget\Util\Util.vcxproj]
-  (compiling source file 'Profiler.cpp')
-  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(247,1):
-  see previous definition of '_DEPRECATE_TR1_NAMESPACE'
-  
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1014,1): warning C4005: '_MISMATCHED_ALLOCATOR_MESSAGE': macro redefinition [C:\originalhr2\HoverRaceAI\NetTarget\Util\Util.vcxproj]
-  (compiling source file 'Profiler.cpp')
-  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(303,1):
-  see previous definition of '_MISMATCHED_ALLOCATOR_MESSAGE'
-  
-  RecordFile.cpp
-  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(880,1): warning C4005: '_MSVC_STL_VERSION': macro redefinition [C:\originalhr2\HoverRaceAI\NetTarget\Util\Util.vcxproj]
-  (compiling source file 'RecordFile.cpp')
-  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(156,1):
-  see previous definition of '_MSVC_STL_VERSION'
-  
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(881,1): warning C4005: '_MSVC_STL_UPDATE': macro redefinition [C:\originalhr2\HoverRaceAI\NetTarget\Util\Util.vcxproj]
-  (compiling source file 'RecordFile.cpp')
-  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(157,1):
-  see previous definition of '_MSVC_STL_UPDATE'
-  
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1000,1): warning C4005: '_DEPRECATE_TR1_NAMESPACE': macro redefinition [C:\originalhr2\HoverRaceAI\NetTarget\Util\Util.vcxproj]
-  (compiling source file 'RecordFile.cpp')
-  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(247,1):
-  see previous definition of '_DEPRECATE_TR1_NAMESPACE'
-  
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1014,1): warning C4005: '_MISMATCHED_ALLOCATOR_MESSAGE': macro redefinition [C:\originalhr2\HoverRaceAI\NetTarget\Util\Util.vcxproj]
-  (compiling source file 'RecordFile.cpp')
-  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(303,1):
-  see previous definition of '_MISMATCHED_ALLOCATOR_MESSAGE'
-  
-C:\originalhr2\HoverRaceAI\NetTarget\Util\RecordFile.cpp(261,66): warning C4244: '=': conversion from 'ULONGLONG' to 'DWORD', possible loss of data [C:\originalhr2\HoverRaceAI\NetTarget\Util\Util.vcxproj]
-C:\originalhr2\HoverRaceAI\NetTarget\Util\RecordFile.cpp(432,50): warning C4244: 'return': conversion from 'ULONGLONG' to 'LONG', possible loss of data [C:\originalhr2\HoverRaceAI\NetTarget\Util\Util.vcxproj]
-C:\originalhr2\HoverRaceAI\NetTarget\Util\RecordFile.cpp(478,32): warning C4244: '=': conversion from 'ULONGLONG' to 'UINT', possible loss of data [C:\originalhr2\HoverRaceAI\NetTarget\Util\Util.vcxproj]
-C:\originalhr2\HoverRaceAI\NetTarget\Util\RecordFile.cpp(539,18): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr2\HoverRaceAI\NetTarget\Util\Util.vcxproj]
-  StdAfx.cpp
-  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(880,1): warning C4005: '_MSVC_STL_VERSION': macro redefinition [C:\originalhr2\HoverRaceAI\NetTarget\Util\Util.vcxproj]
-  (compiling source file 'StdAfx.cpp')
-  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(156,1):
-  see previous definition of '_MSVC_STL_VERSION'
-  
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(881,1): warning C4005: '_MSVC_STL_UPDATE': macro redefinition [C:\originalhr2\HoverRaceAI\NetTarget\Util\Util.vcxproj]
-  (compiling source file 'StdAfx.cpp')
-  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(157,1):
-  see previous definition of '_MSVC_STL_UPDATE'
-  
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1000,1): warning C4005: '_DEPRECATE_TR1_NAMESPACE': macro redefinition [C:\originalhr2\HoverRaceAI\NetTarget\Util\Util.vcxproj]
-  (compiling source file 'StdAfx.cpp')
-  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(247,1):
-  see previous definition of '_DEPRECATE_TR1_NAMESPACE'
-  
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1014,1): warning C4005: '_MISMATCHED_ALLOCATOR_MESSAGE': macro redefinition [C:\originalhr2\HoverRaceAI\NetTarget\Util\Util.vcxproj]
-  (compiling source file 'StdAfx.cpp')
-  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(303,1):
-  see previous definition of '_MISMATCHED_ALLOCATOR_MESSAGE'
-  
-  StrRes.cpp
-  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(880,1): warning C4005: '_MSVC_STL_VERSION': macro redefinition [C:\originalhr2\HoverRaceAI\NetTarget\Util\Util.vcxproj]
-  (compiling source file 'StrRes.cpp')
-  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(156,1):
-  see previous definition of '_MSVC_STL_VERSION'
-  
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(881,1): warning C4005: '_MSVC_STL_UPDATE': macro redefinition [C:\originalhr2\HoverRaceAI\NetTarget\Util\Util.vcxproj]
-  (compiling source file 'StrRes.cpp')
-  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(157,1):
-  see previous definition of '_MSVC_STL_UPDATE'
-  
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1000,1): warning C4005: '_DEPRECATE_TR1_NAMESPACE': macro redefinition [C:\originalhr2\HoverRaceAI\NetTarget\Util\Util.vcxproj]
-  (compiling source file 'StrRes.cpp')
-  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(247,1):
-  see previous definition of '_DEPRECATE_TR1_NAMESPACE'
-  
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1014,1): warning C4005: '_MISMATCHED_ALLOCATOR_MESSAGE': macro redefinition [C:\originalhr2\HoverRaceAI\NetTarget\Util\Util.vcxproj]
-  (compiling source file 'StrRes.cpp')
-  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(303,1):
-  see previous definition of '_MISMATCHED_ALLOCATOR_MESSAGE'
-  
-  WorldCoordinates.cpp
-  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(880,1): warning C4005: '_MSVC_STL_VERSION': macro redefinition [C:\originalhr2\HoverRaceAI\NetTarget\Util\Util.vcxproj]
-  (compiling source file 'WorldCoordinates.cpp')
-  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(156,1):
-  see previous definition of '_MSVC_STL_VERSION'
-  
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(881,1): warning C4005: '_MSVC_STL_UPDATE': macro redefinition [C:\originalhr2\HoverRaceAI\NetTarget\Util\Util.vcxproj]
-  (compiling source file 'WorldCoordinates.cpp')
-  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(157,1):
-  see previous definition of '_MSVC_STL_UPDATE'
-  
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1000,1): warning C4005: '_DEPRECATE_TR1_NAMESPACE': macro redefinition [C:\originalhr2\HoverRaceAI\NetTarget\Util\Util.vcxproj]
-  (compiling source file 'WorldCoordinates.cpp')
-  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(247,1):
-  see previous definition of '_DEPRECATE_TR1_NAMESPACE'
-  
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1014,1): warning C4005: '_MISMATCHED_ALLOCATOR_MESSAGE': macro redefinition [C:\originalhr2\HoverRaceAI\NetTarget\Util\Util.vcxproj]
-  (compiling source file 'WorldCoordinates.cpp')
-  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(303,1):
-  see previous definition of '_MISMATCHED_ALLOCATOR_MESSAGE'
-  
-  Generating Code...
-Link:
-  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\bin\HostX86\x86\link.exe /ERRORREPORT:QUEUE /OUT:"c:\originalhr\HoverRace\Release\Util.dll" /NOLOGO /LIBPATH:C:\originalhr2\HoverRaceAI\NetTarget\Util\Release\ /LIBPATH:c:\originalhr\HoverRace\Release /LIBPATH:"C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\lib\x86" /LIBPATH:"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\lib\x86" winmm.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /manifestinput:"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\Include\Manifest\dpiaware.manifest" /DEBUG:FULL /PDB:"c:\originalhr\HoverRace\Release\Util.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"c:\originalhr\HoverRace\Release\Util.lib" /MACHINE:X86 /SAFESEH /DLL C:\originalhr2\HoverRaceAI\NetTarget\Util\Release\DllObjectFactory.obj
-  C:\originalhr2\HoverRaceAI\NetTarget\Util\Release\FuzzyLogic.obj
-  C:\originalhr2\HoverRaceAI\NetTarget\Util\Release\Profiler.obj
-  C:\originalhr2\HoverRaceAI\NetTarget\Util\Release\RecordFile.obj
-  C:\originalhr2\HoverRaceAI\NetTarget\Util\Release\StdAfx.obj
-  C:\originalhr2\HoverRaceAI\NetTarget\Util\Release\StrRes.obj
-  C:\originalhr2\HoverRaceAI\NetTarget\Util\Release\WorldCoordinates.obj
-     Creating library c:\originalhr\HoverRace\Release\Util.lib and object c:\originalhr\HoverRace\Release\Util.exp
-  Util.vcxproj -> c:\originalhr\HoverRace\Release\Util.dll
-FinalizeBuildStatus:
-  Deleting file "C:\originalhr2\HoverRaceAI\NetTarget\Util\Release\Util.tlog\unsuccessfulbuild".
-  Touching "C:\originalhr2\HoverRaceAI\NetTarget\Util\Release\Util.tlog\Util.lastbuildstate".
-Done Building Project "C:\originalhr2\HoverRaceAI\NetTarget\Util\Util.vcxproj" (default targets).
-Project "C:\originalhr2\HoverRaceAI\NetTarget\Game2\Game2.vcxproj" (1) is building "C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj" (3:5) on node 1 (default targets).
-PrepareForBuild:
-  Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
-InitializeBuildStatus:
-  Creating "C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\Release\VideoServices.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
-  Touching "C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\Release\VideoServices.tlog\unsuccessfulbuild".
-ClCompile:
-  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\bin\HostX86\x86\CL.exe /c /IC:\GLEW\include /IC:\SDL2\include /IC:\originalhr\HoverRace\OpenAL /IC:\originalhr\HoverRace\NetTarget\GraphicsSDL2 /I"C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include" /I"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include" /Zi /nologo /W4 /WX- /diagnostics:column /O2 /Oy- /D WIN32 /D NDEBUG /D _WINDOWS /D MR_VIDEO_SERVICES /D _HAVE_SDL2 /D _AFXDLL /D _WINDLL /D _MBCS /D _AFXDLL /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\Release\\" /Fd"C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\Release\vc143.pdb" /external:W4 /Gd /TP /analyze- /FC /errorReport:queue /FS 2DViewPort.cpp 3DViewport.cpp 3DViewportRendering.cpp Bitmap.cpp ColorPalette.cpp ColorTab.cpp Patch.cpp SoundServer.cpp Sprite.cpp StdAfx.cpp VideoBuffer.cpp VideoBuffer2DDraw.cpp ..\GraphicsSDL2\SDL2Graphics.cpp ..\GraphicsSDL2\VideoBufferSDL2Adapter.cpp VideoBufferSDL2Integration.cpp ..\..\OpenAL\alstub.cpp RenderingEngine.cpp GraphicsUtilities.cpp ModernVideoBuffer.cpp ModernRenderer.cpp ModernActorRenderer.cpp GraphicsTest.cpp
-  2DViewPort.cpp
-  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(880,1): warning C4005: '_MSVC_STL_VERSION': macro redefinition [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-  (compiling source file '2DViewPort.cpp')
-  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(156,1):
-  see previous definition of '_MSVC_STL_VERSION'
-  
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(881,1): warning C4005: '_MSVC_STL_UPDATE': macro redefinition [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-  (compiling source file '2DViewPort.cpp')
-  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(157,1):
-  see previous definition of '_MSVC_STL_UPDATE'
-  
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1000,1): warning C4005: '_DEPRECATE_TR1_NAMESPACE': macro redefinition [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-  (compiling source file '2DViewPort.cpp')
-  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(247,1):
-  see previous definition of '_DEPRECATE_TR1_NAMESPACE'
-  
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1014,1): warning C4005: '_MISMATCHED_ALLOCATOR_MESSAGE': macro redefinition [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-  (compiling source file '2DViewPort.cpp')
-  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(303,1):
-  see previous definition of '_MISMATCHED_ALLOCATOR_MESSAGE'
-  
-  3DViewport.cpp
-  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(880,1): warning C4005: '_MSVC_STL_VERSION': macro redefinition [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-  (compiling source file '3DViewport.cpp')
-  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(156,1):
-  see previous definition of '_MSVC_STL_VERSION'
-  
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(881,1): warning C4005: '_MSVC_STL_UPDATE': macro redefinition [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-  (compiling source file '3DViewport.cpp')
-  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(157,1):
-  see previous definition of '_MSVC_STL_UPDATE'
-  
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1000,1): warning C4005: '_DEPRECATE_TR1_NAMESPACE': macro redefinition [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-  (compiling source file '3DViewport.cpp')
-  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(247,1):
-  see previous definition of '_DEPRECATE_TR1_NAMESPACE'
-  
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1014,1): warning C4005: '_MISMATCHED_ALLOCATOR_MESSAGE': macro redefinition [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-  (compiling source file '3DViewport.cpp')
-  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(303,1):
-  see previous definition of '_MISMATCHED_ALLOCATOR_MESSAGE'
-  
-C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\3DViewport.cpp(143,156): warning C4244: '=': conversion from 'double' to 'MR_Int32', possible loss of data [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\3DViewport.cpp(144,84): warning C4244: '=': conversion from 'double' to 'MR_Int32', possible loss of data [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-  3DViewportRendering.cpp
-  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(880,1): warning C4005: '_MSVC_STL_VERSION': macro redefinition [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-  (compiling source file '3DViewportRendering.cpp')
-  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(156,1):
-  see previous definition of '_MSVC_STL_VERSION'
-  
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(881,1): warning C4005: '_MSVC_STL_UPDATE': macro redefinition [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-  (compiling source file '3DViewportRendering.cpp')
-  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(157,1):
-  see previous definition of '_MSVC_STL_UPDATE'
-  
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1000,1): warning C4005: '_DEPRECATE_TR1_NAMESPACE': macro redefinition [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-  (compiling source file '3DViewportRendering.cpp')
-  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(247,1):
-  see previous definition of '_DEPRECATE_TR1_NAMESPACE'
-  
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1014,1): warning C4005: '_MISMATCHED_ALLOCATOR_MESSAGE': macro redefinition [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-  (compiling source file '3DViewportRendering.cpp')
-  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(303,1):
-  see previous definition of '_MISMATCHED_ALLOCATOR_MESSAGE'
-  
-C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\3DViewportRendering.cpp(415,21): warning C4244: 'initializing': conversion from 'LONGLONG' to 'int', possible loss of data [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\3DViewportRendering.cpp(1214,56): warning C4244: '=': conversion from 'int' to 'MR_UInt16', possible loss of data [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\3DViewportRendering.cpp(1937,61): warning C4244: '=': conversion from 'int' to 'MR_UInt16', possible loss of data [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\3DViewportRendering.cpp(2132,55): warning C4244: '=': conversion from 'int' to 'MR_UInt16', possible loss of data [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-  Bitmap.cpp
-  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(880,1): warning C4005: '_MSVC_STL_VERSION': macro redefinition [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-  (compiling source file 'Bitmap.cpp')
-  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(156,1):
-  see previous definition of '_MSVC_STL_VERSION'
-  
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(881,1): warning C4005: '_MSVC_STL_UPDATE': macro redefinition [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-  (compiling source file 'Bitmap.cpp')
-  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(157,1):
-  see previous definition of '_MSVC_STL_UPDATE'
-  
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1000,1): warning C4005: '_DEPRECATE_TR1_NAMESPACE': macro redefinition [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-  (compiling source file 'Bitmap.cpp')
-  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(247,1):
-  see previous definition of '_DEPRECATE_TR1_NAMESPACE'
-  
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1014,1): warning C4005: '_MISMATCHED_ALLOCATOR_MESSAGE': macro redefinition [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-  (compiling source file 'Bitmap.cpp')
-  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(303,1):
-  see previous definition of '_MISMATCHED_ALLOCATOR_MESSAGE'
-  
-  ColorPalette.cpp
-  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(880,1): warning C4005: '_MSVC_STL_VERSION': macro redefinition [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-  (compiling source file 'ColorPalette.cpp')
-  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(156,1):
-  see previous definition of '_MSVC_STL_VERSION'
-  
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(881,1): warning C4005: '_MSVC_STL_UPDATE': macro redefinition [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-  (compiling source file 'ColorPalette.cpp')
-  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(157,1):
-  see previous definition of '_MSVC_STL_UPDATE'
-  
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1000,1): warning C4005: '_DEPRECATE_TR1_NAMESPACE': macro redefinition [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-  (compiling source file 'ColorPalette.cpp')
-  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(247,1):
-  see previous definition of '_DEPRECATE_TR1_NAMESPACE'
-  
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1014,1): warning C4005: '_MISMATCHED_ALLOCATOR_MESSAGE': macro redefinition [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-  (compiling source file 'ColorPalette.cpp')
-  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(303,1):
-  see previous definition of '_MISMATCHED_ALLOCATOR_MESSAGE'
-  
-C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\ColorPalette.cpp(83,56): warning C4244: '=': conversion from 'int' to 'BYTE', possible loss of data [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-  ColorTab.cpp
-  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(880,1): warning C4005: '_MSVC_STL_VERSION': macro redefinition [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-  (compiling source file 'ColorTab.cpp')
-  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(156,1):
-  see previous definition of '_MSVC_STL_VERSION'
-  
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(881,1): warning C4005: '_MSVC_STL_UPDATE': macro redefinition [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-  (compiling source file 'ColorTab.cpp')
-  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(157,1):
-  see previous definition of '_MSVC_STL_UPDATE'
-  
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1000,1): warning C4005: '_DEPRECATE_TR1_NAMESPACE': macro redefinition [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-  (compiling source file 'ColorTab.cpp')
-  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(247,1):
-  see previous definition of '_DEPRECATE_TR1_NAMESPACE'
-  
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1014,1): warning C4005: '_MISMATCHED_ALLOCATOR_MESSAGE': macro redefinition [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-  (compiling source file 'ColorTab.cpp')
-  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(303,1):
-  see previous definition of '_MISMATCHED_ALLOCATOR_MESSAGE'
-  
-  Patch.cpp
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(880,1): warning C4005: '_MSVC_STL_VERSION': macro redefinition [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-  (compiling source file 'Patch.cpp')
-  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(156,1):
-  see previous definition of '_MSVC_STL_VERSION'
-  
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(881,1): warning C4005: '_MSVC_STL_UPDATE': macro redefinition [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-  (compiling source file 'Patch.cpp')
-  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(157,1):
-  see previous definition of '_MSVC_STL_UPDATE'
-  
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1000,1): warning C4005: '_DEPRECATE_TR1_NAMESPACE': macro redefinition [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-  (compiling source file 'Patch.cpp')
-  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(247,1):
-  see previous definition of '_DEPRECATE_TR1_NAMESPACE'
-  
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1014,1): warning C4005: '_MISMATCHED_ALLOCATOR_MESSAGE': macro redefinition [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-  (compiling source file 'Patch.cpp')
-  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(303,1):
-  see previous definition of '_MISMATCHED_ALLOCATOR_MESSAGE'
-  
-  SoundServer.cpp
-  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(880,1): warning C4005: '_MSVC_STL_VERSION': macro redefinition [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-  (compiling source file 'SoundServer.cpp')
-  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(156,1):
-  see previous definition of '_MSVC_STL_VERSION'
-  
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(881,1): warning C4005: '_MSVC_STL_UPDATE': macro redefinition [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-  (compiling source file 'SoundServer.cpp')
-  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(157,1):
-  see previous definition of '_MSVC_STL_UPDATE'
-  
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1000,1): warning C4005: '_DEPRECATE_TR1_NAMESPACE': macro redefinition [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-  (compiling source file 'SoundServer.cpp')
-  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(247,1):
-  see previous definition of '_DEPRECATE_TR1_NAMESPACE'
-  
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1014,1): warning C4005: '_MISMATCHED_ALLOCATOR_MESSAGE': macro redefinition [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-  (compiling source file 'SoundServer.cpp')
-  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(303,1):
-  see previous definition of '_MISMATCHED_ALLOCATOR_MESSAGE'
-  
-C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\SoundServer.cpp(264,23): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\SoundServer.cpp(358,26): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\SoundServer.cpp(505,24): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\SoundServer.cpp(598,23): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\SoundServer.cpp(501,33): warning C4100: 'pWindow': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\SoundServer.cpp(723,26): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\SoundServer.cpp(744,29): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-  Sprite.cpp
-  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(880,1): warning C4005: '_MSVC_STL_VERSION': macro redefinition [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-  (compiling source file 'Sprite.cpp')
-  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(156,1):
-  see previous definition of '_MSVC_STL_VERSION'
-  
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(881,1): warning C4005: '_MSVC_STL_UPDATE': macro redefinition [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-  (compiling source file 'Sprite.cpp')
-  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(157,1):
-  see previous definition of '_MSVC_STL_UPDATE'
-  
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1000,1): warning C4005: '_DEPRECATE_TR1_NAMESPACE': macro redefinition [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-  (compiling source file 'Sprite.cpp')
-  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(247,1):
-  see previous definition of '_DEPRECATE_TR1_NAMESPACE'
-  
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1014,1): warning C4005: '_MISMATCHED_ALLOCATOR_MESSAGE': macro redefinition [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-  (compiling source file 'Sprite.cpp')
-  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(303,1):
-  see previous definition of '_MISMATCHED_ALLOCATOR_MESSAGE'
-  
-  StdAfx.cpp
-  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(880,1): warning C4005: '_MSVC_STL_VERSION': macro redefinition [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-  (compiling source file 'StdAfx.cpp')
-  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(156,1):
-  see previous definition of '_MSVC_STL_VERSION'
-  
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(881,1): warning C4005: '_MSVC_STL_UPDATE': macro redefinition [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-  (compiling source file 'StdAfx.cpp')
-  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(157,1):
-  see previous definition of '_MSVC_STL_UPDATE'
-  
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1000,1): warning C4005: '_DEPRECATE_TR1_NAMESPACE': macro redefinition [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-  (compiling source file 'StdAfx.cpp')
-  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(247,1):
-  see previous definition of '_DEPRECATE_TR1_NAMESPACE'
-  
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1014,1): warning C4005: '_MISMATCHED_ALLOCATOR_MESSAGE': macro redefinition [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-  (compiling source file 'StdAfx.cpp')
-  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(303,1):
-  see previous definition of '_MISMATCHED_ALLOCATOR_MESSAGE'
-  
-  VideoBuffer.cpp
-  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(880,1): warning C4005: '_MSVC_STL_VERSION': macro redefinition [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-  (compiling source file 'VideoBuffer.cpp')
-  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(156,1):
-  see previous definition of '_MSVC_STL_VERSION'
-  
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(881,1): warning C4005: '_MSVC_STL_UPDATE': macro redefinition [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-  (compiling source file 'VideoBuffer.cpp')
-  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(157,1):
-  see previous definition of '_MSVC_STL_UPDATE'
-  
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1000,1): warning C4005: '_DEPRECATE_TR1_NAMESPACE': macro redefinition [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-  (compiling source file 'VideoBuffer.cpp')
-  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(247,1):
-  see previous definition of '_DEPRECATE_TR1_NAMESPACE'
-  
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1014,1): warning C4005: '_MISMATCHED_ALLOCATOR_MESSAGE': macro redefinition [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-  (compiling source file 'VideoBuffer.cpp')
-  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(303,1):
-  see previous definition of '_MISMATCHED_ALLOCATOR_MESSAGE'
-  
-C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoBuffer.cpp(515,26): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoBuffer.cpp(693,20): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoBuffer.cpp(672,20): warning C4101: 'lReturnValue': unreferenced local variable [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoBuffer.cpp(673,20): warning C4101: 'lSurfaceDesc': unreferenced local variable [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoBuffer.cpp(1011,23): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoBuffer.cpp(1024,23): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoBuffer.cpp(1037,23): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoBuffer.cpp(1045,20): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoBuffer.cpp(1000,12): warning C4101: 'lErrorCode': unreferenced local variable [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoBuffer.cpp(1136,21): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoBuffer.cpp(1151,20): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoBuffer.cpp(1168,24): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoBuffer.cpp(1180,27): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoBuffer.cpp(1190,27): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoBuffer.cpp(1199,27): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-  VideoBuffer2DDraw.cpp
-  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(880,1): warning C4005: '_MSVC_STL_VERSION': macro redefinition [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-  (compiling source file 'VideoBuffer2DDraw.cpp')
-  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(156,1):
-  see previous definition of '_MSVC_STL_VERSION'
-  
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(881,1): warning C4005: '_MSVC_STL_UPDATE': macro redefinition [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-  (compiling source file 'VideoBuffer2DDraw.cpp')
-  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(157,1):
-  see previous definition of '_MSVC_STL_UPDATE'
-  
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1000,1): warning C4005: '_DEPRECATE_TR1_NAMESPACE': macro redefinition [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-  (compiling source file 'VideoBuffer2DDraw.cpp')
-  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(247,1):
-  see previous definition of '_DEPRECATE_TR1_NAMESPACE'
-  
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1014,1): warning C4005: '_MISMATCHED_ALLOCATOR_MESSAGE': macro redefinition [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-  (compiling source file 'VideoBuffer2DDraw.cpp')
-  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(303,1):
-  see previous definition of '_MISMATCHED_ALLOCATOR_MESSAGE'
-  
-  SDL2Graphics.cpp
-C:\originalhr2\HoverRaceAI\NetTarget\GraphicsSDL2\SDL2Graphics.cpp(114,21): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\NetTarget\GraphicsSDL2\SDL2Graphics.cpp(124,17): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\NetTarget\GraphicsSDL2\SDL2Graphics.cpp(165,26): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\NetTarget\GraphicsSDL2\SDL2Graphics.cpp(186,26): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\NetTarget\GraphicsSDL2\SDL2Graphics.cpp(218,21): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\NetTarget\GraphicsSDL2\SDL2Graphics.cpp(298,25): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-  VideoBufferSDL2Adapter.cpp
-  VideoBufferSDL2Integration.cpp
-  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(880,1): warning C4005: '_MSVC_STL_VERSION': macro redefinition [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-  (compiling source file 'VideoBufferSDL2Integration.cpp')
-  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(156,1):
-  see previous definition of '_MSVC_STL_VERSION'
-  
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(881,1): warning C4005: '_MSVC_STL_UPDATE': macro redefinition [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-  (compiling source file 'VideoBufferSDL2Integration.cpp')
-  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(157,1):
-  see previous definition of '_MSVC_STL_UPDATE'
-  
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1000,1): warning C4005: '_DEPRECATE_TR1_NAMESPACE': macro redefinition [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-  (compiling source file 'VideoBufferSDL2Integration.cpp')
-  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(247,1):
-  see previous definition of '_DEPRECATE_TR1_NAMESPACE'
-  
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1014,1): warning C4005: '_MISMATCHED_ALLOCATOR_MESSAGE': macro redefinition [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-  (compiling source file 'VideoBufferSDL2Integration.cpp')
-  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(303,1):
-  see previous definition of '_MISMATCHED_ALLOCATOR_MESSAGE'
-  
-  alstub.cpp
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(26,15): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(143,21): warning C4244: '=': conversion from 'int' to 'WORD', possible loss of data [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(145,26): warning C4244: '=': conversion from 'int' to 'WORD', possible loss of data [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(335,88): warning C4100: 'value3': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(335,72): warning C4100: 'value2': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(335,56): warning C4100: 'value1': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(335,41): warning C4100: 'param': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(335,26): warning C4100: 'source': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(524,41): warning C4100: 'devicename': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(535,38): warning C4100: 'device': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(544,63): warning C4100: 'attrlist': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(554,42): warning C4100: 'context': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(569,75): warning C4100: 'value3': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(569,59): warning C4100: 'value2': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(569,43): warning C4100: 'value1': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(569,28): warning C4100: 'param': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(570,50): warning C4100: 'values': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(570,28): warning C4100: 'param': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(571,42): warning C4100: 'value': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(571,27): warning C4100: 'param': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(572,40): warning C4100: 'value': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(572,27): warning C4100: 'param': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(573,69): warning C4100: 'value3': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(573,55): warning C4100: 'value2': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(573,41): warning C4100: 'value1': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(573,28): warning C4100: 'param': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(574,48): warning C4100: 'values': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(574,28): warning C4100: 'param': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(576,30): warning C4100: 'param': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(580,31): warning C4100: 'param': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(586,31): warning C4100: 'param': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(590,30): warning C4100: 'param': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(594,31): warning C4100: 'param': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(600,31): warning C4100: 'param': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(605,47): warning C4100: 'sources': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(605,30): warning C4100: 'n': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(606,47): warning C4100: 'sources': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(606,30): warning C4100: 'n': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(607,49): warning C4100: 'sources': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(607,32): warning C4100: 'n': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(608,48): warning C4100: 'sources': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(608,31): warning C4100: 'n': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(609,70): warning C4100: 'buffers': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(609,52): warning C4100: 'nb': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(609,36): warning C4100: 'source': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(610,66): warning C4100: 'buffers': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(610,54): warning C4100: 'nb': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(610,38): warning C4100: 'source': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(612,43): warning C4100: 'param': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(612,28): warning C4100: 'source': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(613,86): warning C4100: 'v3': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(613,73): warning C4100: 'v2': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(613,60): warning C4100: 'v1': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(613,44): warning C4100: 'param': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(613,29): warning C4100: 'source': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(614,60): warning C4100: 'values': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(614,44): warning C4100: 'param': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(614,29): warning C4100: 'source': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(690,80): warning C4100: 'v3': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(690,69): warning C4100: 'v2': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(690,58): warning C4100: 'v1': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(690,44): warning C4100: 'param': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(690,29): warning C4100: 'source': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(691,58): warning C4100: 'values': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(691,44): warning C4100: 'param': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(691,29): warning C4100: 'source': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(693,55): warning C4100: 'value': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(693,40): warning C4100: 'param': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(693,25): warning C4100: 'buffer': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(694,88): warning C4100: 'value3': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(694,72): warning C4100: 'value2': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(694,56): warning C4100: 'value1': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(694,41): warning C4100: 'param': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(694,26): warning C4100: 'buffer': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(695,63): warning C4100: 'values': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(695,41): warning C4100: 'param': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(695,26): warning C4100: 'buffer': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(696,53): warning C4100: 'value': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(696,40): warning C4100: 'param': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(696,25): warning C4100: 'buffer': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(697,82): warning C4100: 'value3': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(697,68): warning C4100: 'value2': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(697,54): warning C4100: 'value1': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(697,41): warning C4100: 'param': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(697,26): warning C4100: 'buffer': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(698,61): warning C4100: 'values': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(698,41): warning C4100: 'param': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(698,26): warning C4100: 'buffer': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(700,59): warning C4100: 'value': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(700,43): warning C4100: 'param': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(700,28): warning C4100: 'buffer': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(701,94): warning C4100: 'value3': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(701,77): warning C4100: 'value2': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(701,60): warning C4100: 'value1': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(701,44): warning C4100: 'param': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(701,29): warning C4100: 'buffer': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(702,60): warning C4100: 'values': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(702,44): warning C4100: 'param': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(702,29): warning C4100: 'buffer': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(703,57): warning C4100: 'value': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(703,43): warning C4100: 'param': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(703,28): warning C4100: 'buffer': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(704,88): warning C4100: 'value3': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(704,73): warning C4100: 'value2': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(704,58): warning C4100: 'value1': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(704,44): warning C4100: 'param': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(704,29): warning C4100: 'buffer': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(705,58): warning C4100: 'values': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(705,44): warning C4100: 'param': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(705,29): warning C4100: 'buffer': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(708,68): warning C4100: 'extname': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(708,45): warning C4100: 'device': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(709,62): warning C4100: 'funcname': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(709,39): warning C4100: 'device': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(710,59): warning C4100: 'enumname': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(710,36): warning C4100: 'device': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(711,56): warning C4100: 'param': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(711,40): warning C4100: 'device': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(712,81): warning C4100: 'dest': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(712,67): warning C4100: 'size': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(712,51): warning C4100: 'param': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(712,35): warning C4100: 'device': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(713,32): warning C4100: 'device': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(714,39): warning C4100: 'context': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(716,45): warning C4100: 'context': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\OpenAL\alstub.cpp(78,14): warning C4505: 'dbToGain': unreferenced function with internal linkage has been removed [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-  RenderingEngine.cpp
-  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(880,1): warning C4005: '_MSVC_STL_VERSION': macro redefinition [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-  (compiling source file 'RenderingEngine.cpp')
-  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(156,1):
-  see previous definition of '_MSVC_STL_VERSION'
-  
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(881,1): warning C4005: '_MSVC_STL_UPDATE': macro redefinition [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-  (compiling source file 'RenderingEngine.cpp')
-  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(157,1):
-  see previous definition of '_MSVC_STL_UPDATE'
-  
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1000,1): warning C4005: '_DEPRECATE_TR1_NAMESPACE': macro redefinition [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-  (compiling source file 'RenderingEngine.cpp')
-  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(247,1):
-  see previous definition of '_DEPRECATE_TR1_NAMESPACE'
-  
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1014,1): warning C4005: '_MISMATCHED_ALLOCATOR_MESSAGE': macro redefinition [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-  (compiling source file 'RenderingEngine.cpp')
-  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(303,1):
-  see previous definition of '_MISMATCHED_ALLOCATOR_MESSAGE'
-  
-  GraphicsUtilities.cpp
-  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(880,1): warning C4005: '_MSVC_STL_VERSION': macro redefinition [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-  (compiling source file 'GraphicsUtilities.cpp')
-  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(156,1):
-  see previous definition of '_MSVC_STL_VERSION'
-  
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(881,1): warning C4005: '_MSVC_STL_UPDATE': macro redefinition [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-  (compiling source file 'GraphicsUtilities.cpp')
-  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(157,1):
-  see previous definition of '_MSVC_STL_UPDATE'
-  
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1000,1): warning C4005: '_DEPRECATE_TR1_NAMESPACE': macro redefinition [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-  (compiling source file 'GraphicsUtilities.cpp')
-  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(247,1):
-  see previous definition of '_DEPRECATE_TR1_NAMESPACE'
-  
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1014,1): warning C4005: '_MISMATCHED_ALLOCATOR_MESSAGE': macro redefinition [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-  (compiling source file 'GraphicsUtilities.cpp')
-  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(303,1):
-  see previous definition of '_MISMATCHED_ALLOCATOR_MESSAGE'
-  
-  ModernVideoBuffer.cpp
-  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(880,1): warning C4005: '_MSVC_STL_VERSION': macro redefinition [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-  (compiling source file 'ModernVideoBuffer.cpp')
-  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(156,1):
-  see previous definition of '_MSVC_STL_VERSION'
-  
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(881,1): warning C4005: '_MSVC_STL_UPDATE': macro redefinition [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-  (compiling source file 'ModernVideoBuffer.cpp')
-  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(157,1):
-  see previous definition of '_MSVC_STL_UPDATE'
-  
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1000,1): warning C4005: '_DEPRECATE_TR1_NAMESPACE': macro redefinition [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-  (compiling source file 'ModernVideoBuffer.cpp')
-  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(247,1):
-  see previous definition of '_DEPRECATE_TR1_NAMESPACE'
-  
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1014,1): warning C4005: '_MISMATCHED_ALLOCATOR_MESSAGE': macro redefinition [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-  (compiling source file 'ModernVideoBuffer.cpp')
-  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(303,1):
-  see previous definition of '_MISMATCHED_ALLOCATOR_MESSAGE'
-  
-  ModernRenderer.cpp
-  _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(880,1): warning C4005: '_MSVC_STL_VERSION': macro redefinition [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-  (compiling source file 'ModernRenderer.cpp')
-  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(156,1):
-  see previous definition of '_MSVC_STL_VERSION'
-  
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(881,1): warning C4005: '_MSVC_STL_UPDATE': macro redefinition [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-  (compiling source file 'ModernRenderer.cpp')
-  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(157,1):
-  see previous definition of '_MSVC_STL_UPDATE'
-  
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1000,1): warning C4005: '_DEPRECATE_TR1_NAMESPACE': macro redefinition [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-  (compiling source file 'ModernRenderer.cpp')
-  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(247,1):
-  see previous definition of '_DEPRECATE_TR1_NAMESPACE'
-  
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\yvals_core.h(1014,1): warning C4005: '_MISMATCHED_ALLOCATOR_MESSAGE': macro redefinition [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-  (compiling source file 'ModernRenderer.cpp')
-  C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include\yvals.h(303,1):
-  see previous definition of '_MISMATCHED_ALLOCATOR_MESSAGE'
-  
-C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\ModernRenderer.cpp(88,43): warning C4100: 'pAlpha': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\ModernRenderer.cpp(87,41): warning C4100: 'pRotation': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\ModernRenderer.cpp(86,56): warning C4100: 'pScaleY': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\ModernRenderer.cpp(86,41): warning C4100: 'pScaleX': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\ModernRenderer.cpp(300,42): warning C4100: 'pChar': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\VideoServices\VideoServices.vcxproj]
-  Generating Code...
-Attempting to cancel the build...
+C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(199,10): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr2\HoverRaceAI\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(218,10): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr2\HoverRaceAI\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(239,10): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr2\HoverRaceAI\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(255,10): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr2\HoverRaceAI\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(269,10): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr2\HoverRaceAI\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(308,7): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr2\HoverRaceAI\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(341,10): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr2\HoverRaceAI\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(354,10): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr2\HoverRaceAI\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(379,7): warning C4996: 'WSAAsyncSelect': Use WSAEventSelect() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings [C:\originalhr2\HoverRaceAI\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(551,10): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr2\HoverRaceAI\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(558,14): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr2\HoverRaceAI\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(578,22): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr2\HoverRaceAI\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(599,14): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr2\HoverRaceAI\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(637,26): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr2\HoverRaceAI\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(684,32): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr2\HoverRaceAI\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(770,18): warning C4456: declaration of 'lPath' hides previous local declaration [C:\originalhr2\HoverRaceAI\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(733,15):
+  see declaration of 'lPath'
+  
+C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(833,25): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr2\HoverRaceAI\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(773,28): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr2\HoverRaceAI\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(811,29): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr2\HoverRaceAI\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(829,25): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr2\HoverRaceAI\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(836,28): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr2\HoverRaceAI\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(841,66): warning C4996: 'inet_addr': Use inet_pton() or InetPton() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings [C:\originalhr2\HoverRaceAI\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(846,52): warning C4996: 'gethostbyname': Use getaddrinfo() or GetAddrInfoW() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings [C:\originalhr2\HoverRaceAI\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(877,38): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr2\HoverRaceAI\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(892,26): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr2\HoverRaceAI\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(898,66): warning C4996: 'inet_addr': Use inet_pton() or InetPton() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings [C:\originalhr2\HoverRaceAI\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(933,36): warning C4996: 'inet_addr': Use inet_pton() or InetPton() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings [C:\originalhr2\HoverRaceAI\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(720,43): warning C4100: 'pParentWindow': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(768,18): warning C4101: 'lPathOrUrl': unreferenced local variable [C:\originalhr2\HoverRaceAI\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(963,7): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr2\HoverRaceAI\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(973,7): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr2\HoverRaceAI\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(996,10): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr2\HoverRaceAI\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(1069,10): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr2\HoverRaceAI\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(1121,10): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr2\HoverRaceAI\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(1249,17): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr2\HoverRaceAI\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(1544,10): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr2\HoverRaceAI\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(1793,106): warning C4100: 'pLParam': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(1855,104): warning C4100: 'pLParam': unreferenced formal parameter [C:\originalhr2\HoverRaceAI\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2045,26): warning C4389: '!=': signed/unsigned mismatch [C:\originalhr2\HoverRaceAI\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2472,65): error C2678: binary '>>': no operator found which takes a left-hand operand of type 'CString' (or there is no acceptable conversion) [C:\originalhr2\HoverRaceAI\NetTarget\Game2\Game2.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxwin1.inl(47,33):
+  could be 'CArchive &operator >>(CArchive &,RECT &)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2472,65):
+  	'CArchive &operator >>(CArchive &,RECT &)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxwin1.inl(45,33):
+  or       'CArchive &operator >>(CArchive &,POINT &)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2472,65):
+  	'CArchive &operator >>(CArchive &,POINT &)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxwin1.inl(43,33):
+  or       'CArchive &operator >>(CArchive &,SIZE &)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2472,65):
+  	'CArchive &operator >>(CArchive &,SIZE &)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxcoll.h(1408,2):
+  or       'CArchive &operator >>(CArchive &,CMapStringToString *&)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2472,65):
+  	'CArchive &operator >>(CArchive &,CMapStringToString *&)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxcoll.h(1324,2):
+  or       'CArchive &operator >>(CArchive &,CMapStringToOb *&)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2472,65):
+  	'CArchive &operator >>(CArchive &,CMapStringToOb *&)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxcoll.h(1157,2):
+  or       'CArchive &operator >>(CArchive &,CMapWordToOb *&)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2472,65):
+  	'CArchive &operator >>(CArchive &,CMapWordToOb *&)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxcoll.h(798,2):
+  or       'CArchive &operator >>(CArchive &,CStringList *&)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2472,65):
+  	'CArchive &operator >>(CArchive &,CStringList *&)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxcoll.h(697,2):
+  or       'CArchive &operator >>(CArchive &,CObList *&)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2472,65):
+  	'CArchive &operator >>(CArchive &,CObList *&)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxcoll.h(513,2):
+  or       'CArchive &operator >>(CArchive &,CStringArray *&)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2472,65):
+  	'CArchive &operator >>(CArchive &,CStringArray *&)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxcoll.h(438,2):
+  or       'CArchive &operator >>(CArchive &,CObArray *&)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2472,65):
+  	'CArchive &operator >>(CArchive &,CObArray *&)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxcoll.h(217,2):
+  or       'CArchive &operator >>(CArchive &,CDWordArray *&)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2472,65):
+  	'CArchive &operator >>(CArchive &,CDWordArray *&)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxcoll.h(142,2):
+  or       'CArchive &operator >>(CArchive &,CWordArray *&)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2472,65):
+  	'CArchive &operator >>(CArchive &,CWordArray *&)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxcoll.h(67,2):
+  or       'CArchive &operator >>(CArchive &,CByteArray *&)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2472,65):
+  	'CArchive &operator >>(CArchive &,CByteArray *&)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afx.inl(394,30):
+  or       'CArchive &operator >>(CArchive &,const CObject *&)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2472,65):
+  	'CArchive &operator >>(CArchive &,const CObject *&)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afx.inl(392,30):
+  or       'CArchive &operator >>(CArchive &,CObject *&)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2472,65):
+  	'CArchive &operator >>(CArchive &,CObject *&)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afx.h(1420,18):
+  or       'CArchive &operator >>(CArchive &,ATL::CTime &)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2472,65):
+  	'CArchive &operator >>(CArchive &,ATL::CTime &)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afx.h(1413,18):
+  or       'CArchive &operator >>(CArchive &,ATL::CTimeSpan &)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2472,65):
+  	'CArchive &operator >>(CArchive &,ATL::CTimeSpan &)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2472,65):
+  while trying to match the argument list '(CString, int)'
+  
+C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2473,65): error C2678: binary '>>': no operator found which takes a left-hand operand of type 'CString' (or there is no acceptable conversion) [C:\originalhr2\HoverRaceAI\NetTarget\Game2\Game2.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxwin1.inl(47,33):
+  could be 'CArchive &operator >>(CArchive &,RECT &)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2473,65):
+  	'CArchive &operator >>(CArchive &,RECT &)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxwin1.inl(45,33):
+  or       'CArchive &operator >>(CArchive &,POINT &)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2473,65):
+  	'CArchive &operator >>(CArchive &,POINT &)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxwin1.inl(43,33):
+  or       'CArchive &operator >>(CArchive &,SIZE &)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2473,65):
+  	'CArchive &operator >>(CArchive &,SIZE &)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxcoll.h(1408,2):
+  or       'CArchive &operator >>(CArchive &,CMapStringToString *&)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2473,65):
+  	'CArchive &operator >>(CArchive &,CMapStringToString *&)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxcoll.h(1324,2):
+  or       'CArchive &operator >>(CArchive &,CMapStringToOb *&)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2473,65):
+  	'CArchive &operator >>(CArchive &,CMapStringToOb *&)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxcoll.h(1157,2):
+  or       'CArchive &operator >>(CArchive &,CMapWordToOb *&)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2473,65):
+  	'CArchive &operator >>(CArchive &,CMapWordToOb *&)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxcoll.h(798,2):
+  or       'CArchive &operator >>(CArchive &,CStringList *&)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2473,65):
+  	'CArchive &operator >>(CArchive &,CStringList *&)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxcoll.h(697,2):
+  or       'CArchive &operator >>(CArchive &,CObList *&)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2473,65):
+  	'CArchive &operator >>(CArchive &,CObList *&)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxcoll.h(513,2):
+  or       'CArchive &operator >>(CArchive &,CStringArray *&)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2473,65):
+  	'CArchive &operator >>(CArchive &,CStringArray *&)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxcoll.h(438,2):
+  or       'CArchive &operator >>(CArchive &,CObArray *&)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2473,65):
+  	'CArchive &operator >>(CArchive &,CObArray *&)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxcoll.h(217,2):
+  or       'CArchive &operator >>(CArchive &,CDWordArray *&)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2473,65):
+  	'CArchive &operator >>(CArchive &,CDWordArray *&)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxcoll.h(142,2):
+  or       'CArchive &operator >>(CArchive &,CWordArray *&)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2473,65):
+  	'CArchive &operator >>(CArchive &,CWordArray *&)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxcoll.h(67,2):
+  or       'CArchive &operator >>(CArchive &,CByteArray *&)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2473,65):
+  	'CArchive &operator >>(CArchive &,CByteArray *&)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afx.inl(394,30):
+  or       'CArchive &operator >>(CArchive &,const CObject *&)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2473,65):
+  	'CArchive &operator >>(CArchive &,const CObject *&)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afx.inl(392,30):
+  or       'CArchive &operator >>(CArchive &,CObject *&)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2473,65):
+  	'CArchive &operator >>(CArchive &,CObject *&)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afx.h(1420,18):
+  or       'CArchive &operator >>(CArchive &,ATL::CTime &)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2473,65):
+  	'CArchive &operator >>(CArchive &,ATL::CTime &)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afx.h(1413,18):
+  or       'CArchive &operator >>(CArchive &,ATL::CTimeSpan &)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2473,65):
+  	'CArchive &operator >>(CArchive &,ATL::CTimeSpan &)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2473,65):
+  while trying to match the argument list '(CString, int)'
+  
+C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2474,65): error C2678: binary '>>': no operator found which takes a left-hand operand of type 'CString' (or there is no acceptable conversion) [C:\originalhr2\HoverRaceAI\NetTarget\Game2\Game2.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxwin1.inl(47,33):
+  could be 'CArchive &operator >>(CArchive &,RECT &)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2474,65):
+  	'CArchive &operator >>(CArchive &,RECT &)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxwin1.inl(45,33):
+  or       'CArchive &operator >>(CArchive &,POINT &)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2474,65):
+  	'CArchive &operator >>(CArchive &,POINT &)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxwin1.inl(43,33):
+  or       'CArchive &operator >>(CArchive &,SIZE &)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2474,65):
+  	'CArchive &operator >>(CArchive &,SIZE &)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxcoll.h(1408,2):
+  or       'CArchive &operator >>(CArchive &,CMapStringToString *&)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2474,65):
+  	'CArchive &operator >>(CArchive &,CMapStringToString *&)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxcoll.h(1324,2):
+  or       'CArchive &operator >>(CArchive &,CMapStringToOb *&)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2474,65):
+  	'CArchive &operator >>(CArchive &,CMapStringToOb *&)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxcoll.h(1157,2):
+  or       'CArchive &operator >>(CArchive &,CMapWordToOb *&)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2474,65):
+  	'CArchive &operator >>(CArchive &,CMapWordToOb *&)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxcoll.h(798,2):
+  or       'CArchive &operator >>(CArchive &,CStringList *&)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2474,65):
+  	'CArchive &operator >>(CArchive &,CStringList *&)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxcoll.h(697,2):
+  or       'CArchive &operator >>(CArchive &,CObList *&)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2474,65):
+  	'CArchive &operator >>(CArchive &,CObList *&)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxcoll.h(513,2):
+  or       'CArchive &operator >>(CArchive &,CStringArray *&)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2474,65):
+  	'CArchive &operator >>(CArchive &,CStringArray *&)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxcoll.h(438,2):
+  or       'CArchive &operator >>(CArchive &,CObArray *&)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2474,65):
+  	'CArchive &operator >>(CArchive &,CObArray *&)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxcoll.h(217,2):
+  or       'CArchive &operator >>(CArchive &,CDWordArray *&)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2474,65):
+  	'CArchive &operator >>(CArchive &,CDWordArray *&)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxcoll.h(142,2):
+  or       'CArchive &operator >>(CArchive &,CWordArray *&)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2474,65):
+  	'CArchive &operator >>(CArchive &,CWordArray *&)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxcoll.h(67,2):
+  or       'CArchive &operator >>(CArchive &,CByteArray *&)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2474,65):
+  	'CArchive &operator >>(CArchive &,CByteArray *&)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afx.inl(394,30):
+  or       'CArchive &operator >>(CArchive &,const CObject *&)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2474,65):
+  	'CArchive &operator >>(CArchive &,const CObject *&)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afx.inl(392,30):
+  or       'CArchive &operator >>(CArchive &,CObject *&)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2474,65):
+  	'CArchive &operator >>(CArchive &,CObject *&)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afx.h(1420,18):
+  or       'CArchive &operator >>(CArchive &,ATL::CTime &)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2474,65):
+  	'CArchive &operator >>(CArchive &,ATL::CTime &)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afx.h(1413,18):
+  or       'CArchive &operator >>(CArchive &,ATL::CTimeSpan &)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2474,65):
+  	'CArchive &operator >>(CArchive &,ATL::CTimeSpan &)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2474,65):
+  while trying to match the argument list '(CString, int)'
+  
+C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2475,65): error C2678: binary '>>': no operator found which takes a left-hand operand of type 'CString' (or there is no acceptable conversion) [C:\originalhr2\HoverRaceAI\NetTarget\Game2\Game2.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxwin1.inl(47,33):
+  could be 'CArchive &operator >>(CArchive &,RECT &)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2475,65):
+  	'CArchive &operator >>(CArchive &,RECT &)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxwin1.inl(45,33):
+  or       'CArchive &operator >>(CArchive &,POINT &)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2475,65):
+  	'CArchive &operator >>(CArchive &,POINT &)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxwin1.inl(43,33):
+  or       'CArchive &operator >>(CArchive &,SIZE &)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2475,65):
+  	'CArchive &operator >>(CArchive &,SIZE &)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxcoll.h(1408,2):
+  or       'CArchive &operator >>(CArchive &,CMapStringToString *&)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2475,65):
+  	'CArchive &operator >>(CArchive &,CMapStringToString *&)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxcoll.h(1324,2):
+  or       'CArchive &operator >>(CArchive &,CMapStringToOb *&)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2475,65):
+  	'CArchive &operator >>(CArchive &,CMapStringToOb *&)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxcoll.h(1157,2):
+  or       'CArchive &operator >>(CArchive &,CMapWordToOb *&)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2475,65):
+  	'CArchive &operator >>(CArchive &,CMapWordToOb *&)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxcoll.h(798,2):
+  or       'CArchive &operator >>(CArchive &,CStringList *&)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2475,65):
+  	'CArchive &operator >>(CArchive &,CStringList *&)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxcoll.h(697,2):
+  or       'CArchive &operator >>(CArchive &,CObList *&)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2475,65):
+  	'CArchive &operator >>(CArchive &,CObList *&)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxcoll.h(513,2):
+  or       'CArchive &operator >>(CArchive &,CStringArray *&)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2475,65):
+  	'CArchive &operator >>(CArchive &,CStringArray *&)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxcoll.h(438,2):
+  or       'CArchive &operator >>(CArchive &,CObArray *&)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2475,65):
+  	'CArchive &operator >>(CArchive &,CObArray *&)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxcoll.h(217,2):
+  or       'CArchive &operator >>(CArchive &,CDWordArray *&)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2475,65):
+  	'CArchive &operator >>(CArchive &,CDWordArray *&)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxcoll.h(142,2):
+  or       'CArchive &operator >>(CArchive &,CWordArray *&)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2475,65):
+  	'CArchive &operator >>(CArchive &,CWordArray *&)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxcoll.h(67,2):
+  or       'CArchive &operator >>(CArchive &,CByteArray *&)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2475,65):
+  	'CArchive &operator >>(CArchive &,CByteArray *&)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afx.inl(394,30):
+  or       'CArchive &operator >>(CArchive &,const CObject *&)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2475,65):
+  	'CArchive &operator >>(CArchive &,const CObject *&)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afx.inl(392,30):
+  or       'CArchive &operator >>(CArchive &,CObject *&)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2475,65):
+  	'CArchive &operator >>(CArchive &,CObject *&)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afx.h(1420,18):
+  or       'CArchive &operator >>(CArchive &,ATL::CTime &)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2475,65):
+  	'CArchive &operator >>(CArchive &,ATL::CTime &)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afx.h(1413,18):
+  or       'CArchive &operator >>(CArchive &,ATL::CTimeSpan &)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2475,65):
+  	'CArchive &operator >>(CArchive &,ATL::CTimeSpan &)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2475,65):
+  while trying to match the argument list '(CString, int)'
+  
+C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2471,60): warning C4473: 'fprintf' : not enough arguments passed for format string [C:\originalhr2\HoverRaceAI\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2471,60):
+  placeholders and their parameters expect 5 variadic arguments, but 1 were provided
+  C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2471,60):
+  the missing variadic argument 2 is required by format string '%d'
+  
+C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2488,62): error C2678: binary '>>': no operator found which takes a left-hand operand of type 'CString' (or there is no acceptable conversion) [C:\originalhr2\HoverRaceAI\NetTarget\Game2\Game2.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxwin1.inl(47,33):
+  could be 'CArchive &operator >>(CArchive &,RECT &)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2488,62):
+  	'CArchive &operator >>(CArchive &,RECT &)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxwin1.inl(45,33):
+  or       'CArchive &operator >>(CArchive &,POINT &)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2488,62):
+  	'CArchive &operator >>(CArchive &,POINT &)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxwin1.inl(43,33):
+  or       'CArchive &operator >>(CArchive &,SIZE &)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2488,62):
+  	'CArchive &operator >>(CArchive &,SIZE &)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxcoll.h(1408,2):
+  or       'CArchive &operator >>(CArchive &,CMapStringToString *&)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2488,62):
+  	'CArchive &operator >>(CArchive &,CMapStringToString *&)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxcoll.h(1324,2):
+  or       'CArchive &operator >>(CArchive &,CMapStringToOb *&)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2488,62):
+  	'CArchive &operator >>(CArchive &,CMapStringToOb *&)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxcoll.h(1157,2):
+  or       'CArchive &operator >>(CArchive &,CMapWordToOb *&)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2488,62):
+  	'CArchive &operator >>(CArchive &,CMapWordToOb *&)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxcoll.h(798,2):
+  or       'CArchive &operator >>(CArchive &,CStringList *&)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2488,62):
+  	'CArchive &operator >>(CArchive &,CStringList *&)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxcoll.h(697,2):
+  or       'CArchive &operator >>(CArchive &,CObList *&)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2488,62):
+  	'CArchive &operator >>(CArchive &,CObList *&)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxcoll.h(513,2):
+  or       'CArchive &operator >>(CArchive &,CStringArray *&)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2488,62):
+  	'CArchive &operator >>(CArchive &,CStringArray *&)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxcoll.h(438,2):
+  or       'CArchive &operator >>(CArchive &,CObArray *&)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2488,62):
+  	'CArchive &operator >>(CArchive &,CObArray *&)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxcoll.h(217,2):
+  or       'CArchive &operator >>(CArchive &,CDWordArray *&)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2488,62):
+  	'CArchive &operator >>(CArchive &,CDWordArray *&)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxcoll.h(142,2):
+  or       'CArchive &operator >>(CArchive &,CWordArray *&)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2488,62):
+  	'CArchive &operator >>(CArchive &,CWordArray *&)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxcoll.h(67,2):
+  or       'CArchive &operator >>(CArchive &,CByteArray *&)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2488,62):
+  	'CArchive &operator >>(CArchive &,CByteArray *&)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afx.inl(394,30):
+  or       'CArchive &operator >>(CArchive &,const CObject *&)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2488,62):
+  	'CArchive &operator >>(CArchive &,const CObject *&)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afx.inl(392,30):
+  or       'CArchive &operator >>(CArchive &,CObject *&)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2488,62):
+  	'CArchive &operator >>(CArchive &,CObject *&)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afx.h(1420,18):
+  or       'CArchive &operator >>(CArchive &,ATL::CTime &)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2488,62):
+  	'CArchive &operator >>(CArchive &,ATL::CTime &)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afx.h(1413,18):
+  or       'CArchive &operator >>(CArchive &,ATL::CTimeSpan &)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2488,62):
+  	'CArchive &operator >>(CArchive &,ATL::CTimeSpan &)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2488,62):
+  while trying to match the argument list '(CString, int)'
+  
+C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2489,62): error C2678: binary '>>': no operator found which takes a left-hand operand of type 'CString' (or there is no acceptable conversion) [C:\originalhr2\HoverRaceAI\NetTarget\Game2\Game2.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxwin1.inl(47,33):
+  could be 'CArchive &operator >>(CArchive &,RECT &)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2489,62):
+  	'CArchive &operator >>(CArchive &,RECT &)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxwin1.inl(45,33):
+  or       'CArchive &operator >>(CArchive &,POINT &)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2489,62):
+  	'CArchive &operator >>(CArchive &,POINT &)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxwin1.inl(43,33):
+  or       'CArchive &operator >>(CArchive &,SIZE &)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2489,62):
+  	'CArchive &operator >>(CArchive &,SIZE &)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxcoll.h(1408,2):
+  or       'CArchive &operator >>(CArchive &,CMapStringToString *&)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2489,62):
+  	'CArchive &operator >>(CArchive &,CMapStringToString *&)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxcoll.h(1324,2):
+  or       'CArchive &operator >>(CArchive &,CMapStringToOb *&)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2489,62):
+  	'CArchive &operator >>(CArchive &,CMapStringToOb *&)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxcoll.h(1157,2):
+  or       'CArchive &operator >>(CArchive &,CMapWordToOb *&)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2489,62):
+  	'CArchive &operator >>(CArchive &,CMapWordToOb *&)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxcoll.h(798,2):
+  or       'CArchive &operator >>(CArchive &,CStringList *&)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2489,62):
+  	'CArchive &operator >>(CArchive &,CStringList *&)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxcoll.h(697,2):
+  or       'CArchive &operator >>(CArchive &,CObList *&)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2489,62):
+  	'CArchive &operator >>(CArchive &,CObList *&)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxcoll.h(513,2):
+  or       'CArchive &operator >>(CArchive &,CStringArray *&)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2489,62):
+  	'CArchive &operator >>(CArchive &,CStringArray *&)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxcoll.h(438,2):
+  or       'CArchive &operator >>(CArchive &,CObArray *&)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2489,62):
+  	'CArchive &operator >>(CArchive &,CObArray *&)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxcoll.h(217,2):
+  or       'CArchive &operator >>(CArchive &,CDWordArray *&)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2489,62):
+  	'CArchive &operator >>(CArchive &,CDWordArray *&)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxcoll.h(142,2):
+  or       'CArchive &operator >>(CArchive &,CWordArray *&)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2489,62):
+  	'CArchive &operator >>(CArchive &,CWordArray *&)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxcoll.h(67,2):
+  or       'CArchive &operator >>(CArchive &,CByteArray *&)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2489,62):
+  	'CArchive &operator >>(CArchive &,CByteArray *&)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afx.inl(394,30):
+  or       'CArchive &operator >>(CArchive &,const CObject *&)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2489,62):
+  	'CArchive &operator >>(CArchive &,const CObject *&)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afx.inl(392,30):
+  or       'CArchive &operator >>(CArchive &,CObject *&)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2489,62):
+  	'CArchive &operator >>(CArchive &,CObject *&)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afx.h(1420,18):
+  or       'CArchive &operator >>(CArchive &,ATL::CTime &)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2489,62):
+  	'CArchive &operator >>(CArchive &,ATL::CTime &)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afx.h(1413,18):
+  or       'CArchive &operator >>(CArchive &,ATL::CTimeSpan &)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2489,62):
+  	'CArchive &operator >>(CArchive &,ATL::CTimeSpan &)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2489,62):
+  while trying to match the argument list '(CString, int)'
+  
+C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2490,62): error C2678: binary '>>': no operator found which takes a left-hand operand of type 'CString' (or there is no acceptable conversion) [C:\originalhr2\HoverRaceAI\NetTarget\Game2\Game2.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxwin1.inl(47,33):
+  could be 'CArchive &operator >>(CArchive &,RECT &)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2490,62):
+  	'CArchive &operator >>(CArchive &,RECT &)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxwin1.inl(45,33):
+  or       'CArchive &operator >>(CArchive &,POINT &)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2490,62):
+  	'CArchive &operator >>(CArchive &,POINT &)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxwin1.inl(43,33):
+  or       'CArchive &operator >>(CArchive &,SIZE &)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2490,62):
+  	'CArchive &operator >>(CArchive &,SIZE &)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxcoll.h(1408,2):
+  or       'CArchive &operator >>(CArchive &,CMapStringToString *&)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2490,62):
+  	'CArchive &operator >>(CArchive &,CMapStringToString *&)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxcoll.h(1324,2):
+  or       'CArchive &operator >>(CArchive &,CMapStringToOb *&)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2490,62):
+  	'CArchive &operator >>(CArchive &,CMapStringToOb *&)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxcoll.h(1157,2):
+  or       'CArchive &operator >>(CArchive &,CMapWordToOb *&)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2490,62):
+  	'CArchive &operator >>(CArchive &,CMapWordToOb *&)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxcoll.h(798,2):
+  or       'CArchive &operator >>(CArchive &,CStringList *&)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2490,62):
+  	'CArchive &operator >>(CArchive &,CStringList *&)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxcoll.h(697,2):
+  or       'CArchive &operator >>(CArchive &,CObList *&)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2490,62):
+  	'CArchive &operator >>(CArchive &,CObList *&)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxcoll.h(513,2):
+  or       'CArchive &operator >>(CArchive &,CStringArray *&)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2490,62):
+  	'CArchive &operator >>(CArchive &,CStringArray *&)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxcoll.h(438,2):
+  or       'CArchive &operator >>(CArchive &,CObArray *&)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2490,62):
+  	'CArchive &operator >>(CArchive &,CObArray *&)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxcoll.h(217,2):
+  or       'CArchive &operator >>(CArchive &,CDWordArray *&)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2490,62):
+  	'CArchive &operator >>(CArchive &,CDWordArray *&)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxcoll.h(142,2):
+  or       'CArchive &operator >>(CArchive &,CWordArray *&)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2490,62):
+  	'CArchive &operator >>(CArchive &,CWordArray *&)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxcoll.h(67,2):
+  or       'CArchive &operator >>(CArchive &,CByteArray *&)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2490,62):
+  	'CArchive &operator >>(CArchive &,CByteArray *&)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afx.inl(394,30):
+  or       'CArchive &operator >>(CArchive &,const CObject *&)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2490,62):
+  	'CArchive &operator >>(CArchive &,const CObject *&)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afx.inl(392,30):
+  or       'CArchive &operator >>(CArchive &,CObject *&)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2490,62):
+  	'CArchive &operator >>(CArchive &,CObject *&)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afx.h(1420,18):
+  or       'CArchive &operator >>(CArchive &,ATL::CTime &)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2490,62):
+  	'CArchive &operator >>(CArchive &,ATL::CTime &)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afx.h(1413,18):
+  or       'CArchive &operator >>(CArchive &,ATL::CTimeSpan &)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2490,62):
+  	'CArchive &operator >>(CArchive &,ATL::CTimeSpan &)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2490,62):
+  while trying to match the argument list '(CString, int)'
+  
+C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2491,62): error C2678: binary '>>': no operator found which takes a left-hand operand of type 'CString' (or there is no acceptable conversion) [C:\originalhr2\HoverRaceAI\NetTarget\Game2\Game2.vcxproj]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxwin1.inl(47,33):
+  could be 'CArchive &operator >>(CArchive &,RECT &)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2491,62):
+  	'CArchive &operator >>(CArchive &,RECT &)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxwin1.inl(45,33):
+  or       'CArchive &operator >>(CArchive &,POINT &)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2491,62):
+  	'CArchive &operator >>(CArchive &,POINT &)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxwin1.inl(43,33):
+  or       'CArchive &operator >>(CArchive &,SIZE &)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2491,62):
+  	'CArchive &operator >>(CArchive &,SIZE &)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxcoll.h(1408,2):
+  or       'CArchive &operator >>(CArchive &,CMapStringToString *&)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2491,62):
+  	'CArchive &operator >>(CArchive &,CMapStringToString *&)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxcoll.h(1324,2):
+  or       'CArchive &operator >>(CArchive &,CMapStringToOb *&)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2491,62):
+  	'CArchive &operator >>(CArchive &,CMapStringToOb *&)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxcoll.h(1157,2):
+  or       'CArchive &operator >>(CArchive &,CMapWordToOb *&)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2491,62):
+  	'CArchive &operator >>(CArchive &,CMapWordToOb *&)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxcoll.h(798,2):
+  or       'CArchive &operator >>(CArchive &,CStringList *&)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2491,62):
+  	'CArchive &operator >>(CArchive &,CStringList *&)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxcoll.h(697,2):
+  or       'CArchive &operator >>(CArchive &,CObList *&)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2491,62):
+  	'CArchive &operator >>(CArchive &,CObList *&)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxcoll.h(513,2):
+  or       'CArchive &operator >>(CArchive &,CStringArray *&)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2491,62):
+  	'CArchive &operator >>(CArchive &,CStringArray *&)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxcoll.h(438,2):
+  or       'CArchive &operator >>(CArchive &,CObArray *&)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2491,62):
+  	'CArchive &operator >>(CArchive &,CObArray *&)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxcoll.h(217,2):
+  or       'CArchive &operator >>(CArchive &,CDWordArray *&)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2491,62):
+  	'CArchive &operator >>(CArchive &,CDWordArray *&)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxcoll.h(142,2):
+  or       'CArchive &operator >>(CArchive &,CWordArray *&)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2491,62):
+  	'CArchive &operator >>(CArchive &,CWordArray *&)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afxcoll.h(67,2):
+  or       'CArchive &operator >>(CArchive &,CByteArray *&)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2491,62):
+  	'CArchive &operator >>(CArchive &,CByteArray *&)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afx.inl(394,30):
+  or       'CArchive &operator >>(CArchive &,const CObject *&)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2491,62):
+  	'CArchive &operator >>(CArchive &,const CObject *&)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afx.inl(392,30):
+  or       'CArchive &operator >>(CArchive &,CObject *&)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2491,62):
+  	'CArchive &operator >>(CArchive &,CObject *&)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afx.h(1420,18):
+  or       'CArchive &operator >>(CArchive &,ATL::CTime &)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2491,62):
+  	'CArchive &operator >>(CArchive &,ATL::CTime &)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\atlmfc\include\afx.h(1413,18):
+  or       'CArchive &operator >>(CArchive &,ATL::CTimeSpan &)'
+  	C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2491,62):
+  	'CArchive &operator >>(CArchive &,ATL::CTimeSpan &)': cannot convert argument 1 from 'CString' to 'CArchive &'
+  C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2491,62):
+  while trying to match the argument list '(CString, int)'
+  
+C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2487,57): warning C4473: 'fprintf' : not enough arguments passed for format string [C:\originalhr2\HoverRaceAI\NetTarget\Game2\Game2.vcxproj]
+  C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2487,57):
+  placeholders and their parameters expect 5 variadic arguments, but 1 were provided
+  C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2487,57):
+  the missing variadic argument 2 is required by format string '%d'
+  
+C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2319,19): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr2\HoverRaceAI\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2405,35): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr2\HoverRaceAI\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2512,32): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr2\HoverRaceAI\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2518,32): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr2\HoverRaceAI\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2743,19): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr2\HoverRaceAI\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2752,19): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr2\HoverRaceAI\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2776,22): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr2\HoverRaceAI\NetTarget\Game2\Game2.vcxproj]
+C:\originalhr2\HoverRaceAI\NetTarget\Game2\InternetRoom.cpp(2856,16): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. [C:\originalhr2\HoverRaceAI\NetTarget\Game2\Game2.vcxproj]

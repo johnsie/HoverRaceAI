@@ -2,25 +2,25 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>C:\originalhr2\HoverRaceAI\Release\Util.dll</FullPath>
+      <FullPath>c:\originalhr2\HoverRaceAI\Release\Util.dll</FullPath>
     </ProjectOutput>
     <ProjectOutput>
-      <FullPath>C:\originalhr2\HoverRaceAI\Release\VideoServices.dll</FullPath>
+      <FullPath>c:\originalhr2\HoverRaceAI\Release\VideoServices.dll</FullPath>
     </ProjectOutput>
     <ProjectOutput>
-      <FullPath>C:\originalhr2\HoverRaceAI\Release\Model.dll</FullPath>
+      <FullPath>c:\originalhr2\HoverRaceAI\Release\Model.dll</FullPath>
     </ProjectOutput>
     <ProjectOutput>
-      <FullPath>C:\originalhr2\HoverRaceAI\Release\ObjFacTools.dll</FullPath>
+      <FullPath>c:\originalhr2\HoverRaceAI\Release\ObjFacTools.dll</FullPath>
     </ProjectOutput>
     <ProjectOutput>
-      <FullPath>C:\originalhr2\HoverRaceAI\Release\ColorTools.dll</FullPath>
+      <FullPath>c:\originalhr2\HoverRaceAI\Release\ColorTools.dll</FullPath>
     </ProjectOutput>
     <ProjectOutput>
-      <FullPath>C:\originalhr2\HoverRaceAI\Release\MainCharacter.dll</FullPath>
+      <FullPath>c:\originalhr2\HoverRaceAI\Release\MainCharacter.dll</FullPath>
     </ProjectOutput>
     <ProjectOutput>
-      <FullPath>C:\originalhr2\HoverRaceAI\NetTarget\Game2\Release\Game2.exe</FullPath>
+      <FullPath>c:\originalhr2\HoverRaceAI\NetTarget\Game2\Release\Game2.exe</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />

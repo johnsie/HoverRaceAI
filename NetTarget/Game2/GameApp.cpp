@@ -2661,70 +2661,141 @@ void MR_GameApp::NewInternetSession( )
    BOOL               lSuccess = TRUE;
    MR_NetworkSession* lCurrentSession = NULL;
 
+   // Debug logging - use absolute path to ensure file is created
+   char lLogPath[MAX_PATH];
+   GetCurrentDirectoryA(sizeof(lLogPath), lLogPath);
+   strcat_s(lLogPath, sizeof(lLogPath), "\\NewInternetSession.log");
+   
+   FILE* lDebugLog = fopen(lLogPath, "a");
+   if(lDebugLog) fprintf(lDebugLog, "\n=== NewInternetSession START at %I64d ===\n", __int64(timeGetTime())), fflush(lDebugLog);
+
    try
    {
-      // MR_InternetRoom    lInternetRoom( gKeyFilled, gKeyFilled?mMajorID:-1, gKeyFilled?mMinorID:-1, gKeyFilled?gKey.mKeySumHard2:0, gKeyFilled?gKey.mKeySumHard3:0 );
-      MR_InternetRoom    lInternetRoom( gKeyFilled, gKeyFilled?mMajorID:-1, gKeyFilled?mMinorID:-1, gKeyFilled?gKey.mIDSum:0, 0 );
-
-      // Verify is user acknowledge
-      if( AskUserToAbortGame() != IDOK )
+      try 
       {
-         return;
-      }
+         if(lDebugLog) fprintf(lDebugLog, "Step 1: Creating MR_InternetRoom\n"), fflush(lDebugLog);
+         // MR_InternetRoom    lInternetRoom( gKeyFilled, gKeyFilled?mMajorID:-1, gKeyFilled?mMinorID:-1, gKeyFilled?gKey.mKeySumHard2:0, gKeyFilled?gKey.mKeySumHard3:0 );
+         MR_InternetRoom    lInternetRoom( gKeyFilled, gKeyFilled?mMajorID:-1, gKeyFilled?mMinorID:-1, gKeyFilled?gKey.mIDSum:0, 0 );
 
-      // Delete the current session
-      Clean();
-      DeleteMovieWnd();
-      MR_SoundServer::Init( mMainWindow );
+         if(lDebugLog) fprintf(lDebugLog, "MR_InternetRoom created OK\n"), fflush(lDebugLog);
 
-      lCurrentSession = new MR_NetworkSession( TRUE, gKeyFilled?mMajorID:-1, gKeyFilled?mMinorID:-1, mMainWindow );
-
-      if( lSuccess )
-      {
-         lCurrentSession->SetPlayerName( mNickName );
-
-         lSuccess = lInternetRoom.DisplayChatRoom( mMainWindow, lCurrentSession, mVideoBuffer );
-
-         if( mNickName != lCurrentSession->GetPlayerName() )
+         // Verify is user acknowledge
+         if( AskUserToAbortGame() != IDOK )
          {
-            mNickName = lCurrentSession->GetPlayerName();
-            SaveRegistry();
+            if(lDebugLog) fprintf(lDebugLog, "User canceled\n"), fflush(lDebugLog);
+            if(lDebugLog) fclose(lDebugLog);
+            return;
          }
-      }
 
-      if( lSuccess )
-      {
-         lCurrentSession->SetSimulationTime( -20000 ); // start in 20 seconds (this time may be readjusted by the server)
-      }
-
-      if( lSuccess )
-      {
-         mObserver1 = MR_Observer::New();
-         lSuccess = lCurrentSession->CreateMainCharacter();
-      }
-
-      
-      if( !lSuccess )
-      {
-         // Clean everytings
+         if(lDebugLog) fprintf(lDebugLog, "Calling Clean() and DeleteMovieWnd()\n"), fflush(lDebugLog);
+         // Delete the current session
          Clean();
-         delete lCurrentSession;
-      }
-      else
-      {
-         mCurrentSession = lCurrentSession;
-         mGameThread = MR_GameThread::New( this );
+         DeleteMovieWnd();
+         
+         if(lDebugLog) fprintf(lDebugLog, "Initializing MR_SoundServer\n"), fflush(lDebugLog);
+         MR_SoundServer::Init( mMainWindow );
 
-         if( mGameThread == NULL )
+         if(lDebugLog) fprintf(lDebugLog, "Creating MR_NetworkSession\n"), fflush(lDebugLog);
+         lCurrentSession = new MR_NetworkSession( TRUE, gKeyFilled?mMajorID:-1, gKeyFilled?mMinorID:-1, mMainWindow );
+
+         if(lDebugLog) fprintf(lDebugLog, "MR_NetworkSession created OK\n"), fflush(lDebugLog);
+
+         if( lSuccess )
          {
-            mCurrentSession = NULL;
+            if(lDebugLog) fprintf(lDebugLog, "Setting player name: %s\n", (const char*)mNickName), fflush(lDebugLog);
+            lCurrentSession->SetPlayerName( mNickName );
+
+            if(lDebugLog) fprintf(lDebugLog, "Calling DisplayChatRoom\n"), fflush(lDebugLog);
+            try 
+            {
+               lSuccess = lInternetRoom.DisplayChatRoom( mMainWindow, lCurrentSession, mVideoBuffer );
+            }
+            catch(const std::exception& ex)
+            {
+               if(lDebugLog) fprintf(lDebugLog, "DisplayChatRoom threw std::exception: %s\n", ex.what()), fflush(lDebugLog);
+               lSuccess = FALSE;
+            }
+            catch(...)
+            {
+               if(lDebugLog) fprintf(lDebugLog, "DisplayChatRoom threw unknown exception\n"), fflush(lDebugLog);
+               lSuccess = FALSE;
+            }
+
+            if(lDebugLog) fprintf(lDebugLog, "DisplayChatRoom returned: %d\n", lSuccess), fflush(lDebugLog);
+
+            if( mNickName != lCurrentSession->GetPlayerName() )
+            {
+               mNickName = lCurrentSession->GetPlayerName();
+               SaveRegistry();
+            }
+         }
+
+         if( lSuccess )
+         {
+            if(lDebugLog) fprintf(lDebugLog, "Setting simulation time\n"), fflush(lDebugLog);
+            lCurrentSession->SetSimulationTime( -20000 ); // start in 20 seconds (this time may be readjusted by the server)
+         }
+
+         if( lSuccess )
+         {
+            if(lDebugLog) fprintf(lDebugLog, "Creating observer\n"), fflush(lDebugLog);
+            mObserver1 = MR_Observer::New();
+            
+            if(lDebugLog) fprintf(lDebugLog, "Calling CreateMainCharacter\n"), fflush(lDebugLog);
+            lSuccess = lCurrentSession->CreateMainCharacter();
+            if(lDebugLog) fprintf(lDebugLog, "CreateMainCharacter returned: %d\n", lSuccess), fflush(lDebugLog);
+         }
+
+         
+         if( !lSuccess )
+         {
+            if(lDebugLog) fprintf(lDebugLog, "lSuccess is FALSE, cleaning up\n"), fflush(lDebugLog);
+            // Clean everytings
+            Clean();
             delete lCurrentSession;
          }
+         else
+         {
+            if(lDebugLog) fprintf(lDebugLog, "Setting mCurrentSession and creating game thread\n"), fflush(lDebugLog);
+            mCurrentSession = lCurrentSession;
+            mGameThread = MR_GameThread::New( this );
+
+            if( mGameThread == NULL )
+            {
+               if(lDebugLog) fprintf(lDebugLog, "MR_GameThread::New returned NULL\n"), fflush(lDebugLog);
+               mCurrentSession = NULL;
+               delete lCurrentSession;
+            }
+            else
+            {
+               if(lDebugLog) fprintf(lDebugLog, "Game thread created successfully\n"), fflush(lDebugLog);
+            }
+         }
       }
+      catch (const std::exception& e)
+      {
+         if(lDebugLog) fprintf(lDebugLog, "Inner EXCEPTION caught: %s\n", e.what()), fflush(lDebugLog);
+         throw;  // Re-throw to outer catch
+      }
+   }
+   catch (const std::exception& e)
+   {
+      if(lDebugLog) fprintf(lDebugLog, "EXCEPTION caught: %s\n", e.what()), fflush(lDebugLog);
+      char lDetailedMsg[512];
+      sprintf_s(lDetailedMsg, sizeof(lDetailedMsg), 
+         "An error occurred while starting the Internet session.\n\n"
+         "Details: %s", e.what());
+      MessageBoxA( mMainWindow, lDetailedMsg, "Error", MB_OK | MB_ICONERROR );
+      if( lCurrentSession != NULL )
+      {
+         delete lCurrentSession;
+      }
+      Clean();
    }
    catch (...)
    {
-      MessageBoxA( mMainWindow, "An error occurred while starting the Internet session.", "Error", MB_OK | MB_ICONERROR );
+      if(lDebugLog) fprintf(lDebugLog, "UNKNOWN EXCEPTION caught\n"), fflush(lDebugLog);
+      MessageBoxA( mMainWindow, "An unknown error occurred while starting the Internet session.", "Error", MB_OK | MB_ICONERROR );
       if( lCurrentSession != NULL )
       {
          delete lCurrentSession;
@@ -2732,6 +2803,9 @@ void MR_GameApp::NewInternetSession( )
       Clean();
    }
    
+   if(lDebugLog) fprintf(lDebugLog, "=== NewInternetSession END ===\n"), fflush(lDebugLog);
+   if(lDebugLog) fclose(lDebugLog);
+
    AssignPalette();
  
 }

@@ -2,10 +2,10 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>C:\originalhr2\HoverRaceAI\Release\Util.dll</FullPath>
+      <FullPath>c:\originalhr2\HoverRaceAI\Release\Util.dll</FullPath>
     </ProjectOutput>
     <ProjectOutput>
-      <FullPath>C:\originalhr2\HoverRaceAI\Release\ColorTools.dll</FullPath>
+      <FullPath>c:\originalhr2\HoverRaceAI\Release\ColorTools.dll</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />

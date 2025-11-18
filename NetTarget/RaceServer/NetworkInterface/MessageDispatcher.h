@@ -17,6 +17,8 @@ public:
         MR_RaceManager* pRaceManager);
 
 private:
+    MR_RaceManager* mpRaceManager;  // Cached race manager for handlers
+    
     // Message handlers for each type
     void Handle_SendKeyId(int clientId, const void* pData, int dataLen);
     void Handle_ConnNameGetSet(int clientId, const void* pData, int dataLen);

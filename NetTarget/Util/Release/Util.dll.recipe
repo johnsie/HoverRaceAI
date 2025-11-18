@@ -2,7 +2,7 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>C:\originalhr2\HoverRaceAI\Release\Util.dll</FullPath>
+      <FullPath>c:\originalhr2\HoverRaceAI\Release\Util.dll</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />

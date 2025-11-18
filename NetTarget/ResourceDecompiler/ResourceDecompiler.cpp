@@ -434,14 +434,14 @@ BOOL MR_ResourceDecompiler::ExtractBitmap(FILE* pSrcFile, const MR_ResourceEntry
 
             if (lArchive.IsGood() && !lBitmap.mSubBitmaps.empty())
             {
-                // Export to .tga format
+                // Export to .bmp format
                 char lOutputPath[512];
-                sprintf_s(lOutputPath, sizeof(lOutputPath), "%s\\bitmap_%d.tga", pOutputDir, pEntry.mId);
+                sprintf_s(lOutputPath, sizeof(lOutputPath), "%s\\bitmap_%d.bmp", pOutputDir, pEntry.mId);
                 
                 FILE* lOutFile = fopen(lOutputPath, "wb");
                 if (lOutFile)
                 {
-                    lBitmap.ExportToTGA(lOutFile);
+                    lBitmap.ExportToBMP(lOutFile);
                     fclose(lOutFile);
                     printf("  -> %s (%ux%u pixels)\n", lOutputPath, 
                         lBitmap.mSubBitmaps[0].mXRes, lBitmap.mSubBitmaps[0].mYRes);

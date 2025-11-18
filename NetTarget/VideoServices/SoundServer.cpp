@@ -29,8 +29,8 @@
 #include <mmreg.h>
 
 // OpenAL headers
-#include "al.h"
-#include "alc.h"
+#include "AL/al.h"
+#include "AL/alc.h"
 
 #define MR_MAX_SOUND_COPY 6
 #define MR_MAX_BUFFERS 256

@@ -1,3 +1,643 @@
+ReadList: Starting track search
+Executable path: C:\originalhr2\HoverRaceAI\Release\tracks\
+Found tracks, reading entries
+Track 0: ClassicH
+  Opening: C:\originalhr2\HoverRaceAI\Release\tracks\ClassicH.trk
+  Successfully opened, reading entry
+  Successfully read entry
+Track 1: Steeplechase
+  Opening: C:\originalhr2\HoverRaceAI\Release\tracks\Steeplechase.trk
+  Successfully opened, reading entry
+  Successfully read entry
+Track 2: The Alley2
+  Opening: C:\originalhr2\HoverRaceAI\Release\tracks\The Alley2.trk
+  Successfully opened, reading entry
+  Successfully read entry
+Track 3: The River
+  Opening: C:\originalhr2\HoverRaceAI\Release\tracks\The River.trk
+  Successfully opened, reading entry
+  Successfully read entry
+ReadList: Completed, found 4 tracks
+ersion read: 1
+    Description: 'Level: Medium
+Length: 0.6 km
+Lot of jumps
+', Minor ID: 0, Major ID: 0
+    Skipping ID validation (lMajorID=0, pFileName=NULL)
+    Sorting index: 30, Registration: 1
+    Final magic number for FREE_TRACK: 0x142B9
+    SUCCESS: Track entry validated
+
+    ReadTrackEntry: Starting to read track
+    Magic number read: 0x142B9 (expected: 0x142B9)
+    Version read: 1
+    Description: 'Level: Expert
+Length: 3.2km
+Lot of speed zones
+', Minor ID: 0, Major ID: 0
+    Skipping ID validation (lMajorID=0, pFileName=NULL)
+    Sorting index: 30, Registration: 1
+    Final magic number for FREE_TRACK: 0x142B9
+    SUCCESS: Track entry validated
+
+    ReadTrackEntry: Starting to read track
+    Magic number read: 0x142B9 (expected: 0x142B9)
+    Version read: 1
+    Description: 'Level: Expert
+Length: 1.0 km
+Lots of shortcuts
+
+
+', Minor ID: 0, Major ID: 0
+    Skipping ID validation (lMajorID=0, pFileName=NULL)
+    Sorting index: 40, Registration: 0
+    SUCCESS: Registered track validated
+MR_SelectTrack: Showing track selection dialog
+
+TrackSelectCallBack: Message 48
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 85
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 297
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 273
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 273
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 272
+  WM_INITDIALOG: gsNbTrack=4
+    Adding track 0: ClassicH
+    Adding track 1: Steeplechase
+    Adding track 2: The Alley2
+    Adding track 3: The River
+  Setting lap count and weapons
+
+TrackSelectCallBack: Message 273
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 273
+TrackSelectCallBack: Returning 0
+  Setting description for track 0
+  WM_INITDIALOG completed successfully
+TrackSelectCallBack: Returning 1
+
+TrackSelectCallBack: Message 70
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 134
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 127
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 127
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 127
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 6
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 273
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 1024
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 295
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 296
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 799
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 24
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 70
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 133
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 127
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 127
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 127
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 20
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 310
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 71
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 127
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 127
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 127
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 15
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 308
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 308
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 307
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 307
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 312
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 309
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 309
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 312
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 312
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 312
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 312
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 132
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 512
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 132
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 512
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 132
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 512
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 132
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 160
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 674
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 132
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 512
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 132
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 512
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 132
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 512
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 132
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 512
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 33
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 32
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 1024
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 273
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 309
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 309
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 309
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 309
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 273
+  IDOK clicked, gsSelectedEntry=0
+  Selected: track index 0, laps=5, weapons=YES
+  Dialog OK - ending dialog
+
+TrackSelectCallBack: Message 309
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 641
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 7
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 70
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 71
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 127
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 127
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 127
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 134
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 127
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 127
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 127
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 6
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 70
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 135
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 8
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 641
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 642
+TrackSelectCallBack: Returning 0
+TrackSelectCallBack: Returning 1
+
+TrackSelectCallBack: Message 144
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 2
+TrackSelectCallBack: Returning 0
+
+TrackSelectCallBack: Message 130
+TrackSelectCallBack: Returning 0
+MR_SelectTrack: User selected track='ClassicH', laps=5, weapons=1
+--- MR_SelectTrack END, returning 1 ---
+
+MR_TrackOpen: Opening track 'ClassicH'
+  Searching in: C:\originalhr2\HoverRaceAI\Release\tracks\
+  Full search path: C:\originalhr2\HoverRaceAI\Release\tracks\ClassicH.trk
+  Found in absolute path
+  Opening file: C:\originalhr2\HoverRaceAI\Release\tracks\ClassicH.trk
+  Successfully opened, reading entry
+
+    ReadTrackEntry: Starting to read track
+    Magic number read: 0x142B9 (expected: 0x142B9)
+    Version read: 1
+    Description: 'Level: Easy
+Length: 0.6 km
+Short and fast track
+Lots of curve and no jumps
+
+', Minor ID: 0, Major ID: 0
+    Skipping ID validation (lMajorID=0, pFileName=ClassicH)
+    Sorting index: 30, Registration: 1
+    Final magic number for FREE_TRACK: 0x142B9
+    SUCCESS: Track entry validated
+  Successfully read entry, checking permissions
+MR_TrackOpen returning: 007D1528
+
+--- MR_ClientSession::LoadNew START ---
+  pTitle='ClassicH'
+  pMazeFile=007D1528
+  pNbLap=5, pAllowWeapons=1
+  pVideo=007C6DE0
+  About to call mSession.LoadNew()
+
+--- MR_GameSession::LoadNew START ---
+  pTitle='ClassicH'
+  pMazeFile=007D1528
+  About to call Clean()
+  Clean() succeeded
+  About to call LoadLevel(1)
+  [CREATING TRY BLOCK]
+  [INSIDE TRY BLOCK]
+  [ABOUT TO CALL LOADLEVEL]
+
+--- MR_GameSession::LoadLevel START (pLevel=1) ---
+  Deleting old level
+  File has 4 records
+  About to create new MR_Level
+  MR_Level created successfully at 00827270
+  Selecting record 1
+  Record selected
+  About to create CArchive for deserialization
+  CArchive created
+  About to deserialize level
+  Level deserialized successfully
+--- MR_GameSession::LoadLevel END, returning: TRUE ---
+  [LOADLEVEL RETURNED: TRUE]
+  [AFTER ALL CATCH BLOCKS]
+--- MR_GameSession::LoadNew END, returning: TRUE ---
+  mSession.LoadNew() returned: TRUE
+  About to call ReadLevelAttrib()
+  ReadLevelAttrib() completed
+--- MR_ClientSession::LoadNew END, returning: TRUE ---
+
+    ReadTrackEntry: Starting to read track
+    Magic number read: 0x142B9 (expected: 0x142B9)
+    Version read: 1
+    Description: 'Level: Easy
+Length: 0.6 km
+Short and fast track
+Lots of curve and no jumps
+
+', Minor ID: 0, Major ID: 0
+    Skipping ID validation (lMajorID=0, pFileName=ClassicH)
+    Sorting index: 30, Registration: 1
+    Final magic number for FREE_TRACK: 0x142B9
+    SUCCESS: Track entry validated
+
+    ReadTrackEntry: Starting to read track
+    Magic number read: 0x142B9 (expected: 0x142B9)
+    Version read: 1
+    Description: 'Level: Easy
+Length: 0.6 km
+Short and fast track
+Lots of curve and no jumps
+
+', Minor ID: 0, Major ID: 0
+    Skipping ID validation (lMajorID=0, pFileName=ClassicH)
+    Sorting index: 30, Registration: 1
+    Final magic number for FREE_TRACK: 0x142B9
+    SUCCESS: Track entry validated
+
+    ReadTrackEntry: Starting to read track
+    Magic number read: 0x142B9 (expected: 0x142B9)
+    Version read: 1
+    Description: 'Level: Easy
+Length: 0.6 km
+Short and fast track
+Lots of curve and no jumps
+
+', Minor ID: 0, Major ID: 0
+    Skipping ID validation (lMajorID=0, pFileName=ClassicH)
+    Sorting index: 30, Registration: 1
+    Final magic number for FREE_TRACK: 0x142B9
+    SUCCESS: Track entry validated
+MainLoop returned: 0
+=== WinMain END, returning 0 ===
 
 === WinMain START ===
 Creating MR_GameApp...
@@ -11,7 +651,7 @@ Skipping DisplayLoginWindow entirely, going straight to game init
 Checking first instance (2nd time)...
 IsFirstInstance (2nd) returned: 1
 Calling InitApplication...
-InitApplication returned: 49936
+InitApplication returned: 50050
 Calling InitGame...
 
 === NewLocalSession Start ===
@@ -24,10 +664,10 @@ Track auto-selected: lCurrentTrack='ClassicH', lNbLap=1, lAllowWeapons=0, lSucce
 4b. About to call MR_DllObjectFactory::Init()
 4c. MR_DllObjectFactory::Init() succeeded
 5. About to call MR_Observer::New()
-6. MR_Observer::New() succeeded, pointer: 01612F90
+6. MR_Observer::New() succeeded, pointer: 00AF4B88
 7. About to create new MR_ClientSession
 8. MR_ClientSession created successfully
-8. MR_ClientSession pointer: 064F3B80
+8. MR_ClientSession pointer: 05B817B8
 About to call MR_TrackOpen for 'ClassicH'
 Checking track file at: C:\originalhr2\HoverRaceAI\Release\tracks\ClassicH.trk
 Track file verified to exist
@@ -53,20 +693,20 @@ Lots of curve and no jumps
     Final magic number for FREE_TRACK: 0x142B9
     SUCCESS: Track entry validated
   Successfully read entry, checking permissions
-MR_TrackOpen returning: 064F79C0
-MR_TrackOpen returned: 064F79C0
+MR_TrackOpen returning: 00B2DA80
+MR_TrackOpen returned: 00B2DA80
 About to call LoadNew()
 
 --- MR_ClientSession::LoadNew START ---
   pTitle='ClassicH'
-  pMazeFile=064F79C0
+  pMazeFile=00B2DA80
   pNbLap=1, pAllowWeapons=0
-  pVideo=0159C3D8
+  pVideo=00A6C7E8
   About to call mSession.LoadNew()
 
 --- MR_GameSession::LoadNew START ---
   pTitle='ClassicH'
-  pMazeFile=064F79C0
+  pMazeFile=00B2DA80
   About to call Clean()
   Clean() succeeded
   About to call LoadLevel(1)
@@ -78,7 +718,7 @@ About to call LoadNew()
   Deleting old level
   File has 4 records
   About to create new MR_Level
-  MR_Level created successfully at 015BB748
+  MR_Level created successfully at 00A917C0
   Selecting record 1
   Record selected
   About to create CArchive for deserialization
@@ -101,7 +741,7 @@ About to call CreateMainCharacter()
 --- MR_ClientSession::CreateMainCharacter START ---
   Creating MR_MainCharacter with mNbLap=1, mAllowWeapons=0
   MR_MainCharacter created
-  Got current level: 015BB748
+  Got current level: 00A917C0
   About to set mRoom, mPosition, Orientation
   Properties set successfully
   About to InsertElement (starting room=0)
@@ -110,10 +750,1016 @@ About to call CreateMainCharacter()
 --- MR_ClientSession::CreateMainCharacter END, returning TRUE ---
 CreateMainCharacter() returned: TRUE
 === ROOM COUNT QUERY START ===
-lCurrentSession = 064F3B80
-GetCurrentLevel() returned: 015BB748
+lCurrentSession = 05B817B8
+GetCurrentLevel() returned: 00A917C0
 *** TRACK ROOM COUNT: 22 rooms ***
 === ROOM COUNT QUERY END ===
 About to close logFile
 InitGame returned: 1
 Calling MainLoop...
+
+    ReadTrackEntry: Starting to read track
+    Magic number read: 0x142B9 (expected: 0x142B9)
+    Version read: 1
+    Description: 'Level: Easy
+Length: 0.6 km
+Short and fast track
+Lots of curve and no jumps
+
+', Minor ID: 0, Major ID: 0
+    Skipping ID validation (lMajorID=0, pFileName=ClassicH)
+    Sorting index: 30, Registration: 1
+    Final magic number for FREE_TRACK: 0x142B9
+    SUCCESS: Track entry validated
+
+    ReadTrackEntry: Starting to read track
+    Magic number read: 0x142B9 (expected: 0x142B9)
+    Version read: 1
+    Description: 'Level: Easy
+Length: 0.6 km
+Short and fast track
+Lots of curve and no jumps
+
+', Minor ID: 0, Major ID: 0
+    Skipping ID validation (lMajorID=0, pFileName=ClassicH)
+    Sorting index: 30, Registration: 1
+    Final magic number for FREE_TRACK: 0x142B9
+    SUCCESS: Track entry validated
+
+    ReadTrackEntry: Starting to read track
+    Magic number read: 0x142B9 (expected: 0x142B9)
+    Version read: 1
+    Description: 'Level: Easy
+Length: 0.6 km
+Short and fast track
+Lots of curve and no jumps
+
+', Minor ID: 0, Major ID: 0
+    Skipping ID validation (lMajorID=0, pFileName=ClassicH)
+    Sorting index: 30, Registration: 1
+    Final magic number for FREE_TRACK: 0x142B9
+    SUCCESS: Track entry validated
+
+MR_TrackOpen: Opening track 'ClassicH'
+  Searching in: C:\originalhr2\HoverRaceAI\Release\tracks\
+  Full search path: C:\originalhr2\HoverRaceAI\Release\tracks\ClassicH.trk
+  Found in absolute path
+  Opening file: C:\originalhr2\HoverRaceAI\Release\tracks\ClassicH.trk
+  Successfully opened, reading entry
+
+    ReadTrackEntry: Starting to read track
+    Magic number read: 0x142B9 (expected: 0x142B9)
+    Version read: 1
+    Description: 'Level: Easy
+Length: 0.6 km
+Short and fast track
+Lots of curve and no jumps
+
+', Minor ID: 0, Major ID: 0
+    Skipping ID validation (lMajorID=0, pFileName=ClassicH)
+    Sorting index: 30, Registration: 1
+    Final magic number for FREE_TRACK: 0x142B9
+    SUCCESS: Track entry validated
+  Successfully read entry, checking permissions
+MR_TrackOpen returning: 00AFD4D8
+
+--- MR_ClientSession::LoadNew START ---
+  pTitle='ClassicH'
+  pMazeFile=00AFD4D8
+  pNbLap=5, pAllowWeapons=1
+  pVideo=00A6C7E8
+  About to call mSession.LoadNew()
+
+--- MR_GameSession::LoadNew START ---
+  pTitle='ClassicH'
+  pMazeFile=00AFD4D8
+  About to call Clean()
+  Clean() succeeded
+  About to call LoadLevel(1)
+  [CREATING TRY BLOCK]
+  [INSIDE TRY BLOCK]
+  [ABOUT TO CALL LOADLEVEL]
+
+--- MR_GameSession::LoadLevel START (pLevel=1) ---
+  Deleting old level
+  File has 4 records
+  About to create new MR_Level
+  MR_Level created successfully at 00A97298
+  Selecting record 1
+  Record selected
+  About to create CArchive for deserialization
+  CArchive created
+  About to deserialize level
+  Level deserialized successfully
+--- MR_GameSession::LoadLevel END, returning: TRUE ---
+  [LOADLEVEL RETURNED: TRUE]
+  [AFTER ALL CATCH BLOCKS]
+--- MR_GameSession::LoadNew END, returning: TRUE ---
+  mSession.LoadNew() returned: TRUE
+  About to call ReadLevelAttrib()
+  ReadLevelAttrib() completed
+--- MR_ClientSession::LoadNew END, returning: TRUE ---
+
+    ReadTrackEntry: Starting to read track
+    Magic number read: 0x142B9 (expected: 0x142B9)
+    Version read: 1
+    Description: 'Level: Easy
+Length: 0.6 km
+Short and fast track
+Lots of curve and no jumps
+
+', Minor ID: 0, Major ID: 0
+    Skipping ID validation (lMajorID=0, pFileName=ClassicH)
+    Sorting index: 30, Registration: 1
+    Final magic number for FREE_TRACK: 0x142B9
+    SUCCESS: Track entry validated
+
+=== WinMain START ===
+Creating MR_GameApp...
+MR_GameApp created successfully
+Testing graphics system...
+Calling TestGraphicsSystem...
+TestGraphicsSystem completed
+Checking first instance...
+IsFirstInstance returned: 1
+Skipping DisplayLoginWindow entirely, going straight to game init
+Checking first instance (2nd time)...
+IsFirstInstance (2nd) returned: 1
+Calling InitApplication...
+InitApplication returned: 50050
+Calling InitGame...
+
+=== NewLocalSession Start ===
+Auto-loading ClassicH track (bypassing dialog)
+Track auto-selected: lCurrentTrack='ClassicH', lNbLap=1, lAllowWeapons=0, lSuccess=1
+1. About to call DeleteMovieWnd()
+2. DeleteMovieWnd() succeeded
+3. About to call MR_SoundServer::Init()
+4. MR_SoundServer::Init() succeeded
+4b. About to call MR_DllObjectFactory::Init()
+4c. MR_DllObjectFactory::Init() succeeded
+5. About to call MR_Observer::New()
+6. MR_Observer::New() succeeded, pointer: 01552DD0
+7. About to create new MR_ClientSession
+8. MR_ClientSession created successfully
+8. MR_ClientSession pointer: 014F2880
+About to call MR_TrackOpen for 'ClassicH'
+Checking track file at: C:\originalhr2\HoverRaceAI\Release\tracks\ClassicH.trk
+Track file verified to exist
+
+MR_TrackOpen: Opening track 'ClassicH'
+  Searching in: C:\originalhr2\HoverRaceAI\Release\tracks\
+  Full search path: C:\originalhr2\HoverRaceAI\Release\tracks\ClassicH.trk
+  Found in absolute path
+  Opening file: C:\originalhr2\HoverRaceAI\Release\tracks\ClassicH.trk
+  Successfully opened, reading entry
+
+    ReadTrackEntry: Starting to read track
+    Magic number read: 0x142B9 (expected: 0x142B9)
+    Version read: 1
+    Description: 'Level: Easy
+Length: 0.6 km
+Short and fast track
+Lots of curve and no jumps
+
+', Minor ID: 0, Major ID: 0
+    Skipping ID validation (lMajorID=0, pFileName=ClassicH)
+    Sorting index: 30, Registration: 1
+    Final magic number for FREE_TRACK: 0x142B9
+    SUCCESS: Track entry validated
+  Successfully read entry, checking permissions
+MR_TrackOpen returning: 06654578
+MR_TrackOpen returned: 06654578
+About to call LoadNew()
+
+--- MR_ClientSession::LoadNew START ---
+  pTitle='ClassicH'
+  pMazeFile=06654578
+  pNbLap=1, pAllowWeapons=0
+  pVideo=014E4698
+  About to call mSession.LoadNew()
+
+--- MR_GameSession::LoadNew START ---
+  pTitle='ClassicH'
+  pMazeFile=06654578
+  About to call Clean()
+  Clean() succeeded
+  About to call LoadLevel(1)
+  [CREATING TRY BLOCK]
+  [INSIDE TRY BLOCK]
+  [ABOUT TO CALL LOADLEVEL]
+
+--- MR_GameSession::LoadLevel START (pLevel=1) ---
+  Deleting old level
+  File has 4 records
+  About to create new MR_Level
+  MR_Level created successfully at 015588E0
+  Selecting record 1
+  Record selected
+  About to create CArchive for deserialization
+  CArchive created
+  About to deserialize level
+  Level deserialized successfully
+--- MR_GameSession::LoadLevel END, returning: TRUE ---
+  [LOADLEVEL RETURNED: TRUE]
+  [AFTER ALL CATCH BLOCKS]
+--- MR_GameSession::LoadNew END, returning: TRUE ---
+  mSession.LoadNew() returned: TRUE
+  About to call ReadLevelAttrib()
+  ReadLevelAttrib() completed
+--- MR_ClientSession::LoadNew END, returning: TRUE ---
+LoadNew returned: SUCCESS
+About to call SetSimulationTime(-6000)
+SetSimulationTime(-6000) succeeded
+About to call CreateMainCharacter()
+
+--- MR_ClientSession::CreateMainCharacter START ---
+  Creating MR_MainCharacter with mNbLap=1, mAllowWeapons=0
+  MR_MainCharacter created
+  Got current level: 015588E0
+  About to set mRoom, mPosition, Orientation
+  Properties set successfully
+  About to InsertElement (starting room=0)
+    Starting room value: 0
+  InsertElement succeeded
+--- MR_ClientSession::CreateMainCharacter END, returning TRUE ---
+CreateMainCharacter() returned: TRUE
+=== ROOM COUNT QUERY START ===
+lCurrentSession = 014F2880
+GetCurrentLevel() returned: 015588E0
+*** TRACK ROOM COUNT: 22 rooms ***
+=== ROOM COUNT QUERY END ===
+About to close logFile
+InitGame returned: 1
+Calling MainLoop...
+
+    ReadTrackEntry: Starting to read track
+    Magic number read: 0x142B9 (expected: 0x142B9)
+    Version read: 1
+    Description: 'Level: Easy
+Length: 0.6 km
+Short and fast track
+Lots of curve and no jumps
+
+', Minor ID: 0, Major ID: 0
+    Skipping ID validation (lMajorID=0, pFileName=ClassicH)
+    Sorting index: 30, Registration: 1
+    Final magic number for FREE_TRACK: 0x142B9
+    SUCCESS: Track entry validated
+
+MR_TrackOpen: Opening track 'ClassicH'
+  Searching in: C:\originalhr2\HoverRaceAI\Release\tracks\
+  Full search path: C:\originalhr2\HoverRaceAI\Release\tracks\ClassicH.trk
+  Found in absolute path
+  Opening file: C:\originalhr2\HoverRaceAI\Release\tracks\ClassicH.trk
+  Successfully opened, reading entry
+
+    ReadTrackEntry: Starting to read track
+    Magic number read: 0x142B9 (expected: 0x142B9)
+    Version read: 1
+    Description: 'Level: Easy
+Length: 0.6 km
+Short and fast track
+Lots of curve and no jumps
+
+', Minor ID: 0, Major ID: 0
+    Skipping ID validation (lMajorID=0, pFileName=ClassicH)
+    Sorting index: 30, Registration: 1
+    Final magic number for FREE_TRACK: 0x142B9
+    SUCCESS: Track entry validated
+  Successfully read entry, checking permissions
+MR_TrackOpen returning: 0156C7B8
+
+--- MR_ClientSession::LoadNew START ---
+  pTitle='ClassicH'
+  pMazeFile=0156C7B8
+  pNbLap=5, pAllowWeapons=1
+  pVideo=014E4698
+  About to call mSession.LoadNew()
+
+--- MR_GameSession::LoadNew START ---
+  pTitle='ClassicH'
+  pMazeFile=0156C7B8
+  About to call Clean()
+  Clean() succeeded
+  About to call LoadLevel(1)
+  [CREATING TRY BLOCK]
+  [INSIDE TRY BLOCK]
+  [ABOUT TO CALL LOADLEVEL]
+
+--- MR_GameSession::LoadLevel START (pLevel=1) ---
+  Deleting old level
+  File has 4 records
+  About to create new MR_Level
+  MR_Level created successfully at 0152E3D0
+  Selecting record 1
+  Record selected
+  About to create CArchive for deserialization
+  CArchive created
+  About to deserialize level
+  Level deserialized successfully
+--- MR_GameSession::LoadLevel END, returning: TRUE ---
+  [LOADLEVEL RETURNED: TRUE]
+  [AFTER ALL CATCH BLOCKS]
+--- MR_GameSession::LoadNew END, returning: TRUE ---
+  mSession.LoadNew() returned: TRUE
+  About to call ReadLevelAttrib()
+  ReadLevelAttrib() completed
+--- MR_ClientSession::LoadNew END, returning: TRUE ---
+
+    ReadTrackEntry: Starting to read track
+    Magic number read: 0x142B9 (expected: 0x142B9)
+    Version read: 1
+    Description: 'Level: Easy
+Length: 0.6 km
+Short and fast track
+Lots of curve and no jumps
+
+', Minor ID: 0, Major ID: 0
+    Skipping ID validation (lMajorID=0, pFileName=ClassicH)
+    Sorting index: 30, Registration: 1
+    Final magic number for FREE_TRACK: 0x142B9
+    SUCCESS: Track entry validated
+
+=== WinMain START ===
+Creating MR_GameApp...
+MR_GameApp created successfully
+Testing graphics system...
+Calling TestGraphicsSystem...
+TestGraphicsSystem completed
+Checking first instance...
+IsFirstInstance returned: 1
+Skipping DisplayLoginWindow entirely, going straight to game init
+Checking first instance (2nd time)...
+IsFirstInstance (2nd) returned: 1
+Calling InitApplication...
+InitApplication returned: 49959
+Calling InitGame...
+
+=== NewLocalSession Start ===
+Auto-loading ClassicH track (bypassing dialog)
+Track auto-selected: lCurrentTrack='ClassicH', lNbLap=1, lAllowWeapons=0, lSuccess=1
+1. About to call DeleteMovieWnd()
+2. DeleteMovieWnd() succeeded
+3. About to call MR_SoundServer::Init()
+4. MR_SoundServer::Init() succeeded
+4b. About to call MR_DllObjectFactory::Init()
+4c. MR_DllObjectFactory::Init() succeeded
+5. About to call MR_Observer::New()
+6. MR_Observer::New() succeeded, pointer: 012453D8
+7. About to create new MR_ClientSession
+8. MR_ClientSession created successfully
+8. MR_ClientSession pointer: 06344800
+About to call MR_TrackOpen for 'ClassicH'
+Checking track file at: C:\originalhr2\HoverRaceAI\Release\tracks\ClassicH.trk
+Track file verified to exist
+
+MR_TrackOpen: Opening track 'ClassicH'
+  Searching in: C:\originalhr2\HoverRaceAI\Release\tracks\
+  Full search path: C:\originalhr2\HoverRaceAI\Release\tracks\ClassicH.trk
+  Found in absolute path
+  Opening file: C:\originalhr2\HoverRaceAI\Release\tracks\ClassicH.trk
+  Successfully opened, reading entry
+
+    ReadTrackEntry: Starting to read track
+    Magic number read: 0x142B9 (expected: 0x142B9)
+    Version read: 1
+    Description: 'Level: Easy
+Length: 0.6 km
+Short and fast track
+Lots of curve and no jumps
+
+', Minor ID: 0, Major ID: 0
+    Skipping ID validation (lMajorID=0, pFileName=ClassicH)
+    Sorting index: 30, Registration: 1
+    Final magic number for FREE_TRACK: 0x142B9
+    SUCCESS: Track entry validated
+  Successfully read entry, checking permissions
+MR_TrackOpen returning: 063475F0
+MR_TrackOpen returned: 063475F0
+About to call LoadNew()
+
+--- MR_ClientSession::LoadNew START ---
+  pTitle='ClassicH'
+  pMazeFile=063475F0
+  pNbLap=1, pAllowWeapons=0
+  pVideo=011D64E0
+  About to call mSession.LoadNew()
+
+--- MR_GameSession::LoadNew START ---
+  pTitle='ClassicH'
+  pMazeFile=063475F0
+  About to call Clean()
+  Clean() succeeded
+  About to call LoadLevel(1)
+  [CREATING TRY BLOCK]
+  [INSIDE TRY BLOCK]
+  [ABOUT TO CALL LOADLEVEL]
+
+--- MR_GameSession::LoadLevel START (pLevel=1) ---
+  Deleting old level
+  File has 4 records
+  About to create new MR_Level
+  MR_Level created successfully at 011E4050
+  Selecting record 1
+  Record selected
+  About to create CArchive for deserialization
+  CArchive created
+  About to deserialize level
+  Level deserialized successfully
+--- MR_GameSession::LoadLevel END, returning: TRUE ---
+  [LOADLEVEL RETURNED: TRUE]
+  [AFTER ALL CATCH BLOCKS]
+--- MR_GameSession::LoadNew END, returning: TRUE ---
+  mSession.LoadNew() returned: TRUE
+  About to call ReadLevelAttrib()
+  ReadLevelAttrib() completed
+--- MR_ClientSession::LoadNew END, returning: TRUE ---
+LoadNew returned: SUCCESS
+About to call SetSimulationTime(-6000)
+SetSimulationTime(-6000) succeeded
+About to call CreateMainCharacter()
+
+--- MR_ClientSession::CreateMainCharacter START ---
+  Creating MR_MainCharacter with mNbLap=1, mAllowWeapons=0
+  MR_MainCharacter created
+  Got current level: 011E4050
+  About to set mRoom, mPosition, Orientation
+  Properties set successfully
+  About to InsertElement (starting room=0)
+    Starting room value: 0
+  InsertElement succeeded
+--- MR_ClientSession::CreateMainCharacter END, returning TRUE ---
+CreateMainCharacter() returned: TRUE
+=== ROOM COUNT QUERY START ===
+lCurrentSession = 06344800
+GetCurrentLevel() returned: 011E4050
+*** TRACK ROOM COUNT: 22 rooms ***
+=== ROOM COUNT QUERY END ===
+About to close logFile
+InitGame returned: 1
+Calling MainLoop...
+
+    ReadTrackEntry: Starting to read track
+    Magic number read: 0x142B9 (expected: 0x142B9)
+    Version read: 1
+    Description: 'Level: Easy
+Length: 0.6 km
+Short and fast track
+Lots of curve and no jumps
+
+', Minor ID: 0, Major ID: 0
+    Skipping ID validation (lMajorID=0, pFileName=ClassicH)
+    Sorting index: 30, Registration: 1
+    Final magic number for FREE_TRACK: 0x142B9
+    SUCCESS: Track entry validated
+
+    ReadTrackEntry: Starting to read track
+    Magic number read: 0x142B9 (expected: 0x142B9)
+    Version read: 1
+    Description: 'Level: Easy
+Length: 0.6 km
+Short and fast track
+Lots of curve and no jumps
+
+', Minor ID: 0, Major ID: 0
+    Skipping ID validation (lMajorID=0, pFileName=ClassicH)
+    Sorting index: 30, Registration: 1
+    Final magic number for FREE_TRACK: 0x142B9
+    SUCCESS: Track entry validated
+
+MR_TrackOpen: Opening track 'ClassicH'
+  Searching in: C:\originalhr2\HoverRaceAI\Release\tracks\
+  Full search path: C:\originalhr2\HoverRaceAI\Release\tracks\ClassicH.trk
+  Found in absolute path
+  Opening file: C:\originalhr2\HoverRaceAI\Release\tracks\ClassicH.trk
+  Successfully opened, reading entry
+
+    ReadTrackEntry: Starting to read track
+    Magic number read: 0x142B9 (expected: 0x142B9)
+    Version read: 1
+    Description: 'Level: Easy
+Length: 0.6 km
+Short and fast track
+Lots of curve and no jumps
+
+', Minor ID: 0, Major ID: 0
+    Skipping ID validation (lMajorID=0, pFileName=ClassicH)
+    Sorting index: 30, Registration: 1
+    Final magic number for FREE_TRACK: 0x142B9
+    SUCCESS: Track entry validated
+  Successfully read entry, checking permissions
+MR_TrackOpen returning: 01202A40
+
+--- MR_ClientSession::LoadNew START ---
+  pTitle='ClassicH'
+  pMazeFile=01202A40
+  pNbLap=5, pAllowWeapons=1
+  pVideo=011D64E0
+  About to call mSession.LoadNew()
+
+--- MR_GameSession::LoadNew START ---
+  pTitle='ClassicH'
+  pMazeFile=01202A40
+  About to call Clean()
+  Clean() succeeded
+  About to call LoadLevel(1)
+  [CREATING TRY BLOCK]
+  [INSIDE TRY BLOCK]
+  [ABOUT TO CALL LOADLEVEL]
+
+--- MR_GameSession::LoadLevel START (pLevel=1) ---
+  Deleting old level
+  File has 4 records
+  About to create new MR_Level
+  MR_Level created successfully at 062E7E50
+  Selecting record 1
+  Record selected
+  About to create CArchive for deserialization
+  CArchive created
+  About to deserialize level
+  Level deserialized successfully
+--- MR_GameSession::LoadLevel END, returning: TRUE ---
+  [LOADLEVEL RETURNED: TRUE]
+  [AFTER ALL CATCH BLOCKS]
+--- MR_GameSession::LoadNew END, returning: TRUE ---
+  mSession.LoadNew() returned: TRUE
+  About to call ReadLevelAttrib()
+  ReadLevelAttrib() completed
+--- MR_ClientSession::LoadNew END, returning: TRUE ---
+
+    ReadTrackEntry: Starting to read track
+    Magic number read: 0x142B9 (expected: 0x142B9)
+    Version read: 1
+    Description: 'Level: Easy
+Length: 0.6 km
+Short and fast track
+Lots of curve and no jumps
+
+', Minor ID: 0, Major ID: 0
+    Skipping ID validation (lMajorID=0, pFileName=ClassicH)
+    Sorting index: 30, Registration: 1
+    Final magic number for FREE_TRACK: 0x142B9
+    SUCCESS: Track entry validated
+MainLoop returned: 0
+=== WinMain END, returning 0 ===
+
+=== WinMain START ===
+Creating MR_GameApp...
+MR_GameApp created successfully
+Testing graphics system...
+Calling TestGraphicsSystem...
+TestGraphicsSystem completed
+Checking first instance...
+IsFirstInstance returned: 1
+Skipping DisplayLoginWindow entirely, going straight to game init
+Checking first instance (2nd time)...
+IsFirstInstance (2nd) returned: 1
+Calling InitApplication...
+InitApplication returned: 49964
+Calling InitGame...
+
+=== NewLocalSession Start ===
+Auto-loading ClassicH track (bypassing dialog)
+Track auto-selected: lCurrentTrack='ClassicH', lNbLap=1, lAllowWeapons=0, lSuccess=1
+1. About to call DeleteMovieWnd()
+2. DeleteMovieWnd() succeeded
+3. About to call MR_SoundServer::Init()
+4. MR_SoundServer::Init() succeeded
+4b. About to call MR_DllObjectFactory::Init()
+4c. MR_DllObjectFactory::Init() succeeded
+5. About to call MR_Observer::New()
+6. MR_Observer::New() succeeded, pointer: 0126AD80
+7. About to create new MR_ClientSession
+8. MR_ClientSession created successfully
+8. MR_ClientSession pointer: 0635FC70
+About to call MR_TrackOpen for 'ClassicH'
+Checking track file at: C:\originalhr2\HoverRaceAI\Release\tracks\ClassicH.trk
+Track file verified to exist
+
+MR_TrackOpen: Opening track 'ClassicH'
+  Searching in: C:\originalhr2\HoverRaceAI\Release\tracks\
+  Full search path: C:\originalhr2\HoverRaceAI\Release\tracks\ClassicH.trk
+  Found in absolute path
+  Opening file: C:\originalhr2\HoverRaceAI\Release\tracks\ClassicH.trk
+  Successfully opened, reading entry
+
+    ReadTrackEntry: Starting to read track
+    Magic number read: 0x142B9 (expected: 0x142B9)
+    Version read: 1
+    Description: 'Level: Easy
+Length: 0.6 km
+Short and fast track
+Lots of curve and no jumps
+
+', Minor ID: 0, Major ID: 0
+    Skipping ID validation (lMajorID=0, pFileName=ClassicH)
+    Sorting index: 30, Registration: 1
+    Final magic number for FREE_TRACK: 0x142B9
+    SUCCESS: Track entry validated
+  Successfully read entry, checking permissions
+MR_TrackOpen returning: 012562C8
+MR_TrackOpen returned: 012562C8
+About to call LoadNew()
+
+--- MR_ClientSession::LoadNew START ---
+  pTitle='ClassicH'
+  pMazeFile=012562C8
+  pNbLap=1, pAllowWeapons=0
+  pVideo=011AAE78
+  About to call mSession.LoadNew()
+
+--- MR_GameSession::LoadNew START ---
+  pTitle='ClassicH'
+  pMazeFile=012562C8
+  About to call Clean()
+  Clean() succeeded
+  About to call LoadLevel(1)
+  [CREATING TRY BLOCK]
+  [INSIDE TRY BLOCK]
+  [ABOUT TO CALL LOADLEVEL]
+
+--- MR_GameSession::LoadLevel START (pLevel=1) ---
+  Deleting old level
+  File has 4 records
+  About to create new MR_Level
+  MR_Level created successfully at 01208F70
+  Selecting record 1
+  Record selected
+  About to create CArchive for deserialization
+  CArchive created
+  About to deserialize level
+  Level deserialized successfully
+--- MR_GameSession::LoadLevel END, returning: TRUE ---
+  [LOADLEVEL RETURNED: TRUE]
+  [AFTER ALL CATCH BLOCKS]
+--- MR_GameSession::LoadNew END, returning: TRUE ---
+  mSession.LoadNew() returned: TRUE
+  About to call ReadLevelAttrib()
+  ReadLevelAttrib() completed
+--- MR_ClientSession::LoadNew END, returning: TRUE ---
+LoadNew returned: SUCCESS
+About to call SetSimulationTime(-6000)
+SetSimulationTime(-6000) succeeded
+About to call CreateMainCharacter()
+
+--- MR_ClientSession::CreateMainCharacter START ---
+  Creating MR_MainCharacter with mNbLap=1, mAllowWeapons=0
+  MR_MainCharacter created
+  Got current level: 01208F70
+  About to set mRoom, mPosition, Orientation
+  Properties set successfully
+  About to InsertElement (starting room=0)
+    Starting room value: 0
+  InsertElement succeeded
+--- MR_ClientSession::CreateMainCharacter END, returning TRUE ---
+CreateMainCharacter() returned: TRUE
+=== ROOM COUNT QUERY START ===
+lCurrentSession = 0635FC70
+GetCurrentLevel() returned: 01208F70
+*** TRACK ROOM COUNT: 22 rooms ***
+=== ROOM COUNT QUERY END ===
+About to close logFile
+InitGame returned: 1
+Calling MainLoop...
+
+    ReadTrackEntry: Starting to read track
+    Magic number read: 0x142B9 (expected: 0x142B9)
+    Version read: 1
+    Description: 'Level: Easy
+Length: 0.6 km
+Short and fast track
+Lots of curve and no jumps
+
+', Minor ID: 0, Major ID: 0
+    Skipping ID validation (lMajorID=0, pFileName=ClassicH)
+    Sorting index: 30, Registration: 1
+    Final magic number for FREE_TRACK: 0x142B9
+    SUCCESS: Track entry validated
+
+    ReadTrackEntry: Starting to read track
+    Magic number read: 0x142B9 (expected: 0x142B9)
+    Version read: 1
+    Description: 'Level: Easy
+Length: 0.6 km
+Short and fast track
+Lots of curve and no jumps
+
+', Minor ID: 0, Major ID: 0
+    Skipping ID validation (lMajorID=0, pFileName=ClassicH)
+    Sorting index: 30, Registration: 1
+    Final magic number for FREE_TRACK: 0x142B9
+    SUCCESS: Track entry validated
+
+MR_TrackOpen: Opening track 'ClassicH'
+  Searching in: C:\originalhr2\HoverRaceAI\Release\tracks\
+  Full search path: C:\originalhr2\HoverRaceAI\Release\tracks\ClassicH.trk
+  Found in absolute path
+  Opening file: C:\originalhr2\HoverRaceAI\Release\tracks\ClassicH.trk
+  Successfully opened, reading entry
+
+    ReadTrackEntry: Starting to read track
+    Magic number read: 0x142B9 (expected: 0x142B9)
+    Version read: 1
+    Description: 'Level: Easy
+Length: 0.6 km
+Short and fast track
+Lots of curve and no jumps
+
+', Minor ID: 0, Major ID: 0
+    Skipping ID validation (lMajorID=0, pFileName=ClassicH)
+    Sorting index: 30, Registration: 1
+    Final magic number for FREE_TRACK: 0x142B9
+    SUCCESS: Track entry validated
+  Successfully read entry, checking permissions
+MR_TrackOpen returning: 0122B8A0
+
+--- MR_ClientSession::LoadNew START ---
+  pTitle='ClassicH'
+  pMazeFile=0122B8A0
+  pNbLap=5, pAllowWeapons=1
+  pVideo=011AAE78
+  About to call mSession.LoadNew()
+
+--- MR_GameSession::LoadNew START ---
+  pTitle='ClassicH'
+  pMazeFile=0122B8A0
+  About to call Clean()
+  Clean() succeeded
+  About to call LoadLevel(1)
+  [CREATING TRY BLOCK]
+  [INSIDE TRY BLOCK]
+  [ABOUT TO CALL LOADLEVEL]
+
+--- MR_GameSession::LoadLevel START (pLevel=1) ---
+  Deleting old level
+  File has 4 records
+  About to create new MR_Level
+  MR_Level created successfully at 06360020
+  Selecting record 1
+  Record selected
+  About to create CArchive for deserialization
+  CArchive created
+  About to deserialize level
+  Level deserialized successfully
+--- MR_GameSession::LoadLevel END, returning: TRUE ---
+  [LOADLEVEL RETURNED: TRUE]
+  [AFTER ALL CATCH BLOCKS]
+--- MR_GameSession::LoadNew END, returning: TRUE ---
+  mSession.LoadNew() returned: TRUE
+  About to call ReadLevelAttrib()
+  ReadLevelAttrib() completed
+--- MR_ClientSession::LoadNew END, returning: TRUE ---
+
+    ReadTrackEntry: Starting to read track
+    Magic number read: 0x142B9 (expected: 0x142B9)
+    Version read: 1
+    Description: 'Level: Easy
+Length: 0.6 km
+Short and fast track
+Lots of curve and no jumps
+
+', Minor ID: 0, Major ID: 0
+    Skipping ID validation (lMajorID=0, pFileName=ClassicH)
+    Sorting index: 30, Registration: 1
+    Final magic number for FREE_TRACK: 0x142B9
+    SUCCESS: Track entry validated
+
+    ReadTrackEntry: Starting to read track
+    Magic number read: 0x142B9 (expected: 0x142B9)
+    Version read: 1
+    Description: 'Level: Easy
+Length: 0.6 km
+Short and fast track
+Lots of curve and no jumps
+
+', Minor ID: 0, Major ID: 0
+    Skipping ID validation (lMajorID=0, pFileName=ClassicH)
+    Sorting index: 30, Registration: 1
+    Final magic number for FREE_TRACK: 0x142B9
+    SUCCESS: Track entry validated
+MainLoop returned: 0
+=== WinMain END, returning 0 ===
+
+=== WinMain START ===
+Creating MR_GameApp...
+MR_GameApp created successfully
+Testing graphics system...
+Calling TestGraphicsSystem...
+TestGraphicsSystem completed
+Checking first instance...
+IsFirstInstance returned: 1
+Skipping DisplayLoginWindow entirely, going straight to game init
+Checking first instance (2nd time)...
+IsFirstInstance (2nd) returned: 1
+Calling InitApplication...
+InitApplication returned: 49677
+Calling InitGame...
+
+=== NewLocalSession Start ===
+Auto-loading ClassicH track (bypassing dialog)
+Track auto-selected: lCurrentTrack='ClassicH', lNbLap=1, lAllowWeapons=0, lSuccess=1
+1. About to call DeleteMovieWnd()
+2. DeleteMovieWnd() succeeded
+3. About to call MR_SoundServer::Init()
+4. MR_SoundServer::Init() succeeded
+4b. About to call MR_DllObjectFactory::Init()
+4c. MR_DllObjectFactory::Init() succeeded
+5. About to call MR_Observer::New()
+6. MR_Observer::New() succeeded, pointer: 012F9FF0
+7. About to create new MR_ClientSession
+8. MR_ClientSession created successfully
+8. MR_ClientSession pointer: 012F0810
+About to call MR_TrackOpen for 'ClassicH'
+Checking track file at: C:\originalhr2\HoverRaceAI\Release\tracks\ClassicH.trk
+Track file verified to exist
+
+MR_TrackOpen: Opening track 'ClassicH'
+  Searching in: C:\originalhr2\HoverRaceAI\Release\tracks\
+  Full search path: C:\originalhr2\HoverRaceAI\Release\tracks\ClassicH.trk
+  Found in absolute path
+  Opening file: C:\originalhr2\HoverRaceAI\Release\tracks\ClassicH.trk
+  Successfully opened, reading entry
+
+    ReadTrackEntry: Starting to read track
+    Magic number read: 0x142B9 (expected: 0x142B9)
+    Version read: 1
+    Description: 'Level: Easy
+Length: 0.6 km
+Short and fast track
+Lots of curve and no jumps
+
+', Minor ID: 0, Major ID: 0
+    Skipping ID validation (lMajorID=0, pFileName=ClassicH)
+    Sorting index: 30, Registration: 1
+    Final magic number for FREE_TRACK: 0x142B9
+    SUCCESS: Track entry validated
+  Successfully read entry, checking permissions
+MR_TrackOpen returning: 063858F8
+MR_TrackOpen returned: 063858F8
+About to call LoadNew()
+
+--- MR_ClientSession::LoadNew START ---
+  pTitle='ClassicH'
+  pMazeFile=063858F8
+  pNbLap=1, pAllowWeapons=0
+  pVideo=012E38C0
+  About to call mSession.LoadNew()
+
+--- MR_GameSession::LoadNew START ---
+  pTitle='ClassicH'
+  pMazeFile=063858F8
+  About to call Clean()
+  Clean() succeeded
+  About to call LoadLevel(1)
+  [CREATING TRY BLOCK]
+  [INSIDE TRY BLOCK]
+  [ABOUT TO CALL LOADLEVEL]
+
+--- MR_GameSession::LoadLevel START (pLevel=1) ---
+  Deleting old level
+  File has 4 records
+  About to create new MR_Level
+  MR_Level created successfully at 012F0908
+  Selecting record 1
+  Record selected
+  About to create CArchive for deserialization
+  CArchive created
+  About to deserialize level
+  Level deserialized successfully
+--- MR_GameSession::LoadLevel END, returning: TRUE ---
+  [LOADLEVEL RETURNED: TRUE]
+  [AFTER ALL CATCH BLOCKS]
+--- MR_GameSession::LoadNew END, returning: TRUE ---
+  mSession.LoadNew() returned: TRUE
+  About to call ReadLevelAttrib()
+  ReadLevelAttrib() completed
+--- MR_ClientSession::LoadNew END, returning: TRUE ---
+LoadNew returned: SUCCESS
+About to call SetSimulationTime(-6000)
+SetSimulationTime(-6000) succeeded
+About to call CreateMainCharacter()
+
+--- MR_ClientSession::CreateMainCharacter START ---
+  Creating MR_MainCharacter with mNbLap=1, mAllowWeapons=0
+  MR_MainCharacter created
+  Got current level: 012F0908
+  About to set mRoom, mPosition, Orientation
+  Properties set successfully
+  About to InsertElement (starting room=0)
+    Starting room value: 0
+  InsertElement succeeded
+--- MR_ClientSession::CreateMainCharacter END, returning TRUE ---
+CreateMainCharacter() returned: TRUE
+=== ROOM COUNT QUERY START ===
+lCurrentSession = 012F0810
+GetCurrentLevel() returned: 012F0908
+*** TRACK ROOM COUNT: 22 rooms ***
+=== ROOM COUNT QUERY END ===
+About to close logFile
+InitGame returned: 1
+Calling MainLoop...
+
+    ReadTrackEntry: Starting to read track
+    Magic number read: 0x142B9 (expected: 0x142B9)
+    Version read: 1
+    Description: 'Level: Easy
+Length: 0.6 km
+Short and fast track
+Lots of curve and no jumps
+
+', Minor ID: 0, Major ID: 0
+    Skipping ID validation (lMajorID=0, pFileName=ClassicH)
+    Sorting index: 30, Registration: 1
+    Final magic number for FREE_TRACK: 0x142B9
+    SUCCESS: Track entry validated
+
+    ReadTrackEntry: Starting to read track
+    Magic number read: 0x142B9 (expected: 0x142B9)
+    Version read: 1
+    Description: 'Level: Easy
+Length: 0.6 km
+Short and fast track
+Lots of curve and no jumps
+
+', Minor ID: 0, Major ID: 0
+    Skipping ID validation (lMajorID=0, pFileName=ClassicH)
+    Sorting index: 30, Registration: 1
+    Final magic number for FREE_TRACK: 0x142B9
+    SUCCESS: Track entry validated
+
+MR_TrackOpen: Opening track 'ClassicH'
+  Searching in: C:\originalhr2\HoverRaceAI\Release\tracks\
+  Full search path: C:\originalhr2\HoverRaceAI\Release\tracks\ClassicH.trk
+  Found in absolute path
+  Opening file: C:\originalhr2\HoverRaceAI\Release\tracks\ClassicH.trk
+  Successfully opened, reading entry
+
+    ReadTrackEntry: Starting to read track
+    Magic number read: 0x142B9 (expected: 0x142B9)
+    Version read: 1
+    Description: 'Level: Easy
+Length: 0.6 km
+Short and fast track
+Lots of curve and no jumps
+
+', Minor ID: 0, Major ID: 0
+    Skipping ID validation (lMajorID=0, pFileName=ClassicH)
+    Sorting index: 30, Registration: 1
+    Final magic number for FREE_TRACK: 0x142B9
+    SUCCESS: Track entry validated
+  Successfully read entry, checking permissions
+MR_TrackOpen returning: 01353FA8
+
+--- MR_ClientSession::LoadNew START ---
+  pTitle='ClassicH'
+  pMazeFile=01353FA8
+  pNbLap=5, pAllowWeapons=1
+  pVideo=012E38C0
+  About to call mSession.LoadNew()
+
+--- MR_GameSession::LoadNew START ---
+  pTitle='ClassicH'
+  pMazeFile=01353FA8
+  About to call Clean()
+  Clean() succeeded
+  About to call LoadLevel(1)
+  [CREATING TRY BLOCK]
+  [INSIDE TRY BLOCK]
+  [ABOUT TO CALL LOADLEVEL]
+
+--- MR_GameSession::LoadLevel START (pLevel=1) ---
+  Deleting old level
+  File has 4 records
+  About to create new MR_Level
+  MR_Level created successfully at 0638DBF8
+  Selecting record 1
+  Record selected
+  About to create CArchive for deserialization
+  CArchive created
+  About to deserialize level
+  Level deserialized successfully
+--- MR_GameSession::LoadLevel END, returning: TRUE ---
+  [LOADLEVEL RETURNED: TRUE]
+  [AFTER ALL CATCH BLOCKS]
+--- MR_GameSession::LoadNew END, returning: TRUE ---
+  mSession.LoadNew() returned: TRUE
+  About to call ReadLevelAttrib()
+  ReadLevelAttrib() completed
+--- MR_ClientSession::LoadNew END, returning: TRUE ---
+
+    ReadTrackEntry: Starting to read track
+    Magic number read: 0x142B9 (expected: 0x142B9)
+    Version read: 1
+    Description: 'Level: Easy
+Length: 0.6 km
+Short and fast track
+Lots of curve and no jumps
+
+', Minor ID: 0, Major ID: 0
+    Skipping ID validation (lMajorID=0, pFileName=ClassicH)
+    Sorting index: 30, Registration: 1
+    Final magic number for FREE_TRACK: 0x142B9
+    SUCCESS: Track entry validated
+MainLoop returned: 0
+=== WinMain END, returning 0 ===
