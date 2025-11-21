@@ -167,6 +167,10 @@ class MR_NetworkInterface
 
       int            mReturnMessage; // Message to return to the parent window in modeless mode
 
+      BOOL           mGameReady;     // TRUE when game is ready to start (after MRNM_READY received)
+      int            mLocalClientId; // This player's client ID in server-hosted mode (-1 if not assigned)
+      int            mNextClientSlot; // Next slot to assign for server-hosted joining players (starts at 1)
+
       // Dialog functions
       static MR_NetworkInterface* mActiveInterface;
       static BOOL CALLBACK ServerPortCallBack(   HWND pWindow, UINT  pMsgId, WPARAM  pWParam, LPARAM  pLParam );
@@ -189,6 +193,21 @@ class MR_NetworkInterface
       void  SetConnectionMode( MR_ConnectionMode pMode, const char* pServerAddr = NULL, unsigned pServerPort = 0 );
       MR_ConnectionMode GetConnectionMode()const;
 
+      // Game creator flag accessors
+      void  SetIsGameCreator( BOOL pIsCreator );
+      BOOL  GetIsGameCreator()const;
+
+      // Game ready flag accessors
+      void  SetGameReady( BOOL pReady );
+      BOOL  GetGameReady()const;
+
+      // Signal that game is ready to start (for server-hosted mode)
+      void  SignalGameReady();
+
+      // Get this player's client ID in server-hosted mode
+      int   GetLocalClientId()const;
+      void  SetLocalClientId( int pClientId );
+
       BOOL MasterConnect( HWND pWindow, const char* pGameName, BOOL pPromptForPort = TRUE, unsigned pDefaultPort = MR_DEFAULT_NET_PORT, HWND* pModalessDlg = NULL, int pReturnMessage = 0);
       BOOL SlavePreConnect( HWND pWindow, CString& pGameName );
       BOOL SlaveConnect( HWND pWindow, const char* pServerIP=NULL, unsigned pPort = MR_DEFAULT_NET_PORT, const char* pGameName = NULL, HWND* pModalessDlg = NULL, int pReturnMessage = 0 );
@@ -209,6 +228,9 @@ class MR_NetworkInterface
 
       const char* GetPlayerName( int pIndex )const;
       BOOL        IsConnected( int pIndex )const;
+
+   private:
+      BOOL     mIsGameCreator;  // TRUE if this player created the hosted game
       
 };
 

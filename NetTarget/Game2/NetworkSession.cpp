@@ -570,6 +570,15 @@ void MR_NetworkSession::ReadNet( )
             AddHitEntry( lClientId, (char)lMessage[0] );
             break;
 
+         case 51: // MRNM_READY
+            // Game is ready to start - for server-hosted races, this comes from RaceServer
+            // Signal that the game is ready so the dialog can close
+            if( mNetInterface.GetConnectionMode() == MR_CONNECTION_SERVER_HOSTED )
+            {
+               mNetInterface.SetGameReady( TRUE );
+            }
+            break;
+
       }
       lTimeStamp = mSession.GetSimulationTime();
    }
@@ -1485,3 +1494,22 @@ MR_ConnectionMode MR_NetworkSession::GetConnectionMode()const
    return mNetInterface.GetConnectionMode();
 }
 
+void MR_NetworkSession::SetIsGameCreator( BOOL pIsCreator )
+{
+   mNetInterface.SetIsGameCreator( pIsCreator );
+}
+
+BOOL MR_NetworkSession::GetIsGameCreator()const
+{
+   return mNetInterface.GetIsGameCreator();
+}
+
+int MR_NetworkSession::GetLocalClientId()const
+{
+   return mNetInterface.GetLocalClientId();
+}
+
+void MR_NetworkSession::SetLocalClientId( int pClientId )
+{
+   mNetInterface.SetLocalClientId( pClientId );
+}

@@ -48,6 +48,7 @@
 #define MRNM_LAG_INFO          49
 #define MRNM_CONNECTION_DONE   50
 #define MRNM_READY             51
+#define MRNM_CLIENT_ID_ASSIGN  52  // Server-hosted: Assign client ID to joining player
 
 #define MR_CONNECTION_TIMEOUT   21000 // 21 sec
 
@@ -85,6 +86,10 @@ MR_NetworkInterface::MR_NetworkInterface()
 
    mId               = 0;
    mServerMode       = FALSE;
+   mIsGameCreator    = FALSE;
+   mGameReady        = FALSE;
+   mLocalClientId    = -1;
+   mNextClientSlot   = 1;  // Start assigning from slot 1 (slot 0 is the creator)
    mRegistrySocket   = INVALID_SOCKET;
    mServerPort       = 0;
 
@@ -209,6 +214,10 @@ void MR_NetworkInterface::Disconnect()
  
    }
    mServerMode       = FALSE;
+   mIsGameCreator    = FALSE;
+   mGameReady        = FALSE;
+   mLocalClientId    = -1;
+   mNextClientSlot   = 1;  // Reset for next game
    mConnectionMode   = MR_CONNECTION_PEER_TO_PEER;  // Reset to default mode
    mId               = 0;
    mServerPort       = 0;
@@ -395,6 +404,44 @@ MR_ConnectionMode MR_NetworkInterface::GetConnectionMode()const
    return mConnectionMode;
 }
 
+void MR_NetworkInterface::SetIsGameCreator( BOOL pIsCreator )
+{
+   mIsGameCreator = pIsCreator;
+}
+
+BOOL MR_NetworkInterface::GetIsGameCreator()const
+{
+   return mIsGameCreator;
+}
+
+void MR_NetworkInterface::SetGameReady( BOOL pReady )
+{
+   mGameReady = pReady;
+}
+
+BOOL MR_NetworkInterface::GetGameReady()const
+{
+   return mGameReady;
+}
+
+int MR_NetworkInterface::GetLocalClientId()const
+{
+   return mLocalClientId;
+}
+
+void MR_NetworkInterface::SetLocalClientId( int pClientId )
+{
+   mLocalClientId = pClientId;
+}
+
+void MR_NetworkInterface::SignalGameReady()
+{
+   // This is called when MRNM_READY message is received in server-hosted mode
+   // We need to trigger the dialog to close and proceed with game start
+   // For now, this is just a placeholder - the actual signal will come from game logic
+   // This method can be used to post a message to close the TCP dialog
+}
+
 BOOL MR_NetworkInterface::MasterConnect( HWND pWindow, const char* pGameName, BOOL pPromptForPort, unsigned pDefaultPort, HWND* pModalessDlg, int pReturnMessage )
 {
    BOOL lReturnValue = FALSE;
@@ -546,14 +593,16 @@ BOOL MR_NetworkInterface::SlaveConnect( HWND pWindow, const char* pServerIP, uns
       MR_ConnectionMode lSavedMode = mConnectionMode;
       CString lSavedServerAddr = mRaceServerAddr;
       unsigned lSavedServerPort = mRaceServerPort;
+      BOOL lSavedIsGameCreator = mIsGameCreator;  // Preserve game creator flag
       
       Disconnect();
       ASSERT( !mServerMode );
 
-      // Restore connection mode after disconnect
+      // Restore connection mode and game creator flag after disconnect
       mConnectionMode = lSavedMode;
       mRaceServerAddr = lSavedServerAddr;
       mRaceServerPort = lSavedServerPort;
+      mIsGameCreator = lSavedIsGameCreator;  // Restore game creator flag
 
       // Phase 4: Check if this is server-hosted race
       if( mConnectionMode == MR_CONNECTION_SERVER_HOSTED )
@@ -602,6 +651,17 @@ BOOL MR_NetworkInterface::SlaveConnect( HWND pWindow, const char* pServerIP, uns
 
    if( lReturnValue )
    {
+      // For server-hosted races, assign client IDs
+      if( mConnectionMode == MR_CONNECTION_SERVER_HOSTED )
+      {
+         if( mIsGameCreator )
+         {
+            // Game creator is always client 0
+            mLocalClientId = 0;
+         }
+         // Joining players will receive their ID via MRNM_CLIENT_ID_ASSIGN message
+      }
+
       if( pModalessDlg == NULL )
       {
          mReturnMessage = 0;
@@ -883,8 +943,8 @@ BOOL CALLBACK MR_NetworkInterface::WaitGameNameCallBack( HWND pWindow, UINT  pMs
                   
                   mActiveInterface->mClient[0].Send( &lGameNameMsg, MR_NET_REQUIRED );
                   
-                  // Proceed to race after sending game name
-                  EndDialog( pWindow, IDOK );
+                  // Set a timer to close dialog after 500ms - allows async message processing
+                  SetTimer( pWindow, 1000, 500, NULL );
                }
                else
                {
@@ -916,14 +976,42 @@ BOOL CALLBACK MR_NetworkInterface::WaitGameNameCallBack( HWND pWindow, UINT  pMs
                   WSAAsyncSelect( sNewSocket, pWindow, MRM_CLIENT, 0 );
                   lBuffer = mActiveInterface->mClient[0].Poll();
 
-                  if( (lBuffer != NULL)&&(lBuffer->mMessageType == MRNM_GAME_NAME ))
+                  if( lBuffer != NULL )
                   {
-                     mActiveInterface->mGameName = CString( (const char*)lBuffer->mData, lBuffer->mDataLen );
-                     EndDialog( pWindow, IDOK );
+                     if( lBuffer->mMessageType == MRNM_GAME_NAME )
+                     {
+                        mActiveInterface->mGameName = CString( (const char*)lBuffer->mData, lBuffer->mDataLen );
+                        EndDialog( pWindow, IDOK );
+                     }
+                     else if( lBuffer->mMessageType == 51 ) // MRNM_READY
+                     {
+                        // For server-hosted joining players, MRNM_READY contains the assigned client ID in first byte
+                        if( lBuffer->mDataLen > 0 )
+                        {
+                           mActiveInterface->SetLocalClientId( lBuffer->mData[0] );
+                        }
+                        // Proceed to next dialog
+                        EndDialog( pWindow, IDOK );
+                     }
+                     else if( lBuffer->mMessageType == 52 ) // MRNM_CLIENT_ID_ASSIGN
+                     {
+                        // Server-hosted: Creator is assigning this player a client ID
+                        if( lBuffer->mDataLen > 0 )
+                        {
+                           mActiveInterface->SetLocalClientId( lBuffer->mData[0] );
+                        }
+                        // Continue waiting for game to start
+                        WSAAsyncSelect( sNewSocket, pWindow, MRM_CLIENT, FD_READ );
+                     }
+                     else
+                     {
+                        // Bad message, reenable reception
+                        WSAAsyncSelect( sNewSocket, pWindow, MRM_CLIENT, FD_READ );
+                     }
                   }
                   else
                   {
-                     // Bad message, reenable reception
+                     // Null message, reenable reception
                      WSAAsyncSelect( sNewSocket, pWindow, MRM_CLIENT, FD_READ );
                   }
 
@@ -935,6 +1023,15 @@ BOOL CALLBACK MR_NetworkInterface::WaitGameNameCallBack( HWND pWindow, UINT  pMs
          lReturnValue = TRUE;
          break;
 
+      case WM_TIMER:
+         // Timer 1000: timeout for server-hosted game name send
+         if( pWParam == 1000 )
+         {
+            KillTimer( pWindow, 1000 );
+            EndDialog( pWindow, IDOK );
+            lReturnValue = TRUE;
+         }
+         break;
 
       case WM_COMMAND:
          switch(LOWORD( pWParam))
@@ -1042,6 +1139,23 @@ BOOL CALLBACK MR_NetworkInterface::ListCallBack( HWND pWindow, UINT  pMsgId, WPA
                ListView_InsertItem( lListHandle, &lItem );
             }
 
+            // For server-hosted mode, only the game creator should see the Start Game button
+            // Joining players should not be able to start the game
+            if( mActiveInterface->GetConnectionMode() == MR_CONNECTION_SERVER_HOSTED && !mActiveInterface->GetIsGameCreator() )
+            {
+               // This is a joining player in server-hosted mode - hide the Start Game button
+               HWND lStartButton = GetDlgItem( pWindow, IDOK );
+               if( lStartButton )
+               {
+                  ShowWindow( lStartButton, SW_HIDE );
+                  EnableWindow( lStartButton, FALSE );
+               }
+
+               // Set up a timer to check if game is ready (waiting for creator to start game)
+               // Use timer ID 999 for game-ready check
+               SetTimer( pWindow, 999, 100, NULL );  // Check every 100ms
+            }
+
             // Put the registry socket in listen mode
             listen( mActiveInterface->mRegistrySocket, 5 );
             WSAAsyncSelect( mActiveInterface->mRegistrySocket, pWindow, MRM_NEW_CLIENT, FD_ACCEPT );
@@ -1088,6 +1202,15 @@ BOOL CALLBACK MR_NetworkInterface::ListCallBack( HWND pWindow, UINT  pMsgId, WPA
 
             case IDOK:
                {
+                  // Only allow Start Game in P2P mode (mServerMode) or server-hosted mode for the creator
+                  // Prevent joining players from starting the game
+                  if( mActiveInterface->GetConnectionMode() == MR_CONNECTION_SERVER_HOSTED && !mActiveInterface->GetIsGameCreator() )
+                  {
+                     // This is a joining player in server-hosted mode - don't allow them to start
+                     MessageBox( pWindow, "Only the game creator can start the race.", "Server-Hosted Race", MB_ICONINFORMATION|MB_OK|MB_APPLMODAL );
+                     break;
+                  }
+
                   // Handle both server-hosted (client to RaceServer) and P2P host modes
                   int  lCounter;
                   BOOL lOk = TRUE;
@@ -1135,6 +1258,19 @@ BOOL CALLBACK MR_NetworkInterface::ListCallBack( HWND pWindow, UINT  pMsgId, WPA
 
                            mActiveInterface->mClient[ lCounter ].Send( &lMessage, MR_NET_REQUIRED );
                         }
+                     }
+                     else if( mActiveInterface->GetConnectionMode() == MR_CONNECTION_SERVER_HOSTED )
+                     {
+                        // Server-hosted mode: Broadcast READY message with player count and ID assignments
+                        MR_NetMessageBuffer lMessage;
+                        lMessage.mMessageType = MRNM_READY;
+                        lMessage.mDataLen     = 2;
+                        
+                        // For creator, they're always ID 0
+                        lMessage.mData[0]     = 1 + lCounter;  // Total connected players (including creator)
+                        lMessage.mData[1]     = 0;              // Creator's ID is always 0
+
+                        mActiveInterface->BroadcastMessage( &lMessage, MR_NET_REQUIRED );
                      }
                      
                      // Disable all callbacks
@@ -1215,33 +1351,57 @@ BOOL CALLBACK MR_NetworkInterface::ListCallBack( HWND pWindow, UINT  pMsgId, WPA
 
       case WM_TIMER:
          {
-            KillTimer( pWindow, pWParam );
-            
-            int lClient = pWParam-10;
-
-            if( (lClient >=0) && (lClient<eMaxClient) )
+            // Timer ID 999 is for checking if game is ready to start (server-hosted joining players)
+            if( pWParam == 999 )
             {
-               if( mActiveInterface->mClient[lClient].LagDone() )
+               if( mActiveInterface->mGameReady )
                {
-                  // That is a late time-out.. probably stuck in the queue
-                  TRACE( "Late ping message A %d\n", lClient );
+                  // Game is ready! Close this dialog
+                  KillTimer( pWindow, pWParam );
+
+                  // For server-hosted joining players, we need to trigger the same action as IDOK
+                  if( mActiveInterface->mReturnMessage == 0 )
+                  {
+                     EndDialog( pWindow, IDOK );
+                  }
+                  else
+                  {
+                     SendMessage( GetParent( pWindow ), mActiveInterface->mReturnMessage, IDOK, 0 );
+                     DestroyWindow( pWindow );
+                  }
                }
-               else
-               {
-                  // Start a time-out timer because the request may fail
-                  SetTimer( pWindow, lClient+10, MR_PING_RETRY_TIME, NULL );
-
-                  // send a new request
-                  lAnswer.mMessageType = MRNM_LAG_TEST;
-                  lAnswer.mDataLen     = 4;
-                  *(int*)&(lAnswer.mData[0]) = timeGetTime();
-
-                  mActiveInterface->UDPSend( lClient, &lAnswer, TRUE );
-               }               
             }
-         }
+            else
+            {
+               // Original lag test timer code
+               KillTimer( pWindow, pWParam );
+               
+               int lClient = pWParam-10;
+
+               if( (lClient >=0) && (lClient<eMaxClient) )
+               {
+                  if( mActiveInterface->mClient[lClient].LagDone() )
+                  {
+                     // That is a late time-out.. probably stuck in the queue
+                     TRACE( "Late ping message A %d\n", lClient );
+                  }
+                  else
+                  {
+                     // Start a time-out timer because the request may fail
+                     SetTimer( pWindow, lClient+10, MR_PING_RETRY_TIME, NULL );
+
+                     // send a new request
+                     lAnswer.mMessageType = MRNM_LAG_TEST;
+                     lAnswer.mDataLen     = 4;
+                     *(int*)&(lAnswer.mData[0]) = timeGetTime();
+
+                     mActiveInterface->UDPSend( lClient, &lAnswer, TRUE );
+                  }               
+               }
+            }
          break;
-   
+      }
+
    }
 
    if( (pMsgId >= MRM_CLIENT)&&(pMsgId < (MRM_CLIENT + eMaxClient)) )
@@ -1289,6 +1449,27 @@ BOOL CALLBACK MR_NetworkInterface::ListCallBack( HWND pWindow, UINT  pMsgId, WPA
 
                      mActiveInterface->mClient[ lClient ].Send( &lAnswer, MR_NET_REQUIRED );
 
+                     break;
+
+                  case MRNM_GAME_NAME:
+                     // Server-hosted mode: Joining player is announcing which game they're joining
+                     // Assign them the next available client ID and send it back
+                     if( mActiveInterface->GetConnectionMode() == MR_CONNECTION_SERVER_HOSTED && mActiveInterface->GetIsGameCreator() )
+                     {
+                        // Assign this joiner the next slot
+                        int lAssignedId = mActiveInterface->mNextClientSlot;
+                        mActiveInterface->mNextClientSlot++;
+
+                        // Send back CLIENT_ID_ASSIGN message with their assigned ID
+                        lAnswer.mMessageType = MRNM_CLIENT_ID_ASSIGN;
+                        lAnswer.mDataLen = 1;
+                        lAnswer.mData[0] = lAssignedId;
+
+                        mActiveInterface->mClient[ lClient ].Send( &lAnswer, MR_NET_REQUIRED );
+
+                        // Store the player name for display
+                        mActiveInterface->mClientName[ lClient ] = CString( (const char*)lBuffer->mData, lBuffer->mDataLen );
+                     }
                      break;
 
                   case MRNM_CONN_NAME_SET:
@@ -1559,6 +1740,9 @@ BOOL CALLBACK MR_NetworkInterface::ListCallBack( HWND pWindow, UINT  pMsgId, WPA
                   case MRNM_READY:
                      //Get Client Id
                      mActiveInterface->mId = lBuffer->mData[0];
+
+                     // Signal that game is ready to start
+                     mActiveInterface->mGameReady = TRUE;
 
                      // Quit this dialog with success
 

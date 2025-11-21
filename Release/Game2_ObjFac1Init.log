@@ -414,3 +414,123 @@ Attempting to load resource file: C:\originalhr2\HoverRaceAI\Release\ObjFac1.dat
 SUCCESS: ObjFac1 resources loaded successfully in 16 ms
 gObjectFactoryData: 0x0086A948
 ========== MR_InitModule Complete ==========
+
+========== MR_InitModule Called ==========
+Module handle: 0x6A330000
+Module path: C:\hrai\HoverRaceAI\Release\ObjFac1.dll
+Attempting to load resource file: C:\hrai\HoverRaceAI\Release\ObjFac1.dat
+SUCCESS: ObjFac1 resources loaded successfully in 31 ms
+gObjectFactoryData: 0x00F28D38
+========== MR_InitModule Complete ==========
+
+========== MR_InitModule Called ==========
+Module handle: 0x6A2D0000
+Module path: C:\hrai\HoverRaceAI\Release\ObjFac1.dll
+Attempting to load resource file: C:\hrai\HoverRaceAI\Release\ObjFac1.dat
+SUCCESS: ObjFac1 resources loaded successfully in 16 ms
+gObjectFactoryData: 0x060D3450
+========== MR_InitModule Complete ==========
+
+========== MR_InitModule Called ==========
+Module handle: 0x6A280000
+Module path: C:\hrai\HoverRaceAI\Release\ObjFac1.dll
+Attempting to load resource file: C:\hrai\HoverRaceAI\Release\ObjFac1.dat
+SUCCESS: ObjFac1 resources loaded successfully in 0 ms
+gObjectFactoryData: 0x00F91028
+========== MR_InitModule Complete ==========
+
+========== MR_InitModule Called ==========
+Module handle: 0x6A280000
+Module path: C:\hrai\HoverRaceAI\Release\ObjFac1.dll
+Attempting to load resource file: C:\hrai\HoverRaceAI\Release\ObjFac1.dat
+SUCCESS: ObjFac1 resources loaded successfully in 15 ms
+gObjectFactoryData: 0x00F91250
+========== MR_InitModule Complete ==========
+
+========== MR_InitModule Called ==========
+Module handle: 0x6A280000
+Module path: C:\hrai\HoverRaceAI\Release\ObjFac1.dll
+Attempting to load resource file: C:\hrai\HoverRaceAI\Release\ObjFac1.dat
+SUCCESS: ObjFac1 resources loaded successfully in 0 ms
+gObjectFactoryData: 0x00AD4758
+========== MR_InitModule Complete ==========
+
+========== MR_InitModule Called ==========
+Module handle: 0x6A280000
+Module path: C:\hrai\HoverRaceAI\Release\ObjFac1.dll
+Attempting to load resource file: C:\hrai\HoverRaceAI\Release\ObjFac1.dat
+SUCCESS: ObjFac1 resources loaded successfully in 0 ms
+gObjectFactoryData: 0x00AD40E0
+========== MR_InitModule Complete ==========
+
+========== MR_InitModule Called ==========
+Module handle: 0x6A280000
+Module path: C:\hrai\HoverRaceAI\Release\ObjFac1.dll
+Attempting to load resource file: C:\hrai\HoverRaceAI\Release\ObjFac1.dat
+SUCCESS: ObjFac1 resources loaded successfully in 16 ms
+gObjectFactoryData: 0x010C3F58
+========== MR_InitModule Complete ==========
+
+========== MR_InitModule Called ==========
+Module handle: 0x6A280000
+Module path: C:\hrai\HoverRaceAI\Release\ObjFac1.dll
+Attempting to load resource file: C:\hrai\HoverRaceAI\Release\ObjFac1.dat
+SUCCESS: ObjFac1 resources loaded successfully in 0 ms
+gObjectFactoryData: 0x010C3C78
+========== MR_InitModule Complete ==========
+
+========== MR_InitModule Called ==========
+Module handle: 0x6A280000
+Module path: C:\hrai\HoverRaceAI\Release\ObjFac1.dll
+Attempting to load resource file: C:\hrai\HoverRaceAI\Release\ObjFac1.dat
+SUCCESS: ObjFac1 resources loaded successfully in 15 ms
+gObjectFactoryData: 0x01157478
+========== MR_InitModule Complete ==========
+
+========== MR_InitModule Called ==========
+Module handle: 0x6A280000
+Module path: C:\hrai\HoverRaceAI\Release\ObjFac1.dll
+Attempting to load resource file: C:\hrai\HoverRaceAI\Release\ObjFac1.dat
+SUCCESS: ObjFac1 resources loaded successfully in 0 ms
+gObjectFactoryData: 0x015003B8
+========== MR_InitModule Complete ==========
+
+========== MR_InitModule Called ==========
+Module handle: 0x6A280000
+Module path: C:\hrai\HoverRaceAI\Release\ObjFac1.dll
+Attempting to load resource file: C:\hrai\HoverRaceAI\Release\ObjFac1.dat
+SUCCESS: ObjFac1 resources loaded successfully in 15 ms
+gObjectFactoryData: 0x015008C0
+========== MR_InitModule Complete ==========
+
+========== MR_InitModule Called ==========
+Module handle: 0x6A280000
+Module path: C:\hrai\HoverRaceAI\Release\ObjFac1.dll
+Attempting to load resource file: C:\hrai\HoverRaceAI\Release\ObjFac1.dat
+SUCCESS: ObjFac1 resources loaded successfully in 16 ms
+gObjectFactoryData: 0x00E44538
+========== MR_InitModule Complete ==========
+
+========== MR_InitModule Called ==========
+Module handle: 0x6A280000
+Module path: C:\hrai\HoverRaceAI\Release\ObjFac1.dll
+Attempting to load resource file: C:\hrai\HoverRaceAI\Release\ObjFac1.dat
+SUCCESS: ObjFac1 resources loaded successfully in 0 ms
+gObjectFactoryData: 0x00E448D0
+========== MR_InitModule Complete ==========
+
+========== MR_InitModule Called ==========
+Module handle: 0x6A280000
+Module path: C:\hrai\HoverRaceAI\Release\ObjFac1.dll
+Attempting to load resource file: C:\hrai\HoverRaceAI\Release\ObjFac1.dat
+SUCCESS: ObjFac1 resources loaded successfully in 16 ms
+gObjectFactoryData: 0x013CDF50
+========== MR_InitModule Complete ==========
+
+========== MR_InitModule Called ==========
+Module handle: 0x6A280000
+Module path: C:\hrai\HoverRaceAI\Release\ObjFac1.dll
+Attempting to load resource file: C:\hrai\HoverRaceAI\Release\ObjFac1.dat
+SUCCESS: ObjFac1 resources loaded successfully in 0 ms
+gObjectFactoryData: 0x062C13D0
+========== MR_InitModule Complete ==========

@@ -2603,6 +2603,9 @@ BOOL CALLBACK MR_InternetRoom::RoomCallBack( HWND pWindow, UINT  pMsgId, WPARAM 
 
                      if( lSuccess )
                      {
+                        // Mark this player as the game creator
+                        mThis->mSession->SetIsGameCreator( TRUE );
+
                         // For server-hosted races, connect to the central RaceServer
                      // The host joins as a player on the RaceServer (31.125.225.86:9600)
                      CString lTrackName;

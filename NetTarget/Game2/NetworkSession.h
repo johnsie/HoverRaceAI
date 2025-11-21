@@ -139,6 +139,12 @@ class MR_NetworkSession: public MR_ClientSession
       // Phase 4: Dual-mode networking
       void SetConnectionMode( MR_ConnectionMode pMode, const char* pServerAddr = NULL, unsigned pServerPort = 0 );
       MR_ConnectionMode GetConnectionMode()const;
+      void SetIsGameCreator( BOOL pIsCreator );
+      BOOL GetIsGameCreator()const;
+
+      // Get/set this player's client ID in server-hosted mode
+      int  GetLocalClientId()const;
+      void SetLocalClientId( int pClientId );
 
 };
 

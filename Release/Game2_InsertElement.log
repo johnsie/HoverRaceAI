@@ -270,3 +270,59 @@ InsertElement START: pElement=008B7BA0, pRoom=0, mAllowRendering=1
   About to call MoveElement()
   MoveElement() succeeded
 InsertElement END: returning 058F5C18
+InsertElement START: pElement=00ED0890, pRoom=0, mAllowRendering=1
+  Created new FreeElement: 060A7760
+  About to call AddRenderer()
+  AddRenderer() succeeded
+  Set mElement pointer
+  About to call MoveElement()
+  MoveElement() succeeded
+InsertElement END: returning 060A7760
+InsertElement START: pElement=00FE4CF8, pRoom=0, mAllowRendering=1
+  Created new FreeElement: 01036BE8
+  About to call AddRenderer()
+  AddRenderer() succeeded
+  Set mElement pointer
+  About to call MoveElement()
+  MoveElement() succeeded
+InsertElement END: returning 01036BE8
+InsertElement START: pElement=00B380A8, pRoom=0, mAllowRendering=1
+  Created new FreeElement: 05AE4220
+  About to call AddRenderer()
+  AddRenderer() succeeded
+  Set mElement pointer
+  About to call MoveElement()
+  MoveElement() succeeded
+InsertElement END: returning 05AE4220
+InsertElement START: pElement=0111EA78, pRoom=0, mAllowRendering=1
+  Created new FreeElement: 0111E080
+  About to call AddRenderer()
+  AddRenderer() succeeded
+  Set mElement pointer
+  About to call MoveElement()
+  MoveElement() succeeded
+InsertElement END: returning 0111E080
+InsertElement START: pElement=0154D778, pRoom=0, mAllowRendering=1
+  Created new FreeElement: 066B38D0
+  About to call AddRenderer()
+  AddRenderer() succeeded
+  Set mElement pointer
+  About to call MoveElement()
+  MoveElement() succeeded
+InsertElement END: returning 066B38D0
+InsertElement START: pElement=00E93670, pRoom=0, mAllowRendering=1
+  Created new FreeElement: 05F7C140
+  About to call AddRenderer()
+  AddRenderer() succeeded
+  Set mElement pointer
+  About to call MoveElement()
+  MoveElement() succeeded
+InsertElement END: returning 05F7C140
+InsertElement START: pElement=0141BE90, pRoom=0, mAllowRendering=1
+  Created new FreeElement: 01426CA0
+  About to call AddRenderer()
+  AddRenderer() succeeded
+  Set mElement pointer
+  About to call MoveElement()
+  MoveElement() succeeded
+InsertElement END: returning 01426CA0

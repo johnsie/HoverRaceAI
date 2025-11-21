@@ -1,1 +1,1 @@
-c:\originalhr2\HoverRaceAI\NetTarget\Game2\Release\Game2.exe
+C:\hrai\HoverRaceAI\NetTarget\Game2\Release\Game2.exe

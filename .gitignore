@@ -1,3 +1,5 @@
-NetTarget/ObjFac1/Release/vc143.pdb
-NetTarget/VideoServices/Release/vc143.pdb
-NetTarget/Util/Release/vc143.pdb
+# Debug and Program Database files (all variations)
+*.pdb
+**/*.pdb
+NetTarget/**/Release/*.pdb
+NetTarget/**/Debug/*.pdb
