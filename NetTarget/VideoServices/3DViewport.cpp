@@ -32,7 +32,7 @@ MR_3DViewPort::MR_3DViewPort()
 {
    mOrientation = 0;
    mPosition    = MR_3DCoordinate( 0,0,0 );
-   mVAngle      = 1;
+   mVAngle      = MR_PI/2;  // Default 90-degree field of view (MR_PI = 2048 = 180 degrees)
    mScroll      = 0;
 
    mBufferLine  = NULL;
