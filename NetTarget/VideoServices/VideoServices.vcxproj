@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -43,22 +43,22 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\GLEW\include;C:\SDL2\include;C:\originalhr2\HoverRaceAI\OpenAL;C:\originalhr2\HoverRaceAI\NetTarget\GraphicsSDL2;C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;MR_VIDEO_SERVICES;_HAVE_SDL2;_AFXDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\OpenAL;C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;MR_VIDEO_SERVICES;_AFXDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <WarningLevel>Level4</WarningLevel><AdditionalOptions>/FS %(AdditionalOptions)</AdditionalOptions><CompileAs>Default</CompileAs>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>winmm.lib;C:\SDL2\lib\x86\SDL2.lib;C:\SDL2\lib\x86\SDL2main.lib;C:\GLEW\lib\Release\Win32\glew32.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>winmm.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\GLEW\include;C:\SDL2\include;C:\originalhr2\HoverRaceAI\OpenAL;C:\originalhr2\HoverRaceAI\NetTarget\GraphicsSDL2;C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;MR_VIDEO_SERVICES;_HAVE_SDL2;_AFXDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\OpenAL;C:\Program Files\Microsoft Visual Studio\2022\Community\SDK\ScopeCppSDK\vc15\VC\include;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;MR_VIDEO_SERVICES;_AFXDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <WarningLevel>Level4</WarningLevel><AdditionalOptions>/FS %(AdditionalOptions)</AdditionalOptions><CompileAs>Default</CompileAs>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>winmm.lib;C:\SDL2\lib\x86\SDL2.lib;C:\SDL2\lib\x86\SDL2main.lib;C:\GLEW\lib\Release\Win32\glew32.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>winmm.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -79,9 +79,6 @@
     <ClCompile Include="StdAfx.cpp" />
     <ClCompile Include="VideoBuffer.cpp" />
     <ClCompile Include="VideoBuffer2DDraw.cpp" />
-    <ClCompile Include="..\GraphicsSDL2\SDL2Graphics.cpp" />
-    <ClCompile Include="..\GraphicsSDL2\VideoBufferSDL2Adapter.cpp" />
-    <ClCompile Include="VideoBufferSDL2Integration.cpp" />
     <ClCompile Include="..\..\OpenAL\alstub.cpp" />
     <ClCompile Include="RenderingEngine.cpp" />
     <ClCompile Include="GraphicsUtilities.cpp" />
@@ -89,6 +86,9 @@
     <ClCompile Include="ModernRenderer.cpp" />
     <ClCompile Include="ModernActorRenderer.cpp" />
     <ClCompile Include="GraphicsTest.cpp" />
+    <ClCompile Include="VideoBufferSDL2Integration.cpp" />
+    <ClCompile Include="..\GraphicsSDL2\VideoBufferSDL2Adapter.cpp" />
+    <ClCompile Include="..\GraphicsSDL2\SDL2Graphics.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="*.h" />
@@ -96,6 +96,7 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets" />
 </Project>
+
 
 
 

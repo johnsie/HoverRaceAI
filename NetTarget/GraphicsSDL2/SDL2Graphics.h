@@ -13,6 +13,7 @@
     typedef void* SDL_Window;
     typedef void* SDL_Renderer;
     typedef void* SDL_Texture;
+    typedef void* SDL_Color;
 #endif
 
 #include <cstdint>
