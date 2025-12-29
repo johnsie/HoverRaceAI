@@ -45,7 +45,7 @@ public:
 #define TRACK_EXT   ".trk"
 
 // Local functions
-static BOOL CALLBACK TrackSelectCallBack( HWND pWindow, UINT  pMsgId, WPARAM  pWParam, LPARAM  pLParam );
+static INT_PTR CALLBACK TrackSelectCallBack( HWND pWindow, UINT  pMsgId, WPARAM  pWParam, LPARAM  pLParam );
 static BOOL          ReadTrackEntry( MR_RecordFile* pRecordFile, TrackEntry* pDest, const char* pFileName );
 static void          SortList();
 static void          ReadList();
@@ -250,9 +250,9 @@ BOOL MR_SelectTrack( HWND pParentWindow, CString& pTrackFile, int& pNbLap, BOOL&
 }
 
 
-static BOOL CALLBACK TrackSelectCallBack( HWND pWindow, UINT  pMsgId, WPARAM  pWParam, LPARAM  pLParam )
+static INT_PTR CALLBACK TrackSelectCallBack( HWND pWindow, UINT  pMsgId, WPARAM  pWParam, LPARAM  pLParam )
 {
-   BOOL lReturnValue = FALSE;
+   INT_PTR lReturnValue = FALSE;
    int  lCounter;
    FILE* logFile = fopen("Game2_TrackLoad.log", "a");
    
